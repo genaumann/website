@@ -1,0 +1,63 @@
+{
+  "common": {
+    "aboutMe": "Über mich",
+    "knowledgebase": "Knowledgebase",
+    "certificates": "Zertifikate",
+    "workExperience": "Berufserfahrung",
+    "today": "Heute",
+    "active": "Aktiv",
+    "expired": "Abgelaufen",
+    "privacy": "Datenschutz"
+  },
+  "hero": {
+    "more": "Entdecke mehr"
+  },
+  "aboutMe": {
+    "title": "Software Entwickler, Biker, Amateur Fotograf",
+    "description": "Ich bin Gino, ein Softwareentwickler und IT-Administrator aus Berlin. \nAll-Inclusive-Urlaube langweilen mich, deshalb unternehme ich gerne spontane Roadtrips. \nSchnelle Motorräder mit gutem Sound begeistern mich."
+  },
+  "experience": {
+    "leasyro2": {
+      "description1": "E2E & Unit Testing",
+      "description2": "Entwicklung von Kunden Apps in Typescript NextJS",
+      "description3": "Mobile Device Management (MDM) für iPhones und MacOS",
+      "description4": "Beratung für Webanwendungen"
+    },
+    "sva": {
+      "description1": "Planung & Aufbau eines Salt / SUSE Manager Konzepts",
+      "description2": "Installation und Konfiguration einer Ansible Automation Platform",
+      "description3": "Einführung eines Dokumentations- und Präsentationstools",
+      "description4": "Beratung von Serverinfrastruktur und DevOps-Prozessen"
+    },
+    "fulltime": "Vollzeit",
+    "parttime": "Teilzeit",
+    "leasyro0": {
+      "description1": "Planung & Aufbau Serverinfrastruktur",
+      "description2": "Wartung & Weiterentwicklung Serverstruktur"
+    },
+    "ddb": {
+      "description1": "Aufbau neuer Website mit WordPress",
+      "description2": "Mitarbeiterschulungen"
+    },
+    "bka": {
+      "description1": "Aufbau Ansible Konzept zur Serververwaltung",
+      "description2": "Implementierung verschiedener Services in Kubernetes",
+      "description3": "Entwicklung und Automatisierung von CLI Tools"
+    },
+    "fuub": {
+      "description1": "First Level Support",
+      "description2": "Management von Linux Servern mit Salt",
+      "description3": "Website Programmierung in PHP",
+      "description4": "Management von Windows Clients"
+    },
+    "fuzedat": {
+      "description1": "Migration von Nagios auf icinga2",
+      "description2": "Wartung und Weiterentwicklung von Mailman",
+      "description3": "Weiterentwicklung interner Perl Tools"
+    },
+    "leasyro1": {
+      "description1": "Unterstützung bei der Webentwicklung",
+      "description2": "Aufbau verschiedener GitLab Pipelines"
+    }
+  }
+}

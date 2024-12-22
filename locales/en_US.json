@@ -1,0 +1,63 @@
+{
+  "common": {
+    "aboutMe": "About me",
+    "knowledgebase": "Knowledgebase",
+    "certificates": "Certificates",
+    "workExperience": "Work experience",
+    "today": "Today",
+    "active": "Active",
+    "expired": "Expired",
+    "privacy": "Privacy"
+  },
+  "hero": {
+    "more": "Explore more"
+  },
+  "aboutMe": {
+    "title": "Software developer, biker, amateur photographer",
+    "description": "I'm Gino, a software developer and IT administrator from Berlin. All-inclusive vacations are too boring for me and I love to go on spontaneous road trips. \nFast motorcycles with a good sound excite me."
+  },
+  "experience": {
+    "parttime": "Part-time",
+    "fulltime": "Full-time",
+    "leasyro0": {
+      "description1": "Planning & setup server infrastructure",
+      "description2": "Maintenance & further development of server structure"
+    },
+    "ddb": {
+      "description1": "Building a new website with WordPress",
+      "description2": "Employee training"
+    },
+    "bka": {
+      "description1": "Building Ansible concept for server management",
+      "description2": "Implementation of various services in Kubernetes",
+      "description3": "Development and automation of CLI tools"
+    },
+    "fuub": {
+      "description1": "First level support",
+      "description2": "Management of Linux servers with Salt",
+      "description3": "Website programming in PHP",
+      "description4": "Management of Windows clients"
+    },
+    "fuzedat": {
+      "description1": "Migrating from Nagios to icinga2",
+      "description2": "Maintenance and further development of Mailman",
+      "description3": "Further development of internal Perl tools"
+    },
+    "leasyro1": {
+      "description1": "Web development support",
+      "description2": "Building various GitLab pipelines"
+    },
+    "leasyro2": {
+      "description1": "E2E & Unit testing",
+      "description2": "Development of customer apps in Typescript NextJS",
+      "description3": "Mobile Device Management (MDM) for iPhones and MacOS",
+      "description4": "Consulting for web applications"
+    },
+    "sva": {
+      "description1": "Planning & development of a Salt / SUSE Manager concept",
+      "description2": "Installation and configuration of an Ansible Automation Platform",
+      "description4": "Consulting on server infrastructure and DevOps processes",
+      "description3": "Introduction of a documentation and presentation tool"
+    }
+  }
+}
