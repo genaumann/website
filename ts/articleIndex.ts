@@ -5,6 +5,7 @@ import {exec} from 'child_process'
 import {promisify} from 'util'
 import {serialize} from 'next-mdx-remote/serialize'
 import {Article, MDXFrontmatter} from '@/lib/types'
+import {IconName, IconPrefix} from '@/components/ui/icon'
 
 type ArticleIndex = {
   -readonly [K in keyof typeof LOCALES]: Article[]
@@ -54,7 +55,9 @@ async function getMdxMetadata(filePath: string): Promise<MDXFrontmatter> {
       title:
         (frontmatter?.title as string) ||
         path.basename(filePath).replace(/\..*$/, ''),
-      description: frontmatter?.description as string
+      description: frontmatter?.description as string,
+      icon: frontmatter?.icon as IconName,
+      iconPrefix: frontmatter?.iconPrefix as IconPrefix
     }
   } catch (error) {
     return {
@@ -83,12 +86,16 @@ async function scanDirectory(
     if (indexFile) {
       const indexPath = path.join(dir, `index.${locale}.mdx`)
       const dates = await getGitDates(indexPath)
-      const {title, description} = await getMdxMetadata(indexPath)
+      const {title, description, icon, iconPrefix} = await getMdxMetadata(
+        indexPath
+      )
       directoryArticle = {
-        slug: currentPath,
+        slug: path.join(currentPath, 'index'),
         path: indexPath,
         title,
         description,
+        icon,
+        iconPrefix,
         author: await getGitAuthor(indexPath),
         ...dates
       }
@@ -113,12 +120,16 @@ async function scanDirectory(
       (!directoryArticle || entry.name !== `index.${locale}.mdx`)
     ) {
       const baseName = entry.name.replace(`.${locale}.mdx`, '')
-      const {title, description} = await getMdxMetadata(fullPath)
+      const {title, description, icon, iconPrefix} = await getMdxMetadata(
+        fullPath
+      )
       const article: Article = {
         slug: currentPath ? path.join(currentPath, baseName) : baseName,
         path: fullPath,
         title,
         description,
+        icon,
+        iconPrefix,
         author: await getGitAuthor(fullPath),
         ...(await getGitDates(fullPath))
       }
