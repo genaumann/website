@@ -35,7 +35,8 @@ const ArticleList = ({
   return (
     <ul>
       {articles.map(article => {
-        const isCurrentArticle = currentPath === `/kb/${article.slug}`
+        const isCurrentArticle =
+          currentPath === `/kb/${article.slug.replace(/\/index$/, '')}`
         const isExpanded = expandedSlugs.includes(
           article.slug.replace(/\/index$/, '')
         )

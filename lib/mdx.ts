@@ -14,7 +14,7 @@ type MDXReturnType = {
   readonly author: Article['author']
 }
 
-const findArticleBySlug = async (
+export const findArticleBySlug = async (
   locale: string,
   slug: string
 ): Promise<Article | null> => {
@@ -23,7 +23,7 @@ const findArticleBySlug = async (
 
   const findInChildren = (items: Article[]): Article | null => {
     for (const article of items) {
-      if (article.slug === slug) {
+      if (article.slug === slug || article.slug === `${slug}/index`) {
         return article
       }
 
