@@ -62,3 +62,19 @@ export const getParsedArticle = async (
     return null
   }
 }
+
+export const getArticlesByLocale = async (
+  locale: string
+): Promise<Article[]> => {
+  const localeArticles = articles[locale as keyof typeof articles] || []
+  return localeArticles.map(article => ({
+    ...article,
+    createdAt: new Date(article.createdAt),
+    updatedAt: new Date(article.updatedAt),
+    children: article.children?.map(child => ({
+      ...child,
+      createdAt: new Date(child.createdAt),
+      updatedAt: new Date(child.updatedAt)
+    }))
+  })) as Article[]
+}
