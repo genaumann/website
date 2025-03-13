@@ -44,12 +44,12 @@ const ArticleList = ({
 
         return (
           <li key={article.slug}>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center pe-3">
               <Link
                 href={`/kb/${article.slug}`}
                 className={cn(
                   'hover:underline flex-grow py-2 text-muted-foreground',
-                  isCurrentArticle && 'font-semibold text-foreground'
+                  isCurrentArticle && 'text-primary/60'
                 )}>
                 {article.title}
               </Link>
@@ -98,7 +98,7 @@ export function ArticleSidebar({articles}: {articles: Article[]}) {
   }, [pathname])
 
   return (
-    <nav className="w-64 border-r border-muted h-[calc(100vh-212px)]">
+    <nav className="w-64">
       <ScrollArea className="h-full">
         <ArticleList
           articles={articles}

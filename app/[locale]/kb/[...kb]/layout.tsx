@@ -9,6 +9,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import TableOfContents from '@/components/kb/toc'
 
 export default async function KBLayout({
   children,
@@ -32,15 +33,17 @@ export default async function KBLayout({
   )
 
   return (
-    <div className="container md:flex md:flex-row h-full">
-      <div className="hidden md:block w-[285px]">
-        <p className="text-lg font-semibold mb-4">
-          {t('common.knowledgebase')}
-        </p>
-        <ArticleSidebar articles={articles} />
+    <div className="container md:flex md:flex-row md:gap-5 h-full">
+      <div className="hidden md:block border-r border-muted border-dashed">
+        <div className="sticky top-28 overflow-auto">
+          <p className="text-lg font-semibold mb-4">
+            {t('common.knowledgebase')}
+          </p>
+          <ArticleSidebar articles={articles} />
+        </div>
       </div>
-      <div className="min-h-[calc(100vh-168px)]">
-        <Breadcrumb className="mb-8">
+      <div className="min-h-[calc(100vh-185px)] grow mb-6">
+        <Breadcrumb className="mb-6 pt-5">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink className="text-muted-foreground" href="/kb">
@@ -66,7 +69,12 @@ export default async function KBLayout({
         </Breadcrumb>
         <article className="prose">{children}</article>
       </div>
-      <nav className="w-56 hidden lg:block"></nav>
+      <div className="w-52 hidden lg:block border-l border-dashed border-muted ps-4">
+        <div className="sticky top-28 overflow-auto">
+          <p className="text-lg font-semibold mb-4">{t('kb.toc')}</p>
+          <TableOfContents />
+        </div>
+      </div>
     </div>
   )
 }

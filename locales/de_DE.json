@@ -59,5 +59,8 @@
       "description1": "Unterstützung bei der Webentwicklung",
       "description2": "Aufbau verschiedener GitLab Pipelines"
     }
+  },
+  "kb": {
+    "toc": "Auf dieser Seite"
   }
 }

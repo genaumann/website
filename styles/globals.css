@@ -57,4 +57,12 @@
     overscroll-behavior: none;
     overflow-x: hidden;
   }
+
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
+    @apply scroll-mt-[110px];
+  }
 }

@@ -59,5 +59,8 @@
       "description4": "Consulting on server infrastructure and DevOps processes",
       "description3": "Introduction of a documentation and presentation tool"
     }
+  },
+  "kb": {
+    "toc": "Table of content"
   }
 }
