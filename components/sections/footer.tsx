@@ -8,9 +8,11 @@ export default async function Footer() {
   const {format} = getDateFunctions((await getLocale()) as LOCALES)
 
   return (
-    <footer className="flex justify-between text-muted-foreground container py-6">
-      <p>© {format(new Date(), 'yyyy')} Gino Naumann</p>
-      <Link href="/privacy">{t('common.privacy')}</Link>
+    <footer className="text-muted-foreground py-6 border-t border-muted border-dashed">
+      <div className="container mx-auto flex justify-between">
+        <p>© {format(new Date(), 'yyyy')} Gino Naumann</p>
+        <Link href="/privacy">{t('common.privacy')}</Link>
+      </div>
     </footer>
   )
 }

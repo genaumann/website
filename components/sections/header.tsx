@@ -10,7 +10,7 @@ export default async function Header() {
   const t = await getTranslations()
   const headerMenu = getHeaderMenu(t)
   return (
-    <header className="sticky top-0 backdrop-blur py-4 bg-background/75 z-20">
+    <header className="sticky top-0 backdrop-blur py-4 bg-background/75 z-20 border-b border-dashed border-muted">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
