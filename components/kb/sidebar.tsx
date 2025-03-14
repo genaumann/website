@@ -98,7 +98,7 @@ export function ArticleSidebar({articles}: {articles: Article[]}) {
   }, [pathname])
 
   return (
-    <nav className="w-64">
+    <nav className="md:w-64 w-full">
       <ScrollArea className="h-full">
         <ArticleList
           articles={articles}

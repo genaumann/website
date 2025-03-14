@@ -10,6 +10,7 @@ import {
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
 import TableOfContents from '@/components/kb/toc'
+import MobileSidebar from '@/components/kb/sidebar-mobile'
 
 export default async function KBLayout({
   children,
@@ -33,7 +34,7 @@ export default async function KBLayout({
   )
 
   return (
-    <div className="container md:flex md:flex-row md:gap-5 h-full">
+    <div className="container md:flex md:flex-row md:gap-5 h-full relative">
       <div className="hidden md:block border-r border-muted border-dashed">
         <div className="sticky top-28 overflow-auto">
           <p className="text-lg font-semibold mb-4">
@@ -42,7 +43,12 @@ export default async function KBLayout({
           <ArticleSidebar articles={articles} />
         </div>
       </div>
-      <div className="min-h-[calc(100vh-185px)] grow mb-6">
+      <div className="min-h-[calc(100vh-185px)] md:grow mb-6 relative">
+        <div className="sticky top-[97px] bg-background/75 backdrop-blur border-b md:border-0 border-muted border-dashed py-2 md:py-0 -mx-8 md:-mx-0 md:hidden h-fit md:h-0">
+          <div className="container">
+            <MobileSidebar articles={articles} />
+          </div>
+        </div>
         <Breadcrumb className="mb-6 pt-5">
           <BreadcrumbList>
             <BreadcrumbItem>
