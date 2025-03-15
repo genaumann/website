@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/breadcrumb'
 import TableOfContents from '@/components/kb/toc'
 import MobileSidebar from '@/components/kb/sidebar-mobile'
+import Search from '@/components/kb/search'
 
 export default async function KBLayout({
   children,
@@ -43,10 +44,11 @@ export default async function KBLayout({
           <ArticleSidebar articles={articles} />
         </div>
       </div>
-      <div className="min-h-[calc(100vh-185px)] md:grow mb-6 relative">
-        <div className="sticky top-[97px] bg-background/75 backdrop-blur border-b md:border-0 border-muted border-dashed py-2 md:py-0 -mx-8 md:-mx-0 md:hidden h-fit md:h-0">
-          <div className="container">
+      <div className="min-h-[calc(100vh-195px)] md:grow mb-6 relative">
+        <div className="sticky top-[97px] bg-background/75 backdrop-blur border-b border-muted border-dashed py-2 md:py-1 -mx-8 md:-mx-5 h-fit md:h-[62px]">
+          <div className="container md:px-5 flex justify-between">
             <MobileSidebar articles={articles} />
+            <Search locale={locale} />
           </div>
         </div>
         <Breadcrumb className="mb-6 pt-5">

@@ -4,7 +4,8 @@ import fs from 'fs/promises'
 import {compileMDX} from 'next-mdx-remote/rsc'
 import {JSXElementConstructor, ReactElement} from 'react'
 import articles from '@/build/articleIndex.json'
-import {Article, MDXFrontmatter} from './types'
+import {Article, ArticleIndex, MDXFrontmatter} from './types'
+import {LOCALES} from '@/locales'
 
 type MDXReturnType = {
   readonly content: ReactElement<any, string | JSXElementConstructor<any>>
@@ -77,4 +78,27 @@ export const getArticlesByLocale = async (
       updatedAt: new Date(child.updatedAt)
     }))
   })) as Article[]
+}
+
+export const getFlatArticleIndex = async (
+  locale: keyof typeof LOCALES
+): Promise<Article[]> => {
+  const articleIndex = articles as unknown as ArticleIndex
+  const localeArticles = articleIndex[locale] || []
+
+  const flattenArticles = (items: Article[]): Article[] => {
+    return items.reduce((flat: Article[], article: Article) => {
+      const articleWithoutChildren = {...article}
+      delete articleWithoutChildren.children
+      return article.children
+        ? [
+            ...flat,
+            articleWithoutChildren,
+            ...flattenArticles(article.children)
+          ]
+        : [...flat, articleWithoutChildren]
+    }, [])
+  }
+
+  return flattenArticles(localeArticles)
 }

@@ -7,7 +7,10 @@
     "today": "Today",
     "active": "Active",
     "expired": "Expired",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "search": "Search",
+    "noResults": "No results",
+    "lookingFor": "What are you searching for?"
   },
   "hero": {
     "more": "Explore more"

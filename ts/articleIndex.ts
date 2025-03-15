@@ -4,12 +4,9 @@ import path from 'path'
 import {exec} from 'child_process'
 import {promisify} from 'util'
 import {serialize} from 'next-mdx-remote/serialize'
-import {Article, MDXFrontmatter} from '@/lib/types'
+import {Article, ArticleIndex, MDXFrontmatter} from '@/lib/types'
 import {IconName, IconPrefix} from '@/components/ui/icon'
-
-type ArticleIndex = {
-  -readonly [K in keyof typeof LOCALES]: Article[]
-}
+import matter from 'gray-matter'
 
 const articleDir = './articles'
 const execAsync = promisify(exec)
@@ -66,6 +63,29 @@ async function getMdxMetadata(filePath: string): Promise<MDXFrontmatter> {
   }
 }
 
+async function getMdxContent(filePath: string): Promise<string> {
+  try {
+    const source = await fs.readFile(filePath, 'utf-8')
+    const {content} = matter(source)
+    return content
+      .replace(/import\s+.*?\s+from\s+['"].*?['"]/g, '')
+      .replace(/<([A-Z][A-Za-z]*)[^>]*>(.*?)<\/\1>/gs, '$2')
+      .replace(/<[A-Z][A-Za-z]*[^>]*\/>/g, '')
+      .replace(/^#+\s*/gm, '')
+      .replace(/^>\s*/gm, '')
+      .replace(/^[-*]\s*/gm, '')
+      .replace(/```[\s\S]*?```/g, '')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
+      .replace(/(\*\*|__)(.*?)\1/g, '$2')
+      .replace(/(\*|_)(.*?)\1/g, '$2')
+      .replace(/^\s*[\r\n]/gm, '')
+      .trim()
+  } catch (error) {
+    return ''
+  }
+}
+
 async function scanDirectory(
   dir: string,
   locale: string,
@@ -95,6 +115,7 @@ async function scanDirectory(
         title,
         description,
         icon,
+        content: await getMdxContent(indexPath),
         iconPrefix,
         author: await getGitAuthor(indexPath),
         ...dates
@@ -130,6 +151,7 @@ async function scanDirectory(
         description,
         icon,
         iconPrefix,
+        content: await getMdxContent(fullPath),
         author: await getGitAuthor(fullPath),
         ...(await getGitDates(fullPath))
       }

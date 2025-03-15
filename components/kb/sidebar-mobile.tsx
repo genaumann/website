@@ -24,7 +24,7 @@ export default function MobileSidebar({articles}: {articles: Article[]}) {
 
   return (
     <Drawer container={container}>
-      <DrawerTrigger asChild>
+      <DrawerTrigger className="md:hidden" asChild>
         <Button size="icon" variant="ghost" className="hover:bg-inherit w-fit">
           <Icon name="list" />
           {t('kb.moreArticles')}

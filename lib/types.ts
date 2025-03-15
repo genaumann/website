@@ -1,4 +1,5 @@
 import {IconName, IconPrefix} from '@/components/ui/icon'
+import {LOCALES} from '@/locales'
 
 export interface Article {
   slug: string
@@ -7,6 +8,7 @@ export interface Article {
   author: string
   createdAt: Date
   updatedAt: Date
+  content: string
   description?: string
   icon?: IconName
   iconPrefix?: IconPrefix
@@ -18,4 +20,8 @@ export type MDXFrontmatter = {
   readonly description?: string
   readonly icon?: IconName
   readonly iconPrefix?: IconPrefix
+}
+
+export type ArticleIndex = {
+  -readonly [K in keyof typeof LOCALES]: Article[]
 }
