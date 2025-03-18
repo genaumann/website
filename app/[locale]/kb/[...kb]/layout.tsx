@@ -12,6 +12,9 @@ import {
 import TableOfContents from '@/components/kb/toc'
 import MobileSidebar from '@/components/kb/sidebar-mobile'
 import Search from '@/components/kb/search'
+import {Suspense} from 'react'
+import TocSkeleton from '@/components/kb/toc/skeleton'
+import TocWrapper from '@/components/kb/toc/wrapper'
 
 export default async function KBLayout({
   children,
@@ -80,7 +83,7 @@ export default async function KBLayout({
       <div className="w-52 hidden lg:block border-l border-dashed border-muted ps-4">
         <div className="sticky top-28 overflow-auto">
           <p className="text-lg font-semibold mb-4">{t('kb.toc')}</p>
-          <TableOfContents />
+          <TocWrapper />
         </div>
       </div>
     </div>
