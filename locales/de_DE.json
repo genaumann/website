@@ -10,7 +10,8 @@
     "privacy": "Datenschutz",
     "search": "Suchen",
     "noResults": "Keine Ergebnisse",
-    "lookingFor": "Wonach suchst du?"
+    "lookingFor": "Wonach suchst du?",
+    "language": "Sprache"
   },
   "hero": {
     "more": "Entdecke mehr"
