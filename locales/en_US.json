@@ -66,5 +66,9 @@
   "kb": {
     "toc": "Table of content",
     "moreArticles": "More articles"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "goBack": "Back to the homepage"
   }
 }

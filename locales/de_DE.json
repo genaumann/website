@@ -66,5 +66,9 @@
   "kb": {
     "toc": "Auf dieser Seite",
     "moreArticles": "Weitere Artikel"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "goBack": "Zurück zur Startseite"
   }
 }
