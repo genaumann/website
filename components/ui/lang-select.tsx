@@ -23,7 +23,7 @@ interface LocaleMap {
 
 export default function LangSelect() {
   const locale = useLocale()
-  const [_, startTransition] = useTransition()
+  const [, startTransition] = useTransition()
   const router = useRouter()
   const pathname = usePathname()
   const params = useParams()

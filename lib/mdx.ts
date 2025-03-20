@@ -8,6 +8,7 @@ import {Article, ArticleIndex, MDXFrontmatter} from './types'
 import {LOCALES} from '@/locales'
 
 type MDXReturnType = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   readonly content: ReactElement<any, string | JSXElementConstructor<any>>
   readonly frontmatter: MDXFrontmatter
   readonly createdAt: Article['createdAt']
@@ -59,7 +60,7 @@ export const getParsedArticle = async (
       updatedAt: article.updatedAt,
       author: article.author
     }
-  } catch (e) {
+  } catch {
     return null
   }
 }

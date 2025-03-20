@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Icon from '../ui/icon'
 import HeaderItems from './header-items'
 import {getHeaderMenu} from '@/lib/header-menu'
 import {getTranslations} from 'next-intl/server'

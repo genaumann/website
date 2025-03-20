@@ -9,11 +9,8 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-import TableOfContents from '@/components/kb/toc'
 import MobileSidebar from '@/components/kb/sidebar-mobile'
 import Search from '@/components/kb/search'
-import {Suspense} from 'react'
-import TocSkeleton from '@/components/kb/toc/skeleton'
 import TocWrapper from '@/components/kb/toc/wrapper'
 
 export default async function KBLayout({

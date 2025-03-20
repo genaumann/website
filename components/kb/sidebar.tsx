@@ -10,7 +10,6 @@ import {Article} from '@/lib/types'
 import Icon from '@/components/ui/icon'
 import {Button} from '../ui/button'
 import {cn} from '@/lib/cn'
-import {useTranslations} from 'next-intl'
 
 const ArticleList = ({
   articles,
@@ -85,7 +84,6 @@ const ArticleList = ({
 }
 
 export function ArticleSidebar({articles}: {articles: Article[]}) {
-  const t = useTranslations()
   const pathname = usePathname()
   const [expandedSlugs, setExpandedSlugs] = useState<string[]>([])
 

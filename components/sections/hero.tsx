@@ -40,6 +40,7 @@ export default function Hero() {
     }, 30)
 
     return () => clearInterval(typingEffect)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const scrollToNextSection = () => {
