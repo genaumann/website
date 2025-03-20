@@ -1,4 +1,5 @@
 import LangSelect from '@/components/ui/lang-select'
+import ThemeSwitch from '@/components/ui/theme-switch'
 import {IconName} from '@awesome.me/kit-b84c272999/icons'
 import {useTranslations} from 'next-intl'
 
@@ -78,6 +79,10 @@ export const getHeaderMenu = (
     {
       name: t('common.language'),
       Component: LangSelect
+    },
+    {
+      name: t('common.theme'),
+      Component: ThemeSwitch
     }
   ]
   // socials: [

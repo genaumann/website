@@ -62,6 +62,9 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
                 <Icon prefix="fab" name={social.icon} />
               </Link>
             ))} */}
+            {headerMenu.tools.map(tool => (
+              <tool.Component key={tool.name} />
+            ))}
           </div>
         </SheetFooter>
       </SheetContent>

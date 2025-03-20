@@ -11,7 +11,9 @@
     "search": "Search",
     "noResults": "No results",
     "lookingFor": "What are you searching for?",
-    "language": "Language"
+    "language": "Language",
+    "theme": "Theme",
+    "themeSwitch": "Change theme"
   },
   "hero": {
     "more": "Explore more"
