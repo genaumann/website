@@ -80,7 +80,7 @@ export default async function KBLayout({
         </Breadcrumb>
         <article className="prose">{children}</article>
       </div>
-      <div className="w-52 hidden lg:block border-l border-dashed border-muted ps-4">
+      <div className="min-w-52 hidden lg:block border-l border-dashed border-muted ps-4">
         <div className="sticky top-28 overflow-auto">
           <p className="text-lg font-semibold mb-4">{t('kb.toc')}</p>
           <TocWrapper />
