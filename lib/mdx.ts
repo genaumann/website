@@ -3,7 +3,7 @@
 import fs from 'fs/promises'
 import {compileMDX} from 'next-mdx-remote/rsc'
 import {JSXElementConstructor, ReactElement} from 'react'
-import articles from '@/build/articleIndex.json'
+import articles from '@/lib/articleIndex.json'
 import {Article, ArticleIndex, MDXFrontmatter} from './types'
 import {LOCALES} from '@/locales'
 

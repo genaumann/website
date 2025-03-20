@@ -186,7 +186,7 @@ const buildArticleIndex = async () => {
   }
 
   console.log(JSON.stringify(index, null, 2))
-  await fs.writeFile('build/articleIndex.json', JSON.stringify(index), 'utf-8')
+  await fs.writeFile('lib/articleIndex.json', JSON.stringify(index), 'utf-8')
 }
 
 buildArticleIndex()
