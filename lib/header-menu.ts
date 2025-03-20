@@ -24,12 +24,6 @@ interface HeaderLogo {
   lightImageUrl: string
 }
 
-// interface HeaderSocial {
-//   name: string
-//   href: string
-//   icon: IconName
-// }
-
 interface HeaderTools {
   name: string
   Component: React.ComponentType
@@ -85,16 +79,4 @@ export const getHeaderMenu = (
       Component: ThemeSwitch
     }
   ]
-  // socials: [
-  //   {
-  //     name: 'LinkedIn',
-  //     href: 'https://de.linkedin.com/in/gino-naumann-356993240',
-  //     icon: 'linkedin'
-  //   },
-  //   {
-  //     name: 'GitHub',
-  //     href: 'https://github.com/genaumann',
-  //     icon: 'github'
-  //   }
-  // ]
 })
