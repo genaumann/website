@@ -18,7 +18,7 @@ export default async function Footer() {
           <div className="flex gap-2">
             {socials.map(social => (
               <Link
-                className="hover:text-primary/60"
+                className="dark:hover:text-primary/60 hover:text-primary"
                 title={social.name}
                 rel="noopener noreferrer"
                 target="_blank"

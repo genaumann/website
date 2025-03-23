@@ -72,7 +72,7 @@ export default function TableOfContents() {
               className={cn(
                 'block py-2 text-sm transition-colors hover:underline',
                 activeId === heading.id
-                  ? 'text-primary/60'
+                  ? 'dark:text-primary/60 text-primary'
                   : 'text-muted-foreground'
               )}
               onClick={e => {

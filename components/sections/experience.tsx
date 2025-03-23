@@ -49,8 +49,8 @@ export default async function Experience() {
                 )}
               />
 
-              <Card className="md:ml-12 overflow-hidden bg-accent">
-                <CardHeader className="bg-accent py-4 px-6">
+              <Card className="md:ml-12 overflow-hidden bg-secondary/40">
+                <CardHeader className="bg-secondary/40 py-4 px-6">
                   <div className="flex justify-between items-start">
                     <div>
                       <CardTitle className="text-xl font-semibold">
@@ -100,7 +100,7 @@ export default async function Experience() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="mt-4 bg-secondary py-4">
+                <CardContent className="bg-background py-4">
                   <ul className="list-disc list-inside space-y-2">
                     {exp.description.map((item, idx) => (
                       <li key={idx} className="text-sm">
@@ -109,8 +109,8 @@ export default async function Experience() {
                     ))}
                   </ul>
                 </CardContent>
-                <CardFooter className="bg-accent">
-                  <div className="mt-4 flex flex-wrap gap-2 bg-accent">
+                <CardFooter className="bg-secondary/40">
+                  <div className="mt-4 flex flex-wrap gap-2 bg-secondary/40">
                     {exp.technologies.map((tech, idx) => (
                       <Badge key={idx} variant="secondary">
                         {tech}

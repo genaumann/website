@@ -27,7 +27,7 @@ export default function HeaderItems({items}: {items: HeaderItem[]}) {
                 <NavigationMenuTrigger className="bg-inherit">
                   {item.name}
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-secondary/95">
+                <NavigationMenuContent className="bg-background/95 dark:bg-secondary/95">
                   <div className="grid p-4 md:w-[400px] lg:w-[500px] grid-cols-2 gap-y-4">
                     {item.lightImageUrl && item.darkImageUrl && (
                       <div className="row-span-3">

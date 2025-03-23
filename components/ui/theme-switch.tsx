@@ -66,7 +66,7 @@ function ThemeButton({name, icon, active, onClick}: ThemeButtonProps) {
       variant="ghost"
       size="icon"
       onClick={onClick}
-      className={cn(active && 'text-primary/60')}
+      className={cn(active && 'text-primary')}
       aria-label={t('common.themeSwitch')}>
       <Icon name={icon} />
     </Button>
