@@ -39,7 +39,7 @@ function ArticleItem({article, depth}: {article: Article; depth: number}) {
 
 export function ArticleOverview({articles}: {articles: Article[]}) {
   return (
-    <div className="space-y-2 py-4">
+    <div className="space-y-2 py-4 w-full ms-2">
       {articles.map(article => (
         <ArticleItem key={article.slug} article={article} depth={0} />
       ))}
