@@ -41,8 +41,8 @@ export const getHeaderMenu = (
   logo: {
     name: 'GNaumann',
     href: '/',
-    darkImageUrl: '/gnaumann_white.png',
-    lightImageUrl: '/gnaumann_col.png'
+    darkImageUrl: '/logo.png',
+    lightImageUrl: '/logo.png'
   },
   items: [
     {

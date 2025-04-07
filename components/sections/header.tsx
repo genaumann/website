@@ -18,14 +18,14 @@ export default async function Header() {
                 className="dark:block hidden"
                 alt={headerMenu.logo.name}
                 src={headerMenu.logo.darkImageUrl}
-                width={39}
+                width={60}
                 height={50}
               />
               <Image
                 className="dark:hidden"
                 alt={headerMenu.logo.name}
                 src={headerMenu.logo.lightImageUrl}
-                width={39}
+                width={60}
                 height={50}
               />
             </Link>
