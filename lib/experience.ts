@@ -6,7 +6,7 @@ export const getExperience = (
 ): ExperienceItem[] => [
   {
     company: 'leasyro GmbH',
-    position: 'Teamlead DevSecOps',
+    position: 'DevSecOps Engineer',
     from: new Date('2024-10-01'),
     description: [
       t('experience.leasyro2.description1'),
