@@ -1,5 +1,41 @@
 # Changelog
 
+## 1.0.0 (2025-04-07)
+
+### ✨ Feature ✨
+
+* add lang switcher ([e462844](https://github.com/genaumann/website/commit/e46284435f4391b8b71c5f36b39c8102c542f554))
+* add new logo ([48b7808](https://github.com/genaumann/website/commit/48b7808044388c952865ff481f61f56ee83ff0d5))
+* add notfound page ([5e3ab63](https://github.com/genaumann/website/commit/5e3ab6300c19c3eb8d5f2033e0445f0f2f846013))
+* add sitemap ([560dee8](https://github.com/genaumann/website/commit/560dee8278b08a3ec6d7bf1f9e05290fbf1a2a67))
+* add socials to footer ([3139e9d](https://github.com/genaumann/website/commit/3139e9dcf9d2a38eb8da9f2db8cdeca76c869a31))
+* add theme switcher ([bd88d3a](https://github.com/genaumann/website/commit/bd88d3aed962cab33dc9aa966989d4a26582c4c5))
+* add toc and style adjustments ([fd8099c](https://github.com/genaumann/website/commit/fd8099cd4975ff62cdd886aec23555e96fe4b03b))
+* add toc skeleton ([f5e645e](https://github.com/genaumann/website/commit/f5e645ed2b1b8eaad5029c77a821bf07e5ca9d9f))
+* **kb:** add article overview ([e9e605b](https://github.com/genaumann/website/commit/e9e605b3443a79042cbbce552ed16c51df32ff56))
+* **kb:** add article sidebar ([1395812](https://github.com/genaumann/website/commit/139581293a6956e7e93c2558141a74492fc6b8fd))
+* **kb:** add breadcrumb ([9e6cd3e](https://github.com/genaumann/website/commit/9e6cd3e0c57c6056be759d5a2e7f250bc0d09b1b))
+* **kb:** add mobile sidebar ([2d251f6](https://github.com/genaumann/website/commit/2d251f61eecf48353c69fdc7979a870f2f7f20e2))
+* **kb:** add search ([ef06c7d](https://github.com/genaumann/website/commit/ef06c7d9ec9403dab6ff8ed186459810ab1b175d))
+* **kb:** redirect index in middleware ([a052145](https://github.com/genaumann/website/commit/a052145e428837294086a356242134ff63556260))
+* **mdx:** add mdx parser ([dc82eee](https://github.com/genaumann/website/commit/dc82eeef9ca1702191a19f15e4626cdd88f4c79b))
+
+### 🐛 Bugfix 🐛
+
+* lang switch on prev or prod ([dc45e4f](https://github.com/genaumann/website/commit/dc45e4f648ef10ac021a7df828721168bba6cf15))
+* layout shift in kb layout ([4d2664e](https://github.com/genaumann/website/commit/4d2664ecd0ece245ad9b81c9fecb2593d1fa51a2))
+* lint errors ([d913782](https://github.com/genaumann/website/commit/d913782beaa85d6641609abd30add4c11e11ca77))
+
+### 💿 Continuous Integration 💿
+
+* add gh actions ([87b2d57](https://github.com/genaumann/website/commit/87b2d57f92c860d2243ffa7fd364e27ddfd5519c))
+
+### 🏗️ Build 🏗️
+
+* add articleIndex script ([04efed6](https://github.com/genaumann/website/commit/04efed69dca25fbf60b4970a14913edf498d5d48))
+* add icon and iconPrefix to frontmatter ([de514b3](https://github.com/genaumann/website/commit/de514b3518665870a3652c4b9db93e678ded17b4))
+* move articleIndex to lib ([6ec7a25](https://github.com/genaumann/website/commit/6ec7a2526e114ec89561ba6786397ae59a7b0543))
+
 ## [1.5.2](https://github.com/genaumann/gnaumann.de/compare/v1.5.1...v1.5.2) (2024-08-14)
 
 ### 🐛 Bugfix 🐛
