@@ -9,7 +9,7 @@ import {
   SelectValue
 } from './select'
 import {LOCALES} from '@/locales'
-import {useTransition} from 'react'
+import {useCallback, useTransition} from 'react'
 import {usePathname, useRouter} from '@/locales/routing'
 import {useParams} from 'next/navigation'
 import {setUserLocale} from '@/lib/cookie'
@@ -39,18 +39,22 @@ export default function LangSelect() {
     }
   }
 
-  async function changeLocale(nextLocale: LOCALES) {
-    await setUserLocale(nextLocale)
-    startTransition(() => {
-      router.replace(
-        // @ts-expect-error -- TypeScript will validate that only known `params`
-        // are used in combination with a given `pathname`. Since the two will
-        // always match for the current route, we can skip runtime checks.
-        {pathname, params},
-        {locale: nextLocale}
-      )
-    })
-  }
+  const changeLocale = useCallback(
+    async (nextLocale: LOCALES) => {
+      await setUserLocale(nextLocale)
+      await new Promise(resolve => setTimeout(resolve, 100))
+      startTransition(() => {
+        router.replace(
+          // @ts-expect-error -- TypeScript will validate that only known `params`
+          // are used in combination with a given `pathname`. Since the two will
+          // always match for the current route, we can skip runtime checks.
+          {pathname, params},
+          {locale: nextLocale}
+        )
+      })
+    },
+    [pathname, params, router]
+  )
 
   return (
     <Select defaultValue={locale} onValueChange={changeLocale}>
