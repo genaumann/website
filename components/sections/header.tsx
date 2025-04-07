@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Icon from '../ui/icon'
 import HeaderItems from './header-items'
 import {getHeaderMenu} from '@/lib/header-menu'
 import {getTranslations} from 'next-intl/server'
@@ -10,7 +9,7 @@ export default async function Header() {
   const t = await getTranslations()
   const headerMenu = getHeaderMenu(t)
   return (
-    <header className="sticky top-0 backdrop-blur py-4 bg-background/75 z-20">
+    <header className="sticky top-0 backdrop-blur py-4 bg-background/75 z-20 border-b border-dashed border-muted">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -19,14 +18,14 @@ export default async function Header() {
                 className="dark:block hidden"
                 alt={headerMenu.logo.name}
                 src={headerMenu.logo.darkImageUrl}
-                width={39}
+                width={60}
                 height={50}
               />
               <Image
                 className="dark:hidden"
                 alt={headerMenu.logo.name}
                 src={headerMenu.logo.lightImageUrl}
-                width={39}
+                width={60}
                 height={50}
               />
             </Link>
@@ -35,7 +34,7 @@ export default async function Header() {
             <HeaderItems items={headerMenu.items} />
           </div>
           <div className="hidden md:flex gap-3 text-2xl">
-            {headerMenu.socials.map(social => (
+            {/* {headerMenu.socials.map(social => (
               <Link
                 className="hover:text-primary"
                 title={social.name}
@@ -45,6 +44,9 @@ export default async function Header() {
                 href={social.href}>
                 <Icon prefix="fab" name={social.icon} />
               </Link>
+            ))} */}
+            {headerMenu.tools.map(tool => (
+              <tool.Component key={tool.name} />
             ))}
           </div>
           <div className="md:hidden">

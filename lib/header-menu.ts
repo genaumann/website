@@ -1,3 +1,5 @@
+import LangSelect from '@/components/ui/lang-select'
+import ThemeSwitch from '@/components/ui/theme-switch'
 import {IconName} from '@awesome.me/kit-b84c272999/icons'
 import {useTranslations} from 'next-intl'
 
@@ -22,16 +24,15 @@ interface HeaderLogo {
   lightImageUrl: string
 }
 
-interface HeaderSocial {
+interface HeaderTools {
   name: string
-  href: string
-  icon: IconName
+  Component: React.ComponentType
 }
 
 export interface HeaderMenu {
   logo: HeaderLogo
   items: HeaderItem[]
-  socials: HeaderSocial[]
+  tools: HeaderTools[]
 }
 
 export const getHeaderMenu = (
@@ -40,8 +41,8 @@ export const getHeaderMenu = (
   logo: {
     name: 'GNaumann',
     href: '/',
-    darkImageUrl: '/gnaumann_white.png',
-    lightImageUrl: '/gnaumann_col.png'
+    darkImageUrl: '/logo.png',
+    lightImageUrl: '/logo.png'
   },
   items: [
     {
@@ -68,16 +69,14 @@ export const getHeaderMenu = (
     //   href: '/kb'
     // }
   ],
-  socials: [
+  tools: [
     {
-      name: 'LinkedIn',
-      href: 'https://de.linkedin.com/in/gino-naumann-356993240',
-      icon: 'linkedin'
+      name: t('common.language'),
+      Component: LangSelect
     },
     {
-      name: 'GitHub',
-      href: 'https://github.com/genaumann',
-      icon: 'github'
+      name: t('common.theme'),
+      Component: ThemeSwitch
     }
   ]
 })

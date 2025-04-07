@@ -51,7 +51,7 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
         <HeaderMobileItems items={headerMenu.items} />
         <SheetFooter className="mt-auto text-2xl">
           <div className="flex justify-center gap-2">
-            {headerMenu.socials.map(social => (
+            {/* {headerMenu.socials.map(social => (
               <Link
                 className="hover:text-primary"
                 title={social.name}
@@ -61,6 +61,9 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
                 href={social.href}>
                 <Icon prefix="fab" name={social.icon} />
               </Link>
+            ))} */}
+            {headerMenu.tools.map(tool => (
+              <tool.Component key={tool.name} />
             ))}
           </div>
         </SheetFooter>

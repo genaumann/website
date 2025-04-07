@@ -36,13 +36,13 @@ export default async function Certs() {
               rel="noopener noreferrer"
               target="_blank"
               className="group">
-              <Card className="overflow-hidden bg-accent">
-                <CardHeader className="bg-accent py-4 px-6 min-h-[88px]">
+              <Card className="overflow-hidden bg-secondary/40">
+                <CardHeader className="bg-secondary/40 py-4 px-6 min-h-[88px]">
                   <CardTitle className="text-xl font-semibold">
                     {cert.name}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex justify-center bg-secondary p-0">
+                <CardContent className="flex justify-center bg-background p-0">
                   <Icon
                     name={cert.icon || 'file-certificate'}
                     prefix={cert.iconPrefix}
@@ -54,7 +54,7 @@ export default async function Certs() {
                     )}
                   />
                 </CardContent>
-                <CardFooter className="grid grid-cols-3 py-4">
+                <CardFooter className="bg-secondary/40 grid grid-cols-3 py-4">
                   <p className="text-muted-foreground place-self-start">
                     {cert.issuer}
                   </p>

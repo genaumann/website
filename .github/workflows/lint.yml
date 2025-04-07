@@ -1,0 +1,39 @@
+---
+name: Lint TypeScript code
+
+on:
+  - pull_request
+
+env:
+  FONT_AWESOME_NPM_TOKEN: ${{ secrets.FONT_AWESOME_NPM_TOKEN }}
+
+jobs:
+  commitlint:
+    name: Run commitlint
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: read
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Setup node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          # cache: pnpm # see https://github.com/vercel/vercel/discussions/7581 & https://github.com/actions/cache/issues/319
+      - name: Run pnpm install
+        run: pnpm install
+      - uses: wagoid/commitlint-github-action@v6
+        with:
+          configFile: commitlint.config.ts
+        env:
+          NODE_PATH: ${{ github.workspace }}/node_modules

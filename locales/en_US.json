@@ -7,7 +7,13 @@
     "today": "Today",
     "active": "Active",
     "expired": "Expired",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "search": "Search",
+    "noResults": "No results",
+    "lookingFor": "What are you searching for?",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSwitch": "Change theme"
   },
   "hero": {
     "more": "Explore more"
@@ -59,5 +65,13 @@
       "description4": "Consulting on server infrastructure and DevOps processes",
       "description3": "Introduction of a documentation and presentation tool"
     }
+  },
+  "kb": {
+    "toc": "Table of content",
+    "moreArticles": "More articles"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "goBack": "Back to the homepage"
   }
 }
