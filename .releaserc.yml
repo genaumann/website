@@ -84,7 +84,7 @@ plugins:
 
   # git
   - - '@semantic-release/git'
-    - message: 'chore(release): ${nextRelease.version}'
+    - message: 'chore(release): ${nextRelease.version} [skip ci]'
       assets:
         - CHANGELOG.md
         - VERSION
