@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.1](https://github.com/genaumann/website/compare/v1.0.0...v1.0.1) (2025-04-14)
+
+### 🐛 Bugfix 🐛
+
+* **kb:** articles are now readable ([11b99ac](https://github.com/genaumann/website/commit/11b99ac053b41be1a2be801fd6b73d796c249e70))
+
 ## 1.0.0 (2025-04-07)
 
 ### ✨ Feature ✨
