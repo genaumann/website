@@ -48,7 +48,10 @@ export const getParsedArticle = async (
     const article = await findArticleBySlug(locale, kb.join('/'))
     if (!article) return null
 
-    const articleSource = await fs.readFile(article.path, 'utf8')
+    const articleSource = await fs.readFile(
+      `${process.cwd()}/${article.path}`,
+      'utf8'
+    )
     const {content, frontmatter} = await compileMDX<MDXFrontmatter>({
       source: articleSource,
       options: {parseFrontmatter: true}

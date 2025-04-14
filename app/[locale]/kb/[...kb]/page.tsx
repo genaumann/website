@@ -1,5 +1,21 @@
-import {getParsedArticle} from '@/lib/mdx'
+import {getFlatArticleIndex, getParsedArticle} from '@/lib/mdx'
 import {notFound} from 'next/navigation'
+
+export async function generateStaticParams() {
+  return [
+    ...(await getFlatArticleIndex('de')).map(article => ({
+      locale: 'de',
+      kb: article.slug.split('/')
+    })),
+    ...(await getFlatArticleIndex('en')).map(article => ({
+      locale: 'en',
+      kb: article.slug.split('/')
+    }))
+  ]
+}
+
+// 404 for unspecified articles
+export const dynamicParams = false
 
 export default async function Page({
   params

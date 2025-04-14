@@ -7,6 +7,9 @@ const nextConfig = {
   turbopack: {
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json']
   },
+  outputFileTracingIncludes: {
+    '/*': ['./articles/**/*']
+  },
   transpilePackages: ['next-mdx-remote'],
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {

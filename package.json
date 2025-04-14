@@ -7,7 +7,7 @@
     "predev": "tsx ts/articleIndex.ts",
     "dev": "next dev --turbopack",
     "prebuild": "tsx ts/articleIndex.ts",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
