@@ -6,6 +6,7 @@ import {JSXElementConstructor, ReactElement} from 'react'
 import articles from '@/lib/articleIndex.json'
 import {Article, ArticleIndex, MDXFrontmatter} from './types'
 import {LOCALES} from '@/locales'
+import remarkGfm from 'remark-gfm'
 
 type MDXReturnType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -54,7 +55,13 @@ export const getParsedArticle = async (
     )
     const {content, frontmatter} = await compileMDX<MDXFrontmatter>({
       source: articleSource,
-      options: {parseFrontmatter: true}
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+          rehypePlugins: []
+        }
+      }
     })
     return {
       content,
