@@ -8,7 +8,7 @@ export const getCert = (): CertItem[] => [
     validTo: new Date('2027-02-13'),
     url: 'https://www.credly.com/badges/402af3ea-19c6-422f-86a6-3dbc7446bddc',
     icon: 'redhat',
-    iconPrefix: 'custom'
+    className: 'text-8xl py-4'
   },
   {
     name: 'ITIL® Foundation Certificate in IT Service Management',
@@ -29,7 +29,7 @@ export const getCert = (): CertItem[] => [
     validFrom: new Date('2023-06-08'),
     validTo: new Date('2027-02-13'),
     icon: 'redhat',
-    iconPrefix: 'custom',
-    url: 'https://www.credly.com/badges/f2d2d2a5-fa70-473f-840b-9eccfb85fa04'
+    url: 'https://www.credly.com/badges/f2d2d2a5-fa70-473f-840b-9eccfb85fa04',
+    className: 'text-8xl py-4'
   }
 ]

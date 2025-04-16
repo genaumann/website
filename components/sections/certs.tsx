@@ -16,6 +16,7 @@ export interface CertItem {
   url: string
   icon?: IconName
   iconPrefix?: IconPrefix
+  className?: string
 }
 
 export default async function Certs() {
@@ -47,10 +48,8 @@ export default async function Certs() {
                     name={cert.icon || 'file-certificate'}
                     prefix={cert.iconPrefix}
                     className={cn(
-                      !!cert.iconPrefix
-                        ? 'text-9xl py-4'
-                        : 'text-7xl py-7 text-muted-foreground',
-                      'transition-transform duration-300 ease-in-out group-hover:scale-150'
+                      'text-7xl py-7 text-muted-foreground transition-transform duration-300 ease-in-out group-hover:scale-150',
+                      cert.className
                     )}
                   />
                 </CardContent>
