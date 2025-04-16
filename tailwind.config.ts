@@ -69,7 +69,9 @@ export default {
             '--tw-prose-bold': theme('colors.foreground'),
             '--tw-prose-lead': theme('colors.foreground'),
             '--tw-prose-link': theme('colors.foreground'),
-            '--tw-prose-bullets': theme('colors.foreground')
+            '--tw-prose-bullets': theme('colors.foreground'),
+            '--tw-prose-pre-bg': 'transparent',
+            '--tw-prose-pre-code': theme('colors.foreground')
           }
         }
       })
