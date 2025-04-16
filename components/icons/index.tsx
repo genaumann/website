@@ -1,11 +1,16 @@
 import React, {SVGProps} from 'react'
 import redhat from './redhat'
 import {cn} from '@/lib/cn'
+import TypeScript from './typescript'
 
 export const customIconMap = {
   redhat: {
     Component: redhat,
     color: '#EE0000'
+  },
+  typescript: {
+    Component: TypeScript,
+    color: '#3178C6'
   }
 }
 
