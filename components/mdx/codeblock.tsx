@@ -5,6 +5,7 @@ import {cn} from '@/lib/cn'
 import {Button} from '../ui/button'
 import Icon from '../ui/icon'
 import {getIconByFileType} from '@/lib/iconmap'
+import '@/styles/highlight.css'
 
 export interface CodeBlockFileProps {
   children?: ReactNode

@@ -9,6 +9,7 @@ import {LOCALES} from '@/locales'
 import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
 import CodeBlock from '@/components/mdx/codeblock'
+import rehypeHighlight from './rehype/highlightCode'
 
 type MDXReturnType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -64,7 +65,7 @@ export const getParsedArticle = async (
         parseFrontmatter: true,
         mdxOptions: {
           remarkPlugins: [remarkGfm, remarkCodeBlock],
-          rehypePlugins: []
+          rehypePlugins: [rehypeHighlight]
         }
       }
     })

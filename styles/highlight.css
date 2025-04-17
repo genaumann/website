@@ -1,0 +1,184 @@
+/*
+
+Atom One Light by Daniel Gamage
+Original One Light Syntax theme from https://github.com/atom/one-light-syntax
+
+base:    #fafafa
+mono-1:  #383a42
+mono-2:  #686b77
+mono-3:  #a0a1a7
+hue-1:   #0184bb
+hue-2:   #4078f2
+hue-3:   #a626a4
+hue-4:   #50a14f
+hue-5:   #e45649
+hue-5-2: #c91243
+hue-6:   #986801
+hue-6-2: #c18401
+
+*/
+.light .hljs {
+    color: #383a42;
+    background: #fafafa;
+  }
+  
+  .light .hljs-comment,
+  .light .hljs-quote {
+    color: #a0a1a7;
+    font-style: italic;
+  }
+  
+  .light .hljs-doctag,
+  .light .hljs-keyword,
+  .light .hljs-formula {
+    color: #a626a4;
+  }
+  
+  .light .hljs-section,
+  .light .hljs-name,
+  .light .hljs-selector-tag,
+  .light .hljs-deletion,
+  .light .hljs-subst {
+    color: #e45649;
+  }
+  
+  .light .hljs-literal {
+    color: #0184bb;
+  }
+  
+  .light .hljs-string,
+  .light .hljs-regexp,
+  .light .hljs-addition,
+  .light .hljs-attribute,
+  .light .hljs-meta .hljs-string {
+    color: #50a14f;
+  }
+  
+  .light .hlLine .hljs-string,
+  .light .hlLine .light .hljs-regexp,
+  .light .hlLine .light .hljs-addition,
+  .light .hlLine .light .hljs-attribute,
+  .light .hlLine .light .hljs-meta .hljs-string {
+    color: #002886;
+  }
+  
+  .light .hljs-attr,
+  .light .hljs-variable,
+  .light .hljs-template-variable,
+  .light .hljs-type,
+  .light .hljs-selector-class,
+  .light .hljs-selector-attr,
+  .light .hljs-selector-pseudo,
+  .light .hljs-number {
+    color: #986801;
+  }
+  
+  .light .hljs-symbol,
+  .light .hljs-bullet,
+  .light .hljs-link,
+  .light .hljs-meta,
+  .light .hljs-selector-id,
+  .light .hljs-title {
+    color: #4078f2;
+  }
+  
+  .light .hljs-built_in,
+  .light .hljs-title.class_,
+  .light .hljs-class .hljs-title {
+    color: #c18401;
+  }
+  
+  .light .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .light .hljs-strong {
+    font-weight: bold;
+  }
+  
+  .light .hljs-link {
+    text-decoration: underline;
+  }
+  
+  /*!
+    Theme: An Old Hope – Star Wars Syntax
+    Author: (c) Gustavo Costa <gusbemacbe@gmail.com>
+    Maintainer: @gusbemacbe
+  
+    Original theme - Ocean Dark Theme – by https://github.com/gavsiu
+    Based on Jesse Leite's Atom syntax theme 'An Old Hope'
+      https://github.com/JesseLeite/an-old-hope-syntax-atom
+  */
+  
+  code,
+  code span.hlLine {
+    width: 100%;
+    display: block;
+  }
+  
+  /* Millenium Falcon */
+  .dark .hljs {
+    color: #c0c5ce;
+  }
+  
+  /* Death Star Comment */
+  .dark .hljs-comment,
+  .dark .hljs-quote {
+    color: #b6b18b;
+  }
+  
+  /* Darth Vader */
+  .dark .hljs-variable,
+  .dark .hljs-template-variable,
+  .dark .hljs-tag,
+  .dark .hljs-name,
+  .dark .hljs-selector-id,
+  .dark .hljs-selector-class,
+  .dark .hljs-regexp,
+  .dark .hljs-deletion {
+    color: #eb3c54;
+  }
+  
+  /* Threepio */
+  .dark .hljs-number,
+  .dark .hljs-built_in,
+  .dark .hljs-literal,
+  .dark .hljs-type,
+  .dark .hljs-params,
+  .dark .hljs-meta,
+  .dark .hljs-link {
+    color: #e7ce56;
+  }
+  
+  /* Luke Skywalker */
+  .dark .hljs-attribute {
+    color: #ee7c2b;
+  }
+  
+  /* Obi Wan Kenobi */
+  .dark .hljs-string,
+  .dark .hljs-symbol,
+  .dark .hljs-bullet,
+  .dark .hljs-addition {
+    color: #4fb4d7;
+  }
+  
+  /* Yoda */
+  .dark .hljs-title,
+  .dark .hljs-section {
+    color: #78bb65;
+  }
+  
+  /* Mace Windu */
+  .dark .hljs-keyword,
+  .dark .hljs-selector-tag {
+    color: #b45ea4;
+  }
+  
+  .dark .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .dark .hljs-strong {
+    font-weight: bold;
+  }
