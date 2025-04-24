@@ -1,11 +1,14 @@
 'use client'
 
-import {type ReactNode, useState} from 'react'
+import {Fragment, type ReactNode, useState} from 'react'
 import {cn} from '@/lib/cn'
 import {Button} from '../ui/button'
 import Icon from '../ui/icon'
 import {getIconByFileType} from '@/lib/iconmap'
 import '@/styles/highlight.css'
+import {usePathname, useRouter} from '@/locales/routing'
+import {useSearchParams} from 'next/navigation'
+import {createQueryString} from '@/lib/url'
 
 export interface CodeBlockFileProps {
   children?: ReactNode
@@ -22,18 +25,23 @@ export default function CodeBlock({
   showLine = 'true',
   language = 'tsx'
 }: CodeBlockFileProps) {
-  const [copied, setCopied] = useState(false)
-  const showLineNumbers = showLine === 'true'
-
   const id = `${title}-${language}-${line}`
+  const queryString = `${id}-l`
+  const [copied, setCopied] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const [selectedLine, setSelectedLine] = useState<string | null>(
+    searchParams.get(queryString)
+  )
+
+  const showLineNumbers = showLine === 'true'
 
   const copyToClipboard = async () => {
     try {
       // If children contains HTML elements, we need to extract the text
       const textToCopy =
-        typeof children === 'string'
-          ? children
-          : document.querySelector(`#${id} > pre > code`)?.textContent || ''
+        document.querySelector(`#${id} > pre > code`)?.textContent || ''
 
       await navigator.clipboard.writeText(textToCopy)
       setCopied(true)
@@ -43,11 +51,21 @@ export default function CodeBlock({
     }
   }
 
+  const handleLineClick = (lineNumber: string) => () => {
+    if (selectedLine === lineNumber) {
+      setSelectedLine(null)
+      const params = createQueryString(searchParams, `${id}-l`, '')
+      router.push(`${pathname}?${params}`, {scroll: false})
+      return
+    }
+    const params = createQueryString(searchParams, `${id}-l`, lineNumber)
+    router.push(`${pathname}?${params}`, {scroll: false})
+    setSelectedLine(lineNumber)
+  }
+
   const iconName = getIconByFileType(language)
 
-  const lineNumbers = Array.from({length: line}, (_, i) =>
-    String(i + 1).padStart(2, '0')
-  )
+  const lineNumbers = Array.from({length: line}, (_, i) => String(i + 1))
 
   return (
     <div className="my-6 w-full overflow-hidden rounded-md bg-background shadow-md">
@@ -83,19 +101,26 @@ export default function CodeBlock({
           </Button>
         </div>
       )}
-      <div className="relative overflow-x-auto">
-        <div className="flex w-full">
+      <div className="overflow-x-auto">
+        <div className="flex w-full relative">
           {showLineNumbers && (
-            <div className="select-none border-r border-muted bg-muted/30 py-4 px-4 font-mono text-xs text-muted-foreground flex flex-col items-start">
+            <div className="relative select-none border-r border-muted bg-muted/30 py-4 px-4 font-mono text-xs text-muted-foreground flex flex-col items-start">
               {lineNumbers.map(num => (
-                <div key={num} className="leading-[24px] -translate-y-[4px]">
+                <span
+                  key={num}
+                  onClick={handleLineClick(num)}
+                  className={cn(
+                    'leading-[24px] -translate-y-[4px] not-prose hover:underline cursor-pointer',
+                    selectedLine === num
+                      ? 'text-primary'
+                      : 'text-muted-foreground'
+                  )}>
                   {num}
-                </div>
+                </span>
               ))}
             </div>
           )}
           <div
-            id={id}
             className={cn(
               'w-full overflow-x-auto prose',
               showLineNumbers ? 'pl-0' : 'pl-4'

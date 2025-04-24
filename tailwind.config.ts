@@ -63,6 +63,9 @@ export default {
               center: true,
               padding: '2rem'
             },
+            pre: {
+              paddingBottom: '0'
+            },
             'max-width': '1400px',
             '--tw-prose-body': theme('colors.foreground'),
             '--tw-prose-headings': theme('colors.foreground'),
