@@ -16,6 +16,7 @@ export interface CertItem {
   url: string
   icon?: IconName
   iconPrefix?: IconPrefix
+  className?: string
 }
 
 export default async function Certs() {
@@ -36,8 +37,8 @@ export default async function Certs() {
               rel="noopener noreferrer"
               target="_blank"
               className="group">
-              <Card className="overflow-hidden bg-secondary/40">
-                <CardHeader className="bg-secondary/40 py-4 px-6 min-h-[88px]">
+              <Card className="overflow-hidden">
+                <CardHeader className="py-4 px-6 min-h-[88px]">
                   <CardTitle className="text-xl font-semibold">
                     {cert.name}
                   </CardTitle>
@@ -47,14 +48,12 @@ export default async function Certs() {
                     name={cert.icon || 'file-certificate'}
                     prefix={cert.iconPrefix}
                     className={cn(
-                      !!cert.iconPrefix
-                        ? 'text-9xl py-4'
-                        : 'text-7xl py-7 text-muted-foreground',
-                      'transition-transform duration-300 ease-in-out group-hover:scale-150'
+                      'text-7xl py-7 text-muted-foreground transition-transform duration-300 ease-in-out group-hover:scale-150',
+                      cert.className
                     )}
                   />
                 </CardContent>
-                <CardFooter className="bg-secondary/40 grid grid-cols-3 py-4">
+                <CardFooter className="grid grid-cols-3 py-4">
                   <p className="text-muted-foreground place-self-start">
                     {cert.issuer}
                   </p>

@@ -49,8 +49,8 @@ export default async function Experience() {
                 )}
               />
 
-              <Card className="md:ml-12 overflow-hidden bg-secondary/40">
-                <CardHeader className="bg-secondary/40 py-4 px-6">
+              <Card className="md:ml-12 overflow-hidden">
+                <CardHeader className="py-4 px-6">
                   <div className="flex justify-between items-start">
                     <div>
                       <CardTitle className="text-xl font-semibold">

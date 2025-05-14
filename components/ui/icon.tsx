@@ -8,12 +8,12 @@ import {
   IconProp
 } from '@fortawesome/fontawesome-svg-core'
 import {forwardRef} from 'react'
-import CustomIcon, {CustomIconName} from '@/components/icons'
+import CustomIcon, {customIconMap, CustomIconName} from '@/components/icons'
 
 const defaultPrefix: FaIconPrefix = 'fal'
 
 type IconName = FontAwesomeIconName | CustomIconName
-type IconPrefix = 'fas' | 'fal' | 'fab' | 'custom'
+type IconPrefix = 'fas' | 'fal' | 'fab'
 
 const Icon = forwardRef<
   React.ElementRef<typeof FontAwesomeIcon>,
@@ -22,7 +22,7 @@ const Icon = forwardRef<
     prefix?: IconPrefix
   }
 >(({name, prefix, className, ...props}, ref) => {
-  if (prefix === 'custom')
+  if (name in customIconMap)
     return <CustomIcon name={name as CustomIconName} className={className} />
 
   return (

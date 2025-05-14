@@ -58,7 +58,7 @@ export default function LangSelect() {
 
   return (
     <Select defaultValue={locale} onValueChange={changeLocale}>
-      <SelectTrigger className="min-w-[109px] bg-secondary hover:bg-inherit">
+      <SelectTrigger className="min-w-[109px] bg-secondary/40">
         <SelectValue
           placeholder={
             <>
@@ -68,7 +68,7 @@ export default function LangSelect() {
           }
         />
       </SelectTrigger>
-      <SelectContent className="border-muted">
+      <SelectContent>
         {Object.entries(localeMap).map(([key, value]) => (
           <SelectItem key={key} value={key}>
             <span className="me-2">{value.icon}</span>

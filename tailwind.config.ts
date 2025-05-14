@@ -1,12 +1,12 @@
 import type {Config} from 'tailwindcss'
-import {fontFamily} from 'tailwindcss/defaultTheme'
 
 export default {
   content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}'
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './lib/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  darkMode: ['selector'],
+  darkMode: 'selector',
   prefix: '',
   theme: {
     container: {
@@ -53,8 +53,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans]
+        sans: ['var(--font-sans)']
       },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
@@ -62,17 +63,40 @@ export default {
               center: true,
               padding: '2rem'
             },
+            pre: {
+              paddingBottom: '0'
+            },
             'max-width': '1400px',
+            'code::before': {
+              content: ''
+            },
+            'code::after': {
+              content: ''
+            },
+            code: {
+              fontFamily: 'Menlo',
+              color: theme('colors.foreground'),
+              fontWeight: theme('fontWeight.medium'),
+              fontVariantLigatures: 'none',
+              display: 'inline',
+              backgroundColor: 'hsl(var(--muted))',
+              padding: '2px 4px',
+              borderRadius: '0.35rem'
+            },
             '--tw-prose-body': theme('colors.foreground'),
             '--tw-prose-headings': theme('colors.foreground'),
             '--tw-prose-bold': theme('colors.foreground'),
             '--tw-prose-lead': theme('colors.foreground'),
             '--tw-prose-link': theme('colors.foreground'),
-            '--tw-prose-bullets': theme('colors.foreground')
+            '--tw-prose-bullets': theme('colors.foreground'),
+            '--tw-prose-pre-bg': 'transparent',
+            '--tw-prose-pre-code': theme('colors.foreground'),
+            '--tw-prose-links': theme('colors.primary.DEFAULT')
           }
         }
       })
     }
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')]
 } satisfies Config

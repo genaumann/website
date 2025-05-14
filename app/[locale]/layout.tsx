@@ -56,7 +56,7 @@ export default async function RootLayout({
             themes={['light', 'dark', 'system']}
             enableSystem={true}>
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main className="grow">{children}</main>
             <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>

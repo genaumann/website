@@ -6,6 +6,12 @@ import {JSXElementConstructor, ReactElement} from 'react'
 import articles from '@/lib/articleIndex.json'
 import {Article, ArticleIndex, MDXFrontmatter} from './types'
 import {LOCALES} from '@/locales'
+import remarkGfm from 'remark-gfm'
+import remarkCodeBlock from './remark/codeblock'
+import CodeBlock from '@/components/mdx/codeblock'
+import Adminition from '@/components/mdx/adminition'
+import {Tabs, TabItem} from '@/components/mdx/tabs'
+import rehypeHighlight from './rehype/highlightCode'
 
 type MDXReturnType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -54,7 +60,19 @@ export const getParsedArticle = async (
     )
     const {content, frontmatter} = await compileMDX<MDXFrontmatter>({
       source: articleSource,
-      options: {parseFrontmatter: true}
+      components: {
+        CodeBlock,
+        Adminition,
+        Tabs,
+        TabItem
+      },
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm, remarkCodeBlock],
+          rehypePlugins: [rehypeHighlight]
+        }
+      }
     })
     return {
       content,

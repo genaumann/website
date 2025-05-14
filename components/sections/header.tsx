@@ -13,7 +13,7 @@ export default async function Header() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href={headerMenu.logo.href} className="flex-shrink-0">
+            <Link href={headerMenu.logo.href} className="shrink-0">
               <Image
                 className="dark:block hidden"
                 alt={headerMenu.logo.name}

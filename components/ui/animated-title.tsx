@@ -19,12 +19,12 @@ export default function AnimatedTitle({
     <Element
       className={cn(
         'font-bold text-4xl md:text-5xl lg:text-6xl',
-        'bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent',
+        'bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent',
         'relative overflow-hidden',
         className
       )}>
       <motion.span
-        className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_100%]"
+        className="absolute inset-0 bg-linear-to-r from-primary via-secondary to-primary bg-size-[200%_100%]"
         animate={{
           backgroundPosition: ['0% 0%', '100% 0%', '0% 0%']
         }}

@@ -27,8 +27,8 @@ export default function HeaderItems({items}: {items: HeaderItem[]}) {
                 <NavigationMenuTrigger className="bg-inherit">
                   {item.name}
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-background/95 dark:bg-secondary/95">
-                  <div className="grid p-4 md:w-[400px] lg:w-[500px] grid-cols-2 gap-y-4">
+                <NavigationMenuContent>
+                  <div className="grid p-4 md:w-[400px] lg:w-[500px] grid-cols-2 gap-y-4 bg-popover/70">
                     {item.lightImageUrl && item.darkImageUrl && (
                       <div className="row-span-3">
                         <NavigationMenuLink asChild>
@@ -74,7 +74,7 @@ export default function HeaderItems({items}: {items: HeaderItem[]}) {
                 </NavigationMenuContent>
               </>
             ) : (
-              <Link href={item.href || '/'} legacyBehavior passHref>
+              <Link href={item.href || '/'} passHref>
                 <NavigationMenuLink
                   className={cn(navigationMenuTriggerStyle(), 'bg-inherit')}>
                   {item.name}

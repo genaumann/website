@@ -21,7 +21,7 @@ export default async function About() {
             height={200}
             className="hidden dark:md:block"
           />
-          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-background to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-12 bg-linear-to-t from-background to-transparent" />
         </div>
         <div className="space-y-4 md:col-span-2">
           <h2 className="sr-only">{t('common.aboutMe')}</h2>
@@ -41,7 +41,7 @@ export default async function About() {
               height={200}
               className="hidden dark:md:hidden mx-auto dark:block "
             />
-            <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-background to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-12 bg-linear-to-t from-background to-transparent" />
           </div>
           <p className="text-muted-foreground max-w-xl whitespace-pre-line">
             {t('aboutMe.description')}

@@ -1,19 +1,15 @@
 'use client'
 
 import {useState, useEffect} from 'react'
-import {motion} from 'framer-motion'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {
   atomDark,
   ghcolors
 } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import {Button} from '../ui/button'
-import {useTranslations} from 'next-intl'
 import AnimatedTitle from '../ui/animated-title'
 import {useTheme} from 'next-themes'
 
 export default function Hero() {
-  const t = useTranslations()
   const [text, setText] = useState('')
   const {theme, systemTheme} = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -40,15 +36,7 @@ export default function Hero() {
     }, 30)
 
     return () => clearInterval(typingEffect)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  const scrollToNextSection = () => {
-    const nextSection = document.getElementById('about')
-    if (nextSection) {
-      nextSection.scrollIntoView({behavior: 'smooth'})
-    }
-  }
 
   const currentTheme = theme === 'system' ? systemTheme : theme
   const syntaxStyle = currentTheme === 'dark' ? atomDark : ghcolors
@@ -59,7 +47,7 @@ export default function Hero() {
       className="min-h-[calc(100vh-96px)] flex flex-col items-center justify-center container">
       <AnimatedTitle text="Gino Naumann" className="mb-7 text-6xl" />
       <div className="w-full max-w-4xl bg-background rounded-lg shadow-2xl overflow-hidden">
-        <div className="flex items-center space-x-2 px-4 py-2 bg-secondary/40">
+        <div className="flex items-center space-x-2 px-4 py-2 bg-card">
           <div className="w-3 h-3 rounded-full bg-red-500" />
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
           <div className="w-3 h-3 rounded-full bg-green-500" />
@@ -91,15 +79,6 @@ export default function Hero() {
             </div>
           )}
         </div>
-        <motion.div
-          className="flex justify-center py-4 bg-secondary/40"
-          initial={{opacity: 0, y: 20}}
-          animate={{opacity: 1, y: 0}}
-          transition={{delay: 8}}>
-          <Button className="font-mono" onClick={scrollToNextSection}>{`> ${t(
-            'hero.more'
-          )}`}</Button>
-        </motion.div>
       </div>
     </section>
   )

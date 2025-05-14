@@ -70,9 +70,9 @@ export default function TableOfContents() {
             <Link
               href={`#${heading.id}`}
               className={cn(
-                'block py-2 text-sm transition-colors hover:underline',
+                'block py-2 text-sm transition-colors hover:underline text-muted-foreground',
                 activeId === heading.id
-                  ? 'dark:text-primary/60 text-primary'
+                  ? 'font-semibold text-foreground'
                   : 'text-muted-foreground'
               )}
               onClick={e => {
