@@ -58,7 +58,7 @@ export default function LangSelect() {
 
   return (
     <Select defaultValue={locale} onValueChange={changeLocale}>
-      <SelectTrigger className="min-w-[109px] bg-secondary hover:bg-inherit">
+      <SelectTrigger className="min-w-[109px] bg-secondary/40">
         <SelectValue
           placeholder={
             <>

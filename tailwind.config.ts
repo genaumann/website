@@ -74,6 +74,7 @@ export default {
             },
             code: {
               fontFamily: 'Menlo',
+              color: theme('colors.foreground'),
               fontWeight: theme('fontWeight.medium'),
               fontVariantLigatures: 'none',
               display: 'inline',
@@ -88,7 +89,8 @@ export default {
             '--tw-prose-link': theme('colors.foreground'),
             '--tw-prose-bullets': theme('colors.foreground'),
             '--tw-prose-pre-bg': 'transparent',
-            '--tw-prose-pre-code': theme('colors.foreground')
+            '--tw-prose-pre-code': theme('colors.foreground'),
+            '--tw-prose-links': theme('colors.primary.DEFAULT')
           }
         }
       })

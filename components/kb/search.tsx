@@ -45,7 +45,7 @@ export default function SearchCommand({locale}: {locale: string}) {
       <Button
         onClick={() => setIsOpen(true)}
         variant="outline"
-        className="hover:bg-inherit w-28 md:w-36 bg-secondary items-center justify-between md:mt-2">
+        className="hover:bg-secondary/40 w-28 md:w-36 bg-secondary/40 items-center justify-between md:mt-2 cursor-pointer">
         {isLoading ? (
           <Skeleton className="h-5 w-full" />
         ) : (
@@ -90,10 +90,6 @@ function SearchDialog({
   const t = useTranslations()
   const inputRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLUListElement>(null)
-
-  // useEffect(() => {
-  //   setSelectedIndex(0)
-  // }, [results])
 
   useEffect(() => {
     if (isOpen && inputRef.current) {

@@ -108,12 +108,12 @@ export function Tabs({children, id}: {children: ReactNode; id: string}) {
         </div>
 
         {/* Desktop: Tabs List */}
-        <TabsList className="hidden sm:flex sm:flex-row w-full gap-2 h-9 bg-secondary">
+        <TabsList className="hidden sm:flex sm:flex-row w-full gap-2 h-9 bg-card">
           {tabs.map(tab => (
             <TabsTrigger
               key={tab.id}
               value={tab.id}
-              className="sm:grow w-full text-foreground bg-secondary/40 data-[state=active]:bg-secondary/40 data-[state=active]:text-primary dark:data-[state=active]:text-primary/60">
+              className="sm:grow w-full text-foreground data-[state=active]:bg-primary/20 data-[state=active]:text-background-foreground">
               {tab.title}
             </TabsTrigger>
           ))}

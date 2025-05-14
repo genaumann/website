@@ -39,7 +39,6 @@ export default function CodeBlock({
 
   const copyToClipboard = async () => {
     try {
-      // If children contains HTML elements, we need to extract the text
       const textToCopy =
         document.querySelector(`#${id} > pre > code`)?.textContent || ''
 
@@ -68,9 +67,9 @@ export default function CodeBlock({
   const lineNumbers = Array.from({length: line}, (_, i) => String(i + 1))
 
   return (
-    <div className="my-6 w-full overflow-hidden rounded-md bg-background shadow-md">
+    <div className="my-6 w-full overflow-hidden rounded-md bg-background shadow-md shadow-secondary/40">
       {title && (
-        <div className="flex items-center justify-between bg-secondary/40 px-4 py-2">
+        <div className="flex items-center justify-between bg-card px-4 py-2">
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-full bg-red-500" />
             <div className="h-3 w-3 rounded-full bg-yellow-500" />
@@ -82,7 +81,10 @@ export default function CodeBlock({
               {title}
             </span>
           </div>
-          <Button onClick={copyToClipboard} variant="ghost">
+          <Button
+            onClick={copyToClipboard}
+            variant="ghost"
+            className="cursor-pointer group hover:bg-inherit">
             {copied ? (
               <Icon
                 name="clipboard-check"
@@ -93,7 +95,7 @@ export default function CodeBlock({
             ) : (
               <Icon
                 name="clipboard"
-                className="h-4 w-4"
+                className="h-4 w-4 transition-transform duration-200 group-hover:scale-125"
                 width={16}
                 height={16}
               />

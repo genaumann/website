@@ -48,7 +48,7 @@ const ArticleList = ({
                 href={`/kb/${article.slug}`}
                 className={cn(
                   'hover:underline grow py-2 text-muted-foreground',
-                  isCurrentArticle && 'dark:text-primary/60 text-primary'
+                  isCurrentArticle && 'font-medium text-foreground'
                 )}>
                 {article.title}
               </Link>
