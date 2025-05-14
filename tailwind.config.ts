@@ -55,6 +55,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)']
       },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
@@ -96,5 +97,6 @@ export default {
       })
     }
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')]
 } satisfies Config

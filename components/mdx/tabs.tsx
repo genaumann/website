@@ -133,7 +133,7 @@ export function TabItem({
   title: string
   value?: string
 }) {
-  const {registerTab, activeTab} = useContext(TabsContext)
+  const {registerTab} = useContext(TabsContext)
   const id = value || title.toLowerCase().replace(/\s+/g, '-')
 
   useEffect(() => {

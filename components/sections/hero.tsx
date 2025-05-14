@@ -1,19 +1,15 @@
 'use client'
 
 import {useState, useEffect} from 'react'
-import {motion} from 'framer-motion'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {
   atomDark,
   ghcolors
 } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import {Button} from '../ui/button'
-import {useTranslations} from 'next-intl'
 import AnimatedTitle from '../ui/animated-title'
 import {useTheme} from 'next-themes'
 
 export default function Hero() {
-  const t = useTranslations()
   const [text, setText] = useState('')
   const {theme, systemTheme} = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -40,15 +36,7 @@ export default function Hero() {
     }, 30)
 
     return () => clearInterval(typingEffect)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  const scrollToNextSection = () => {
-    const nextSection = document.getElementById('about')
-    if (nextSection) {
-      nextSection.scrollIntoView({behavior: 'smooth'})
-    }
-  }
 
   const currentTheme = theme === 'system' ? systemTheme : theme
   const syntaxStyle = currentTheme === 'dark' ? atomDark : ghcolors

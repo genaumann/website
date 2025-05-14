@@ -119,9 +119,9 @@ const rehypeHighlight: Plugin<void[], Root> = () => {
       const allChildren = markedLines.map(element => {
         const lowlight = createLowlight(common)
         const res = lang
-          ? // eslint-disable-next-line @typescript-eslint/no-explicit-any - different type versions
+          ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
             lowlight.highlight(lang, toString(element as any).replace('\n', ''))
-          : // eslint-disable-next-line @typescript-eslint/no-explicit-any - different type versions
+          : // eslint-disable-next-line @typescript-eslint/no-explicit-any
             lowlight.highlightAuto(toString(element as any).replace('\n', ''))
         if ('children' in element && res.children.length > 0) {
           element.children = res.children as ElementContent[]
