@@ -117,8 +117,6 @@ const rehypeHighlight: Plugin<void[], Root> = () => {
       const markedLines = markLines(node.children[0].value)
 
       const allChildren = markedLines.map(element => {
-        console.log('element', element)
-
         const lowlight = createLowlight(common)
         const res = lang
           ? // eslint-disable-next-line @typescript-eslint/no-explicit-any - different type versions
