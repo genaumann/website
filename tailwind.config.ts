@@ -67,6 +67,21 @@ export default {
               paddingBottom: '0'
             },
             'max-width': '1400px',
+            'code::before': {
+              content: ''
+            },
+            'code::after': {
+              content: ''
+            },
+            code: {
+              fontFamily: 'Menlo',
+              fontWeight: theme('fontWeight.medium'),
+              fontVariantLigatures: 'none',
+              display: 'inline',
+              backgroundColor: 'hsl(var(--muted))',
+              padding: '2px 4px',
+              borderRadius: '0.35rem'
+            },
             '--tw-prose-body': theme('colors.foreground'),
             '--tw-prose-headings': theme('colors.foreground'),
             '--tw-prose-bold': theme('colors.foreground'),
