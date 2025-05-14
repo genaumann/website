@@ -68,7 +68,7 @@ export default function LangSelect() {
           }
         />
       </SelectTrigger>
-      <SelectContent className="border-muted">
+      <SelectContent>
         {Object.entries(localeMap).map(([key, value]) => (
           <SelectItem key={key} value={key}>
             <span className="me-2">{value.icon}</span>
