@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/genaumann/website/compare/v1.0.1...v1.1.0) (2025-05-14)
+
+### ✨ Feature ✨
+
+* add adminition component ([266c70f](https://github.com/genaumann/website/commit/266c70f41639c8d25b4ff54c8844c2ae835023dd))
+* **kb:** add codeblock component ([771bba7](https://github.com/genaumann/website/commit/771bba759fe102e8fdd90409d3070efc02a70152))
+* **kb:** add rehype plugin for codehighlighting ([9639d06](https://github.com/genaumann/website/commit/9639d06ebfabfab351c9a756d25ffea6c9b3a5ee))
+* **kb:** add remarkGfm plugin ([cddeade](https://github.com/genaumann/website/commit/cddeade993ee50a9099fa340a497762b0c14f6bc))
+* **kb:** add tabs ([04b2a93](https://github.com/genaumann/website/commit/04b2a93aced85e6adca45b7306f97f003e7ded2b))
+* searchParams in codeBlock line ([cfd009a](https://github.com/genaumann/website/commit/cfd009a95ed433f587713386001bb5e614dcb319))
+
+### 🐛 Bugfix 🐛
+
+* increase z-index of searchbar in kb ([04ee759](https://github.com/genaumann/website/commit/04ee759eea95d7f65ac6968bcfcc6329fa54c12b))
+
 ## [1.0.1](https://github.com/genaumann/website/compare/v1.0.0...v1.0.1) (2025-04-14)
 
 ### 🐛 Bugfix 🐛
