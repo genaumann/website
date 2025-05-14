@@ -10,6 +10,7 @@ import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
 import CodeBlock from '@/components/mdx/codeblock'
 import Adminition from '@/components/mdx/adminition'
+import {Tabs, TabItem} from '@/components/mdx/tabs'
 import rehypeHighlight from './rehype/highlightCode'
 
 type MDXReturnType = {
@@ -61,7 +62,9 @@ export const getParsedArticle = async (
       source: articleSource,
       components: {
         CodeBlock,
-        Adminition
+        Adminition,
+        Tabs,
+        TabItem
       },
       options: {
         parseFrontmatter: true,
