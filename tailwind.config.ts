@@ -1,5 +1,4 @@
 import type {Config} from 'tailwindcss'
-import {fontFamily} from 'tailwindcss/defaultTheme'
 
 export default {
   content: [
@@ -7,7 +6,7 @@ export default {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './lib/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  darkMode: ['selector'],
+  darkMode: 'selector',
   prefix: '',
   theme: {
     container: {
@@ -54,7 +53,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans]
+        sans: ['var(--font-sans)']
       },
       typography: (theme: any) => ({
         DEFAULT: {

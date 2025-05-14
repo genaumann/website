@@ -110,7 +110,7 @@ hue-6-2: #c18401
       https://github.com/JesseLeite/an-old-hope-syntax-atom
   */
   
-  code,
+  pre code,
   code span.hlLine {
     width: 100%;
     display: block;

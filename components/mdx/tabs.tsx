@@ -113,7 +113,7 @@ export function Tabs({children, id}: {children: ReactNode; id: string}) {
             <TabsTrigger
               key={tab.id}
               value={tab.id}
-              className="sm:flex-grow w-full text-foreground bg-secondary/40 data-[state=active]:bg-secondary/40 data-[state=active]:text-primary dark:data-[state=active]:text-primary/60">
+              className="sm:grow w-full text-foreground bg-secondary/40 data-[state=active]:bg-secondary/40 data-[state=active]:text-primary dark:data-[state=active]:text-primary/60">
               {tab.title}
             </TabsTrigger>
           ))}
