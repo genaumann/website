@@ -27,7 +27,7 @@ const CustomIcon: React.FC<CustomIconProps> = ({name, className, ...props}) => {
   return (
     <Component
       fill={color}
-      className={cn('svg-inline--fa fa-file-certificate fa-fw', className)}
+      className={cn('svg-inline--fa fa-fw', className)}
       {...props}
     />
   )
