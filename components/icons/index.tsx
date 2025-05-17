@@ -2,6 +2,7 @@ import React, {SVGProps} from 'react'
 import redhat from './redhat'
 import {cn} from '@/lib/cn'
 import TypeScript from './typescript'
+import BookOpen from './book-open'
 
 export const customIconMap = {
   redhat: {
@@ -11,6 +12,10 @@ export const customIconMap = {
   typescript: {
     Component: TypeScript,
     color: '#3178C6'
+  },
+  bookOpen: {
+    Component: BookOpen,
+    color: '#000000'
   }
 }
 
