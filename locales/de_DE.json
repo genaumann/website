@@ -68,10 +68,22 @@
   },
   "kb": {
     "toc": "Auf dieser Seite",
-    "moreArticles": "Weitere Artikel"
+    "moreArticles": "Weitere Artikel",
+    "metadata": {
+      "description": "Umfassende IT-Wissensdatenbank mit praxisnahen Artikeln zu DevOps, Softwareentwicklung und Serveradministration."
+    },
+    "title": {
+      "short": "KB"
+    }
   },
   "notFound": {
     "title": "Seite nicht gefunden",
     "goBack": "Zurück zur Startseite"
+  },
+  "app": {
+    "name": "Gino Naumann",
+    "metadata": {
+      "description": "DevOps Engineer Gino Naumann – Profil, Zertifikate und eine praxisnahe Knowledgebase rund um Automatisierung, CI/CD, Infrastruktur und moderne IT-Workflows."
+    }
   }
 }

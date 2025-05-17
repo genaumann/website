@@ -1,4 +1,6 @@
 import {getFlatArticleIndex, getParsedArticle} from '@/lib/mdx'
+import {Metadata} from 'next'
+import {getTranslations} from 'next-intl/server'
 import {notFound} from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -12,6 +14,24 @@ export async function generateStaticParams() {
       kb: article.slug.split('/')
     }))
   ]
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{locale: string; kb: string[]}>
+}): Promise<Metadata> {
+  const {kb, locale} = await params
+  const t = await getTranslations()
+  const article = await getParsedArticle(locale, kb)
+  if (!article) return {}
+
+  return {
+    title: `${t('app.name')} · ${t('kb.title.short')} · ${
+      article.frontmatter.title
+    }`,
+    description: article.frontmatter.description
+  }
 }
 
 // 404 for unspecified articles

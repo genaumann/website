@@ -1,6 +1,16 @@
 import {ArticleOverview} from '@/components/ui/article-overview'
 import {getArticlesByLocale} from '@/lib/mdx'
+import {Metadata} from 'next'
 import {getTranslations} from 'next-intl/server'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations()
+
+  return {
+    title: `${t('app.name')} · ${t('kb.title.short')}`,
+    description: t('kb.metadata.description')
+  }
+}
 
 export default async function Page({
   params

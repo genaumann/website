@@ -1,6 +1,6 @@
 import {cn} from '@/lib/cn'
 import {NextIntlClientProvider} from 'next-intl'
-import {getMessages} from 'next-intl/server'
+import {getMessages, getTranslations} from 'next-intl/server'
 import {Oswald as FontSans} from 'next/font/google'
 import {config as fontawesome} from '@fortawesome/fontawesome-svg-core'
 import {Metadata} from 'next'
@@ -21,9 +21,10 @@ const fontSans = FontSans({
 })
 
 export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations()
   return {
-    title: 'Gino Naumann',
-    description: 'Selfmade Webseite von Gino Naumann mit Blogfunktion'
+    title: t('app.name'),
+    description: t('app.metadata.description')
   }
 }
 
