@@ -1,5 +1,5 @@
 import {ArticleSidebar} from '@/components/kb/sidebar'
-import {findArticleBySlug, getArticlesByLocale} from '@/lib/mdx'
+import {getArticlesByLocale} from '@/lib/mdx'
 import {getTranslations} from 'next-intl/server'
 import {Fragment, ReactNode} from 'react'
 import {
@@ -12,6 +12,7 @@ import {
 import MobileSidebar from '@/components/kb/sidebar-mobile'
 import Search from '@/components/kb/search'
 import TocWrapper from '@/components/kb/toc/wrapper'
+import {findArticleBySlug} from '@/lib/mdx-edge'
 
 export default async function KBLayout({
   children,
