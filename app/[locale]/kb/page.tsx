@@ -1,5 +1,6 @@
 import {ArticleOverview} from '@/components/ui/article-overview'
 import {getArticlesByLocale} from '@/lib/mdx'
+import {LOCALE_KEY} from '@/locales'
 import {Metadata} from 'next'
 import {getTranslations} from 'next-intl/server'
 
@@ -15,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Page({
   params
 }: {
-  params: Promise<{locale: string}>
+  params: Promise<{locale: LOCALE_KEY}>
 }) {
   const {locale} = await params
   const articles = await getArticlesByLocale(locale)

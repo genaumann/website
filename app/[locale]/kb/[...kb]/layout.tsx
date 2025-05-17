@@ -13,13 +13,14 @@ import MobileSidebar from '@/components/kb/sidebar-mobile'
 import Search from '@/components/kb/search'
 import TocWrapper from '@/components/kb/toc/wrapper'
 import {findArticleBySlug} from '@/lib/mdx-edge'
+import {LOCALE_KEY} from '@/locales'
 
 export default async function KBLayout({
   children,
   params
 }: {
   children: ReactNode
-  params: Promise<{locale: string; kb: string[]}>
+  params: Promise<{locale: LOCALE_KEY; kb: string[]}>
 }) {
   const t = await getTranslations()
   const {locale, kb} = await params
