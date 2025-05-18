@@ -1,7 +1,7 @@
 {
   "common": {
     "aboutMe": "About me",
-    "knowledgebase": "Knowledgebase",
+    "knowledgebase": "Knowledge base",
     "certificates": "Certificates",
     "workExperience": "Work experience",
     "today": "Today",
@@ -68,10 +68,31 @@
   },
   "kb": {
     "toc": "Table of content",
-    "moreArticles": "More articles"
+    "moreArticles": "More articles",
+    "metadata": {
+      "description": "Comprehensive IT knowledgebase with practical articles on devops, software development and server administration.",
+      "ogDescription": "Knowledge base article"
+    },
+    "title": {
+      "short": "KB",
+      "long": "Knowledge base"
+    }
   },
   "notFound": {
     "title": "Page not found",
     "goBack": "Back to the homepage"
+  },
+  "app": {
+    "name": "Gino Naumann",
+    "metadata": {
+      "description": "DevOps Engineer Gino Naumann – Profile, certifications, and a hands-on knowledge base focused on automation, CI/CD, infrastructure, and modern IT workflows."
+    },
+    "shortName": "GNaumann"
+  },
+  "privacy": {
+    "title": "Data privacy",
+    "metadata": {
+      "description": "Data privacy declaration"
+    }
   }
 }

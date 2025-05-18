@@ -5,13 +5,14 @@ import {compileMDX} from 'next-mdx-remote/rsc'
 import {JSXElementConstructor, ReactElement} from 'react'
 import articles from '@/lib/articleIndex.json'
 import {Article, ArticleIndex, MDXFrontmatter} from './types'
-import {LOCALES} from '@/locales'
+import {LOCALE_KEY} from '@/locales'
 import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
 import CodeBlock from '@/components/mdx/codeblock'
 import Adminition from '@/components/mdx/adminition'
 import {Tabs, TabItem} from '@/components/mdx/tabs'
 import rehypeHighlight from './rehype/highlightCode'
+import {findArticleBySlug} from './mdx-edge'
 
 type MDXReturnType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,32 +23,8 @@ type MDXReturnType = {
   readonly author: Article['author']
 }
 
-export const findArticleBySlug = async (
-  locale: string,
-  slug: string
-): Promise<Article | null> => {
-  const localeArticles = articles[locale as keyof typeof articles]
-  if (!localeArticles) return null
-
-  const findInChildren = (items: Article[]): Article | null => {
-    for (const article of items) {
-      if (article.slug === slug || article.slug === `${slug}/index`) {
-        return article
-      }
-
-      if (article.children?.length) {
-        const found = findInChildren(article.children)
-        if (found) return found
-      }
-    }
-    return null
-  }
-
-  return findInChildren(localeArticles as unknown as Article[])
-}
-
 export const getParsedArticle = async (
-  locale: string,
+  locale: LOCALE_KEY,
   kb: string[]
 ): Promise<MDXReturnType | null> => {
   try {
@@ -87,9 +64,9 @@ export const getParsedArticle = async (
 }
 
 export const getArticlesByLocale = async (
-  locale: string
+  locale: LOCALE_KEY
 ): Promise<Article[]> => {
-  const localeArticles = articles[locale as keyof typeof articles] || []
+  const localeArticles = articles[locale] || []
   return localeArticles.map(article => ({
     ...article,
     createdAt: new Date(article.createdAt),
@@ -103,7 +80,7 @@ export const getArticlesByLocale = async (
 }
 
 export const getFlatArticleIndex = async (
-  locale: keyof typeof LOCALES
+  locale: LOCALE_KEY
 ): Promise<Article[]> => {
   const articleIndex = articles as unknown as ArticleIndex
   const localeArticles = articleIndex[locale] || []
