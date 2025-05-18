@@ -74,12 +74,11 @@ export default function HeaderItems({items}: {items: HeaderItem[]}) {
                 </NavigationMenuContent>
               </>
             ) : (
-              <Link href={item.href || '/'} passHref>
-                <NavigationMenuLink
-                  className={cn(navigationMenuTriggerStyle(), 'bg-inherit')}>
-                  {item.name}
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                className={cn(navigationMenuTriggerStyle(), 'bg-inherit')}
+                asChild>
+                <Link href={item.href || '/'}>{item.name}</Link>
+              </NavigationMenuLink>
             )}
           </NavigationMenuItem>
         ))}

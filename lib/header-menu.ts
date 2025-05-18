@@ -63,11 +63,11 @@ export const getHeaderMenu = (
           icon: 'suitcase'
         }
       ]
+    },
+    {
+      name: t('common.knowledgebase'),
+      href: '/kb'
     }
-    // {
-    //   name: t('common.knowledgebase'),
-    //   href: '/kb'
-    // }
   ],
   tools: [
     {

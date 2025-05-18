@@ -34,17 +34,6 @@ export default async function Header() {
             <HeaderItems items={headerMenu.items} />
           </div>
           <div className="hidden md:flex gap-3 text-2xl">
-            {/* {headerMenu.socials.map(social => (
-              <Link
-                className="hover:text-primary"
-                title={social.name}
-                rel="noopener noreferrer"
-                target="_blank"
-                key={social.name}
-                href={social.href}>
-                <Icon prefix="fab" name={social.icon} />
-              </Link>
-            ))} */}
             {headerMenu.tools.map(tool => (
               <tool.Component key={tool.name} />
             ))}
