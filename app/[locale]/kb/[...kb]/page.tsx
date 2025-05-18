@@ -9,11 +9,11 @@ export async function generateStaticParams() {
   return [
     ...(await getFlatArticleIndex('de')).map(article => ({
       locale: 'de',
-      kb: article.slug.split('/')
+      kb: article.slug.replace(/\/index$/, '').split('/')
     })),
     ...(await getFlatArticleIndex('en')).map(article => ({
       locale: 'en',
-      kb: article.slug.split('/')
+      kb: article.slug.replace(/\/index$/, '').split('/')
     }))
   ]
 }
