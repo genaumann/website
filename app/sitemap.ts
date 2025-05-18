@@ -1,14 +1,8 @@
 import {getFlatArticleIndex} from '@/lib/mdx'
+import {origin} from '@/lib/url'
 import {MetadataRoute} from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const origin =
-    process.env.VERCEL_ENV === 'production'
-      ? 'https://gnaumann.de'
-      : process.env.VERCEL_ENV === 'preview'
-      ? `https://${process.env.VERCEL_BRANCH_URL}`
-      : 'http://localhost:3000'
-
   const articles = await getFlatArticleIndex('de')
 
   return [
@@ -20,7 +14,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: {
         languages: {
           de: `${origin}/`,
-          en: `${origin}/en`
+          en: `${origin}/en`,
+          'x-default': `${origin}/`
         }
       }
     },
@@ -31,7 +26,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: {
         languages: {
           de: `${origin}/privacy`,
-          en: `${origin}/en/privacy`
+          en: `${origin}/en/privacy`,
+          'x-default': `${origin}/privacy`
         }
       }
     },
@@ -43,7 +39,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: {
         languages: {
           de: `${origin}/kb/${article.slug.replace(/\/index$/, '')}`,
-          en: `${origin}/en/kb/${article.slug.replace(/\/index$/, '')}`
+          en: `${origin}/en/kb/${article.slug.replace(/\/index$/, '')}`,
+          'x-default': `${origin}/kb/${article.slug.replace(/\/index$/, '')}`
         }
       }
     }))
