@@ -24,7 +24,7 @@ export default function HeaderItems({items}: {items: HeaderItem[]}) {
           <NavigationMenuItem key={item.name}>
             {item.elements && item.elements.length > 0 ? (
               <>
-                <NavigationMenuTrigger className="bg-inherit">
+                <NavigationMenuTrigger className="bg-secondary/40 font-semibold">
                   {item.name}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -75,7 +75,10 @@ export default function HeaderItems({items}: {items: HeaderItem[]}) {
               </>
             ) : (
               <NavigationMenuLink
-                className={cn(navigationMenuTriggerStyle(), 'bg-inherit')}
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  'bg-secondary/40 font-semibold'
+                )}
                 asChild>
                 <Link href={item.href || '/'}>{item.name}</Link>
               </NavigationMenuLink>
