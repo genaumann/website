@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "i": "npx dotenv -e .env.local -- pnpm install",
     "predev": "tsx ts/articleIndex.ts",
     "dev": "next dev --turbopack",
     "prebuild": "tsx ts/articleIndex.ts",
