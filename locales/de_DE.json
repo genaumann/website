@@ -1,7 +1,7 @@
 {
   "common": {
     "aboutMe": "Über mich",
-    "knowledgebase": "Knowledgebase",
+    "knowledgebase": "Knowledge Base",
     "certificates": "Zertifikate",
     "workExperience": "Berufserfahrung",
     "today": "Heute",
@@ -70,10 +70,12 @@
     "toc": "Auf dieser Seite",
     "moreArticles": "Weitere Artikel",
     "metadata": {
-      "description": "Umfassende IT-Wissensdatenbank mit praxisnahen Artikeln zu DevOps, Softwareentwicklung und Serveradministration."
+      "description": "Umfassende IT-Wissensdatenbank mit praxisnahen Artikeln zu DevOps, Softwareentwicklung und Serveradministration.",
+      "ogDescription": "Knowledge Base Artikel"
     },
     "title": {
-      "short": "KB"
+      "short": "KB",
+      "long": "Knowledge Base"
     }
   },
   "notFound": {
@@ -84,6 +86,13 @@
     "name": "Gino Naumann",
     "metadata": {
       "description": "DevOps Engineer Gino Naumann – Profil, Zertifikate und eine praxisnahe Knowledgebase rund um Automatisierung, CI/CD, Infrastruktur und moderne IT-Workflows."
+    },
+    "shortName": "GNaumann"
+  },
+  "privacy": {
+    "title": "Datenschutz",
+    "metadata": {
+      "description": "Datenschutzerklärung"
     }
   }
 }

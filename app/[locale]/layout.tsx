@@ -11,6 +11,7 @@ import {ThemeProvider} from '@/components/providers/theme'
 import Footer from '@/components/sections/footer'
 import {LOCALES} from '@/locales'
 import {notFound} from 'next/navigation'
+import {origin} from '@/lib/url'
 
 fontawesome.autoAddCss = false
 
@@ -23,8 +24,12 @@ const fontSans = FontSans({
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations()
   return {
-    title: t('app.name'),
-    description: t('app.metadata.description')
+    title: {
+      default: t('app.name'),
+      template: `%s · ${t('app.name')}`
+    },
+    metadataBase: new URL(origin),
+    manifest: `${origin}/manifest.webmanifest`
   }
 }
 

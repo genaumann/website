@@ -1,16 +1,30 @@
 import {ArticleOverview} from '@/components/ui/article-overview'
 import {getArticlesByLocale} from '@/lib/mdx'
+import getMetadata from '@/lib/metadata'
 import {LOCALE_KEY} from '@/locales'
 import {Metadata} from 'next'
 import {getTranslations} from 'next-intl/server'
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{locale: LOCALE_KEY}>
+}): Promise<Metadata> {
+  const {locale} = await params
   const t = await getTranslations()
 
-  return {
-    title: `${t('app.name')} · ${t('kb.title.short')}`,
-    description: t('kb.metadata.description')
-  }
+  return getMetadata({
+    title: t('kb.title.long'),
+    description: t('kb.metadata.description'),
+    slug: '/kb',
+    index: true,
+    locale,
+    og: {
+      type: 'website',
+      title: t('kb.title.short'),
+      description: t('kb.metadata.description')
+    }
+  })
 }
 
 export default async function Page({
@@ -28,7 +42,7 @@ export default async function Page({
     <div className="container flex flex-col md:flex-row md:justify-start md:gap-x-5 h-full">
       <div className="md:basis-1/3 md:relative sticky top-[97px] md:top-0">
         <h1 className="text-5xl text-center md:text-start font-semibold md:sticky md:top-1/2 bg-background/75 md:bg-none backdrop-blur md:backdrop-blur-none py-4 md:py-0 w-full md:w-fit md:transform md:-translate-y-1/2">
-          {t('common.knowledgebase')}
+          {t('kb.title.long')}
         </h1>
       </div>
       <div className="mx-auto md:basis-2/3 md:flex md:justify-center md:border-l md:border-muted md:border-dashed">
