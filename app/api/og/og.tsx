@@ -47,7 +47,7 @@ export default async function OGImage({
             </h2>
           </div>
         </div>
-        <div tw="flex flex-col w-[75%] ml-12 items-center">
+        <div tw="flex flex-col w-[72%] ml-12 items-center">
           <h1 tw="text-6xl text-white font-bold">{title}</h1>
           <p tw="text-white text-3xl text-neutral-400">{description}</p>
         </div>
