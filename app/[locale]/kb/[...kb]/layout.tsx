@@ -46,7 +46,7 @@ export default async function KBLayout({
           <ArticleSidebar articles={articles} />
         </div>
       </div>
-      <div className="min-h-[calc(100vh-195px)] md:grow mb-6 relative">
+      <div className="min-h-[calc(100vh-227px)] md:grow mb-6 relative">
         <div className="sticky top-[97px] bg-background/75 backdrop-blur border-b border-muted border-dashed py-2 md:py-1 -mx-8 md:-mx-5 h-fit md:h-[62px] z-10">
           <div className="container md:px-5 flex justify-between">
             <MobileSidebar articles={articles} />

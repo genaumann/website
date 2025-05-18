@@ -6,7 +6,7 @@ import {getTranslations} from 'next-intl/server'
 export default async function NotFound() {
   const t = await getTranslations()
   return (
-    <div className="flex min-h-[calc(100vh-170px)] flex-col items-center justify-center">
+    <div className="flex min-h-[calc(100vh-203px)] flex-col items-center justify-center">
       <div className="container flex max-w-md flex-col items-center justify-center gap-6 px-4 py-16 text-center md:py-24">
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
           <Icon
