@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
+    "@next/eslint-plugin-next": "^15.3.2",
     "@tailwindcss/postcss": "^4.1.6",
     "@types/hast": "^3.0.4",
     "@types/lodash": "^4.17.16",
@@ -69,6 +70,7 @@
     "@types/unist": "^3.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "gray-matter": "^4.0.3",
     "mdast-util-mdx": "^3.0.0",
     "postcss": "^8",
