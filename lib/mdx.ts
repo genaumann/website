@@ -12,7 +12,6 @@ import CodeBlock from '@/components/mdx/codeblock'
 import Adminition from '@/components/mdx/adminition'
 import {Grid, GridItem} from '@/components/mdx/grid'
 import {Tabs, TabItem} from '@/components/mdx/tabs'
-import rehypeHighlight from './rehype/highlightCode'
 import {findArticleBySlug} from './mdx-edge'
 
 type MDXReturnType = {
@@ -49,8 +48,7 @@ export const getParsedArticle = async (
       options: {
         parseFrontmatter: true,
         mdxOptions: {
-          remarkPlugins: [remarkGfm, remarkCodeBlock],
-          rehypePlugins: [rehypeHighlight]
+          remarkPlugins: [remarkGfm, remarkCodeBlock]
         }
       }
     })

@@ -64,4 +64,16 @@
   article h6 {
     @apply scroll-mt-[110px];
   }
+
+  .shiki,
+  .shiki span {
+    background-color: inherit !important;
+  }
+
+  .dark .shiki,
+  .dark .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: inherit !important;
 }
+}
+

@@ -1,61 +1,72 @@
-import {Code, Parent, Root} from 'mdast'
-import {MdxJsxFlowElement, MdxJsxAttribute} from 'mdast-util-mdx'
-import {Plugin, Transformer} from 'unified'
 import {visit} from 'unist-util-visit'
+import {Plugin} from 'unified'
+import {Code} from 'mdast'
+import {codeToHtml} from 'shiki'
+import {getShikiConfig} from '../shiki'
 
-const countLines = (str: string) => {
-  const matches = str.match(/\n/g)
-  return matches ? matches.length : 0
-}
+const parseMeta = (meta: string): Record<string, string | boolean> => {
+  const result: Record<string, string | boolean> = {}
 
-const parseStringToObject = (str: string | null | undefined) => {
-  if (!str) {
-    return []
-  }
-  const arr = str.split(' ')
-
-  return arr.map(item => {
-    const [name, value] = item.split('=')
-    return {
-      type: 'mdxJsxAttribute',
-      name: name,
-      value: value.replace(/"/g, '')
-    } as MdxJsxAttribute
-  })
-}
-
-const transformer: Transformer<Root> = ast => {
-  visit(
-    ast,
-    'code',
-    (node: Code, index: number | undefined, parent: Parent | undefined) => {
-      parent!.children[index!] = {
-        type: 'mdxJsxFlowElement',
-        name: 'CodeBlock',
-        attributes: [
-          {
-            type: 'mdxJsxAttribute',
-            name: 'line',
-            value: countLines(node.value) + 1
-          },
-          {
-            type: 'mdxJsxAttribute',
-            name: 'language',
-            value: node.lang ? node.lang : 'nohighlight'
-          },
-          ...parseStringToObject(node.meta)
-        ],
-        children: [
-          {
-            type: 'code',
-            value: node.value,
-            lang: node.lang ? node.lang : 'nohighlight'
-          }
-        ]
-      } as MdxJsxFlowElement
+  meta.split(' ').forEach(entry => {
+    const [key, value] = entry.split('=')
+    if (value === undefined) {
+      result[key] = true
+    } else {
+      result[key] = value
     }
-  )
+  })
+
+  return result
 }
 
-export const remarkCodeblock: Plugin<[], Root> = () => transformer
-export default remarkCodeblock
+const remarkCodeMeta: Plugin = () => {
+  return async tree => {
+    const codeNodes: Code[] = []
+    visit(tree, 'code', (node: Code) => {
+      codeNodes.push(node)
+    })
+
+    for (const node of codeNodes) {
+      if (node.meta || node.value) {
+        const meta = parseMeta(node.meta || '')
+        const line = node.value ? node.value.split('\n').length : 0
+
+        let code = node.value
+
+        if (node.lang) {
+          code = await codeToHtml(node.value, getShikiConfig(node.lang))
+        }
+
+        Object.assign(node, {
+          type: 'mdxJsxFlowElement',
+          name: 'CodeBlock',
+          attributes: [
+            {
+              type: 'mdxJsxAttribute',
+              name: 'language',
+              value: node.lang
+            },
+            {
+              type: 'mdxJsxAttribute',
+              name: 'line',
+              value: line.toString()
+            },
+            {
+              type: 'mdxJsxAttribute',
+              name: 'code',
+              value: code
+            },
+            ...Object.entries(meta).map(([key, value]) => ({
+              type: 'mdxJsxAttribute',
+              name: key,
+              value: value.toString()
+            }))
+          ],
+          children: []
+        })
+      }
+    }
+  }
+}
+
+export default remarkCodeMeta

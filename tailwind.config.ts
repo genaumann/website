@@ -63,9 +63,6 @@ export default {
               center: true,
               padding: '2rem'
             },
-            pre: {
-              paddingBottom: '0'
-            },
             'max-width': '1400px',
             'code::before': {
               content: ''
@@ -81,7 +78,15 @@ export default {
               display: 'inline',
               backgroundColor: 'hsl(var(--muted))',
               padding: '2px 4px',
-              borderRadius: '0.35rem'
+              borderRadius: '0.35rem',
+              'font-size': theme('fontSize.sm')
+            },
+            'pre code': {
+              fontFamily: 'Menlo',
+              'font-size': theme('fontSize.sm')
+            },
+            'button code': {
+              'font-size': theme('fontSize.xs')
             },
             '--tw-prose-body': theme('colors.foreground'),
             '--tw-prose-headings': theme('colors.foreground'),
