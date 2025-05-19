@@ -126,6 +126,21 @@ const SelectItem = React.forwardRef<
 ))
 SelectItem.displayName = SelectPrimitive.Item.displayName
 
+const SelectItemNoChild = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+>(({className, ...props}, ref) => (
+  <SelectPrimitive.Item
+    ref={ref}
+    className={cn(
+      'flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 gap-2',
+      className
+    )}
+    {...props}
+  />
+))
+SelectItemNoChild.displayName = SelectPrimitive.Item.displayName
+
 const SelectSeparator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
@@ -146,6 +161,7 @@ export {
   SelectContent,
   SelectLabel,
   SelectItem,
+  SelectItemNoChild,
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton

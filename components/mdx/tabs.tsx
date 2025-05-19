@@ -16,9 +16,8 @@ import {
 import {
   Select,
   SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
+  SelectItemNoChild,
+  SelectTrigger
 } from '@/components/ui/select'
 import {useSearchParams, useRouter, usePathname} from 'next/navigation'
 import {createQueryString} from '@/lib/url'
@@ -93,15 +92,15 @@ export function Tabs({children, id}: {children: ReactNode; id: string}) {
         <div className="block sm:hidden w-full mb-2">
           <Select value={activeTab} onValueChange={updateActiveTab}>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select a tab">
-                {activeTabTitle}
-              </SelectValue>
+              <div dangerouslySetInnerHTML={{__html: activeTabTitle}} />
             </SelectTrigger>
             <SelectContent>
               {tabs.map(tab => (
-                <SelectItem key={tab.id} value={tab.id}>
-                  {tab.title}
-                </SelectItem>
+                <SelectItemNoChild
+                  key={tab.id}
+                  value={tab.id}
+                  dangerouslySetInnerHTML={{__html: tab.title}}
+                />
               ))}
             </SelectContent>
           </Select>
@@ -113,9 +112,9 @@ export function Tabs({children, id}: {children: ReactNode; id: string}) {
             <TabsTrigger
               key={tab.id}
               value={tab.id}
-              className="sm:grow w-full text-foreground data-[state=active]:bg-primary/20 data-[state=active]:text-background-foreground">
-              {tab.title}
-            </TabsTrigger>
+              dangerouslySetInnerHTML={{__html: tab.title}}
+              className="sm:grow w-full text-foreground data-[state=active]:bg-primary/20 data-[state=active]:text-background-foreground gap-2"
+            />
           ))}
         </TabsList>
         {children}
