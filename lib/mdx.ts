@@ -9,7 +9,7 @@ import {LOCALE_KEY} from '@/locales'
 import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
 import CodeBlock from '@/components/mdx/codeblock'
-import Adminition from '@/components/mdx/adminition'
+import Admonition from '@/components/mdx/admonition'
 import {Grid, GridItem} from '@/components/mdx/grid'
 import ArticleGrid from '@/components/mdx/article-grid'
 import {Tabs, TabItem} from '@/components/mdx/tabs'
@@ -40,7 +40,7 @@ export const getParsedArticle = async (
       source: articleSource,
       components: {
         CodeBlock,
-        Adminition,
+        Admonition,
         Tabs,
         TabItem,
         Grid,
