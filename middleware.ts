@@ -13,12 +13,17 @@ export default async function middleware(request: NextRequest) {
   return await kbMiddleware(request, response)
 }
 
+// TODO: looks like shit
 async function kbMiddleware(request: NextRequest, response: NextResponse) {
   const [, locale, ...segments] = request.nextUrl.pathname.split('/')
   const isLocale = locale === 'en' || locale === 'de'
   const isKBIndex =
     (segments[0] === 'kb' || locale === 'kb') &&
     segments[segments.length - 1] === 'index'
+
+  const requestHeaders = new Headers(response.headers)
+  requestHeaders.set('x-url', request.nextUrl.pathname)
+  response.headers.set('x-url', request.nextUrl.pathname)
 
   if (isKBIndex) {
     segments.pop()
@@ -28,7 +33,10 @@ async function kbMiddleware(request: NextRequest, response: NextResponse) {
           segments[0] === 'kb' ? '' : 'kb/'
         }${segments.join('/')}`,
         request.url
-      )
+      ),
+      {
+        headers: requestHeaders
+      }
     )
   }
 

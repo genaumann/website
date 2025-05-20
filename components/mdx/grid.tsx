@@ -8,7 +8,7 @@ interface GridItemProps {
   title: string
   icon?: IconName
   iconSize?: SizeProp
-  iconPrefix: IconPrefix
+  iconPrefix?: IconPrefix
   href?: string
   children: ReactNode
 }
@@ -30,27 +30,26 @@ export function GridItem({
   children
 }: GridItemProps) {
   return (
-    <>
-      <div
-        className={cn(
-          'border relative border-input rounded-md p-4 bg-secondary/40',
-          href && 'hover:ring hover:ring-primary'
-        )}>
-        {icon && (
-          <Icon
-            className="mb-3 block"
-            prefix={iconPrefix}
-            size={iconSize}
-            name={icon}></Icon>
-        )}
-        {title && <strong className="text-xl">{title}</strong>}
-        {href && (
-          <Link href={href}>
-            <span className="absolute -inset-px rounded-md" />
-          </Link>
-        )}
-        <div className="text-muted-foreground">{children}</div>
-      </div>
-    </>
+    <div
+      className={cn(
+        'border relative border-input rounded-md p-4 bg-secondary/40',
+        href && 'hover:ring hover:ring-primary'
+      )}>
+      {icon && (
+        <Icon
+          className="mb-3 block"
+          prefix={iconPrefix}
+          size={iconSize}
+          name={icon}
+        />
+      )}
+      {title && <strong className="text-xl">{title}</strong>}
+      {href && (
+        <Link href={href}>
+          <span className="absolute -inset-px rounded-md" />
+        </Link>
+      )}
+      <div className="text-muted-foreground">{children}</div>
+    </div>
   )
 }

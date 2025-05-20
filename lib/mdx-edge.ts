@@ -25,3 +25,15 @@ export const findArticleBySlug = async (
 
   return findInChildren(localeArticles as unknown as Article[])
 }
+
+export const absoluteRelativePath = (path: string, currentPath: string) => {
+  if (path.startsWith('/')) {
+    const pathWithoutSlash = path.substring(1)
+    if (pathWithoutSlash.split('/').length === 1) {
+      return `${pathWithoutSlash}/index`
+    }
+    return pathWithoutSlash
+  }
+
+  return `${currentPath}/${path}`
+}

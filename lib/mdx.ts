@@ -11,6 +11,7 @@ import remarkCodeBlock from './remark/codeblock'
 import CodeBlock from '@/components/mdx/codeblock'
 import Adminition from '@/components/mdx/adminition'
 import {Grid, GridItem} from '@/components/mdx/grid'
+import ArticleGrid from '@/components/mdx/article-grid'
 import {Tabs, TabItem} from '@/components/mdx/tabs'
 import {findArticleBySlug} from './mdx-edge'
 
@@ -43,7 +44,8 @@ export const getParsedArticle = async (
         Tabs,
         TabItem,
         Grid,
-        GridItem
+        GridItem,
+        ArticleGrid
       },
       options: {
         parseFrontmatter: true,
