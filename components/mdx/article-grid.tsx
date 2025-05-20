@@ -2,14 +2,10 @@ import {absoluteRelativePath} from '@/lib/mdx-edge'
 import {Grid, GridItem} from './grid'
 import {findArticleBySlug} from '@/lib/mdx-edge'
 import {getLocale, LOCALE_KEY} from '@/locales'
-import {SizeProp} from '@fortawesome/fontawesome-svg-core'
 import {headers} from 'next/headers'
 
 type ArticleGridProps = {
-  articles: {
-    slug: string
-    iconSize?: SizeProp
-  }[]
+  articles: string[]
 }
 
 export default async function ArticleGrid({
@@ -23,26 +19,19 @@ export default async function ArticleGrid({
   const articles = await Promise.all(
     _articles.map(
       async article =>
-        await findArticleBySlug(
-          locale,
-          absoluteRelativePath(article.slug, kbPath)
-        )
+        await findArticleBySlug(locale, absoluteRelativePath(article, kbPath))
     )
   )
 
   return (
     <Grid>
       {articles.map((article, index) => {
-        const {iconSize} = _articles[index]
         return (
           article && (
             <GridItem
               key={index}
               title={article.title}
-              icon={article.icon}
-              href={`/kb/${article.slug}`}
-              iconPrefix={article.iconPrefix}
-              iconSize={iconSize}>
+              href={`/kb/${article.slug}`}>
               {article.description}
             </GridItem>
           )

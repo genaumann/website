@@ -1,14 +1,9 @@
 import {ReactNode} from 'react'
 import Link from 'next/link'
-import Icon, {IconName, IconPrefix} from '../ui/icon'
-import {SizeProp} from '@fortawesome/fontawesome-svg-core'
 import {cn} from '@/lib/cn'
 
 interface GridItemProps {
   title: string
-  icon?: IconName
-  iconSize?: SizeProp
-  iconPrefix?: IconPrefix
   href?: string
   children: ReactNode
 }
@@ -21,28 +16,13 @@ export function Grid({children}: {children: ReactNode}) {
   )
 }
 
-export function GridItem({
-  title,
-  icon,
-  iconSize,
-  iconPrefix,
-  href,
-  children
-}: GridItemProps) {
+export function GridItem({title, href, children}: GridItemProps) {
   return (
     <div
       className={cn(
         'border relative border-input rounded-md p-4 bg-secondary/40',
         href && 'hover:ring hover:ring-primary'
       )}>
-      {icon && (
-        <Icon
-          className="mb-3 block"
-          prefix={iconPrefix}
-          size={iconSize}
-          name={icon}
-        />
-      )}
       {title && <strong className="text-xl">{title}</strong>}
       {href && (
         <Link href={href}>
