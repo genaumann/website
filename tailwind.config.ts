@@ -88,6 +88,9 @@ export default {
             'button code': {
               'font-size': theme('fontSize.xs')
             },
+            'article hr': {
+              borderStyle: 'dashed'
+            },
             '--tw-prose-body': theme('colors.foreground'),
             '--tw-prose-headings': theme('colors.foreground'),
             '--tw-prose-bold': theme('colors.foreground'),
@@ -96,7 +99,8 @@ export default {
             '--tw-prose-bullets': theme('colors.foreground'),
             '--tw-prose-pre-bg': 'transparent',
             '--tw-prose-pre-code': theme('colors.foreground'),
-            '--tw-prose-links': theme('colors.primary.DEFAULT')
+            '--tw-prose-links': theme('colors.primary.DEFAULT'),
+            '--tw-prose-hr': theme('colors.muted.DEFAULT')
           }
         }
       })
