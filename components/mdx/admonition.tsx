@@ -52,7 +52,7 @@ export default function Admonition({
   return (
     <div
       className={cn(
-        'my-6 rounded-md border-l-4 p-4',
+        'my-5 rounded-md border-l-4 p-4',
         styles.container,
         styles.border,
         className

@@ -38,7 +38,8 @@ export default async function KBLayout({
 
   return (
     <div className="container md:flex md:flex-row md:gap-5 h-full relative">
-      <div className="hidden md:block border-r border-muted border-dashed">
+      {/* Left sidebar */}
+      <div className="hidden md:block border-r border-muted border-dashed shrink-0">
         <div className="sticky top-28 overflow-auto">
           <p className="text-lg font-semibold mb-4">
             {t('common.knowledgebase')}
@@ -46,7 +47,9 @@ export default async function KBLayout({
           <ArticleSidebar articles={articles} />
         </div>
       </div>
-      <div className="min-h-[calc(100vh-227px)] md:grow mb-6 relative">
+
+      {/* Main content */}
+      <div className="min-h-[calc(100vh-227px)] mb-6 relative flex-1 min-w-0">
         <div className="sticky top-[97px] bg-background/75 backdrop-blur border-b border-muted border-dashed py-2 md:py-1 -mx-8 md:-mx-5 h-fit md:h-[62px] z-10">
           <div className="container md:px-5 flex justify-between">
             <MobileSidebar articles={articles} />
@@ -77,9 +80,11 @@ export default async function KBLayout({
             })}
           </BreadcrumbList>
         </Breadcrumb>
-        <article className="prose">{children}</article>
+        <article className="prose max-w-full">{children}</article>
       </div>
-      <div className="min-w-52 hidden lg:block border-l border-dashed border-muted ps-4">
+
+      {/* TOC */}
+      <div className="w-52 hidden lg:block border-l border-dashed border-muted ps-4 shrink-0">
         <div className="sticky top-28 overflow-auto">
           <p className="text-lg font-semibold mb-4">{t('kb.toc')}</p>
           <TocWrapper />

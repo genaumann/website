@@ -87,7 +87,10 @@ export function Tabs({children, id}: {children: ReactNode; id: string}) {
 
   return (
     <TabsContext.Provider value={{registerTab, activeTab}}>
-      <ShadcnTabs value={activeTab} onValueChange={updateActiveTab}>
+      <ShadcnTabs
+        value={activeTab}
+        onValueChange={updateActiveTab}
+        className="my-5">
         {/* Mobile: Select Dropdown */}
         <div className="block sm:hidden w-full mb-2">
           <Select value={activeTab} onValueChange={updateActiveTab}>
