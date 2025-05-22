@@ -17,7 +17,7 @@ export default async function About() {
           <Image
             alt="Gino"
             src={'/me-black.png'}
-            width={200}
+            width={217}
             height={200}
             className="hidden dark:md:block"
           />
@@ -30,7 +30,7 @@ export default async function About() {
             <Image
               alt="Gino"
               src={'/me-white.png'}
-              width={200}
+              width={217}
               height={200}
               className="md:hidden mx-auto dark:hidden"
             />

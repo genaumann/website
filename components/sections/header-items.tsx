@@ -32,21 +32,24 @@ export default function HeaderItems({items}: {items: HeaderItem[]}) {
                     {item.lightImageUrl && item.darkImageUrl && (
                       <div className="row-span-3">
                         <NavigationMenuLink asChild>
-                          <Link href={item.imageLink || '/'}>
+                          <Link
+                            className="relative"
+                            href={item.imageLink || '/'}>
                             <Image
                               alt={item.name}
                               src={item.lightImageUrl}
                               className="dark:hidden"
-                              width={200}
+                              width={217}
                               height={200}
                             />
                             <Image
                               alt={item.name}
                               src={item.darkImageUrl}
                               className="dark:block hidden"
-                              width={200}
+                              width={217}
                               height={200}
                             />
+                            <div className="absolute inset-x-0 bottom-0 h-12 bg-linear-to-t from-popover to-transparent" />
                           </Link>
                         </NavigationMenuLink>
                       </div>

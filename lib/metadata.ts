@@ -34,7 +34,9 @@ export default async function getMetadata({
   }`
   const ogLocale = LOCALES[locale] || LOCALES.de
 
-  const url = `${origin}${slug}`
+  const url = `${origin}${locale !== 'de' ? `/${locale}` : ''}${
+    slug === '/' ? '' : slug
+  }`
 
   return {
     title,
@@ -50,7 +52,7 @@ export default async function getMetadata({
     alternates: {
       canonical: url,
       languages: {
-        'en-US': `${origin}/en${slug}`,
+        'en-US': `${origin}/en${slug === '/' ? '' : slug}`,
         'de-DE': `${origin}${slug}`,
         'x-default': `${origin}${slug}`
       }

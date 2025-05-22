@@ -15,12 +15,14 @@ import {HeaderItem, HeaderMenu} from '@/lib/header-menu'
 import Link from 'next/link'
 import Image from 'next/image'
 import {useState} from 'react'
+import {useTranslations} from 'next-intl'
 
 export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
+  const t = useTranslations()
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" aria-label={t('common.sidebar')}>
           <Icon name="bars" size="2xl" />
         </Button>
       </SheetTrigger>
@@ -34,15 +36,15 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
                 className="dark:block hidden"
                 alt={headerMenu.logo.name}
                 src={headerMenu.logo.darkImageUrl}
-                width={52}
-                height={65}
+                width={75}
+                height={43}
               />
               <Image
                 className="dark:hidden"
                 alt={headerMenu.logo.name}
                 src={headerMenu.logo.lightImageUrl}
-                width={52}
-                height={65}
+                width={75}
+                height={43}
               />
               <span>{headerMenu.logo.name}</span>
             </Link>
@@ -51,17 +53,6 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
         <HeaderMobileItems items={headerMenu.items} />
         <SheetFooter className="mt-auto text-2xl">
           <div className="flex justify-center gap-2">
-            {/* {headerMenu.socials.map(social => (
-              <Link
-                className="hover:text-primary"
-                title={social.name}
-                rel="noopener noreferrer"
-                target="_blank"
-                key={social.name}
-                href={social.href}>
-                <Icon prefix="fab" name={social.icon} />
-              </Link>
-            ))} */}
             {headerMenu.tools.map(tool => (
               <tool.Component key={tool.name} />
             ))}

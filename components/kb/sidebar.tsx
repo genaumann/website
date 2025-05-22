@@ -10,6 +10,7 @@ import {Article} from '@/lib/types'
 import Icon from '@/components/ui/icon'
 import {Button} from '../ui/button'
 import {cn} from '@/lib/cn'
+import {useTranslations} from 'next-intl'
 
 const ArticleList = ({
   articles,
@@ -22,6 +23,8 @@ const ArticleList = ({
   expandedSlugs: string[]
   setExpandedSlugs: React.Dispatch<React.SetStateAction<string[]>>
 }) => {
+  const t = useTranslations('kb.sidebar')
+
   const toggleExpand = (slug: string) => {
     setExpandedSlugs(prev => {
       const clearedSlug = slug.replace(/\/index$/, '')
@@ -58,6 +61,10 @@ const ArticleList = ({
                   variant="ghost"
                   size="icon"
                   className="hover:bg-inherit"
+                  aria-label={
+                    isExpanded ? t('deflateButton') : t('expandButton')
+                  }
+                  aria-expanded={isExpanded}
                   onClick={() => toggleExpand(article.slug)}>
                   {isExpanded ? (
                     <Icon name="chevron-down" />

@@ -13,7 +13,9 @@
     "lookingFor": "What are you searching for?",
     "language": "Language",
     "theme": "Theme",
-    "themeSwitch": "Change theme"
+    "themeSwitch": "Change theme",
+    "sidebar": "Sidebar",
+    "selectLanguage": "Select language"
   },
   "hero": {
     "more": "Explore more"
@@ -76,6 +78,13 @@
     "title": {
       "short": "KB",
       "long": "Knowledge base"
+    },
+    "article": {
+      "copyCode": "Copy code"
+    },
+    "sidebar": {
+      "deflateButton": "Defalte sub articles",
+      "expandButton": "Expand sub articles"
     }
   },
   "notFound": {

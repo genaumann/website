@@ -2,10 +2,12 @@
 
 import {Button} from '@/components/ui/button'
 import Icon from '@/components/ui/icon'
+import {useTranslations} from 'next-intl'
 import {useState} from 'react'
 
 export default function CodeBlockCopyButton({id}: {id?: string}) {
   const [copied, setCopied] = useState(false)
+  const t = useTranslations('kb.article')
 
   if (!id) return null
 
@@ -26,6 +28,7 @@ export default function CodeBlockCopyButton({id}: {id?: string}) {
     <Button
       onClick={copyToClipboard}
       variant="ghost"
+      aria-label={t('copyCode')}
       className="cursor-pointer group hover:bg-transparent">
       {copied ? (
         <Icon

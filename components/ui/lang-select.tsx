@@ -1,6 +1,6 @@
 'use client'
 
-import {useLocale} from 'next-intl'
+import {useLocale, useTranslations} from 'next-intl'
 import {
   Select,
   SelectContent,
@@ -27,6 +27,7 @@ export default function LangSelect() {
   const router = useRouter()
   const pathname = usePathname()
   const params = useParams()
+  const t = useTranslations('common')
 
   const localeMap: LocaleMap = {
     de: {
@@ -58,7 +59,9 @@ export default function LangSelect() {
 
   return (
     <Select defaultValue={locale} onValueChange={changeLocale}>
-      <SelectTrigger className="min-w-[109px] bg-secondary/40">
+      <SelectTrigger
+        className="min-w-[109px] bg-secondary/40"
+        aria-label={t('selectLanguage')}>
         <SelectValue
           placeholder={
             <>
