@@ -1,0 +1,27 @@
+---
+title: Salt
+description: Ein Open-Source-Tool zur Automatisierung und Verwaltung von IT-Infrastrukturen
+icon: salt
+---
+
+# Salt
+
+SaltStack, kurz Salt, ist ein Open-Source-Tool zur Automatisierung und Verwaltung von IT-Infrastrukturen.
+Es wird vor allem für Konfigurationsmanagement, Remote-Ausführung von Befehlen und Systemautomatisierung eingesetzt.
+Salt basiert auf einer Master/Minion-Architektur, bei der der Master zentrale Steuerungsaufgaben übernimmt und die Minions die verwalteten Systeme darstellen.
+Die Konfiguration erfolgt über YAML-basierte State-Dateien (SLS), mit denen sich der gewünschte Systemzustand deklarativ beschreiben lässt.
+Neben der agentenbasierten Kommunikation bietet Salt auch einen agentenlosen Betrieb über SSH.
+Dank seiner hohen Skalierbarkeit eignet sich Salt besonders gut für große IT-Umgebungen mit vielen Servern.
+Es ermöglicht nicht nur automatisierte Softwareinstallationen und Konfigurationsänderungen, sondern auch eine schnelle, parallele Ausführung von Befehlen auf mehreren Systemen.
+Durch seinen modularen Aufbau ist Salt flexibel erweiterbar und lässt sich an individuelle Anforderungen anpassen.
+
+<Admonition variant="danger" title="Aktueller Stand von Salt">
+Der aktuelle Stand von Salt ist unklar.
+Salt erhält aktuell noch Bugfixes, jedoch keine neuen Features.
+
+Bei einer Neuinstallation oder Migration, würde ich aktuell auf [Ansible](https://www.ansible.com/) setzen.
+</Admonition>
+
+## Inhalte
+
+<ArticleGrid articles={['gpg_pillar']}/>

@@ -3,6 +3,7 @@ import redhat from './redhat'
 import {cn} from '@/lib/cn'
 import TypeScript from './typescript'
 import BookOpen from './book-open'
+import Salt from './salt'
 
 export const customIconMap = {
   redhat: {
@@ -12,6 +13,10 @@ export const customIconMap = {
   typescript: {
     Component: TypeScript,
     color: '#3178C6'
+  },
+  salt: {
+    Component: Salt,
+    color: '#57BCAD'
   },
   bookOpen: {
     Component: BookOpen,

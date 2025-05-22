@@ -1,0 +1,146 @@
+---
+title: Salt Pillar Verschlüsselung
+description: Salt Pillar Verschlüsselung mittels GPG
+icon: salt
+---
+
+# Pillar Verschlüsselung
+
+Wenn der Ansatz von Infrastructure as Code (IaC) zur Verwaltung der Systeme genutzt wird, sollten geheime Daten niemals im Klartext im Git-Repository eingecheckt werden.
+Salt bietet die Möglichkeit Pillars mittels GPG zu verschlüsseln.
+
+Somit wird das Secret verschlüsselt im Git eingecheckt.
+Der dazugehörige GPG-Schlüssel wird benötigt, um das Secret zu entschlüsseln.
+Die Entschlüsselung übernimmt der Salt-Master.
+
+<Admonition title='Pillar? Secrets? Was denn nun?' variant="info">
+    Secrets werden innerhalb von Pillars gespeichert.
+    Es werden also die Pillars verschlüsselt, was im Endeffekt ein Secret darstellt.
+</Admonition>
+
+---
+
+## Erstellung des GPG Schlüsselpaars
+
+Es sollte ein neues Schlüsselpaar **ohne** Passwortschutz erstellt werden.
+
+```bash variant='terminal' title='GPG Schlüssel erstellen' id='gpg-keygen'
+mkdir /etc/salt/gpgkeys
+chmod 700 /etc/salt/gpgkeys
+gpg --gen-key --homedir /etc/salt/gpgkeys
+```
+
+Das Verzeichnis `/etc/salt/gpgkeys` darf nur vom User gelesen werden, der den Salt-Master ausführt.
+
+<Admonition title="Welcher User führt bei mir den Master aus?" variant="info">
+    ```bash variant='terminal' id='salt-master-user'
+    ps aux | grep salt-master
+    ```
+    
+    In der ersten Spalte wird der Username angezeigt.
+</Admonition>
+
+```bash variant='terminal' title='Berechtigungen setzen' id='salt-master-user-permissions'
+chown -R <user>:<group> /etc/salt/gpgkeys
+```
+
+## Konfiguration des Salt-Masters
+
+Nun muss die Konfiguration `gpg_keydir` dem Salt-Master übergeben werden.
+
+```bash variant='terminal' title='Konfiguration Salt-Master' id='salt-master-config'
+echo 'gpg_keydir: /etc/salt/gpgkeys' > /etc/salt/master.d/gpg-pillar.conf
+systemctl reload-or-restart salt-master
+```
+
+## Erstellung eines verschlüsselten Secrets
+
+Vorerst muss die Key-ID herausgefunden werden:
+
+```bash variant='terminal' title='Key-ID herausfinden' id='gpg-key-id'
+gpg --homedir /etc/salt/gpgkeys --list-secret-keys 
+```
+
+```text variant='output'
+sec   rsa3072 2023-09-05 [SC] [expires: 2025-09-04]
+      940CBABC0E803D252E7853F3AE0F5E016A10900C
+uid           [ultimate] Test User <test@example.com>
+ssb   rsa3072 2023-09-05 [E] [expires: 2025-09-04]
+```
+
+Die Key-ID des GPG-Schlüssels lautet: `940CBABC0E803D252E7853F3AE0F5E016A10900C`
+
+Das verschlüsselte Secret kann folgendermaßen erstellt werden:
+
+```bash variant='terminal' title='Verschlüsseltes Secret erstellen' id='gpg-encrypt'
+echo -n 'supersecret' | gpg --trust-model always -ear 940CBABC0E803D252E7853F3AE0F5E016A10900C --homedir /etc/salt/gpgkeys
+```
+
+```text variant='output'
+-----BEGIN PGP MESSAGE-----
+
+hQGMA7vGc9C+pa4RAQwAnSpElvq4Ag0GEFlrHn/gduGRj0/aDxlZgXuXEniGNwjG
+3N2+oN13Hd1sHEv5gEBXTyes/LAIyXA8nYuG1wmF1A6F110tKJM0jueq5sSdrEsV
+WmXXNAVUHIHDyj01rZVgN6GdEYdFHgZ2bgi2zlVWRDQO8CHJeUrQEMMuC6o6jdj7
+4l4b1Fi0QSQt49kNUqmT/iqmQvjzz7XYoLZYlCoyYje8qe0dqJIRjMdPhNd6PnfN
+vJKRKD4AOk29dPEhhPOYbJ5SeMALfNnpR7h1opK/IazOlFr6fS4ipjWUYog+QdHk
+BrOmty1jH5wsStYoIm+g2SicovDLUujl1yD126nsKck/6s5mCiX8PhwIdfoVYIDp
+SMyl+Fe5gEE9o6AiYOYJN51IUbjVJCxz6vyj5abbGXVfiooV02+JIlVlCliAqzd2
+nuUpxWzPRO8J95XLL0MlZlGb9vZioTWEaocMCYnG7mhAK1DGZGb8pfTtJZyco5gU
+IqxAwplFPNxeZfM6r8a60kYBoYP7YWdZXzfQafZiTNbU0A1Ud4YJcqXbuOzIgQHi
+jlco7OyzdMCb5TBAfqyJPZd0Dkzef6/ER0rLSl+1cKaGzrAcZ8oy
+=g+n0
+-----END PGP MESSAGE-----
+```
+
+<Admonition title="Nutzung eines Aliases" variant="info">
+    Der Befehl `gpg --trust-model always -ear 940CBABC0E803D252E7853F3AE0F5E016A10900C --homedir /etc/salt/gpgkeys` kann auch als Alias definiert werden.
+
+    ```bash variant='terminal' title='Alias erstellen' id='gpg-alias'
+    echo "alias gpg_encrypt='gpg --trust-model always -ear 940CBABC0E803D252E7853F3AE0F5E016A10900C --homedir /etc/salt/gpgkeys'" >> ~/.bashrc
+    source ~/.bashrc
+    echo -n 'supersecret' | gpg_encrypt
+    ```
+</Admonition>
+
+## Nutzung des verschlüsselten Secrets
+
+Die erstellte PGP-Message kann nun als Pillar definiert werden.
+
+```yaml variant='file' filePath='/srv/salt/pillar/secret.sls' id='gpg-pillar'
+#!yaml|gpg
+---
+data1: this is not encrypted
+data2: |
+    -----BEGIN PGP MESSAGE-----
+
+    hQGMA7vGc9C+pa4RAQwAnSpElvq4Ag0GEFlrHn/gduGRj0/aDxlZgXuXEniGNwjG
+    3N2+oN13Hd1sHEv5gEBXTyes/LAIyXA8nYuG1wmF1A6F110tKJM0jueq5sSdrEsV
+    WmXXNAVUHIHDyj01rZVgN6GdEYdFHgZ2bgi2zlVWRDQO8CHJeUrQEMMuC6o6jdj7
+    4l4b1Fi0QSQt49kNUqmT/iqmQvjzz7XYoLZYlCoyYje8qe0dqJIRjMdPhNd6PnfN
+    vJKRKD4AOk29dPEhhPOYbJ5SeMALfNnpR7h1opK/IazOlFr6fS4ipjWUYog+QdHk
+    BrOmty1jH5wsStYoIm+g2SicovDLUujl1yD126nsKck/6s5mCiX8PhwIdfoVYIDp
+    SMyl+Fe5gEE9o6AiYOYJN51IUbjVJCxz6vyj5abbGXVfiooV02+JIlVlCliAqzd2
+    nuUpxWzPRO8J95XLL0MlZlGb9vZioTWEaocMCYnG7mhAK1DGZGb8pfTtJZyco5gU
+    IqxAwplFPNxeZfM6r8a60kYBoYP7YWdZXzfQafZiTNbU0A1Ud4YJcqXbuOzIgQHi
+    jlco7OyzdMCb5TBAfqyJPZd0Dkzef6/ER0rLSl+1cKaGzrAcZ8oy
+    =g+n0
+    -----END PGP MESSAGE-----
+```
+
+## Prüfung
+
+Nachdem die Pillar-Datei erstellt wurde, muss diese in der `top.sls` Datei dem Zielsystem zugewiesen werden.
+Anschließend kann das Pillar neu geladen und ausgegeben werden.
+
+```bash variant='terminal' title='Pillar prüfen' id='gpg-pillar-top'
+salt '*' saltutil.refresh_pillar
+salt '*' pillar.get data2
+```
+
+```yaml variant='output'
+host:
+    supersecret
+```
+
+

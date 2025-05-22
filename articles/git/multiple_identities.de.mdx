@@ -1,0 +1,66 @@
+---
+title: Mehrere Git Identitäten
+description: Mehrere Identitäten pro Benutzer in git konfigurieren und nutzen.
+icon: git
+iconPrefix: fab
+---
+
+# Mehrere Git Identitäten
+
+Jeder Git-Commit enthält u.a. Informationen über den Author des Commits.
+Es wird üblicherweise der Klarname und die E-Mail Adresse einer Person als Git-Identität eingestellt.
+
+Git bietet die Möglichkeit mehrere Identitäten pro Benutzer einzurichten.
+Somit können z.B. die privaten Projekte mit der privaten E-Mail Adresse committed werden.
+Projekte im dienstlichen Zusammenhang, können mit der dienstlichen E-Mail committed werden.
+
+In den folgenden Beispielen wird die Konfigurationsdatei `~/.gitconfig` bearbeitet.
+
+---
+
+## Identität pro Pfad
+
+Die Identität kann pro Pfad eingestellt werden.
+Im folgenden Beispiel wird die Verzeichnisstruktur unter `~/projects` genutzt:
+
+```txt variant=file
+projects
+├── private
+└── work
+```
+
+Die Konfigurationsdatei `~/.gitconfig` kann folgendermaßen aussehen:
+
+```ini variant='file' filePath='~/.gitconfig' id='gitconfig'
+[includeIf "gitdir:~/projects/work/**"]
+    path = ~/.gitconfig-work
+[includeIf "gitdir:~/projects/private/**"]
+    path = ~/.gitconfig-private
+```
+
+<Tabs id="projects">
+  <TabItem title="Projekt unter <code>~/projects/work</code>">
+
+Wenn sich ein Git-Projekt unter `~/projects/work/project1` befindet, dann wird die Git-Config `~/.gitconfig-work` genutzt.
+Innerhalb dieser Konfigurationsdatei kann die dienstliche Identität erstellt werden.
+
+```ini variant='file' filePath='~/.gitconfig-work' id='gitconfig-work'
+[user]
+    email = claire.grube@work.example.com
+    name = "Claire Grube"
+```
+
+  </TabItem>
+  <TabItem title="Projekt unter <code>~/projects/private</code>">
+Wenn sich ein Git-Projekt unter `~/projects/private/project1` befindet, dann wird die Git-Config `~/.gitconfig-private` genutzt.
+Innerhalb dieser Konfigurationsdatei kann die private Identität erstellt werden.
+
+```ini variant='file' filePath='~/.gitconfig-private' id='gitconfig-private'
+[user]
+    email = claire.grube@private.example.com
+    name = "Claire Grube"
+```
+
+  </TabItem>
+</Tabs>
+

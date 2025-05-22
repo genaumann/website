@@ -1,0 +1,66 @@
+---
+title: Multiple Git identities
+description: Configure and use multiple identities per user in git.
+icon: git
+iconPrefix: fab
+---
+
+# Multiple Git identities
+
+Each Git commit contains information about the author of the commit, among other things.
+A person's real name and email address are usually set as the Git identity.
+
+Git offers the option of setting up multiple identities per user.
+This means, for example, that private projects can be committed with the private e-mail address.
+Projects in a business context can be committed with the business e-mail address.
+
+In the following examples, the configuration file `~/.gitconfig` is edited.
+
+---
+
+## Identity per path
+
+The identity can be set per path.
+In the following example, the directory structure under `~/projects` is used:
+
+```txt
+projects
+├── private
+└── work
+```
+
+The configuration file `~/.gitconfig` can look like this:
+
+```ini variant='file' filePath='~/.gitconfig' id='gitconfig'
+[includeIf "gitdir:~/projects/work/**"]
+    path = ~/.gitconfig-work
+[includeIf "gitdir:~/projects/private/**"]
+    path = ~/.gitconfig-private
+```
+
+<Tabs id="projects">
+  <TabItem title="Project in <code>~/projects/work</code>">
+
+If a Git project is located under `~/projects/work/project1`, then the Git config `~/.gitconfig-work` is used.
+The business identity can be created within this configuration file.
+
+```ini variant='file' filePath='~/.gitconfig-work' id='gitconfig-work'
+[user]
+    email = claire.grube@work.example.com
+    name = "Claire Grube"
+```
+
+  </TabItem>
+  <TabItem title="Project in <code>~/projects/private</code>">
+If a Git project is located under `~/projects/private/project1`, then the Git config `~/.gitconfig-private` is used.
+The private identity can be created within this configuration file.
+
+```ini variant='file' filePath='~/.gitconfig-private' id='gitconfig-private'
+[user]
+    email = claire.grube@private.example.com
+    name = "Claire Grube"
+```
+
+  </TabItem>
+</Tabs>
+
