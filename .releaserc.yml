@@ -30,6 +30,8 @@ plugins:
           release: false
         - type: build
           release: false
+        - type: article
+          release: patch
 
   # notes generator
   - - '@semantic-release/release-notes-generator'
@@ -69,6 +71,9 @@ plugins:
           - type: revert
             section: 🔙 Reverts 🔙
             hidden: false
+          - type: article
+            section: 📰 Articles 📰
+            hidden: false
 
   # changelog
   - - '@semantic-release/changelog'
@@ -89,7 +94,7 @@ plugins:
         - CHANGELOG.md
         - VERSION
         - package.json
-        - package-lock.json
+        - pnpm-lock.yaml
 
   # github
   - '@semantic-release/github'

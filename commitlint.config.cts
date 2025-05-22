@@ -16,7 +16,8 @@ const Configuration: UserConfig = {
         'revert',
         'chore',
         'ci',
-        'build'
+        'build',
+        'article'
       ]
     ]
   }
