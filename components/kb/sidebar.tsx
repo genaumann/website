@@ -35,7 +35,8 @@ const ArticleList = ({
     <ul>
       {articles.map(article => {
         const isCurrentArticle =
-          currentPath === `/kb/${article.slug.replace(/\/index$/, '')}`
+          currentPath.replace(/^\/en/, '') ===
+          `/kb/${article.slug.replace(/\/index$/, '')}`
         const isExpanded = expandedSlugs.includes(
           article.slug.replace(/\/index$/, '')
         )
@@ -88,7 +89,7 @@ export function ArticleSidebar({articles}: {articles: Article[]}) {
   const [expandedSlugs, setExpandedSlugs] = useState<string[]>([])
 
   useEffect(() => {
-    const slugs = pathname.split('/').slice(2)
+    const slugs = pathname.replace(/^\/en/, '').split('/').slice(2)
     const parentSlugs = slugs.map((_, index) =>
       slugs.slice(0, index + 1).join('/')
     )
