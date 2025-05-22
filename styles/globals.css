@@ -74,6 +74,12 @@
   .dark .shiki span {
     color: var(--shiki-dark) !important;
     background-color: inherit !important;
-}
+  }
 }
 
+@layer utilities {
+  .codeblock-terminal code span.line::before {
+    content: '$ > ';
+    color: hsl(var(--muted-foreground));
+  }
+}

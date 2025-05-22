@@ -4,19 +4,22 @@ import {Code} from 'mdast'
 import {codeToHtml} from 'shiki'
 import {getShikiConfig} from '../shiki'
 
-const parseMeta = (meta: string): Record<string, string | boolean> => {
-  const result: Record<string, string | boolean> = {}
+const parseMeta = (str: string | null | undefined) => {
+  if (!str) {
+    return []
+  }
 
-  meta.split(' ').forEach(entry => {
-    const [key, value] = entry.split('=')
-    if (value === undefined) {
-      result[key] = true
-    } else {
-      result[key] = value
+  const regex = /(\w+)=(['"])(.*?)\2/g
+  const matches = str.matchAll(regex)
+
+  return Array.from(matches).map(match => {
+    const [, name, , value] = match
+    return {
+      type: 'mdxJsxAttribute',
+      name,
+      value
     }
   })
-
-  return result
 }
 
 const remarkCodeMeta: Plugin = () => {
@@ -28,7 +31,6 @@ const remarkCodeMeta: Plugin = () => {
 
     for (const node of codeNodes) {
       if (node.meta || node.value) {
-        const meta = parseMeta(node.meta || '')
         const line = node.value ? node.value.split('\n').length : 0
 
         let code = node.value
@@ -56,11 +58,7 @@ const remarkCodeMeta: Plugin = () => {
               name: 'code',
               value: code
             },
-            ...Object.entries(meta).map(([key, value]) => ({
-              type: 'mdxJsxAttribute',
-              name: key,
-              value: value.toString()
-            }))
+            ...parseMeta(node.meta)
           ],
           children: []
         })
