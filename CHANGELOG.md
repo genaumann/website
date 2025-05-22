@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.2.0](https://github.com/genaumann/website/compare/v1.1.0...v1.2.0) (2025-05-22)
+
+### ✨ Feature ✨
+
+* add kb to header menu ([86c6a5c](https://github.com/genaumann/website/commit/86c6a5c2a3814b9e9f289b4939c1cc53712a4808))
+* **i18n:** add custom i18n function ([f66b0bf](https://github.com/genaumann/website/commit/f66b0bf8dfe02e7dd1fdbf6a5c10a4b0f6869ce2))
+* **kb:** add article grid component ([341d3b6](https://github.com/genaumann/website/commit/341d3b61c3c2b3124493efc9c2cb2ac12e493c22))
+* **kb:** add grid component ([9dfe21b](https://github.com/genaumann/website/commit/9dfe21bcb6464b676fd33d967a9135e33f9e783c))
+* **seo:** add dynamic og image ([bb6cb3b](https://github.com/genaumann/website/commit/bb6cb3bd584e5f2b1e5bd92c7c77944d82b39a24))
+* **seo:** add manifest & icon ([47fb8bc](https://github.com/genaumann/website/commit/47fb8bcc20111ea113ce9c44e8c0e9e7486edf08))
+* **seo:** add meta description and title ([395c8a3](https://github.com/genaumann/website/commit/395c8a3c054e135f298e753e38d310c42084d7c2))
+* **seo:** add metadata for all pages ([d67cc88](https://github.com/genaumann/website/commit/d67cc881fc994045baa3040ee1663a9d56abcfc3))
+
+### 🐛 Bugfix 🐛
+
+* **kb:** article grid en locale ([15e9a86](https://github.com/genaumann/website/commit/15e9a86cbe95a0d11bb76a011da0c372756fcc06))
+* **kb:** article sidebard ([3f21d39](https://github.com/genaumann/website/commit/3f21d3922097c88679039e21a72bc1d25f08ecc7))
+* **kb:** remove index from staticParams ([e4c810d](https://github.com/genaumann/website/commit/e4c810d8be3a6ae6c5e53110393dbfd5f4fd5360))
+* layout in kb ([8e956c3](https://github.com/genaumann/website/commit/8e956c37f830a2fdcbc011fa7b61f83c3eaa9749))
+* **seo:** og overflow ([f17d00f](https://github.com/genaumann/website/commit/f17d00f95c660984fe7c5ae8b4d53dab0b0ffae2))
+
+### 📰 Articles 📰
+
+* migrate from old website ([6710d6f](https://github.com/genaumann/website/commit/6710d6f84cab5ddf7474523d0af6aa88fda4b159))
+
 ## [1.1.0](https://github.com/genaumann/website/compare/v1.0.1...v1.1.0) (2025-05-14)
 
 ### ✨ Feature ✨
