@@ -15,7 +15,7 @@ export default async function ArticleGrid({
   const fullpath = headersList.get('x-url') || ''
   const locale = (await getLocale()) as LOCALE_KEY
 
-  const kbPath = fullpath.split('/').slice(2).join('/')
+  const kbPath = fullpath.replace(/^\/en/, '').split('/').slice(2).join('/')
   const articles = await Promise.all(
     _articles.map(
       async article =>
