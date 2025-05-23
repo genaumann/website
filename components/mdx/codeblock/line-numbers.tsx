@@ -34,7 +34,7 @@ export default function CodeBlockLineNumbers({
     setSelectedLine(lineNumber)
   }
   return (
-    <div className="relative select-none border-r border-muted bg-muted/30 py-4 px-4 font-mono text-xs text-muted-foreground flex flex-col items-start">
+    <>
       {lineNumbers.map(num => (
         <span
           key={num}
@@ -47,6 +47,6 @@ export default function CodeBlockLineNumbers({
           {num}
         </span>
       ))}
-    </div>
+    </>
   )
 }
