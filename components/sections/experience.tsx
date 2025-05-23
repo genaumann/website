@@ -110,7 +110,7 @@ export default async function Experience() {
                   </ul>
                 </CardContent>
                 <CardFooter className="bg-secondary/40">
-                  <div className="mt-4 flex flex-wrap gap-2 bg-secondary/40">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {exp.technologies.map((tech, idx) => (
                       <Badge key={idx} variant="secondary">
                         {tech}
