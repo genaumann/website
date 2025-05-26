@@ -4,6 +4,11 @@ import {cn} from '@/lib/cn'
 import TypeScript from './typescript'
 import BookOpen from './book-open'
 import Salt from './salt'
+import Python from './python'
+import Docker from './docker'
+import ReactIcon from './react'
+import GitLab from './gitlab'
+import Ansible from './ansible'
 
 export const customIconMap = {
   redhat: {
@@ -17,6 +22,26 @@ export const customIconMap = {
   salt: {
     Component: Salt,
     color: '#57BCAD'
+  },
+  python: {
+    Component: Python,
+    color: '#3776AB'
+  },
+  docker: {
+    Component: Docker,
+    color: '#2496ED'
+  },
+  react: {
+    Component: ReactIcon,
+    color: '#61DAFB'
+  },
+  gitlab: {
+    Component: GitLab,
+    color: '#FC6D26'
+  },
+  ansible: {
+    Component: Ansible,
+    color: '#EE0000'
   },
   bookOpen: {
     Component: BookOpen,
