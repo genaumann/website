@@ -70,8 +70,8 @@
     background-color: inherit !important;
   }
 
-  .dark .shiki,
-  .dark .shiki span {
+  html.dark article .shiki,
+  html.dark article .shiki span {
     color: var(--shiki-dark) !important;
     background-color: inherit !important;
   }

@@ -15,13 +15,14 @@
     "theme": "Theme",
     "themeSwitch": "Change theme",
     "sidebar": "Sidebar",
-    "selectLanguage": "Select language"
+    "selectLanguage": "Select language",
+    "jobtitle": "DevOps Engineer"
   },
   "hero": {
     "more": "Explore more"
   },
   "aboutMe": {
-    "title": "DevOps engineer, biker, amateur photographer",
+    "title": "DevOps Engineer, biker, amateur photographer",
     "description": "I'm Gino, a DevOps engineer from Berlin. All-inclusive vacations are too boring for me and I love to go on spontaneous road trips. \nFast motorcycles with a good sound excite me."
   },
   "experience": {

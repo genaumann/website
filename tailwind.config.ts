@@ -55,6 +55,25 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)']
       },
+      animation: {
+        flicker: 'flicker 10s infinite'
+      },
+      keyframes: {
+        flicker: {
+          '0%, 100%': {color: 'hsl(var(--foreground))'},
+          '10%': {color: 'hsl(var(--primary))'},
+          '20%': {color: 'hsl(var(--foreground))'},
+          '25%': {color: 'hsl(var(--primary))'},
+          '30%': {color: 'hsl(var(--foreground))'},
+          '35%': {color: 'hsl(var(--primary))'},
+          '40%': {color: 'hsl(var(--foreground))'},
+          '50%': {color: 'hsl(var(--primary))'},
+          '60%': {color: 'hsl(var(--foreground))'},
+          '70%': {color: 'hsl(var(--primary))'},
+          '80%': {color: 'hsl(var(--foreground))'},
+          '90%': {color: 'hsl(var(--primary))'}
+        }
+      },
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       typography: (theme: any) => ({
         DEFAULT: {

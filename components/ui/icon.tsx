@@ -14,7 +14,7 @@ const defaultPrefix: FaIconPrefix = 'fal'
 
 type IconName = FontAwesomeIconName | CustomIconName
 type IconPrefix = 'fas' | 'fal' | 'fab'
-type IconProps = Omit<
+export type IconProps = Omit<
   React.ComponentPropsWithRef<typeof FontAwesomeIcon>,
   'icon'
 > & {
