@@ -1,8 +1,8 @@
 import * as React from 'react'
 import {cn} from '@/lib/cn'
 import Icon, {IconProps} from './icon'
-import CodeBlockCopyButton from '../mdx/codeblock/copy-button'
-import CodeBlockLineNumbers from '../mdx/codeblock/line-numbers'
+import CodeBlockCopyButton from './copy-button'
+import CodeBlockLineNumbers from './line-numbers'
 
 const CodeBlockFile = React.forwardRef<
   HTMLDivElement,
@@ -30,7 +30,7 @@ const CodeBlockFileTab = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'shrink py-2 px-4 border-r border-r-muted border-t border-t-primary w-fit text-sm',
+      'text-xs shrink py-2 px-4 border-r border-r-muted border-t border-t-primary w-fit',
       className
     )}
     {...props}>
@@ -65,7 +65,7 @@ const CodeBlockFileParts = React.forwardRef<
 >(({className, fileIcon, filePathParts, ...props}, ref) => (
   <div
     className={cn(
-      'w-full text-xs font-mono py-1 pl-4 border-b border-b-muted-foreground/10',
+      'w-full text-xs font-mono py-1 pl-3 border-b border-b-muted-foreground/10',
       className
     )}
     ref={ref}
