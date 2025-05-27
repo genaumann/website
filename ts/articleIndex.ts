@@ -54,7 +54,8 @@ async function getMdxMetadata(filePath: string): Promise<MDXFrontmatter> {
         path.basename(filePath).replace(/\..*$/, ''),
       description: frontmatter?.description as string,
       icon: frontmatter?.icon as IconName,
-      iconPrefix: frontmatter?.iconPrefix as IconPrefix
+      iconPrefix: frontmatter?.iconPrefix as IconPrefix,
+      keywords: frontmatter?.keywords as string[]
     }
   } catch (error) {
     return {
@@ -106,9 +107,8 @@ async function scanDirectory(
     if (indexFile) {
       const indexPath = path.join(dir, `index.${locale}.mdx`)
       const dates = await getGitDates(indexPath)
-      const {title, description, icon, iconPrefix} = await getMdxMetadata(
-        indexPath
-      )
+      const {title, description, icon, iconPrefix, keywords} =
+        await getMdxMetadata(indexPath)
       directoryArticle = {
         slug: path.join(currentPath, 'index'),
         path: indexPath,
@@ -118,6 +118,7 @@ async function scanDirectory(
         content: await getMdxContent(indexPath),
         iconPrefix,
         author: await getGitAuthor(indexPath),
+        keywords,
         ...dates
       }
     }
@@ -141,14 +142,14 @@ async function scanDirectory(
       (!directoryArticle || entry.name !== `index.${locale}.mdx`)
     ) {
       const baseName = entry.name.replace(`.${locale}.mdx`, '')
-      const {title, description, icon, iconPrefix} = await getMdxMetadata(
-        fullPath
-      )
+      const {title, description, icon, iconPrefix, keywords} =
+        await getMdxMetadata(fullPath)
       const article: Article = {
         slug: currentPath ? path.join(currentPath, baseName) : baseName,
         path: fullPath,
         title,
         description,
+        keywords,
         icon,
         iconPrefix,
         content: await getMdxContent(fullPath),

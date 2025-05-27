@@ -104,3 +104,12 @@ export const getFlatArticleIndex = async (
 
   return flattenArticles(localeArticles)
 }
+
+export const getArticlesByKeyword = async (
+  locale: LOCALE_KEY,
+  keyword: string
+): Promise<Article[] | null> => {
+  const articlesByLocale = await getFlatArticleIndex(locale)
+  if (!articlesByLocale) return null
+  return articlesByLocale.filter(article => article.keywords?.includes(keyword))
+}
