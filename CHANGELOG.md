@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0](https://github.com/genaumann/website/compare/v1.2.0...v1.3.0) (2025-06-01)
+
+### ✨ Feature ✨
+
+* add create generic components ([575d4d2](https://github.com/genaumann/website/commit/575d4d2e447e972ecff13cf8beb96529d0f93cd8))
+
 ## [1.2.0](https://github.com/genaumann/website/compare/v1.1.0...v1.2.0) (2025-05-22)
 
 ### ✨ Feature ✨
