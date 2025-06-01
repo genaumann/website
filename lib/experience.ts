@@ -8,6 +8,7 @@ export const getExperience = (
     company: 'leasyro GmbH',
     position: 'DevSecOps Engineer',
     from: new Date('2024-10-01'),
+    to: new Date('2025-04-30'),
     description: [
       t('experience.leasyro2.description1'),
       t('experience.leasyro2.description2'),
