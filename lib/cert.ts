@@ -21,7 +21,7 @@ export const certs: CertItem[] = [
     url: 'https://www.credly.com/badges/402af3ea-19c6-422f-86a6-3dbc7446bddc',
     icon: 'redhat',
     className: 'text-8xl py-4',
-    keywords: ['ansible', 'redhat', 'linux']
+    keywords: ['ansible', 'linux', 'container', 'awx']
   },
   {
     name: 'ITIL® Foundation Certificate in IT Service Management',
@@ -46,7 +46,7 @@ export const certs: CertItem[] = [
     icon: 'redhat',
     url: 'https://www.credly.com/badges/f2d2d2a5-fa70-473f-840b-9eccfb85fa04',
     className: 'text-8xl py-4',
-    keywords: ['redhat', 'linux']
+    keywords: ['ansible', 'linux']
   }
 ]
 

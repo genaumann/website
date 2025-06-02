@@ -102,5 +102,120 @@
     "metadata": {
       "description": "Datenschutzerklärung"
     }
+  },
+  "certs": {
+    "active": "Aktiv",
+    "expired": "Abgelaufen"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "tools": {
+      "title": "Tools",
+      "intro": {
+        "typescript": "TypeScript nutze ich inzwischen fast täglich, um Webseiten zu programmieren (Front- und Backend) und um das End-to-End-Testframework Playwright zu bedienen.\n\nTypeScript kann sowohl im Frontend als auch im Backend eingesetzt werden und bietet robuste Typisierung mit Unterstützung durch moderne IDEs.",
+        "react": "Meine Webprojekte entwickle ich inzwischen ausschließlich in React.\n\nMein erstes Projekt habe ich mit React 2021 gestartet, wo ich an eine unveröffentlichte Alpha-Version dieser Webseite \"gebastelt\" habe. Damals nutzte ich Create React App (CRA), um das Projekt aufzusetzen.",
+        "container": "Ich hatte früher viel über Docker / Podman und Container gehört, wusste aber lange nicht, was wirklich dahintersteckt.\n2021 habe ich mir vorgenommen, tiefer in die Welt der Container einzutauchen – und war schnell begeistert von dieser Technologie.\n\nHeute baue und nutze ich Container aktiv: in GitLab CI/CD-Pipelines und auch für kleinere Services in meinem privaten Homelab.",
+        "git": "Ganz gleich, ob ich ein Webprojekt entwickle oder IT-Infrastruktur konfiguriere – Git ist für mich ein unverzichtbares Werkzeug und fester Bestandteil meines Arbeitsalltags.\n\nAufgrund seiner zentralen Bedeutung habe ich früh begonnen, Kollegen in verschiedenen Git-Themen zu schulen.",
+        "python": "In der Systemadministration ist Python eine äußerst beliebte Sprache mit einer starken Community.\nTools wie Salt oder Ansible sind in Python geschrieben.\n\nIch entwickle mit Python eigene Salt-Module sowie Skripte für die allgemeine Systemverwaltung.",
+        "uyuni": "2023 hatte ich erste Berührungspunkte mit Uyuni / SUSE Manager – einer Software, die Salt zur Serververwaltung nutzt.\n\nIm Rahmen eines Kundenprojekts habe ich den SUSE Manager und Salt so erweitert, dass sowohl ein Infrastructure-as-Code-(IaC)-Ansatz als auch ein Staging-Konzept umgesetzt werden konnten.",
+        "salt": "Salt habe ich 2015 während meiner IT-Ausbildung kennen- und lieben gelernt.\nSeitdem habe ich mit großer Freude mehrere Salt-Projekte erfolgreich umgesetzt.\n\nAuch wenn die Community heute nicht mehr so aktiv ist wie damals, kommt Salt nach wie vor täglich in meinem Homelab zum Einsatz.",
+        "ansible": "2021 hatte ich meine ersten Berührungspunkte mit Ansible.\nUm hochwertige Playbooks und Module zu entwickeln, habe ich automatisierte Tests gegen virtuelle Maschinen eingerichtet.\n\nAls direkter Konkurrent von Salt hat Ansible auch heute noch eine sehr aktive Community – weshalb ich Ansible inzwischen gegenüber Salt bevorzugen würde.",
+        "gitlab": "Meine ersten Berührungspunkte mit GitLab hatte ich im Jahr 2020 – damals beschränkte sich meine Arbeit noch auf das Aktualisieren der Software.\n\n2021 wuchs mein Interesse an den CI/CD-Funktionen, sodass ich mich intensiv damit beschäftigte und sie schnell beherrschte.\n\nGitLab hat für mich eine emotionale Bedeutung und einen hohen Stellenwert.\nSeit mittlerweile zwei Jahren gebe ich regelmäßig Schulungen zu GitLab.",
+        "github": "Nachdem ich GitLab sicher beherrschte, habe ich mich an GitHub gewagt und die dortigen CI/CD-Funktionen ausprobiert und für gut befunden. Die CI/CD Funktionen von GitLab bevorzuge ich dennoch.\n\nMeine aktuellen Web-Projekte verwalte ich inzwischen über GitHub – vor allem wegen der nahtlosen Integration mit Vercel.",
+        "awx": "Die Automatisierungsplattform AWX – bzw. Ansible Automation Platform – habe ich 2023 erstmals ausführlich getestet und anschließend in Kundenprojekten eingesetzt.\n\nUm schnell auf eine saubere Testumgebung zugreifen zu können, habe ich die Installation von AWX über eine GitLab CI/CD-Pipeline automatisiert.",
+        "linux": "Bereits während meiner Berufsausbildung habe ich erste Erfahrungen mit Linux – insbesondere mit Debian – gesammelt.\nIch fand schnell Zugang zum Konzept und übernahm bald darauf sogar Debian-Schulungen.\n\nMittlerweile verfüge ich über fundierte Kenntnisse in Ubuntu, Debian, Red Hat Enterprise Linux (RHEL), SUSE Linux Enterprise Server (SLES), Fedora und openSUSE.",
+        "icinga2": "Kurz nach meiner Berufsausbildung bekam ich die Aufgabe, das veraltete Nagios-System durch ein modernes Icinga2 zu ersetzen.\n\nSeitdem setze ich Icinga2 kontinuierlich ein – unter anderem zur Überwachung der Server in meinem Homelab.",
+        "playwright": "Playwright habe ich 2024 kennengelernt, als ich End-to-End-Tests für Next.js-Webprojekte umgesetzt habe.\n\nPassend zu Next.js verwende ich TypeScript für die Testautomatisierung der Anwendungen. Die Tests liefen automatisiert vor jedem Deployment der Webapp.",
+        "nextjs": "Meine ersten React-Projekte habe ich mit Create React App (CRA) umgesetzt.\nAls das Framework nicht mehr zeitgemäß war, bin ich auf Next.js gestoßen – und möchte seitdem nicht mehr darauf verzichten.\n\nBei Webprojekten setze ich konsequent auf Next.js, das Hosting erfolgt über die Plattform Vercel.\nAuch diese Webseite basiert auf Next.js und wird über Vercel bereitgestellt."
+      },
+      "kb": {
+        "title": "Knowledge Base Artikel",
+        "description": "Die neusten Artikel zum Thema {technology}."
+      },
+      "certs": {
+        "title": "Zertifizierungen",
+        "description": "Folgende Zertifizierungen habe ich erworben, in denen {technology} ein Bestandteil war."
+      },
+      "projects": {
+        "projects": {
+          "suseSaltConcept": {
+            "name": "SUSE Manager Salt Konzept + Entwicklung",
+            "description": "Der Kunde verwaltet über 400 SLES-Maschinen mit SUSE Manager und Salt.\nDie Salt-Integration des SUSE Managers bietet jedoch weder Unterstützung für Infrastructure as Code (IaC) noch ein ausgereiftes Staging-Konzept.\n\nIch habe es mir zur Aufgabe gemacht, diese zentralen Schwächen zu beheben und dafür individuelle Python-Module entwickelt. Damit konnte sowohl ein funktionierendes Staging-Konzept als auch eine IaC-basierte Verwaltung mit dem SUSE Manager und Salt realisiert werden."
+          },
+          "webAppRacetrack": {
+            "name": "Projektleitung & Entwicklung WebApp",
+            "description": "Ein Kunde aus dem Motorsportbereich benötigte eine moderne Webseite, die sich über ein CMS eigenständig mit Inhalten pflegen lässt und zusätzlich einen Shop mit Backend-Funktionalität bietet, um Inhalte dynamisch zu verwalten.\nZudem sollten sich Teilnehmer in der Web-App anmelden können, um ihre Buchungen einzusehen.\n\nWir haben die Web-App und den Shop nahtlos in eine gemeinsame Next.js-Lösung integriert.\nIch habe das Projekt geleitet und gemeinsam mit einem kleinen Team innerhalb von sechs Monaten erfolgreich umgesetzt."
+          },
+          "e2eTestingPlaywright": {
+            "name": "E2E-Testing verschiedener WebApps",
+            "description": "Ich habe die Aufgabe, mehrere selbstentwickelte WebApps End-to-End zu testen und diese Tests in GitHub Actions zu integrieren, sodass die Anwendungen vor dem Deployment automatisch überprüft werden.\n\nDabei werden verschiedene Komponenten der WebApps getestet – etwa die Bezahlfunktion im Shop oder der Login-Prozess für Benutzer.\n\nDas Projekt befindet sich derzeit noch in der Umsetzung."
+          },
+          "automatedAwxDeployment": {
+            "name": "Automatisiertes AWX Deployment innerhalb von GitLab CI/CD",
+            "description": "In Kundenprojekten haben wir im Team regelmäßig AWX-Instanzen installiert und konfiguriert.\nDa uns damals jedoch eine zuverlässige Testumgebung fehlte, waren Tests und Experimente oft umständlich.\n\nDeshalb habe ich es mir zur Aufgabe gemacht, die AWX-Installation in einem k3s-Single-Node-Cluster – optional auch im Multi-Node-Setup – vollständig zu automatisieren.\nDie Automatisierung wurde innerhalb einer GitLab CI/CD-Pipeline umgesetzt.\n\nDamit war unser Team in der Lage, innerhalb weniger Minuten eine voll funktionsfähige AWX-Umgebung bereitzustellen."
+          },
+          "setupSaltFromScratch": {
+            "name": "IaC mit Salt: Standardisierte Serverkonfiguration",
+            "description": "Damals wurden rund 40 virtuelle Debian Server manuell verwaltet und aktuell gehalten.\n\nIch habe es mir zur Aufgabe gemacht, Salt in die Umgebung zu integrieren, um die Server effizient zu managen und die Konfigurationen mittels IaC zu standardisieren.\n\nHeute berichtet der Kunde, dass das Setup weiterhin im Einsatz ist und aktiv weiterentwickelt wird."
+          },
+          "setupIcinga2FromScratch": {
+            "name": "Icinga2-Einführung mit Salt-Integration",
+            "description": "Damals wurden rund 50 virtuelle Linux- und Windows-Server ohne ein zentrales Monitoring-System betrieben.\nStörungen und Ausfälle wurden ausschließlich vom Endkunden gemeldet, was zu unnötig langen Downtimes führte.\n\nDaraufhin habe ich Icinga2 eingeführt – ein Monitoring-System, das sowohl unter Linux als auch unter Windows funktioniert.\nBestehende und neue Linux-Server, die per Salt verwaltet wurden, wurden automatisch in Icinga2 eingebunden und deren Services überwacht.\nDadurch konnten Ausfälle deutlich schneller erkannt und professionell behoben werden.\n\nHeute berichtet der Kunde, dass das Setup weiterhin aktiv genutzt und kontinuierlich weiterentwickelt wird."
+          },
+          "personalWebsite": {
+            "name": "Persönliche Webseite",
+            "description": "An meiner persönlichen Webseite arbeite ich nun schon seit ein paar Jahren sporadisch.\nDiese wird stetig weiterentwickelt.\n\nAls Framework nutze ich Next.js, das auf Vercel gehostet wird.",
+            "ref": {
+              "github": "GitHub Repository"
+            }
+          },
+          "automatedContainerBuildGitlab": {
+            "name": "Automatisierte Container Builds in GitLab CI/CD",
+            "description": "Wurde ein Container einmal gebaut, wird er in der Praxis selten aktualisiert.\nDadurch können Sicherheitslücken entstehen oder enthaltene Software veraltet sein.\n\nAus diesem Grund habe ich das Tool Container Image Builder (cib) für GitLab-Pipelines entwickelt.\nDamit lassen sich beliebig viele Container innerhalb einer Pipeline bauen und veröffentlichen.\n\nDas Tool ist in Python geschrieben und kommt bei meinen eigenen Container-Builds regelmäßig zum Einsatz.",
+            "ref": {
+              "gitlab": "GitLab Repository"
+            }
+          },
+          "ansibleServerConcept": {
+            "name": "Ansible Server Konzept",
+            "description": "Unser Team hat täglich mehrere virtuelle Maschinen erstellt und diese manuell konfiguriert.\nFür diese wiederkehrenden Aufgaben wurden jeden Tag mehrere Stunden aufgewendet.\n\nIch habe es mir zur Aufgabe gemacht, die VM-Erstellung per Ansible zu automatisieren und anschließend auch die Konfiguration zu übernehmen.\nDazu entwickelte ich eine Standardkonfiguration für diese Server und schulte das Team darin,\nsodass jeder eigenständig neue Server bereitstellen und mit Ansible konfigurieren konnte."
+          },
+          "saltFormulaGit": {
+            "name": "Salt git Formula",
+            "description": "Ich habe ein eigenes Salt-Formula entwickelt, mit dem sich der lokale Git-Client konfigurieren lässt.\n\nDas Formula wird automatisiert gegen die jeweils aktuellsten Salt-Versionen in einer GitHub Actions Pipeline getestet.",
+            "ref": {
+              "github": "GitHub Repository"
+            }
+          },
+          "saltFormulaAcmeSh": {
+            "name": "Salt acme.sh Formula",
+            "ref": {
+              "github": "GitHub Repository"
+            },
+            "description": "Ich habe ein eigenes Salt-Formula entwickelt, mit dem sich Zertifikate automatisiert mit der Software acme.sh ausstellen lassen. Dazu habe ich auch Salt Execution Module in Python verfasst.\n\nDas Formula wird automatisiert gegen die jeweils aktuellsten Salt-Versionen in einer GitHub Actions Pipeline getestet."
+          },
+          "migrationNagiosIcinga2": {
+            "name": "Von Nagios nach Icinga2",
+            "description": "Der Kunde hatte ein veraltetes Nagios-System im Einsatz, das durch Icinga2 ersetzt werden sollte.\nBestehende Services wurden 1:1 nach Icinga2 migriert.\n\nZur besseren Visualisierung wurde zusätzlich Icinga Web installiert, das eine moderne Weboberfläche für Icinga bereitstellt."
+          }
+        },
+        "title": "Meine Projekte",
+        "description": "Aktuelle und vergangene Projekte, wo ich {technology} eingesetzt habe.",
+        "start": "Start",
+        "end": "Ende",
+        "technologies": "Technologien",
+        "status": {
+          "completed": "Abgeschlossen",
+          "upcoming": "Anstehend",
+          "in_progress": "In Bearbeitung"
+        },
+        "references": "Referenzen"
+      },
+      "search": {
+        "placeholder": "Bei welcher Technologie brauchst du Unterstützung?",
+        "noResults": "Keine Ergebnisse"
+      },
+      "description": "Hier sind ausschließlich Produkte und Marken aufgeführt, zu denen ich Projekterfahrung, Zertifizierungen oder veröffentlichte Knowledge-Base-Artikel vorweisen kann.\nEs bestehen keinerlei Partnerschaften oder geschäftliche Beziehungen zu den genannten Produkten."
+    }
   }
 }

@@ -65,6 +65,10 @@ export const getHeaderMenu = (
       ]
     },
     {
+      name: t('portfolio.title'),
+      href: '/portfolio'
+    },
+    {
       name: t('common.knowledgebase'),
       href: '/kb'
     }
