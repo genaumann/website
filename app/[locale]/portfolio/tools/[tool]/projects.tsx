@@ -24,7 +24,7 @@ export default async function TechnologyProjectsPage({
 }: TechnologyProjectsPageProps) {
   const t = await getTranslations('portfolio.tools.projects')
   const {format} = getDateFunctions(LOCALES[locale])
-  const projects = getProjects(technology, t)
+  const projects = getProjects({technology, t})
 
   if (!projects || projects.length === 0) return null
 

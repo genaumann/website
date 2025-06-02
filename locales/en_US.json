@@ -219,7 +219,8 @@
     },
     "stats": {
       "completedProjects": "Completed customer projects",
-      "certs": "Certifications"
+      "certs": "Certifications",
+      "speakerTrainings": "Conducted customer trainings"
     },
     "trainings": {
       "linux": {

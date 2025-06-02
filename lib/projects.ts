@@ -12,10 +12,12 @@ export type Project = {
 
 // const t = useTranslations('portfolio.tools.projects')
 
-export const getProjects = (
-  technology: string,
+interface GetProjectsParams {
+  technology?: string
   t: ReturnType<typeof useTranslations>
-): Project[] => {
+}
+
+export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
   const projects: Project[] = [
     {
       id: 'suse-salt-concept',
@@ -136,6 +138,8 @@ export const getProjects = (
       end: new Date('2024-03-31')
     }
   ]
+
+  if (!technology) return projects
 
   return projects.filter(project =>
     project.technologies.some(

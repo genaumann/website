@@ -219,7 +219,8 @@
     },
     "stats": {
       "completedProjects": "Abgeschlossene Kundenprojekte",
-      "certs": "Zertifizierungen"
+      "certs": "Zertifizierungen",
+      "speakerTrainings": "Durchgeführte Kundenschulungen"
     },
     "trainings": {
       "linux": {

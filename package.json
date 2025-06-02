@@ -14,7 +14,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@awesome.me/kit-b84c272999": "^1.0.61",
+    "@awesome.me/kit-b84c272999": "^1.0.64",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mdx-js/loader": "^3.1.0",
