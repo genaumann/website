@@ -216,6 +216,34 @@
         "noResults": "No results"
       },
       "description": "Only products and brands are listed here for which I can demonstrate project experience, certifications, or published knowledge base articles.\nThere are no partnerships or business affiliations with any of the mentioned vendors."
+    },
+    "stats": {
+      "completedProjects": "Completed customer projects",
+      "certs": "Certifications"
+    },
+    "trainings": {
+      "linux": {
+        "debian": {
+          "name": "Linux (Debian) training",
+          "description": "The goal of the seminar was to prepare IT beginners for working with Debian.\nIt covered basic Linux concepts using the Debian distribution."
+        },
+        "centos": {
+          "name": "Linux (CentOS) training",
+          "description": "The goal of the seminar was to prepare IT beginners for working with CentOS.\nIt covered basic Linux concepts using the CentOS distribution."
+        }
+      },
+      "gitlab": {
+        "name": "Gitlab training",
+        "description": "The goal of this training was to introduce the client to GitLab.\nIt covered the GitLab basics as well as the use of its CI/CD features."
+      },
+      "git": {
+        "name": "Git basic / Git advanced training",
+        "description": "The goal of this training was to enable the client to use Git with confidence.\n\nBoth basic and advanced topics were covered—for example, cherry-picking and rebase."
+      },
+      "playwright": {
+        "name": "Playwright training",
+        "description": "The goal of this training was to provide a basic introduction to Playwright.\n\nIt included practical tips and tricks for performing end-to-end testing of websites using Playwright and TypeScript."
+      }
     }
   }
 }

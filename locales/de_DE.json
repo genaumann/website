@@ -216,6 +216,34 @@
         "noResults": "Keine Ergebnisse"
       },
       "description": "Hier sind ausschließlich Produkte und Marken aufgeführt, zu denen ich Projekterfahrung, Zertifizierungen oder veröffentlichte Knowledge-Base-Artikel vorweisen kann.\nEs bestehen keinerlei Partnerschaften oder geschäftliche Beziehungen zu den genannten Produkten."
+    },
+    "stats": {
+      "completedProjects": "Abgeschlossene Kundenprojekte",
+      "certs": "Zertifizierungen"
+    },
+    "trainings": {
+      "linux": {
+        "debian": {
+          "name": "Linux (Debian) Schulung",
+          "description": "Ziel des Seminars war es, IT-Neulinge auf den Umgang mit Debian vorzubereiten.\nVermittelt wurden grundlegende Linux-Kenntnisse anhand der Debian-Distribution."
+        },
+        "centos": {
+          "name": "Linux (CentOS) Schulung",
+          "description": "Ziel des Seminars war es, IT-Neulinge auf den Umgang mit CentOS vorzubereiten.\nVermittelt wurden grundlegende Linux-Kenntnisse anhand der CentOS-Distribution."
+        }
+      },
+      "gitlab": {
+        "name": "GitLab Schulung",
+        "description": "Ziel dieser Schulung war es, dem Kunden GitLab näherzubringen.\nVermittelt wurden die GitLab-Grundlagen sowie die Nutzung der CI/CD-Funktionen."
+      },
+      "git": {
+        "name": "Git Basic / Git Advanced Schulung",
+        "description": "Ziel dieser Schulung war es, dem Kunden Git so zu vermitteln, dass er sicher im Umgang damit ist.\n\nBehandelt wurden sowohl grundlegende als auch fortgeschrittene Themen – darunter beispielsweise cherry-picking und rebase."
+      },
+      "playwright": {
+        "name": "Playwright Schulung",
+        "description": "Ziel dieser Schulung war es, einen grundlegenden Einblick in Playwright zu geben.\n\nDabei wurden praxisnahe Tipps und Tricks vermittelt, wie sich Webseiten mit Playwright und TypeScript End-to-End testen lassen."
+      }
     }
   }
 }
