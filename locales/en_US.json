@@ -200,16 +200,7 @@
           }
         },
         "title": "My projects",
-        "description": "Current and past projects where I used {technology}.",
-        "start": "Start",
-        "end": "End",
-        "technologies": "Technologies",
-        "status": {
-          "completed": "Completed",
-          "upcoming": "Upcoming",
-          "in_progress": "In Progress"
-        },
-        "references": "References"
+        "description": "Current and past projects where I used {technology}."
       },
       "search": {
         "placeholder": "Which technology do you need support with?",
@@ -245,6 +236,18 @@
         "name": "Playwright training",
         "description": "The goal of this training was to provide a basic introduction to Playwright.\n\nIt included practical tips and tricks for performing end-to-end testing of websites using Playwright and TypeScript."
       }
+    },
+    "projects": {
+      "title": "Completed projects",
+      "status": {
+        "completed": "Completed",
+        "upcoming": "Upcoming",
+        "in_progress": "In Progress"
+      },
+      "start": "Start",
+      "end": "End",
+      "technologies": "Technologies",
+      "references": "References"
     }
   }
 }

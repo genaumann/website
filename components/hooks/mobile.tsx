@@ -5,16 +5,17 @@ import {useEffect} from 'react'
 
 const MOBILE_BREAKPOINT = 768
 
-export function useIsMobile() {
+export function useIsMobile(breakpoint?: number): boolean {
   const [isMobile, setIsMobile] = useState<boolean | undefined>(undefined)
+  const effectiveBreakpoint = breakpoint ?? MOBILE_BREAKPOINT
 
   useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
+    const mql = window.matchMedia(`(max-width: ${effectiveBreakpoint - 1}px)`)
     const onChange = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+      setIsMobile(window.innerWidth < effectiveBreakpoint)
     }
     mql.addEventListener('change', onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+    setIsMobile(window.innerWidth < effectiveBreakpoint)
     return () => mql.removeEventListener('change', onChange)
   }, [])
 

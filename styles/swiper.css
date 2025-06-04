@@ -1,0 +1,10 @@
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+
+:root {
+    --swiper-theme-color: hsl(var(--primary));
+    --swiper-pagination-bullet-inactive-color: hsl(var(--muted-foreground));
+    --swiper-navigation-top-offset: 0px;
+    --swiper-navigation-size: 30px;
+}

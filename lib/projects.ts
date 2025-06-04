@@ -137,7 +137,15 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       start: new Date('2024-01-01'),
       end: new Date('2024-03-31')
     }
-  ]
+  ].sort((a, b) => {
+    if (!a.end && !b.end) return 0
+    if (!a.end) return -1
+    if (!b.end) return 1
+
+    if (a.end > b.end) return -1
+    if (a.end < b.end) return 1
+    return 0
+  })
 
   if (!technology) return projects
 

@@ -200,16 +200,7 @@
           }
         },
         "title": "Meine Projekte",
-        "description": "Aktuelle und vergangene Projekte, wo ich {technology} eingesetzt habe.",
-        "start": "Start",
-        "end": "Ende",
-        "technologies": "Technologien",
-        "status": {
-          "completed": "Abgeschlossen",
-          "upcoming": "Anstehend",
-          "in_progress": "In Bearbeitung"
-        },
-        "references": "Referenzen"
+        "description": "Aktuelle und vergangene Projekte, wo ich {technology} eingesetzt habe."
       },
       "search": {
         "placeholder": "Bei welcher Technologie brauchst du Unterstützung?",
@@ -245,6 +236,18 @@
         "name": "Playwright Schulung",
         "description": "Ziel dieser Schulung war es, einen grundlegenden Einblick in Playwright zu geben.\n\nDabei wurden praxisnahe Tipps und Tricks vermittelt, wie sich Webseiten mit Playwright und TypeScript End-to-End testen lassen."
       }
+    },
+    "projects": {
+      "title": "Abgeschlossene Projekte",
+      "status": {
+        "completed": "Abgeschlossen",
+        "upcoming": "Anstehend",
+        "in_progress": "In Bearbeitung"
+      },
+      "start": "Start",
+      "end": "Ende",
+      "technologies": "Technologien",
+      "references": "Referenzen"
     }
   }
 }
