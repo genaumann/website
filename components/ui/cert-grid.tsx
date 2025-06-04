@@ -28,7 +28,7 @@ export default async function CertGrid({keyword}: CertGridProps) {
             rel="noopener noreferrer"
             target="_blank"
             className="group">
-            <Card className="overflow-hidden bg-transparent">
+            <Card className="overflow-hidden bg-transparent border border-border shadow dark:shadow-primary">
               <CardHeader className="py-4 px-6 min-h-[88px] bg-card">
                 <CardTitle className="text-xl font-semibold">
                   {cert.name}

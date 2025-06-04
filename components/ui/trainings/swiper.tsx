@@ -51,7 +51,7 @@ export default function PortfolioTrainingSwiper() {
                 </Badge>
               </div>
             </CardHeader>
-            <CardContent className="space-y-4 bg-background pt-4">
+            <CardContent className="space-y-4 bg-background pt-4 rounded-b-xl">
               <div className="space-y-2">
                 <CardTitle className="text-2xl">{training.name}</CardTitle>
                 <span className="flex gap-0.5 items-center">

@@ -57,6 +57,10 @@
     overflow-x: hidden;
   }
 
+  section{
+    @apply scroll-mt-[97px]
+  }
+
   article h2,
   article h3,
   article h4,

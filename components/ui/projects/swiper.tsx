@@ -58,7 +58,7 @@ export default function PortfolioProjectSwiper() {
   return (
     <Swiper
       modules={[Pagination, A11y, FreeMode, Navigation]}
-      className="py-12! overflow-visible! min-h-[660px]"
+      className="py-12! overflow-visible! min-h-[660px] px-1!"
       slidesPerView={1}
       spaceBetween={24}
       breakpoints={{
@@ -80,7 +80,7 @@ export default function PortfolioProjectSwiper() {
               if (e) itemRefs.current[index] = e
             }}
             style={{height: maxHeight || 'auto'}}
-            className="w-full max-w-none lg:w-fit lg:max-w-xl">
+            className="w-full lg:w-fit lg:max-w-xl">
             <StatusBadge
               start={project.start}
               end={project.end}

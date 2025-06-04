@@ -1,20 +1,26 @@
 import {getTranslations} from 'next-intl/server'
-import {getProjects, Project} from '../../../../../lib/projects'
+import {getProjects} from '../../../../../lib/projects'
 import {getDateFunctions} from '@/lib/dates'
 import {LOCALE_KEY, LOCALES} from '@/locales'
-import {Badge, BadgeProps} from '@/components/ui/badge'
-import Link from 'next/link'
+import {Badge} from '@/components/ui/badge'
 import Icon from '@/components/ui/icon'
+import {
+  ProjectCard,
+  ProjectCardDescription,
+  ProjectCardInfo,
+  ProjectCardInfoItem,
+  ProjectCardInfoLabel,
+  ProjectCardInfoValue,
+  ProjectCardMain,
+  ProjectCardReference,
+  ProjectCardTitle,
+  StatusBadge
+} from '@/components/ui/project-card'
 
 type TechnologyProjectsPageProps = {
   technology: string
   locale: LOCALE_KEY
   title: string
-}
-
-interface StatusBadgeProps extends BadgeProps {
-  start: Project['start']
-  end?: Project['end']
 }
 
 export default async function TechnologyProjectsPage({
@@ -23,29 +29,11 @@ export default async function TechnologyProjectsPage({
   title
 }: TechnologyProjectsPageProps) {
   const t = await getTranslations('portfolio.tools.projects')
+  const tProject = await getTranslations('portfolio.projects')
   const {format} = getDateFunctions(LOCALES[locale])
   const projects = getProjects({technology, t})
 
   if (!projects || projects.length === 0) return null
-
-  const StatusBadge = ({start, end, ...props}: StatusBadgeProps) => {
-    const now = new Date()
-    if (end && end < now) {
-      return <Badge {...props}>{t('status.completed')}</Badge>
-    } else if (start > now) {
-      return (
-        <Badge variant="secondary" {...props}>
-          {t('status.upcoming')}
-        </Badge>
-      )
-    } else {
-      return (
-        <Badge variant="outline" {...props}>
-          {t('status.in_progress')}
-        </Badge>
-      )
-    }
-  }
 
   return (
     <section className="py-10">
@@ -56,73 +44,78 @@ export default async function TechnologyProjectsPage({
             {t('description', {technology: title})}
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {projects.map(project => (
-            <div
-              key={project.id}
-              className="rounded-lg border border-muted shadow bg-background relative flex flex-col">
+            <ProjectCard key={project.id}>
               <StatusBadge
                 start={project.start}
                 end={project.end}
                 className="absolute -right-2 -top-3"
               />
-              <div className="flex flex-col p-6 gap-4 border-b border-muted grow">
-                <span className="line-clamp-2 text-2xl font-bold">
-                  {project.name}
-                </span>
-                <p className="text-muted-foreground whitespace-pre-line">
+              <ProjectCardMain>
+                <ProjectCardTitle>{project.name}</ProjectCardTitle>
+                <ProjectCardDescription>
                   {project.description}
-                </p>
-              </div>
-              <div className="p-6 flex flex-col gap-2 bg-card min-h-[154px]">
-                <div className="flex gap-2 text-sm">
-                  <span className="font-semibold">{`${t('start')}:`}</span>
-                  <span className="text-muted-foreground">
+                </ProjectCardDescription>
+              </ProjectCardMain>
+              <ProjectCardInfo>
+                <ProjectCardInfoItem>
+                  <ProjectCardInfoLabel>{`${tProject(
+                    'start'
+                  )}:`}</ProjectCardInfoLabel>
+                  <ProjectCardInfoValue>
                     {format(project.start, 'MMMM yyyy')}
-                  </span>
-                </div>
+                  </ProjectCardInfoValue>
+                </ProjectCardInfoItem>
                 {project.end && (
-                  <div className="flex gap-2 text-sm">
-                    <span className="font-semibold">{`${t('end')}:`}</span>
-                    <span className="text-muted-foreground">
+                  <ProjectCardInfoItem>
+                    <ProjectCardInfoLabel>{`${tProject(
+                      'end'
+                    )}:`}</ProjectCardInfoLabel>
+                    <ProjectCardInfoValue>
                       {format(project.end, 'MMMM yyyy')}
-                    </span>
-                  </div>
+                    </ProjectCardInfoValue>
+                  </ProjectCardInfoItem>
                 )}
                 {project.references && project.references.length > 0 && (
-                  <div className="flex gap-2 text-sm flex-wrap">
-                    <span className="font-semibold">{`${t(
+                  <ProjectCardInfoItem>
+                    <ProjectCardInfoLabel>{`${tProject(
                       'references'
-                    )}:`}</span>
+                    )}:`}</ProjectCardInfoLabel>
                     {project.references.map((ref, index) => (
-                      <Link
-                        key={index}
-                        className="underline inline-flex items-center gap-0.5"
-                        href={ref.url}
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <span>{ref.label}</span>
-                        <Icon
-                          name="arrow-up-right-from-square"
-                          size="xs"
-                          className="relative -top-1"
-                        />
-                      </Link>
+                      <ProjectCardInfoValue key={index} className="flex-wrap">
+                        <ProjectCardReference
+                          href={ref.url}
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          <span>{ref.label}</span>
+                          <Icon
+                            name="arrow-up-right-from-square"
+                            size="xs"
+                            className="relative -top-1"
+                          />
+                        </ProjectCardReference>
+                      </ProjectCardInfoValue>
                     ))}
-                  </div>
+                  </ProjectCardInfoItem>
                 )}
-                <div className="flex gap-2 text-sm flex-wrap">
-                  <span className="font-semibold">{`${t(
+                <ProjectCardInfoItem>
+                  <ProjectCardInfoLabel>{`${tProject(
                     'technologies'
-                  )}:`}</span>
-                  {project.technologies.map((tech, index) => (
-                    <Badge variant="secondary" key={index}>
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
+                  )}:`}</ProjectCardInfoLabel>
+                  <ProjectCardInfoValue className="flex-wrap">
+                    {project.technologies.map((tech, index) => (
+                      <Badge
+                        variant="secondary"
+                        key={index}
+                        className="mr-1 mb-1">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </ProjectCardInfoValue>
+                </ProjectCardInfoItem>
+              </ProjectCardInfo>
+            </ProjectCard>
           ))}
         </div>
       </div>

@@ -37,7 +37,7 @@ const ProjectCard = forwardRef<
   <div
     ref={ref}
     className={cn(
-      'rounded-lg border border-muted shadow bg-background relative flex flex-col max-w-xl h-full',
+      'rounded-lg border border-muted shadow bg-background relative flex flex-col dark:shadow-primary h-full',
       className
     )}
     {...props}
@@ -90,7 +90,10 @@ const ProjectCardInfo = forwardRef<
 >(({className, ...props}, ref) => (
   <div
     ref={ref}
-    className={cn('p-6 flex flex-col gap-2 bg-card min-h-[154px]', className)}
+    className={cn(
+      'p-6 flex flex-col gap-2 bg-card min-h-[154px] rounded-b-lg',
+      className
+    )}
     {...props}
   />
 ))

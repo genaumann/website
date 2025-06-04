@@ -24,7 +24,7 @@ export default function TechnologyGridPage() {
         <Input
           ref={inputRef}
           onChange={e => handleSearch(e.target.value)}
-          className="w-full md:w-1/2 mx-auto h-12 placeholder:text-center placeholder:text-base mb-4"
+          className="w-full md:w-1/2 mx-auto h-12 placeholder:text-center placeholder:text-base mb-6"
           placeholder={t('search.placeholder')}
           type="search"
           aria-label={t('search.placeholder')}
