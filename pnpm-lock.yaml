@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@awesome.me/kit-b84c272999':
-        specifier: ^1.0.64
-        version: 1.0.64
+        specifier: ^1.0.76
+        version: 1.0.76
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.6.0
         version: 6.7.2
@@ -215,8 +215,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@awesome.me/kit-b84c272999@1.0.64':
-    resolution: {integrity: sha512-uuNt360XI05sAmQ+uqCRp6wrMWa5XqpaMkmGdUqnQE6UK1DBCj4ADyOaF+kivKnNt+WRGzQFsRtcQqTckL2bDA==}
+  '@awesome.me/kit-b84c272999@1.0.76':
+    resolution: {integrity: sha512-T7eY0IjFOGMb/fYMAjmHAyxnJw8UW8D+dKcqxQcB8b8MJf/3CyBEuxKA0hSTu7z9TV6js3lVOCi7DZiNPHsBRQ==}
     engines: {node: '>=16'}
 
   '@babel/code-frame@7.27.1':
@@ -3757,7 +3757,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@awesome.me/kit-b84c272999@1.0.64':
+  '@awesome.me/kit-b84c272999@1.0.76':
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
 
