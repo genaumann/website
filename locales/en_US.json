@@ -251,6 +251,10 @@
       "end": "End",
       "technologies": "Technologies",
       "references": "References"
+    },
+    "about": {
+      "title": "About me",
+      "description": "I'm Gino – a <strong>DevOps Engineer</strong> based in Berlin with a passion for <strong>well-orchestrated infrastructure</strong>, <strong>efficient automation</strong>, and <strong>reliable testing</strong>.\n\nFor over 10 years, I've been working in <strong>Linux environments</strong>, helping teams build <strong>resilient systems</strong>, automate processes efficiently, and improve technical workflows in a <strong>sustainable</strong> way.\n\nTo me, <strong>testing</strong> and <strong>automation</strong> aren’t just buzzwords – they are essential for ensuring that <strong>software and infrastructure run reliably</strong>, that <strong>issues are detected early</strong>, and that <strong>bugs never make it to production</strong>.  \nThat’s why I see them not as <strong>optional features</strong>, but as a <strong>core part</strong> of any <strong>clean setup</strong>.\n\nAbove all, I care about <strong>client satisfaction</strong>:  \nI only automate what is <strong>understandable</strong>, <strong>maintainable</strong>, and <strong>actually beneficial</strong>."
     }
   }
 }

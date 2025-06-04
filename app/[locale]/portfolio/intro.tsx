@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function PortfolioIntroPage() {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-muted/20">
       <div className="container mx-auto">
         <div className="flex flex-col items-center text-center space-y-6">
           <div className="relative">
