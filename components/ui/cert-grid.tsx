@@ -28,13 +28,13 @@ export default async function CertGrid({keyword}: CertGridProps) {
             rel="noopener noreferrer"
             target="_blank"
             className="group">
-            <Card className="overflow-hidden">
-              <CardHeader className="py-4 px-6 min-h-[88px]">
+            <Card className="overflow-hidden bg-transparent">
+              <CardHeader className="py-4 px-6 min-h-[88px] bg-card">
                 <CardTitle className="text-xl font-semibold">
                   {cert.name}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex justify-center bg-background p-0">
+              <CardContent className="flex justify-center p-0">
                 <Icon
                   name={cert.icon || 'file-certificate'}
                   prefix={cert.iconPrefix}
@@ -44,7 +44,7 @@ export default async function CertGrid({keyword}: CertGridProps) {
                   )}
                 />
               </CardContent>
-              <CardFooter className="grid grid-cols-3 py-4">
+              <CardFooter className="grid grid-cols-3 py-4 bg-card">
                 <p className="text-muted-foreground place-self-start">
                   {cert.issuer}
                 </p>
