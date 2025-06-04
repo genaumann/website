@@ -1,3 +1,4 @@
+import {IconName, IconPrefix} from '@/components/ui/icon'
 import {useTranslations} from 'next-intl'
 
 type TrainingType = 'participant' | 'speaker'
@@ -6,6 +7,8 @@ export type Training = {
   id: string
   name: string
   description: string
+  iconName: IconName
+  iconPrefix?: IconPrefix
   type: TrainingType
   date: Date
   days: number
@@ -32,6 +35,7 @@ export const getTrainings = ({
       description: t('linux.debian.description'),
       type: 'speaker',
       date: new Date('2016-02-01'),
+      iconName: 'tux',
       days: 10,
       technologies: ['linux']
     },
@@ -41,6 +45,7 @@ export const getTrainings = ({
       description: t('linux.debian.description'),
       type: 'speaker',
       date: new Date('2017-03-01'),
+      iconName: 'tux',
       days: 10,
       technologies: ['linux']
     },
@@ -50,6 +55,7 @@ export const getTrainings = ({
       description: t('linux.centos.description'),
       type: 'speaker',
       date: new Date('2017-06-01'),
+      iconName: 'tux',
       days: 5,
       technologies: ['linux']
     },
@@ -59,6 +65,7 @@ export const getTrainings = ({
       description: t('linux.debian.description'),
       type: 'speaker',
       date: new Date('2017-03-01'),
+      iconName: 'tux',
       days: 10,
       technologies: ['linux']
     },
@@ -68,6 +75,7 @@ export const getTrainings = ({
       description: t('linux.debian.description'),
       type: 'speaker',
       date: new Date('2019-04-01'),
+      iconName: 'tux',
       days: 10,
       technologies: ['linux']
     },
@@ -77,6 +85,7 @@ export const getTrainings = ({
       description: t('linux.debian.description'),
       type: 'speaker',
       date: new Date('2020-03-01'),
+      iconName: 'tux',
       days: 10,
       technologies: ['linux']
     },
@@ -86,6 +95,7 @@ export const getTrainings = ({
       description: t('gitlab.description'),
       type: 'speaker',
       date: new Date('2024-02-01'),
+      iconName: 'gitlab',
       days: 2,
       technologies: ['gitlab']
     },
@@ -95,6 +105,7 @@ export const getTrainings = ({
       description: t('gitlab.description'),
       type: 'speaker',
       date: new Date('2024-05-1'),
+      iconName: 'gitlab',
       days: 2,
       technologies: ['gitlab']
     },
@@ -104,6 +115,7 @@ export const getTrainings = ({
       description: t('gitlab.description'),
       type: 'speaker',
       date: new Date('2024-08-1'),
+      iconName: 'gitlab',
       days: 2,
       technologies: ['gitlab']
     },
@@ -113,6 +125,7 @@ export const getTrainings = ({
       description: t('gitlab.description'),
       type: 'speaker',
       date: new Date('2024-09-01'),
+      iconName: 'gitlab',
       days: 2,
       technologies: ['gitlab']
     },
@@ -122,6 +135,8 @@ export const getTrainings = ({
       description: t('git.description'),
       type: 'speaker',
       date: new Date('2023-06-01'),
+      iconName: 'git',
+      iconPrefix: 'fab',
       days: 2,
       technologies: ['git']
     },
@@ -131,6 +146,8 @@ export const getTrainings = ({
       description: t('git.description'),
       type: 'speaker',
       date: new Date('2024-06-01'),
+      iconName: 'git',
+      iconPrefix: 'fab',
       days: 2,
       technologies: ['git']
     },
@@ -140,15 +157,18 @@ export const getTrainings = ({
       description: t('playwright.description'),
       type: 'participant',
       date: new Date('2024-11-01'),
+      iconName: 'playwright',
       days: 2,
       technologies: ['playwright']
     }
   ]
 
-  return trainings.filter(training => {
-    const matchesTechnology =
-      !technology || training.technologies.includes(technology)
-    const matchesType = !type || training.type === type
-    return matchesTechnology && matchesType
-  })
+  return trainings
+    .filter(training => {
+      const matchesTechnology =
+        !technology || training.technologies.includes(technology)
+      const matchesType = !type || training.type === type
+      return matchesTechnology && matchesType
+    })
+    .sort((a, b) => b.date.getTime() - a.date.getTime())
 }

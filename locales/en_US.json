@@ -235,7 +235,10 @@
       "playwright": {
         "name": "Playwright training",
         "description": "The goal of this training was to provide a basic introduction to Playwright.\n\nIt included practical tips and tricks for performing end-to-end testing of websites using Playwright and TypeScript."
-      }
+      },
+      "title": "Trainings",
+      "days": "{days} days",
+      "day": "Day"
     },
     "projects": {
       "title": "Completed projects",

@@ -3,6 +3,7 @@ import PortfolioStatsPage from './stats'
 import PortfolioProjectsPage from './projects'
 import '@/styles/swiper.css'
 import PortfolioCertsPage from './certs'
+import PortfolioTrainingsPage from './trainings'
 
 export default async function Page() {
   return (
@@ -11,6 +12,7 @@ export default async function Page() {
       <PortfolioStatsPage />
       <PortfolioProjectsPage />
       <PortfolioCertsPage />
+      <PortfolioTrainingsPage />
     </>
   )
 }

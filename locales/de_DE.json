@@ -235,7 +235,10 @@
       "playwright": {
         "name": "Playwright Schulung",
         "description": "Ziel dieser Schulung war es, einen grundlegenden Einblick in Playwright zu geben.\n\nDabei wurden praxisnahe Tipps und Tricks vermittelt, wie sich Webseiten mit Playwright und TypeScript End-to-End testen lassen."
-      }
+      },
+      "title": "Schulungen",
+      "days": "{days} Tage",
+      "day": "Tag"
     },
     "projects": {
       "title": "Abgeschlossene Projekte",
