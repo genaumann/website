@@ -11,17 +11,10 @@ export default function PortfolioIntroPage() {
           <div className="relative">
             <Image
               alt="Gino"
-              src={'/me-white.png'}
+              src={'/me-black-wide.png'}
               width={250}
               height={229}
-              className="dark:hidden rounded-full border border-primary"
-            />
-            <Image
-              alt="Gino"
-              src={'/me-black.png'}
-              width={250}
-              height={229}
-              className="hidden dark:block rounded-full border border-primary"
+              className="rounded-xl aspect-auto"
             />
           </div>
           <div className="space-y-2">
