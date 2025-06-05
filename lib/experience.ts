@@ -1,5 +1,15 @@
-import {ExperienceItem} from '@/components/sections/experience'
 import {getTranslations} from 'next-intl/server'
+
+export interface ExperienceItem {
+  company: string
+  position: string
+  from: Date
+  to?: Date
+  description: string[]
+  technologies: string[]
+  companylogo?: string
+  type: 'fulltime' | 'parttime'
+}
 
 export const getExperience = (
   t: Awaited<ReturnType<typeof getTranslations>>
