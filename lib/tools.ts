@@ -12,101 +12,101 @@ export type Tool = {
   name: string
   icon: IconName | ToolIcon
   iconPrefix?: IconPrefix
-  intro: string
+  intro?: string
   slug: string
 }
 
-export const tools = (t: ReturnType<typeof useTranslations>): Tool[] => [
+export const tools = (t?: ReturnType<typeof useTranslations>): Tool[] => [
   {
     name: 'TypeScript',
     icon: 'typescript',
-    intro: t('intro.typescript'),
+    intro: t && t('intro.typescript'),
     slug: 'typescript'
   },
   {
     name: 'React',
     icon: 'react',
-    intro: t('intro.react'),
+    intro: t && t('intro.react'),
     slug: 'react'
   },
   {
     name: 'Container',
     icon: 'podman',
-    intro: t('intro.container'),
+    intro: t && t('intro.container'),
     slug: 'container'
   },
   {
     name: 'Git',
     icon: 'git',
-    intro: t('intro.git'),
+    intro: t && t('intro.git'),
     slug: 'git',
     iconPrefix: 'fab'
   },
   {
     name: 'Python',
     icon: 'python',
-    intro: t('intro.python'),
+    intro: t && t('intro.python'),
     slug: 'python'
   },
   {
     name: 'Uyuni',
     icon: 'uyuni',
-    intro: t('intro.uyuni'),
+    intro: t && t('intro.uyuni'),
     slug: 'uyuni'
   },
   {
     name: 'Salt',
     icon: 'salt',
-    intro: t('intro.salt'),
+    intro: t && t('intro.salt'),
     slug: 'salt'
   },
   {
     name: 'GitLab',
     icon: 'gitlab',
-    intro: t('intro.gitlab'),
+    intro: t && t('intro.gitlab'),
     slug: 'gitlab'
   },
   {
     name: 'Ansible',
     icon: 'ansible',
-    intro: t('intro.ansible'),
+    intro: t && t('intro.ansible'),
     slug: 'ansible'
   },
   {
     name: 'AWX',
     icon: 'awx',
-    intro: t('intro.awx'),
+    intro: t && t('intro.awx'),
     slug: 'awx'
   },
   {
     name: 'GitHub',
     icon: 'github',
     iconPrefix: 'fab',
-    intro: t('intro.github'),
+    intro: t && t('intro.github'),
     slug: 'github'
   },
   {
     name: 'Linux',
     icon: 'tux',
-    intro: t('intro.linux'),
+    intro: t && t('intro.linux'),
     slug: 'linux'
   },
   {
     name: 'Icinga2',
     icon: {dark: 'icingaDark', light: 'icinga'},
-    intro: t('intro.icinga2'),
+    intro: t && t('intro.icinga2'),
     slug: 'icinga2'
   },
   {
     name: 'Playwright',
     icon: 'playwright',
-    intro: t('intro.playwright'),
+    intro: t && t('intro.playwright'),
     slug: 'playwright'
   },
   {
     name: 'Next.js',
     icon: {dark: 'nextjsDark', light: 'nextjs'},
-    intro: t('intro.nextjs'),
+    intro: t && t('intro.nextjs'),
     slug: 'nextjs'
   }
 ]

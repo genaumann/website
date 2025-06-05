@@ -16,6 +16,23 @@ import Link from 'next/link'
 import {Metadata} from 'next'
 import getMetadata from '@/lib/metadata'
 
+// 404 for unspecified tools
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+  const tools = toolsData()
+  return tools.flatMap(tool => [
+    {
+      locale: 'de',
+      tool: tool.slug
+    },
+    {
+      locale: 'en',
+      tool: tool.slug
+    }
+  ])
+}
+
 export async function generateMetadata({
   params
 }: {
