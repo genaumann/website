@@ -21,7 +21,6 @@ export default async function PortfolioSection() {
                 alt="Me"
                 width={250}
                 height={229}
-                className=""
               />
             </div>
             <div className="flex flex-col gap-4 md:gap-2 ml-0.5">

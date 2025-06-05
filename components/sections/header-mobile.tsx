@@ -14,7 +14,6 @@ import {Button} from '../ui/button'
 import {HeaderItem, HeaderMenu} from '@/lib/header-menu'
 import Link from 'next/link'
 import Image from 'next/image'
-import {useState} from 'react'
 import {useTranslations} from 'next-intl'
 
 export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
@@ -29,25 +28,19 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
       <SheetContent className="flex flex-col">
         <SheetHeader className="mb-4">
           <SheetTitle>
-            <Link
-              href={headerMenu.logo.href}
-              className="flex flex-col items-center">
-              <Image
-                className="dark:block hidden"
-                alt={headerMenu.logo.name}
-                src={headerMenu.logo.darkImageUrl}
-                width={75}
-                height={43}
-              />
-              <Image
-                className="dark:hidden"
-                alt={headerMenu.logo.name}
-                src={headerMenu.logo.lightImageUrl}
-                width={75}
-                height={43}
-              />
-              <span>{headerMenu.logo.name}</span>
-            </Link>
+            <SheetClose asChild>
+              <Link
+                href={headerMenu.logo.href}
+                className="flex items-center flex-col mx-auto w-9/12">
+                <Image
+                  alt={headerMenu.logo.name}
+                  src={headerMenu.logo.imageUrl}
+                  width={75}
+                  height={43}
+                />
+                <span>{headerMenu.logo.name}</span>
+              </Link>
+            </SheetClose>
           </SheetTitle>
         </SheetHeader>
         <HeaderMobileItems items={headerMenu.items} />
@@ -64,52 +57,17 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
 }
 
 function HeaderMobileItems({items}: {items: HeaderItem[]}) {
-  const [openItems, setOpenItems] = useState<string[]>([])
-
-  const toggleItem = (title: string) => {
-    setOpenItems(prev =>
-      prev.includes(title)
-        ? prev.filter(item => item !== title)
-        : [...prev, title]
-    )
-  }
-
   return (
-    <div className="px-2 pt-2 pb-3 space-y-4 sm:px-3">
+    <div className="px-2 pt-2 pb-3 space-y-2 sm:px-3">
       {items.map(item => (
-        <div key={item.name}>
-          {item.elements && item.elements.length > 0 ? (
-            <div
-              onClick={() => toggleItem(item.name)}
-              className="flex items-center justify-between w-full text-muted-foreground hover:text-primary"
-              aria-expanded={openItems.includes(item.name)}>
+        <div key={item.name} className="w-full">
+          <SheetClose asChild>
+            <Link
+              className="font-semibold bg-secondary/40 w-full block p-2 rounded-lg"
+              href={item.href || '/'}>
               {item.name}
-              {item.elements &&
-                (openItems.includes(item.name) ? (
-                  <Icon name="chevron-up" />
-                ) : (
-                  <Icon name="chevron-down" />
-                ))}
-            </div>
-          ) : (
-            <SheetClose asChild>
-              <Link href={item.href || '/'}>{item.name}</Link>
-            </SheetClose>
-          )}
-          {item.elements && openItems.includes(item.name) && (
-            <div className="pl-6 space-y-2 mt-2">
-              {item.elements.map(subItem => (
-                <SheetClose key={subItem.name} asChild>
-                  <Link
-                    href={subItem.href || '/'}
-                    className="block pl-2 text-muted-foreground hover:text-primary">
-                    <Icon name={subItem.icon} className="mr-2" />
-                    {subItem.name}
-                  </Link>
-                </SheetClose>
-              ))}
-            </div>
-          )}
+            </Link>
+          </SheetClose>
         </div>
       ))}
     </div>

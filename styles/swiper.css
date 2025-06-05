@@ -14,3 +14,7 @@
 .swiper-training {
     --swiper-navigation-top-offset: 50%;
 }
+
+.swiper.swiper-cards {
+    overflow: hidden;;
+}
