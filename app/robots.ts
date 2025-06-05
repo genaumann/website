@@ -5,7 +5,7 @@ const robots = (): MetadataRoute.Robots => {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/privacy'
+      disallow: ['/privacy', '/imprint']
     }
   }
 }

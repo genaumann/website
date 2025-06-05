@@ -9,6 +9,7 @@
     --swiper-pagination-bullet-inactive-color: hsl(var(--muted-foreground));
     --swiper-navigation-top-offset: 0px;
     --swiper-navigation-size: 30px;
+    --swiper-pagination-bullet-horizontal-gap: 8px;
 }
 
 .swiper-training {

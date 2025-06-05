@@ -36,7 +36,7 @@ export default function TechnologyGridPage() {
           {t('search.noResults')}
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4" role="grid">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {filteredTools.map((tool, index) => (
             <TechnologyCard key={index} tool={tool} />
           ))}

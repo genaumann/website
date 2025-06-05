@@ -42,7 +42,7 @@ export default async function PortfolioStatsPage() {
               key={index}
               href={entry.link}
               className="hover:cursor-pointer group">
-              <div className="text-4xl font-bold text-primary mb-2 transition-transform duration-300 ease-in-out group-hover:scale-150 group-focus:scale-150">
+              <div className="text-4xl font-bold mb-2 transition-transform  ease-in-out group-hover:scale-150 group-focus:scale-150 animate-flicker text-primary">
                 {entry.value}
               </div>
               <div className="text-muted-foreground">{entry.title}</div>
