@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.4.0](https://github.com/genaumann/website/compare/v1.3.0...v1.4.0) (2025-06-05)
+
+### ✨ Feature ✨
+
+* **hero:** replace hero ([29daae2](https://github.com/genaumann/website/commit/29daae2c03b07172b05458ca19950a258b8e49d2))
+* **imprint:** add page ([54b45bd](https://github.com/genaumann/website/commit/54b45bd196abdb873d29fc382699b452d3674a23))
+* **kb:** add keyword to article meta ([29b8e1a](https://github.com/genaumann/website/commit/29b8e1aec7ed615bf6e1080d6f641d5d0f0823c8))
+* **og:** style adjustments ([a930acc](https://github.com/genaumann/website/commit/a930accfcf4bf099944361fa9904a5ba91a4fed0))
+* **portfolio:** add about me ([856c802](https://github.com/genaumann/website/commit/856c8021f60eb75f9ca9b43592782d43376fae22))
+* **portfolio:** add cert-grid ([187ed55](https://github.com/genaumann/website/commit/187ed55f3bd24634fd6aa90a7f0c3deb319680fd))
+* **portfolio:** add intro & stats ([ea74086](https://github.com/genaumann/website/commit/ea74086875e6d3829a0f89c2edb79b58f561bb72))
+* **portfolio:** add link to sections ([620da12](https://github.com/genaumann/website/commit/620da125aa313894f97288bf43d6640e480c7238))
+* **portfolio:** add offer ([12f1769](https://github.com/genaumann/website/commit/12f17693bff00f2bb0304960f19924913a5124e4))
+* **portfolio:** add project swiper ([900d192](https://github.com/genaumann/website/commit/900d1929b4f970e5384a2e0b0458eaa5a3fce369))
+* **portfolio:** add section to start ([3c1ec77](https://github.com/genaumann/website/commit/3c1ec77dc9ce69ed5f981b4608d7b8d9ad3ae463))
+* **portfolio:** add tools route ([a6c655e](https://github.com/genaumann/website/commit/a6c655eb0ba5c5fc8549cda38eb51ec4285be189))
+* **portfolio:** add training section ([e805fd0](https://github.com/genaumann/website/commit/e805fd060d9677702c910d862bbc9240355fd632))
+* **seo:** add portfolio ([73299d6](https://github.com/genaumann/website/commit/73299d6ee90a892766719f5f5f0a825090d9d8a7))
+* **tools:** add staticParams ([27626e2](https://github.com/genaumann/website/commit/27626e236cc14505eb08c4b0c5613d03646f6af5))
+
+### 🐛 Bugfix 🐛
+
+* **kb:** use Link in breadcrumb ([d4c09bc](https://github.com/genaumann/website/commit/d4c09bc99b67a4af6a60b2350c3549bc4818da03))
+* **portfolio:** getDatefunctions in safari ([8d0cdf6](https://github.com/genaumann/website/commit/8d0cdf6cad95ee3a251bb08855c1d86c6f3ac7b2))
+* swipe history on mac ([45daf60](https://github.com/genaumann/website/commit/45daf602846c04ea96d828ee5e82fe1525890645))
+
 ## [1.3.0](https://github.com/genaumann/website/compare/v1.2.0...v1.3.0) (2025-06-01)
 
 ### ✨ Feature ✨
