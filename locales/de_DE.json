@@ -94,7 +94,8 @@
     "sidebar": {
       "deflateButton": "Unterartikel einklappen",
       "expandButton": "Unterartikel ausklappen"
-    }
+    },
+    "description": "Sammlung an praxisnahen Artikeln zu DevOps, Softwareentwicklung und Serveradministration."
   },
   "notFound": {
     "title": "Seite nicht gefunden",

@@ -94,7 +94,8 @@
     "sidebar": {
       "deflateButton": "Defalte sub articles",
       "expandButton": "Expand sub articles"
-    }
+    },
+    "description": "Collection of practical articles on devops, software development and server administration."
   },
   "notFound": {
     "title": "Page not found",
