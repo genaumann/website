@@ -14,6 +14,7 @@ import Search from '@/components/kb/search'
 import TocWrapper from '@/components/kb/toc/wrapper'
 import {findArticleBySlug} from '@/lib/mdx-edge'
 import {LOCALE_KEY} from '@/locales'
+import Link from 'next/link'
 
 export default async function KBLayout({
   children,
@@ -59,22 +60,25 @@ export default async function KBLayout({
         <Breadcrumb className="mb-6 pt-5">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink className="text-muted-foreground" href="/kb">
-                {t('common.knowledgebase')}
+              <BreadcrumbLink className="text-muted-foreground" asChild>
+                <Link href="/kb">{t('common.knowledgebase')}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             {breadcrumbs.map((item, index) => {
+              const isLast = index === breadcrumbs.length - 1
               return (
                 <Fragment key={index}>
                   <BreadcrumbItem>
-                    <BreadcrumbLink
-                      className="text-muted-foreground"
-                      href={`/kb/${item?.slug}`}>
-                      {item?.title}
-                    </BreadcrumbLink>
+                    {isLast ? (
+                      <>{item?.title}</>
+                    ) : (
+                      <BreadcrumbLink className="text-muted-foreground" asChild>
+                        <Link href={`/kb/${item?.slug}`}>{item?.title}</Link>
+                      </BreadcrumbLink>
+                    )}
                   </BreadcrumbItem>
-                  {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
+                  {isLast || <BreadcrumbSeparator />}
                 </Fragment>
               )
             })}
