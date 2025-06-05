@@ -287,6 +287,12 @@
         "title": "Get an overview of my tech stack"
       },
       "gotoTools": "Go to tech stack"
+    },
+    "section": {
+      "description": "As Devops Engineer, I offer comprehensive know-how in automation, web development and testing modern web applications.",
+      "button": "Discover portfolio",
+      "subtitle": "Devops from Berlin",
+      "title": "Gino Naumann"
     }
   }
 }

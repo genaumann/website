@@ -287,6 +287,12 @@
         "title": "Erhalte einen Überblick über meinen Tech Stack"
       },
       "gotoTools": "Zum Techstack"
+    },
+    "section": {
+      "description": "Ich biete als DevOps Engineer umfassendes Know-how in der Automatisierung, Webentwicklung und im Testen moderner Webanwendungen.",
+      "button": "Portfolio entdecken",
+      "subtitle": "DevOps aus der Hauptstadt",
+      "title": "Gino Naumann"
     }
   }
 }
