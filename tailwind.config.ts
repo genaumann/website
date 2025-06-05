@@ -56,7 +56,7 @@ export default {
         sans: ['var(--font-sans)']
       },
       animation: {
-        flicker: 'flicker 10s infinite'
+        flicker: 'flicker 30s infinite'
       },
       keyframes: {
         flicker: {

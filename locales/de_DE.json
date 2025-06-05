@@ -17,7 +17,17 @@
     "jobtitle": "DevOps Engineer"
   },
   "hero": {
-    "more": "Entdecke mehr"
+    "more": "Entdecke mehr",
+    "title": "Gino Naumann",
+    "description": "DevOps Engineer aus Berlin mit über 10 Jahren Erfahrung in Automation, CI/CD und Infrastruktur.",
+    "buttonPrimary": "Zum Portfolio",
+    "buttonSecondary": "Zur Knowledge Base",
+    "stats": {
+      "projects": "Abgeschlossene Kundenprojekte",
+      "certs": "Zertifizierungen",
+      "trainings": "Durchgeführte Kundenschulungen",
+      "kbArticles": "Knowledge Base Artikel"
+    }
   },
   "aboutMe": {
     "title": "DevOps Engineer, Biker, Amateur Fotograf",
