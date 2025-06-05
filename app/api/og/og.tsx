@@ -31,25 +31,32 @@ export default async function OGImage({
 
   return new ImageResponse(
     (
-      <div tw="h-full w-full flex flex-row items-center bg-[#06130a] py-10 px-12">
-        <div tw="flex flex-col w-[25%]">
-          <div tw="flex items-center w-full">
-            <img
-              src={`${origin}/me-black.png`}
-              alt="Gino"
-              tw="w-52 h-52 rounded-full border border-[#00b32d]"
-            />
+      <div tw="h-full w-full flex flex-col bg-[#fafffb] py-4 px-12">
+        <img
+          src={`${origin}/logo.png`}
+          alt="Logo"
+          width={75}
+          height={43}
+          tw="self-end"
+        />
+        <div tw="flex py-32 self-center">
+          <div tw="flex flex-col w-[25%]">
+            <div tw="flex items-center w-full">
+              <img src={`${origin}/me-black-wide.png`} alt="Gino" />
+            </div>
+            {title !== 'Gino Naumann' && (
+              <div tw="flex mt-4 w-full">
+                <h2 tw="text-5xl text-black font-semibold flex flex-col items-center ml-4">
+                  <span>Gino</span>
+                  <span>Naumann</span>
+                </h2>
+              </div>
+            )}
           </div>
-          <div tw="flex mt-4 w-full">
-            <h2 tw="text-5xl text-white font-semibold flex flex-col items-center ml-4">
-              <span>Gino</span>
-              <span>Naumann</span>
-            </h2>
+          <div tw="flex flex-col w-[72%] ml-12 items-center">
+            <h1 tw="text-7xl text-[#00e639] font-bold">{title}</h1>
+            <p tw="text-white text-3xl text-neutral-400">{description}</p>
           </div>
-        </div>
-        <div tw="flex flex-col w-[72%] ml-12 items-center">
-          <h1 tw="text-6xl text-white font-bold">{title}</h1>
-          <p tw="text-white text-3xl text-neutral-400">{description}</p>
         </div>
       </div>
     ),

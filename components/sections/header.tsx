@@ -15,16 +15,9 @@ export default async function Header() {
           <div className="flex items-center">
             <Link href={headerMenu.logo.href} className="shrink-0">
               <Image
-                className="dark:block hidden"
                 alt={headerMenu.logo.name}
-                src={headerMenu.logo.darkImageUrl}
-                width={75}
-                height={43}
-              />
-              <Image
-                className="dark:hidden"
-                alt={headerMenu.logo.name}
-                src={headerMenu.logo.lightImageUrl}
+                priority
+                src={headerMenu.logo.imageUrl}
                 width={75}
                 height={43}
               />

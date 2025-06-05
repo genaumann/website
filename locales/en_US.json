@@ -5,9 +5,6 @@
     "certificates": "Certificates",
     "workExperience": "Work experience",
     "today": "Today",
-    "active": "Active",
-    "expired": "Expired",
-    "privacy": "Privacy",
     "search": "Search",
     "noResults": "No results",
     "lookingFor": "What are you searching for?",
@@ -19,7 +16,17 @@
     "jobtitle": "DevOps Engineer"
   },
   "hero": {
-    "more": "Explore more"
+    "more": "Explore more",
+    "title": "Gino Naumann",
+    "description": "DevOps Engineer based in Berlin with over 10 years of experience in automation, CI/CD, and infrastructure.",
+    "buttonPrimary": "View Portfolio",
+    "buttonSecondary": "View Knowledge Base",
+    "stats": {
+      "projects": "Completed customer projects",
+      "certs": "Certifications",
+      "trainings": "Conducted customer trainings",
+      "kbArticles": "Knowledge base article"
+    }
   },
   "aboutMe": {
     "title": "DevOps Engineer, biker, amateur photographer",
@@ -74,7 +81,8 @@
     "moreArticles": "More articles",
     "metadata": {
       "description": "Comprehensive IT knowledgebase with practical articles on devops, software development and server administration.",
-      "ogDescription": "Knowledge base article"
+      "ogDescription": "Knowledge base article",
+      "title": "Knowledge base"
     },
     "title": {
       "short": "KB",
@@ -86,7 +94,8 @@
     "sidebar": {
       "deflateButton": "Defalte sub articles",
       "expandButton": "Expand sub articles"
-    }
+    },
+    "description": "Collection of practical articles on devops, software development and server administration."
   },
   "notFound": {
     "title": "Page not found",
@@ -95,7 +104,7 @@
   "app": {
     "name": "Gino Naumann",
     "metadata": {
-      "description": "DevOps Engineer Gino Naumann – Profile, certifications, and a hands-on knowledge base focused on automation, CI/CD, infrastructure, and modern IT workflows."
+      "description": "DevOps Engineer Gino Naumann – Portfolio, certifications, and a hands-on knowledge base focused on automation, CI/CD, infrastructure, and modern IT workflows."
     },
     "shortName": "GNaumann"
   },
@@ -104,5 +113,216 @@
     "metadata": {
       "description": "Data privacy declaration"
     }
+  },
+  "certs": {
+    "active": "Active",
+    "expired": "Expired"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "tools": {
+      "title": "Tools",
+      "intro": {
+        "typescript": "I now use TypeScript almost daily to develop websites (front and backend) and to use the end-to-end test framework Playwright.\n\n\nTypecript can be used both in the frontend and backend and offers robust typing with the support of modern IDEs.",
+        "react": "I now develop all my web projects exclusively using React.\n\nI started my first React project back in 2021, when I built an early, unpublished alpha version of this website. At the time, I used Create React App (CRA) to set up the project.",
+        "container": "I had heard a lot about Docker / Podman and containers in the past but didn’t really understand what they were all about.\nIn 2021, I made it a goal to dive into the world of containers—and quickly became fascinated by the technology.\n\nToday, I build and use containers in GitLab CI/CD pipelines and for running small services in my private homelab.",
+        "git": "Whether I'm developing a web project or configuring IT infrastructure – Git is an essential tool I rely on every day.\n\nGiven its importance, I’ve also trained former colleagues on various Git-related topics.",
+        "python": "In system administration, Python is a widely used language with a strong community.\nTools like Salt and Ansible are written in Python.\n\nI use Python to develop custom Salt modules and scripts for general system management.",
+        "uyuni": "In 2023, I had my first hands-on experience with Uyuni / SUSE Manager—a tool that uses Salt for server management.\n\nAs part of a client project, I extended SUSE Manager and Salt to support an Infrastructure as Code (IaC) approach and implement a staging concept.",
+        "salt": "I discovered and quickly grew to love Salt back in 2015 during my IT training.\nSince then, I’ve successfully completed several Salt projects - with great enthusiasm.\n\nWhile the community isn’t as active as it once was, Salt still plays a key role in managing my homelab every single day.",
+        "ansible": "I first got in touch with Ansible in 2021.\nTo ensure high-quality playbooks and modules, I set up automated testing against virtual machines.\n\nAs a direct competitor to Salt, Ansible still benefits from a highly active community—which is why I’d now prefer Ansible over Salt.",
+        "gitlab": "I first started working with GitLab in 2020—back then, I was mainly responsible for keeping the system up to date.\n\nIn 2021, I became deeply interested in its CI/CD features and quickly learned how to use them effectively.\n\nGitLab also holds personal significance for me.\nFor the past two years, I’ve been regularly conducting GitLab training sessions.",
+        "github": "After gaining solid expertise in GitLab, I ventured into GitHub and tested its CI/CD features—which I found quite good.\nStill, I prefer GitLab's CI/CD capabilities overall.\n\nHowever, I currently manage my web projects on GitHub—mainly because of its seamless integration with Vercel.",
+        "awx": "I first thoroughly tested the automation platform AWX—also known as Ansible Automation Platform—in 2023 and later used it in client projects.\n\nTo quickly spin up clean test environments, I automated the AWX installation using a GitLab CI/CD pipeline.",
+        "linux": "I first gained experience with Linux—especially Debian—during my vocational training.\n\nI quickly became comfortable with the system and soon started giving Debian training sessions.\nToday, I have advanced skills in Ubuntu, Debian, Red Hat Enterprise Linux (RHEL), SUSE Linux Enterprise Server (SLES), Fedora, and openSUSE.",
+        "icinga2": "Shortly after completing my it training, I was tasked with replacing the outdated Nagios system with a modern Icinga2 setup.\n\nSince then, I’ve been using Icinga2 continuously—especially to monitor the servers in my homelab.",
+        "playwright": "I started working with Playwright in 2024 while implementing end-to-end tests for Next.js web projects.\n\nTo match the Next.js stack, I use TypeScript for testing the applications. The tests were run automatically in a GitHub pipeline before the web application was deployed.",
+        "nextjs": "I started my first React projects using Create React App (CRA).\nWhen the framework became outdated, I switched to Next.js—and haven’t looked back since.\n\nToday, I rely exclusively on Next.js for all web projects, with hosting handled via the Vercel platform.\nThis very website is also built with Next.js and hosted on Vercel."
+      },
+      "kb": {
+        "title": "Knowledge base articles",
+        "description": "The latest articles on the topic of {technology}."
+      },
+      "certs": {
+        "title": "Certifications",
+        "description": "I have achieved the following certifications in which {technology} was a component."
+      },
+      "projects": {
+        "projects": {
+          "suseSaltConcept": {
+            "name": "Suse Manager Salt Concept + Development",
+            "description": "The client manages over 400 SLES systems using SUSE Manager and Salt.\nHowever, the Salt integration in SUSE Manager lacks both Infrastructure as Code (IaC) support and a mature staging concept.\n\nI took it upon myself to address these key shortcomings by developing custom Python modules. This made it possible to implement both a functional staging concept and an IaC-based management approach using SUSE Manager and Salt."
+          },
+          "webAppRacetrack": {
+            "name": "Project management & Development WebApp",
+            "description": "A client from the motorsport sector required a modern website that could be managed independently via a CMS and included a shop with backend functionality for dynamic content management.\nParticipants also needed to log into the web app to view their bookings.\n\nWe integrated both the web app and the shop into a unified Next.js solution.\nI led the project and successfully delivered it together with a small team within six months."
+          },
+          "e2eTestingPlaywright": {
+            "name": "E2E testing of different web apps",
+            "description": "I’m responsible for end-to-end testing of several custom-built web apps and for integrating these tests into GitHub Actions, ensuring they are automatically run before deployment.\n\nThe tests cover various components of the applications—for example, the checkout process in the shop or user login functionality.\n\nThe project is currently still in progress.\n"
+          },
+          "automatedAwxDeployment": {
+            "name": "Automated AWX deployment within Gitlab CI/CD",
+            "description": "In customer projects, our team frequently installed and configured AWX instances.\nAt the time, we lacked a proper test environment, which made testing and experimentation difficult.\n\nTo solve this, I took on the task of automating the AWX installation within a k3s single-node cluster—optionally also supporting multi-node setups.\nThe automation was implemented via a GitLab CI/CD pipeline.\n\nAs a result, our team was able to spin up a fully functional AWX environment within minutes."
+          },
+          "setupSaltFromScratch": {
+            "name": "IaC with Salt: Standardized server configuration",
+            "description": "At the time, around 40 virtual Debian servers were managed and maintained manually.\n\nI took the initiative to introduce Salt into the environment to manage the servers more efficiently and standardize their configurations.\n\nToday, the client reports that the setup is still in use and actively being developed further."
+          },
+          "setupIcinga2FromScratch": {
+            "name": "Icinga2 introduction with salt integration",
+            "description": "At the time, around 50 virtual Linux and Windows servers were being operated without any centralized monitoring system.\nService outages and disruptions were only reported by end users, often resulting in prolonged downtimes.\n\nI introduced Icinga2 - a monitoring solution compatible with both Linux and Windows.\nExisting and new Linux servers managed via Salt were automatically integrated into Icinga2, with service checks applied accordingly.\nThis enabled the team to detect and respond to outages much faster and more professionally.\n\nToday, the client reports that the setup is still in use and actively being further developed."
+          },
+          "personalWebsite": {
+            "name": "Personal website",
+            "description": "I've been working on my personal website sporadically for a few years now.\nIt's continuously being improved.\n\nI use Next.js as the framework, hosted on Vercel.",
+            "ref": {
+              "github": "Github Repository"
+            }
+          },
+          "automatedContainerBuildGitlab": {
+            "name": "Automated container builds in Gitlab CI/CD",
+            "description": "Once a container is built, it's often rarely updated in practice.\nThis can lead to security vulnerabilities or outdated software inside the container.\n\nTo address this, I developed a tool called Container Image Builder (cib) for GitLab pipelines.\nIt allows building and publishing any number of containers within a single pipeline.\n\nThe tool is written in Python and is actively used in my personal container build processes.",
+            "ref": {
+              "gitlab": "Gitlab Repository"
+            }
+          },
+          "ansibleServerConcept": {
+            "name": "Ansible server concept",
+            "description": "Our team used to create several virtual machines per day and configure them manually.\nThis process consumed several hours of work each day.\n\nI took the initiative to automate the provisioning of VMs using Ansible, including their configuration.\nTo support this, I developed a standardized server configuration and trained the team,\nso that everyone could independently create and configure new servers using Ansible."
+          },
+          "saltFormulaGit": {
+            "name": "Salt git Formula",
+            "description": "I developed a custom Salt formula that configures the local Git client.\n\nThe formula is automatically tested against the latest Salt versions using a GitHub Actions pipeline.",
+            "ref": {
+              "github": "Github Repository"
+            }
+          },
+          "saltFormulaAcmeSh": {
+            "name": "Salt acme.sh formula",
+            "ref": {
+              "github": "Github Repository"
+            },
+            "description": "I developed a custom Salt formula that automates certificate issuance using acme.sh. I also developed Salt execution modules in Python.\n\nThe formula is automatically tested against the latest Salt versions via a GitHub Actions pipeline."
+          },
+          "migrationNagiosIcinga2": {
+            "name": "From Nagios to Icinga2",
+            "description": "The client was using an outdated Nagios system, which was to be replaced with Icinga2.\nAll existing services were migrated 1:1 to Icinga2.\n\nFor improved visualization, Icinga Web was also installed to provide a modern web interface for Icinga."
+          }
+        },
+        "title": "My projects",
+        "description": "Current and past projects where I used {technology}."
+      },
+      "search": {
+        "placeholder": "Which technology do you need support with?",
+        "noResults": "No results"
+      },
+      "description": "Only products and brands are listed here for which I can demonstrate project experience, certifications, or published knowledge base articles.\nThere are no partnerships or business affiliations with any of the mentioned vendors.",
+      "metadata": {
+        "title": "Tools",
+        "description": "Insight into my tech stack: tools and technologies for DevOps, automation, CI/CD, infrastructure as code, testing, and modern web development.",
+        "descriptionTool": "Information, personal insights, and project experience with {tool} in the context of DevOps, automation, and infrastructure."
+      }
+    },
+    "stats": {
+      "completedProjects": "Completed customer projects",
+      "certs": "Certifications",
+      "speakerTrainings": "Conducted customer trainings"
+    },
+    "trainings": {
+      "linux": {
+        "debian": {
+          "name": "Linux (Debian) training",
+          "description": "The goal of the seminar was to prepare IT beginners for working with Debian.\nIt covered basic Linux concepts using the Debian distribution."
+        },
+        "centos": {
+          "name": "Linux (CentOS) training",
+          "description": "The goal of the seminar was to prepare IT beginners for working with CentOS.\nIt covered basic Linux concepts using the CentOS distribution."
+        }
+      },
+      "gitlab": {
+        "name": "Gitlab training",
+        "description": "The goal of this training was to introduce the client to GitLab.\nIt covered the GitLab basics as well as the use of its CI/CD features."
+      },
+      "git": {
+        "name": "Git basic / Git advanced training",
+        "description": "The goal of this training was to enable the client to use Git with confidence.\n\nBoth basic and advanced topics were covered—for example, cherry-picking and rebase."
+      },
+      "playwright": {
+        "name": "Playwright training",
+        "description": "The goal of this training was to provide a basic introduction to Playwright.\n\nIt included practical tips and tricks for performing end-to-end testing of websites using Playwright and TypeScript."
+      },
+      "title": "Trainings",
+      "days": "{days} days",
+      "day": "Day"
+    },
+    "projects": {
+      "title": "Completed projects",
+      "status": {
+        "completed": "Completed",
+        "upcoming": "Upcoming",
+        "in_progress": "In Progress"
+      },
+      "start": "Start",
+      "end": "End",
+      "technologies": "Technologies",
+      "references": "References"
+    },
+    "about": {
+      "title": "About me",
+      "description": "I'm Gino – a <strong>DevOps Engineer</strong> based in Berlin with a passion for <strong>well-orchestrated infrastructure</strong>, <strong>efficient automation</strong>, and <strong>reliable testing</strong>.\n\nFor over 10 years, I've been working in <strong>Linux environments</strong>, helping teams build <strong>resilient systems</strong>, automate processes efficiently, and improve technical workflows in a <strong>sustainable</strong> way.\n\nTo me, <strong>testing</strong> and <strong>automation</strong> aren’t just buzzwords – they are essential for ensuring that <strong>software and infrastructure run reliably</strong>, that <strong>issues are detected early</strong>, and that <strong>bugs never make it to production</strong>.  \nThat’s why I see them not as <strong>optional features</strong>, but as a <strong>core part</strong> of any <strong>clean setup</strong>.\n\nAbove all, I care about <strong>client satisfaction</strong>:  \nI only automate what is <strong>understandable</strong>, <strong>maintainable</strong>, and <strong>actually beneficial</strong>."
+    },
+    "offers": {
+      "title": "My offer",
+      "iacServer": {
+        "title": "IaC server automation with Ansible & Salt",
+        "description": "I configure systems, provision servers, and automate workflows using Salt and Ansible"
+      },
+      "cicd": {
+        "title": "CI/CD Pipelines",
+        "description": "I design new and optimize existing CI/CD pipelines using GitLab and GitHub Actions."
+      },
+      "e2e": {
+        "title": "End-to-end test of your web application",
+        "description": "I create automated end-to-end (E2E) tests using Playwright and seamlessly integrate them into your existing infrastructure.\nNaturally, I also support the deployment of your web application."
+      },
+      "nextjsDev": {
+        "title": "Next.js development",
+        "description": "I help you build a high-performance web application – developed in TypeScript using the Next.js framework.\nI can also perform end-to-end testing and handle the deployment reliably."
+      },
+      "cloud": {
+        "title": "Infrastructure projects in the cloud",
+        "description": "I support you and your team in planning and implementing infrastructure projects on AWS and Azure."
+      },
+      "kubernetes": {
+        "title": "Kubernetes and container technology",
+        "description": "I help you and your team make efficient use of your existing Kubernetes cluster and reliably deploy your custom software components to it."
+      },
+      "banner": {
+        "buttonTitle": "My Tech stack",
+        "title": "Get an overview of my tech stack"
+      },
+      "gotoTools": "Go to tech stack"
+    },
+    "section": {
+      "description": "As Devops Engineer, I offer comprehensive know-how in automation, web development and testing modern web applications.",
+      "button": "Discover portfolio",
+      "subtitle": "Devops from Berlin",
+      "title": "Gino Naumann"
+    },
+    "metadata": {
+      "title": "Portfolio",
+      "description": "Portfolio of Gino Naumann, a DevOps Engineer based in Berlin. Projects focused on automation, CI/CD, infrastructure as code, testing, and modern web development."
+    }
+  },
+  "imprint": {
+    "metadata": {
+      "title": "Imprint",
+      "description": "Imprint Gino Naumann"
+    }
+  },
+  "footer": {
+    "imprint": "Imprint",
+    "privacy": "Data privacy"
   }
 }

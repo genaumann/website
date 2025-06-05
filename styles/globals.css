@@ -49,12 +49,14 @@
 
   html {
     @apply scroll-smooth;
-    overscroll-behavior: none;
   }
   body {
     @apply bg-background text-foreground;
-    overscroll-behavior: none;
     overflow-x: hidden;
+  }
+
+  section{
+    @apply scroll-mt-[97px]
   }
 
   article h2,
@@ -75,6 +77,69 @@
     color: var(--shiki-dark) !important;
     background-color: inherit !important;
   }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+@keyframes github-twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+.animate-github-twinkle {
+  animation: github-twinkle infinite ease-in-out;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(calc(var(--float-x) * 0.3), calc(var(--float-y) * 0.3));
+  }
+  50% {
+    transform: translate(calc(var(--float-x) * 0.7), calc(var(--float-y) * 0.7));
+  }
+  75% {
+    transform: translate(calc(var(--float-x) * 0.4), calc(var(--float-y) * -0.2));
+  }
+}
+
+.animate-float {
+  animation: float infinite ease-in-out;
+}
+
+.star-shape {
+  filter: drop-shadow(0 0 1px hsl(var(--primary))) drop-shadow(0 0 2px hsl(var(--primary) / 0.6));
+}
+
+.star-beam {
+  box-shadow: 0 0 1px hsl(var(--primary)), 0 0 2px hsl(var(--primary) / 0.4);
+}
+
+.star-center {
+  box-shadow: 0 0 1px hsl(var(--primary)), 0 0 2px hsl(var(--primary) / 0.6);
 }
 
 @layer utilities {

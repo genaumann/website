@@ -9,11 +9,20 @@ import Docker from './docker'
 import ReactIcon from './react'
 import GitLab from './gitlab'
 import Ansible from './ansible'
+import SUSE from './suse'
+import AWX from './awx'
+import Uyuni from './uyuni'
+import Tux from './tux'
+import Icinga from './icinga'
+import Playwright from './playwright'
+import NextJS from './nextjs'
+import NextJSLight from './nextjs-light'
+import Podman from './podman'
 
 export const customIconMap = {
   redhat: {
     Component: redhat,
-    color: '#EE0000'
+    color: '#000000'
   },
   typescript: {
     Component: TypeScript,
@@ -25,7 +34,7 @@ export const customIconMap = {
   },
   python: {
     Component: Python,
-    color: '#3776AB'
+    color: '#000000'
   },
   docker: {
     Component: Docker,
@@ -37,11 +46,51 @@ export const customIconMap = {
   },
   gitlab: {
     Component: GitLab,
-    color: '#FC6D26'
+    color: '#000000'
   },
   ansible: {
     Component: Ansible,
     color: '#EE0000'
+  },
+  suse: {
+    Component: SUSE,
+    color: '#000000'
+  },
+  awx: {
+    Component: AWX,
+    color: '#000000'
+  },
+  uyuni: {
+    Component: Uyuni,
+    color: '#000000'
+  },
+  tux: {
+    Component: Tux,
+    color: '#000000'
+  },
+  icinga: {
+    Component: Icinga,
+    color: '#06062C'
+  },
+  icingaDark: {
+    Component: Icinga,
+    color: '#FFFFFF'
+  },
+  playwright: {
+    Component: Playwright,
+    color: '#000000'
+  },
+  nextjs: {
+    Component: NextJSLight,
+    color: '#000000'
+  },
+  nextjsDark: {
+    Component: NextJS,
+    color: '#FFFFFF'
+  },
+  podman: {
+    Component: Podman,
+    color: '#0000000'
   },
   bookOpen: {
     Component: BookOpen,

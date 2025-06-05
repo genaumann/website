@@ -1,0 +1,21 @@
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+@import 'swiper/css/effect-cards';
+@import 'swiper/css/a11y';
+
+:root {
+    --swiper-theme-color: hsl(var(--primary));
+    --swiper-pagination-bullet-inactive-color: hsl(var(--muted-foreground));
+    --swiper-navigation-top-offset: 0px;
+    --swiper-navigation-size: 30px;
+    --swiper-pagination-bullet-horizontal-gap: 8px;
+}
+
+.swiper-training {
+    --swiper-navigation-top-offset: 50%;
+}
+
+.swiper.swiper-cards {
+    overflow: hidden;;
+}

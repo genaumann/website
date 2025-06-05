@@ -1,15 +1,19 @@
 import {getFlatArticleIndex} from '@/lib/mdx'
 import {origin} from '@/lib/url'
 import {MetadataRoute} from 'next'
+import {getTranslations} from 'next-intl/server'
+import {tools as getAllTools} from '@/lib/tools'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getFlatArticleIndex('de')
+  const t = await getTranslations('portfolio.tools')
+  const allTools = getAllTools(t)
 
   return [
     {
       url: `${origin}/`,
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 1.0,
       lastModified: new Date(),
       alternates: {
         languages: {
@@ -31,6 +35,54 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
       }
     },
+    {
+      url: `${origin}/imprint`,
+      changeFrequency: 'yearly',
+      priority: 0.1,
+      alternates: {
+        languages: {
+          de: `${origin}/imprint`,
+          en: `${origin}/en/imprint`,
+          'x-default': `${origin}/imprint`
+        }
+      }
+    },
+    {
+      url: `${origin}/portfolio`,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+      alternates: {
+        languages: {
+          de: `${origin}/portfolio`,
+          en: `${origin}/en/portfolio`,
+          'x-default': `${origin}/portfolio`
+        }
+      }
+    },
+    {
+      url: `${origin}/portfolio/tools`,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          de: `${origin}/portfolio/tools`,
+          en: `${origin}/en/portfolio/tools`,
+          'x-default': `${origin}/portfolio/tools`
+        }
+      }
+    },
+    ...allTools.map(tool => ({
+      url: `${origin}/portfolio/tools/${tool.slug}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+      alternates: {
+        languages: {
+          de: `${origin}/portfolio/tools/${tool.slug}`,
+          en: `${origin}/en/portfolio/tools/${tool.slug}`,
+          'x-default': `${origin}/portfolio/tools/${tool.slug}`
+        }
+      }
+    })),
     ...articles.map(article => ({
       url: `${origin}/kb/${article.slug.replace(/\/index$/, '')}`,
       changeFrequency: 'monthly' as const,

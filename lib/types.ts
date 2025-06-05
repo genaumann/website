@@ -13,6 +13,7 @@ export interface Article {
   icon?: IconName
   iconPrefix?: IconPrefix
   children?: Article[]
+  keywords?: string[]
 }
 
 export type MDXFrontmatter = {
@@ -20,6 +21,7 @@ export type MDXFrontmatter = {
   readonly description?: string
   readonly icon?: IconName
   readonly iconPrefix?: IconPrefix
+  readonly keywords?: string[]
 }
 
 export type ArticleIndex = {

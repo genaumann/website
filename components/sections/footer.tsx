@@ -6,7 +6,7 @@ import {getLocale, getTranslations} from 'next-intl/server'
 import Icon from '../ui/icon'
 
 export default async function Footer() {
-  const t = await getTranslations()
+  const t = await getTranslations('footer')
   const {format} = getDateFunctions((await getLocale()) as LOCALES)
   const socials = getSocials()
 
@@ -30,9 +30,14 @@ export default async function Footer() {
           </div>
         </div>
 
-        <Link className="hover:underline" href="/privacy">
-          {t('common.privacy')}
-        </Link>
+        <div className="flex flex-col gap-2">
+          <Link className="hover:underline" href="/privacy">
+            {t('privacy')}
+          </Link>
+          <Link className="hover:underline" href="/imprint">
+            {t('imprint')}
+          </Link>
+        </div>
       </div>
     </footer>
   )
