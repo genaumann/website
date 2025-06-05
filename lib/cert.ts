@@ -14,10 +14,20 @@ export interface CertItem {
 
 export const certs: CertItem[] = [
   {
+    name: 'Red Hat® Certified Engineer (RHCE®)',
+    issuer: 'Red Hat',
+    validFrom: new Date('2024-08-20'),
+    validTo: new Date('2027-08-20'),
+    url: 'https://www.credly.com/badges/3b27b7ab-ce1e-4422-bf13-315504ef0e97',
+    icon: 'redhat',
+    className: 'text-8xl py-4',
+    keywords: ['ansible', 'linux']
+  },
+  {
     name: 'Red Hat® Certified Specialist in Developing Automation with Ansible Automation Platform',
     issuer: 'Red Hat',
     validFrom: new Date('2024-02-13'),
-    validTo: new Date('2027-02-13'),
+    validTo: new Date('2027-08-20'),
     url: 'https://www.credly.com/badges/402af3ea-19c6-422f-86a6-3dbc7446bddc',
     icon: 'redhat',
     className: 'text-8xl py-4',
@@ -42,7 +52,7 @@ export const certs: CertItem[] = [
     name: 'Red Hat® Certified System Administrator (RHCSA®)',
     issuer: 'Red Hat',
     validFrom: new Date('2023-06-08'),
-    validTo: new Date('2027-02-13'),
+    validTo: new Date('2027-08-20'),
     icon: 'redhat',
     url: 'https://www.credly.com/badges/f2d2d2a5-fa70-473f-840b-9eccfb85fa04',
     className: 'text-8xl py-4',
