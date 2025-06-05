@@ -46,25 +46,6 @@ export const getHeaderMenu = (
   },
   items: [
     {
-      name: t('common.aboutMe'),
-      lightImageUrl: '/me-white.png',
-      darkImageUrl: '/me-black.png',
-      imageLink: '/#about',
-      headline: 'Gino Naumann',
-      elements: [
-        {
-          name: t('common.certificates'),
-          href: '/#cert',
-          icon: 'file-certificate'
-        },
-        {
-          name: t('common.workExperience'),
-          href: '/#experience',
-          icon: 'suitcase'
-        }
-      ]
-    },
-    {
       name: t('portfolio.title'),
       href: '/portfolio'
     },
