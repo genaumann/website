@@ -13,6 +13,36 @@ import {
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
 import Link from 'next/link'
+import {Metadata} from 'next'
+import getMetadata from '@/lib/metadata'
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{locale: LOCALE_KEY; tool: string}>
+}): Promise<Metadata> {
+  const {locale, tool} = await params
+  const tools = toolsData(await getTranslations('portfolio.tools'))
+  const config = tools.find(_ => _.slug === tool)
+  const t = await getTranslations('portfolio.tools.metadata')
+
+  return getMetadata({
+    title: config?.name || t('title'),
+    description: t('descriptionTool', {
+      tool: config?.name || tool
+    }),
+    slug: `/portfolio/tools/${tool}`,
+    index: true,
+    locale,
+    og: {
+      type: 'website',
+      title: config?.name || t('title'),
+      description: t('descriptionTool', {
+        tool: config?.name || tool
+      })
+    }
+  })
+}
 
 export default async function Page({
   params

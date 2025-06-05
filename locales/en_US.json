@@ -216,7 +216,12 @@
         "placeholder": "Which technology do you need support with?",
         "noResults": "No results"
       },
-      "description": "Only products and brands are listed here for which I can demonstrate project experience, certifications, or published knowledge base articles.\nThere are no partnerships or business affiliations with any of the mentioned vendors."
+      "description": "Only products and brands are listed here for which I can demonstrate project experience, certifications, or published knowledge base articles.\nThere are no partnerships or business affiliations with any of the mentioned vendors.",
+      "metadata": {
+        "title": "Tools",
+        "description": "Insight into my tech stack: tools and technologies for DevOps, automation, CI/CD, infrastructure as code, testing, and modern web development.",
+        "descriptionTool": "Information, personal insights, and project experience with {tool} in the context of DevOps, automation, and infrastructure."
+      }
     },
     "stats": {
       "completedProjects": "Completed customer projects",
@@ -303,6 +308,10 @@
       "button": "Discover portfolio",
       "subtitle": "Devops from Berlin",
       "title": "Gino Naumann"
+    },
+    "metadata": {
+      "title": "Portfolio",
+      "description": "Portfolio of Gino Naumann, a DevOps Engineer based in Berlin. Projects focused on automation, CI/CD, infrastructure as code, testing, and modern web development."
     }
   }
 }
