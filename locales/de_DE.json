@@ -5,7 +5,6 @@
     "certificates": "Zertifikate",
     "workExperience": "Berufserfahrung",
     "today": "Heute",
-    "privacy": "Datenschutz",
     "search": "Suchen",
     "noResults": "Keine Ergebnisse",
     "lookingFor": "Wonach suchst du?",
@@ -314,5 +313,15 @@
       "title": "Portfolio",
       "description": "Portfolio von Gino Naumann, DevOps Engineer aus Berlin. Projekte zu Automatisierung, CI/CD, Infrastructure as Code, Testing und moderner Webentwicklung."
     }
+  },
+  "imprint": {
+    "metadata": {
+      "title": "Impressum",
+      "description": "Impressum Gino Naumann"
+    }
+  },
+  "footer": {
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
   }
 }

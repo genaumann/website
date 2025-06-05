@@ -36,6 +36,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     },
     {
+      url: `${origin}/imprint`,
+      changeFrequency: 'yearly',
+      priority: 0.1,
+      alternates: {
+        languages: {
+          de: `${origin}/imprint`,
+          en: `${origin}/en/imprint`,
+          'x-default': `${origin}/imprint`
+        }
+      }
+    },
+    {
       url: `${origin}/portfolio`,
       changeFrequency: 'monthly',
       priority: 0.9,
