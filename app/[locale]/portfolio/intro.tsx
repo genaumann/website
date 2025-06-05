@@ -13,6 +13,7 @@ export default function PortfolioIntroPage() {
               alt="Gino"
               src={'/me-black-wide.png'}
               width={250}
+              priority
               height={229}
               className="rounded-xl aspect-auto"
             />

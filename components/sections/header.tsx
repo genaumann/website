@@ -16,6 +16,7 @@ export default async function Header() {
             <Link href={headerMenu.logo.href} className="shrink-0">
               <Image
                 alt={headerMenu.logo.name}
+                priority
                 src={headerMenu.logo.imageUrl}
                 width={75}
                 height={43}

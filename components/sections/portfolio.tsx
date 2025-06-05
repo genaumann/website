@@ -41,6 +41,7 @@ export default async function PortfolioSection() {
             src="/me-black.png"
             alt="Me"
             width={250}
+            priority
             height={337}
             className="hidden md:block rounded-xl shadow dark:shadow-primary"
           />
