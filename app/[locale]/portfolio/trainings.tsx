@@ -1,4 +1,4 @@
-import PortfolioTrainingSwiper from '@/components/ui/trainings/swiper'
+import PortfolioTrainingSwiper from '@/components/ui/trainings'
 import {getTranslations} from 'next-intl/server'
 
 export default async function PortfolioTrainingsPage() {
