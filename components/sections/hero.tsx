@@ -133,7 +133,7 @@ export default async function Hero() {
             size="lg"
             className="border-2 border-border text-foreground hover:bg-accent hover:text-accent-foreground px-4 py-4 text-lg rounded-lg backdrop-blur-sm w-full"
             asChild>
-            <Link href="/portfolio/tools">
+            <Link href="/kb">
               {t('buttonSecondary')}
               <Icon name="arrow-right" />
             </Link>
@@ -155,42 +155,6 @@ export default async function Hero() {
               </div>
             </Link>
           ))}
-          {/* <div className="text-center group">
-            <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-              18M
-            </div>
-            <div className="text-sm md:text-base text-muted-foreground leading-tight">
-              active college students and recent alumni
-            </div>
-          </div>
-
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-              90%
-            </div>
-            <div className="text-sm md:text-base text-muted-foreground leading-tight">
-              top ranked institutions in the US
-            </div>
-          </div>
-
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-              1M
-            </div>
-            <div className="text-sm md:text-base text-muted-foreground leading-tight">
-              employers
-            </div>
-          </div>
-
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-              1,500+
-            </div>
-            <div className="text-sm md:text-base text-muted-foreground leading-tight">
-              official partnerships with colleges and universities
-            </div>
-          </div>
-        </div> */}
         </div>
       </div>
 
