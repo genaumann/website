@@ -49,11 +49,9 @@
 
   html {
     @apply scroll-smooth;
-    overscroll-behavior: none;
   }
   body {
     @apply bg-background text-foreground;
-    overscroll-behavior: none;
     overflow-x: hidden;
   }
 
