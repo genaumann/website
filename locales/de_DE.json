@@ -81,7 +81,8 @@
     "moreArticles": "Weitere Artikel",
     "metadata": {
       "description": "Umfassende IT-Wissensdatenbank mit praxisnahen Artikeln zu DevOps, Softwareentwicklung und Serveradministration.",
-      "ogDescription": "Knowledge Base Artikel"
+      "ogDescription": "Knowledge Base Artikel",
+      "title": "Knowledge Base"
     },
     "title": {
       "short": "KB",
@@ -103,7 +104,7 @@
   "app": {
     "name": "Gino Naumann",
     "metadata": {
-      "description": "DevOps Engineer Gino Naumann – Profil, Zertifikate und eine praxisnahe Knowledge Base rund um Automatisierung, CI/CD, Infrastruktur und moderne IT-Workflows."
+      "description": "DevOps Engineer Gino Naumann – Portfolio, Zertifikate und eine praxisnahe Knowledge Base rund um Automatisierung, CI/CD, Infrastruktur und moderne IT-Workflows."
     },
     "shortName": "GNaumann"
   },

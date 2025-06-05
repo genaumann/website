@@ -11,18 +11,18 @@ export async function generateMetadata({
   params: Promise<{locale: LOCALE_KEY}>
 }): Promise<Metadata> {
   const {locale} = await params
-  const t = await getTranslations()
+  const t = await getTranslations('kb.metadata')
 
   return getMetadata({
-    title: t('kb.title.long'),
-    description: t('kb.metadata.description'),
+    title: t('title'),
+    description: t('description'),
     slug: '/kb',
     index: true,
     locale,
     og: {
       type: 'website',
-      title: t('kb.title.short'),
-      description: t('kb.metadata.description')
+      title: t('title'),
+      description: t('description')
     }
   })
 }

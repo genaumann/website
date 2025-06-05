@@ -81,7 +81,8 @@
     "moreArticles": "More articles",
     "metadata": {
       "description": "Comprehensive IT knowledgebase with practical articles on devops, software development and server administration.",
-      "ogDescription": "Knowledge base article"
+      "ogDescription": "Knowledge base article",
+      "title": "Knowledge base"
     },
     "title": {
       "short": "KB",
@@ -103,7 +104,7 @@
   "app": {
     "name": "Gino Naumann",
     "metadata": {
-      "description": "DevOps Engineer Gino Naumann – Profile, certifications, and a hands-on knowledge base focused on automation, CI/CD, infrastructure, and modern IT workflows."
+      "description": "DevOps Engineer Gino Naumann – Portfolio, certifications, and a hands-on knowledge base focused on automation, CI/CD, infrastructure, and modern IT workflows."
     },
     "shortName": "GNaumann"
   },
