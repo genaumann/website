@@ -291,8 +291,8 @@
         "description": "I help you build a high-performance web application – developed in TypeScript using the Next.js framework.\nI can also perform end-to-end testing and handle the deployment reliably."
       },
       "cloud": {
-        "title": "Infrastructure projects in the cloud",
-        "description": "I support you and your team in planning and implementing infrastructure projects on AWS and Azure."
+        "title": "Automation, scaling and operating your cloud infrastructure",
+        "description": "Through automation, infrastructure as code, monitoring, and CI/CD, I ensure that your applications run reliably, are scalable, and remain maintainable in the cloud – regardless of the platform you choose."
       },
       "kubernetes": {
         "title": "Kubernetes and container technology",

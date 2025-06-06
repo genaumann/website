@@ -291,8 +291,8 @@
         "description": "Ich verhelfe dir zu einer hochperformanten Webapplikation – entwickelt in TypeScript mit dem Next.js-Framework.\nAußerdem kann ich deine Anwendung End-to-End testen und anschließend zuverlässig deployen."
       },
       "cloud": {
-        "title": "Infrastrukturprojekte in der Cloud",
-        "description": "Ich unterstütze dich und dein Team bei der Planung und Umsetzung von Infrastrukturprojekten in AWS und Azure."
+        "title": "Automatisierung, Skalierung und Betrieb deiner Cloud Infrastruktur",
+        "description": "Durch Automatisierung, Infrastructure as Code, Monitoring und CI/CD stelle ich sicher, dass deine Anwendungen in der Cloud zuverlässig, skalierbar und wartbar betrieben werden können – unabhängig von der gewählten Plattform."
       },
       "kubernetes": {
         "title": "Kubernetes und Containertechnologie",
