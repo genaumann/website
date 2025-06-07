@@ -324,5 +324,40 @@
   "footer": {
     "imprint": "Imprint",
     "privacy": "Data privacy"
+  },
+  "contact": {
+    "title": "Contact",
+    "form": {
+      "errors": {
+        "minString": "Please give at least {min} characters",
+        "email": "Please enter your email"
+      },
+      "name": {
+        "label": "Name"
+      },
+      "phone": {
+        "label": "Telephone (optional)"
+      },
+      "email": {
+        "label": "E-mail"
+      },
+      "message": {
+        "label": "Message"
+      },
+      "submitButton": "Send Message",
+      "successMessage": "Thank you for your request, I will contact you as soon as possible.",
+      "resetButton": "Further request",
+      "errorMessage": "An unknown error occurred. \nPlease contact me directly by email."
+    },
+    "mail": {
+      "subject": "Contact request from {name}",
+      "title": "Contact form submitted",
+      "preview": "Contact form from {name}",
+      "intro": "🎉 A new contact form was submitted:",
+      "name": "Name",
+      "phone": "Phone",
+      "email": "E-mail",
+      "message": "Message"
+    }
   }
 }

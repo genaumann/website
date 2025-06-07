@@ -147,4 +147,11 @@
     content: '$ > ';
     color: hsl(var(--muted-foreground));
   }
+  .grid-pattern {
+    background-image: linear-gradient(hsl(var(--muted)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--muted)) 1px, transparent 1px);
+    background-size: 20px 20px;
+    width: 100%;
+    height: 100%;
+  }
 }

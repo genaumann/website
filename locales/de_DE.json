@@ -324,5 +324,40 @@
   "footer": {
     "imprint": "Impressum",
     "privacy": "Datenschutz"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "form": {
+      "errors": {
+        "minString": "Bitte gebe mindestens {min} Zeichen ein",
+        "email": "Bitte gebe deine E-Mail an"
+      },
+      "name": {
+        "label": "Name"
+      },
+      "phone": {
+        "label": "Telefon (optional)"
+      },
+      "email": {
+        "label": "E-Mail"
+      },
+      "message": {
+        "label": "Nachricht"
+      },
+      "submitButton": "Nachricht senden",
+      "successMessage": "Vielen Dank für deine Anfrage, ich werde mich schnellstmöglich bei dir melden.",
+      "resetButton": "Weitere Anfrage",
+      "errorMessage": "Es ist ein unbekannter Fehler aufgetreten. Bitte kontaktiere mich direkt per E-Mail."
+    },
+    "mail": {
+      "subject": "Kontaktanfrage von {name}",
+      "title": "Kontaktformular eingereicht",
+      "preview": "Kontaktformular von {name}",
+      "intro": "🎉 Ein neues Kontaktforumlar wurde eingereicht:",
+      "name": "Name",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "message": "Nachricht"
+    }
   }
 }
