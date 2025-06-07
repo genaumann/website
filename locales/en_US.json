@@ -358,6 +358,10 @@
       "phone": "Phone",
       "email": "E-mail",
       "message": "Message"
+    },
+    "metadata": {
+      "title": "Contact",
+      "description": "Get in touch quickly and easily – whether it's a project request, feedback, or collaboration. Use the form to send your message directly."
     }
   }
 }

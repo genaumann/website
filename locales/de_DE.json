@@ -358,6 +358,10 @@
       "phone": "Telefon",
       "email": "E-Mail",
       "message": "Nachricht"
+    },
+    "metadata": {
+      "title": "Kontakt",
+      "description": "Nimm jetzt Kontakt auf – ob Anfrage, Feedback oder Zusammenarbeit: Über das Formular erreichst du mich schnell und unkompliziert"
     }
   }
 }

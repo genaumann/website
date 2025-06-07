@@ -3,6 +3,31 @@ import {CONTACT} from '@/lib/contact'
 import {getTranslations} from 'next-intl/server'
 import Link from 'next/link'
 import ContactForm from './form'
+import {Metadata} from 'next'
+import {LOCALE_KEY} from '@/locales'
+import getMetadata from '@/lib/metadata'
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{locale: LOCALE_KEY}>
+}): Promise<Metadata> {
+  const {locale} = await params
+  const t = await getTranslations('contact.metadata')
+
+  return getMetadata({
+    title: t('title'),
+    description: t('description'),
+    slug: '/contact',
+    index: true,
+    locale,
+    og: {
+      type: 'website',
+      title: t('title'),
+      description: t('description')
+    }
+  })
+}
 
 export default async function Page() {
   const t = await getTranslations('contact')
