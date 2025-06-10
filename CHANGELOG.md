@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.5.0](https://github.com/genaumann/website/compare/v1.4.0...v1.5.0) (2025-06-10)
+
+### ✨ Feature ✨
+
+* **contact:** add and use section ([44959f3](https://github.com/genaumann/website/commit/44959f3ee8022104bf3bd84845f5a8fe83728d04))
+* **contact:** add page and form ([0389f88](https://github.com/genaumann/website/commit/0389f88bd85f62ecbc86fb042e0102f083198796))
+* **mail:** add base template ([1f8707b](https://github.com/genaumann/website/commit/1f8707b6fbf501ccc6b6917425fa07a8a9cc5498))
+* **seo:** add meta for contact ([589aba8](https://github.com/genaumann/website/commit/589aba8e27d0f9e84116cae72bcfda1a2dbe67ba))
+
 ## [1.4.0](https://github.com/genaumann/website/compare/v1.3.0...v1.4.0) (2025-06-05)
 
 ### ✨ Feature ✨
