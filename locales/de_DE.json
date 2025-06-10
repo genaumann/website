@@ -22,9 +22,9 @@
     "buttonPrimary": "Zum Portfolio",
     "buttonSecondary": "Zur Knowledge Base",
     "stats": {
-      "projects": "Abgeschlossene Kundenprojekte",
+      "projects": "Abgeschlossene Projekte",
       "certs": "Zertifizierungen",
-      "trainings": "Durchgeführte Kundenschulungen",
+      "trainings": "Durchgeführte Schulungen",
       "kbArticles": "Knowledge Base Artikel"
     }
   },
@@ -323,6 +323,54 @@
   },
   "footer": {
     "imprint": "Impressum",
-    "privacy": "Datenschutz"
+    "privacy": "Datenschutz",
+    "contact": "Kontakt"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "form": {
+      "errors": {
+        "minString": "Bitte gebe mindestens {min} Zeichen ein",
+        "email": "Bitte gebe deine E-Mail an"
+      },
+      "name": {
+        "label": "Name"
+      },
+      "phone": {
+        "label": "Telefon (optional)"
+      },
+      "email": {
+        "label": "E-Mail"
+      },
+      "message": {
+        "label": "Nachricht"
+      },
+      "submitButton": "Nachricht senden",
+      "successMessage": "Vielen Dank für deine Anfrage, ich werde mich schnellstmöglich bei dir melden.",
+      "resetButton": "Weitere Anfrage",
+      "errorMessage": "Es ist ein unbekannter Fehler aufgetreten. Bitte kontaktiere mich direkt per E-Mail."
+    },
+    "mail": {
+      "subject": "Kontaktanfrage von {name}",
+      "title": "Kontaktformular eingereicht",
+      "preview": "Kontaktformular von {name}",
+      "intro": "🎉 Ein neues Kontaktforumlar wurde eingereicht:",
+      "name": "Name",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "message": "Nachricht"
+    },
+    "metadata": {
+      "title": "Kontakt",
+      "description": "Nimm jetzt Kontakt auf – ob Anfrage, Feedback oder Zusammenarbeit: Über das Formular erreichst du mich schnell und unkompliziert"
+    },
+    "section": {
+      "title": "So erreichst du mich!",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "contactForm": "Kontaktformular",
+      "subtitle": "Fragen?",
+      "contactButton": "Zum Kontaktformular"
+    }
   }
 }

@@ -51,11 +51,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${origin}/portfolio`,
       changeFrequency: 'monthly',
       priority: 0.9,
+      lastModified: new Date(),
       alternates: {
         languages: {
           de: `${origin}/portfolio`,
           en: `${origin}/en/portfolio`,
           'x-default': `${origin}/portfolio`
+        }
+      }
+    },
+    {
+      url: `${origin}/contact`,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+      alternates: {
+        languages: {
+          de: `${origin}/contact`,
+          en: `${origin}/en/contact`,
+          'x-default': `${origin}/contact`
         }
       }
     },
@@ -75,6 +88,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${origin}/portfolio/tools/${tool.slug}`,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
+      lastModified: new Date(),
       alternates: {
         languages: {
           de: `${origin}/portfolio/tools/${tool.slug}`,
