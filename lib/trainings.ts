@@ -64,7 +64,7 @@ export const getTrainings = ({
       name: t('linux.debian.name'),
       description: t('linux.debian.description'),
       type: 'speaker',
-      date: new Date('2017-03-01'),
+      date: new Date('2018-03-01'),
       iconName: 'tux',
       days: 10,
       technologies: ['linux']

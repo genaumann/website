@@ -22,9 +22,9 @@
     "buttonPrimary": "Zum Portfolio",
     "buttonSecondary": "Zur Knowledge Base",
     "stats": {
-      "projects": "Abgeschlossene Kundenprojekte",
+      "projects": "Abgeschlossene Projekte",
       "certs": "Zertifizierungen",
-      "trainings": "Durchgeführte Kundenschulungen",
+      "trainings": "Durchgeführte Schulungen",
       "kbArticles": "Knowledge Base Artikel"
     }
   },
