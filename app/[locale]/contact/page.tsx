@@ -33,12 +33,12 @@ export default async function Page() {
   const t = await getTranslations('contact')
   return (
     <div className="h-[calc(100vh-202px)] flex flex-col md:flex-row items-center md:justify-between gap-10 md:gap-0">
-      <div className="relative md:w-1/2 h-full overflow-hidden">
+      <div className="relative md:w-1/2 h-full w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="grid-pattern opacity-40"></div>
         </div>
-        <div className="flex items-center mt-5 md:mt-0 text-center md:text-left h-full">
-          <div className="w-full flex flex-col gap-4 bg-background/30 shadow-y-md dark:shadow-primary/20 py-8 px-6 text-center backdrop-blur-3xl relative">
+        <div className="flex items-center  md:mt-0 text-center md:text-left h-full">
+          <div className="w-full h-full md:h-fit flex flex-col gap-4 bg-background/30 md:shadow-y-md dark:shadow-secondary/30 py-8 px-6 text-center backdrop-blur-3xl relative">
             <div className="absolute inset-0 z-0">
               <div className="grid-pattern opacity-20"></div>
             </div>
