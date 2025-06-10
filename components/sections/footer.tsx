@@ -29,6 +29,11 @@ export default async function Footer() {
             ))}
           </div>
         </div>
+        <div className="flex flex-col gap-2">
+          <Link className="hover:underline" href="/contact">
+            {t('contact')}
+          </Link>
+        </div>
 
         <div className="flex flex-col gap-2">
           <Link className="hover:underline" href="/privacy">

@@ -10,6 +10,7 @@ import PortfolioOfferBanner from './offer-banner'
 import {getTranslations, LOCALE_KEY} from '@/locales'
 import {Metadata} from 'next'
 import getMetadata from '@/lib/metadata'
+import ContactSection from '@/components/sections/contact'
 
 export async function generateMetadata({
   params
@@ -42,6 +43,7 @@ export default async function Page() {
       <PortfolioOfferPage />
       <PortfolioOfferBanner />
       <PortfolioProjectsPage />
+      <ContactSection className="py-12 bg-muted/20" />
       <PortfolioCertsPage />
       <PortfolioTrainingsPage />
     </>

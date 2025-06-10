@@ -323,7 +323,8 @@
   },
   "footer": {
     "imprint": "Impressum",
-    "privacy": "Datenschutz"
+    "privacy": "Datenschutz",
+    "contact": "Kontakt"
   },
   "contact": {
     "title": "Kontakt",
@@ -362,6 +363,14 @@
     "metadata": {
       "title": "Kontakt",
       "description": "Nimm jetzt Kontakt auf – ob Anfrage, Feedback oder Zusammenarbeit: Über das Formular erreichst du mich schnell und unkompliziert"
+    },
+    "section": {
+      "title": "So erreichst du mich!",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "contactForm": "Kontaktformular",
+      "subtitle": "Fragen?",
+      "contactButton": "Zum Kontaktformular"
     }
   }
 }

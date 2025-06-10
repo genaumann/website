@@ -1,3 +1,4 @@
+import ContactSection from '@/components/sections/contact'
 import Hero from '@/components/sections/hero'
 import PortfolioSection from '@/components/sections/portfolio'
 import getMetadata from '@/lib/metadata'
@@ -30,6 +31,7 @@ export default async function Page() {
     <>
       <Hero />
       <PortfolioSection />
+      <ContactSection />
     </>
   )
 }

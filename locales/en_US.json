@@ -323,7 +323,8 @@
   },
   "footer": {
     "imprint": "Imprint",
-    "privacy": "Data privacy"
+    "privacy": "Data privacy",
+    "contact": "Contact"
   },
   "contact": {
     "title": "Contact",
@@ -362,6 +363,14 @@
     "metadata": {
       "title": "Contact",
       "description": "Get in touch quickly and easily – whether it's a project request, feedback, or collaboration. Use the form to send your message directly."
+    },
+    "section": {
+      "title": "Get in touch!",
+      "email": "Email",
+      "phone": "Phone",
+      "contactForm": "Contact form",
+      "subtitle": "Questions?",
+      "contactButton": "Contact me"
     }
   }
 }
