@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.5.1](https://github.com/genaumann/website/compare/v1.5.0...v1.5.1) (2025-06-10)
+
+### 🐛 Bugfix 🐛
+
+* contact page on mobile ([def8486](https://github.com/genaumann/website/commit/def8486a6d8344f87272d694258fe2d815ce02f3))
+
 ## [1.5.0](https://github.com/genaumann/website/compare/v1.4.0...v1.5.0) (2025-06-10)
 
 ### ✨ Feature ✨
