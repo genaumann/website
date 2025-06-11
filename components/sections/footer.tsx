@@ -4,45 +4,60 @@ import {LOCALES} from '@/locales'
 import {Link} from '@/locales/routing'
 import {getLocale, getTranslations} from 'next-intl/server'
 import Icon from '../ui/icon'
+import {CONTACT} from '@/lib/contact'
+import {cn} from '@/lib/cn'
 
 export default async function Footer() {
   const t = await getTranslations('footer')
   const {format} = getDateFunctions((await getLocale()) as LOCALES)
   const socials = getSocials()
 
-  return (
-    <footer className="text-muted-foreground py-6 border-t border-muted border-dashed">
-      <div className="container mx-auto flex justify-between">
-        <div className="flex flex-col gap-2">
-          <p>© {format(new Date(), 'yyyy')} Gino Naumann</p>
-          <div className="flex gap-2">
-            {socials.map(social => (
-              <Link
-                className="dark:hover:text-primary/60 hover:text-primary"
-                title={social.name}
-                rel="noopener noreferrer"
-                target="_blank"
-                key={social.name}
-                href={social.href}>
-                <Icon prefix="fab" name={social.icon} />
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <Link className="hover:underline" href="/contact">
-            {t('contact')}
-          </Link>
-        </div>
+  const navigation = {
+    main: [
+      {name: t('portfolio'), href: '/portfolio'},
+      {name: t('techstack'), href: '/portfolio/tools'},
+      {name: t('kb'), href: '/kb'},
+      {name: t('contact'), href: '/contact'},
+      {name: t('privacy'), href: '/privacy'},
+      {name: t('imprint'), href: '/imprint'}
+    ],
+    socials
+  }
 
-        <div className="flex flex-col gap-2">
-          <Link className="hover:underline" href="/privacy">
-            {t('privacy')}
+  return (
+    <footer className="container py-6 mx-auto overflow-hidden space-y-8 border-t border-muted border-dashed">
+      <nav
+        aria-label="Footer"
+        className="grid grid-cols-3 sm:flex sm:flex-wrap gap-x-4 gap-y-3 sm:gap-x-12 sm:justify-center text-sm font-medium">
+        {navigation.main.map((item, index) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            className={cn(
+              (index + 1) % 3 === 0 && 'justify-self-end',
+              (index + 1 - 2) % 3 === 0 && 'justify-self-center'
+            )}>
+            {item.name}
           </Link>
-          <Link className="hover:underline" href="/imprint">
-            {t('imprint')}
-          </Link>
+        ))}
+      </nav>
+      <div className="space-y-4">
+        <div className="flex justify-center gap-x-4">
+          {navigation.socials.map(item => (
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              key={item.name}
+              href={item.href}
+              className="text-muted-foreground">
+              <span className="sr-only">{item.name}</span>
+              <Icon prefix={item.iconPrefix} name={item.icon} />
+            </Link>
+          ))}
         </div>
+        <p className="text-center text-sm text-muted-foreground">
+          © {format(new Date(), 'yyyy')} {CONTACT.name}
+        </p>
       </div>
     </footer>
   )

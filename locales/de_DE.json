@@ -324,7 +324,10 @@
   "footer": {
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "portfolio": "Portfolio",
+    "techstack": "Tech Stack",
+    "kb": "Knowledge Base"
   },
   "contact": {
     "title": "Kontakt",
