@@ -3,6 +3,7 @@
   "version": "1.6.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "i": "npx dotenv -e .env.local -- pnpm install",
