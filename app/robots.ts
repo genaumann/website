@@ -1,3 +1,4 @@
+import {origin} from '@/lib/url'
 import {MetadataRoute} from 'next'
 
 const robots = (): MetadataRoute.Robots => {
@@ -6,7 +7,8 @@ const robots = (): MetadataRoute.Robots => {
       userAgent: '*',
       allow: '/',
       disallow: ['/privacy', '/imprint']
-    }
+    },
+    sitemap: `${origin}/sitemap.xml`
   }
 }
 
