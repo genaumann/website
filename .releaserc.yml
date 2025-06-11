@@ -31,7 +31,7 @@ plugins:
         - type: build
           release: false
         - type: article
-          release: patch
+          release: false
 
   # notes generator
   - - '@semantic-release/release-notes-generator'
@@ -70,6 +70,9 @@ plugins:
             hidden: false
           - type: revert
             section: 🔙 Reverts 🔙
+            hidden: false
+          - type: refactor
+            section: 🔧 Refactor 🔧
             hidden: false
           - type: article
             section: 📰 Articles 📰
