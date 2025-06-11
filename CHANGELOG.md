@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.6.0](https://github.com/genaumann/website/compare/v1.5.1...v1.6.0) (2025-06-11)
+
+### ✨ Feature ✨
+
+* **layout:** dynamic height ([0854913](https://github.com/genaumann/website/commit/08549130ebd23d7efd8638bfaf13bf2d8f35dcd9))
+
 ## [1.5.1](https://github.com/genaumann/website/compare/v1.5.0...v1.5.1) (2025-06-10)
 
 ### 🐛 Bugfix 🐛
