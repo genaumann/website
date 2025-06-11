@@ -52,6 +52,10 @@ export default {
           foreground: 'hsl(var(--card-foreground))'
         }
       },
+      height: {
+        content: 'calc(100vh - (var(--footer-height) + var(--header-height)))',
+        'content-header': 'calc(100vh - var(--header-height))'
+      },
       fontFamily: {
         sans: ['var(--font-sans)']
       },

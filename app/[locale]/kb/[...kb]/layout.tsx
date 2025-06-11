@@ -38,7 +38,7 @@ export default async function KBLayout({
   )
 
   return (
-    <div className="container md:flex md:flex-row md:gap-5 h-full relative">
+    <div className="container min-h-content md:flex md:flex-row md:gap-5 h-full relative">
       {/* Left sidebar */}
       <div className="hidden md:block border-r border-muted border-dashed shrink-0">
         <div className="sticky top-28 overflow-auto">
@@ -50,8 +50,8 @@ export default async function KBLayout({
       </div>
 
       {/* Main content */}
-      <div className="min-h-[calc(100vh-227px)] mb-6 relative flex-1 min-w-0">
-        <div className="sticky top-[97px] bg-background/75 backdrop-blur border-b border-muted border-dashed py-2 md:py-1 -mx-8 md:-mx-5 h-fit md:h-[62px] z-10">
+      <div className="mb-6 relative flex-1 min-w-0">
+        <div className="sticky top-[var(--header-height)] bg-background/75 backdrop-blur border-b border-muted border-dashed py-2 md:py-1 -mx-8 md:-mx-5 h-fit md:h-[62px] z-10">
           <div className="container md:px-5 flex justify-between">
             <MobileSidebar articles={articles} />
             <Search locale={locale} />

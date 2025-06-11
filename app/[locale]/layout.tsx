@@ -12,6 +12,7 @@ import Footer from '@/components/sections/footer'
 import {LOCALES} from '@/locales'
 import {notFound} from 'next/navigation'
 import {origin} from '@/lib/url'
+import HeightObserver from '@/components/layout/height-observer'
 
 fontawesome.autoAddCss = false
 
@@ -54,6 +55,7 @@ export default async function RootLayout({
           'font-sans antialiased min-h-dvh flex flex-col',
           fontSans.variable
         )}>
+        <HeightObserver />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             defaultTheme="system"
