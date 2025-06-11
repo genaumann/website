@@ -23,6 +23,8 @@
     --input: 135 30% 75%;
     --ring: 135 100% 67%;
     --radius: 0rem;
+    --footer-height: 161px;
+    --header-height: 97px;
   }
   .dark {
     --background: 135 50% 5%;

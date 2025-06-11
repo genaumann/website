@@ -32,8 +32,8 @@ export async function generateMetadata({
 export default async function Page() {
   const t = await getTranslations('contact')
   return (
-    <div className="h-[calc(100vh-202px)] flex flex-col md:flex-row items-center md:justify-between gap-10 md:gap-0">
-      <div className="relative md:w-1/2 h-full w-full overflow-hidden">
+    <div className="min-h-content md:h-content flex flex-col md:flex-row items-center md:justify-between gap-10 md:gap-0">
+      <div className="relative md:w-1/2 h-full w-full">
         <div className="absolute inset-0 z-0">
           <div className="grid-pattern opacity-40"></div>
         </div>

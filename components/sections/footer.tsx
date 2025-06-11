@@ -25,39 +25,41 @@ export default async function Footer() {
   }
 
   return (
-    <footer className="container py-6 mx-auto overflow-hidden space-y-8 border-t border-muted border-dashed">
-      <nav
-        aria-label="Footer"
-        className="grid grid-cols-3 sm:flex sm:flex-wrap gap-x-4 gap-y-3 sm:gap-x-12 sm:justify-center text-sm font-medium">
-        {navigation.main.map((item, index) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            className={cn(
-              (index + 1) % 3 === 0 && 'justify-self-end',
-              (index + 1 - 2) % 3 === 0 && 'justify-self-center'
-            )}>
-            {item.name}
-          </Link>
-        ))}
-      </nav>
-      <div className="space-y-4">
-        <div className="flex justify-center gap-x-4">
-          {navigation.socials.map(item => (
+    <footer className="py-6 overflow-hidden border-t border-muted border-dashed">
+      <div className="container mx-auto space-y-8">
+        <nav
+          aria-label="Footer"
+          className="grid grid-cols-3 sm:flex sm:flex-wrap gap-x-4 gap-y-3 sm:gap-x-12 sm:justify-center text-sm font-medium">
+          {navigation.main.map((item, index) => (
             <Link
-              rel="noopener noreferrer"
-              target="_blank"
               key={item.name}
               href={item.href}
-              className="text-muted-foreground">
-              <span className="sr-only">{item.name}</span>
-              <Icon prefix={item.iconPrefix} name={item.icon} />
+              className={cn(
+                (index + 1) % 3 === 0 && 'justify-self-end',
+                (index + 1 - 2) % 3 === 0 && 'justify-self-center'
+              )}>
+              {item.name}
             </Link>
           ))}
+        </nav>
+        <div className="space-y-4">
+          <div className="flex justify-center gap-x-4">
+            {navigation.socials.map(item => (
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                key={item.name}
+                href={item.href}
+                className="text-muted-foreground">
+                <span className="sr-only">{item.name}</span>
+                <Icon prefix={item.iconPrefix} name={item.icon} />
+              </Link>
+            ))}
+          </div>
+          <p className="text-center text-sm text-muted-foreground">
+            © {format(new Date(), 'yyyy')} {CONTACT.name}
+          </p>
         </div>
-        <p className="text-center text-sm text-muted-foreground">
-          © {format(new Date(), 'yyyy')} {CONTACT.name}
-        </p>
       </div>
     </footer>
   )

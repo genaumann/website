@@ -39,8 +39,8 @@ export default async function Page({
   if (articles.length === 0) return null
 
   return (
-    <div className="container flex flex-col md:flex-row md:justify-start md:gap-x-5 h-full">
-      <div className="md:basis-1/3 md:relative sticky top-[97px] md:top-0">
+    <div className="container flex flex-col md:flex-row md:justify-start md:gap-x-5 min-h-content md:h-content">
+      <div className="md:basis-1/3 md:relative sticky top-[var(--header-height)] md:top-0">
         <div className="text-center md:text-start md:sticky md:top-1/2 bg-background/75 md:bg-none backdrop-blur md:backdrop-blur-none py-4 md:py-0 w-full md:w-fit md:transform md:-translate-y-1/2">
           <h1 className="text-5xl font-semibold ">{t('title.long')}</h1>
           <p className="text-muted-foreground max-w-9/12 md:max-w-none mx-auto md:mx-0 text-sm mt-2">
