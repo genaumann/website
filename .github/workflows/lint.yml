@@ -23,12 +23,10 @@ jobs:
           fetch-depth: 0
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
-      - name: Setup node 22
+      - name: Setup node lts
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version-file: .nvmrc
           # cache: pnpm # see https://github.com/vercel/vercel/discussions/7581 & https://github.com/actions/cache/issues/319
       - name: Run pnpm install
         run: pnpm install
