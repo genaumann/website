@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.1](https://github.com/genaumann/website/compare/v1.6.0...v1.6.1) (2025-06-12)
+
+### 🐛 Bugfix 🐛
+
+* **seo:** add sitemap to robots ([1500abe](https://github.com/genaumann/website/commit/1500abe1bb50ffe1f23d752763819c6d99aa2181))
+
+### 💿 Continuous Integration 💿
+
+* fix pnpm version ([23a9d26](https://github.com/genaumann/website/commit/23a9d26f1ba9c9696209c1ba59b20c5c593d11ff))
+* prod build within gh pipeline ([8b68eb2](https://github.com/genaumann/website/commit/8b68eb2a158c1ccbc8f658ddbaa56ec9cfe6d9ba))
+* use node lts ([e2694f2](https://github.com/genaumann/website/commit/e2694f2d90387498f6b1e907bb92403efea49927))
+
 ## [1.6.0](https://github.com/genaumann/website/compare/v1.5.1...v1.6.0) (2025-06-11)
 
 ### ✨ Feature ✨
