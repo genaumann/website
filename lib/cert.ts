@@ -57,6 +57,15 @@ export const certs: CertItem[] = [
     url: 'https://www.credly.com/badges/f2d2d2a5-fa70-473f-840b-9eccfb85fa04',
     className: 'text-8xl py-4',
     keywords: ['ansible', 'linux']
+  },
+  {
+    name: 'GitLab Solutions Architect Core Verified Associate',
+    issuer: 'GitLab',
+    validFrom: new Date('2024-05-27'),
+    url: 'https://www.credly.com/badges/2df72c4a-ac11-40aa-90fd-27efa7f5cf50',
+    keywords: ['gitlab'],
+    className: 'text-8xl py-4',
+    icon: 'gitlab'
   }
 ]
 
