@@ -43,6 +43,22 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       start: new Date('2024-10-01')
     },
     {
+      id: 'gitlab-enablement',
+      name: t('projects.gitlabEnablement.name'),
+      description: t('projects.gitlabEnablement.description'),
+      technologies: ['gitlab'],
+      start: new Date('2024-02-01'),
+      end: new Date('2024-09-30')
+    },
+    {
+      id: 'aap-cluster-setup',
+      name: t('projects.aapClusterSetup.name'),
+      description: t('projects.aapClusterSetup.description'),
+      technologies: ['ansible', 'awx'],
+      start: new Date('2023-12-01'),
+      end: new Date('2024-05-31')
+    },
+    {
       id: 'automated-awx-deployment',
       name: t('projects.automatedAwxDeployment.name'),
       description: t('projects.automatedAwxDeployment.description'),

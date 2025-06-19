@@ -208,6 +208,14 @@
           "migrationNagiosIcinga2": {
             "name": "From Nagios to Icinga2",
             "description": "The client was using an outdated Nagios system, which was to be replaced with Icinga2.\nAll existing services were migrated 1:1 to Icinga2.\n\nFor improved visualization, Icinga Web was also installed to provide a modern web interface for Icinga."
+          },
+          "gitlabEnablement": {
+            "name": "GitLab installation & enablement",
+            "description": "The client was running a self-managed GitLab Community Edition and wanted to switch to the Enterprise Edition to benefit from premium features.\nThey also lacked experience in building CI/CD pipelines.\n\nI was hired to train the team in GitLab administration and GitLab CI/CD.\nAfterwards, I migrated the Community Edition to the Enterprise Edition, enabling the client to fully use their purchased GitLab licenses.\n\nThanks to my training, the client is now able to build and maintain their own GitLab pipelines."
+          },
+          "aapClusterSetup": {
+            "name": "Planning and installation AAP cluster",
+            "description": "The client needed to centrally manage RHEL machines across multiple network environments.\nAnsible was already being used manually via the command line.\n\nMy task was to introduce the Ansible Automation Platform (AAP) in these environments and ensure that existing playbooks could run properly within it.\nI also created dedicated execution environments for these playbooks.\n\nToday, the client operates a working AAP setup and can easily manage their RHEL machines."
           }
         },
         "title": "My projects",
