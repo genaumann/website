@@ -18,7 +18,7 @@ export default function PortfolioProjectsPage() {
   return (
     <section className="py-12 container" id="projects">
       <div className="overflow-hidden">
-        <h2 className="text-4xl font-bold mb-4 text-center">{t('title')}</h2>
+        <h2 className="text-4xl font-bold mb-6 text-center">{t('title')}</h2>
         <PortfolioProjectSwiper />
       </div>
     </section>

@@ -1,5 +1,5 @@
 import {getTranslations} from 'next-intl/server'
-import {getProjects} from '../../../../../lib/projects'
+import {getProjects, ProjectContext} from '../../../../../lib/projects'
 import {getDateFunctions} from '@/lib/dates'
 import {LOCALE_KEY, LOCALES} from '@/locales'
 import {Badge} from '@/components/ui/badge'
@@ -17,6 +17,8 @@ import {
   StatusBadge
 } from '@/components/ui/project-card'
 
+type ProjectContextObjects = Record<ProjectContext, string>
+
 type TechnologyProjectsPageProps = {
   technology: string
   locale: LOCALE_KEY
@@ -32,6 +34,11 @@ export default async function TechnologyProjectsPage({
   const tProject = await getTranslations('portfolio.projects')
   const {format} = getDateFunctions(LOCALES[locale])
   const projects = getProjects({technology, t})
+
+  const contexts: ProjectContextObjects = {
+    personal: tProject('filter.personal'),
+    work: tProject('filter.work')
+  }
 
   if (!projects || projects.length === 0) return null
 
@@ -77,6 +84,14 @@ export default async function TechnologyProjectsPage({
                     </ProjectCardInfoValue>
                   </ProjectCardInfoItem>
                 )}
+                <ProjectCardInfoItem>
+                  <ProjectCardInfoLabel>
+                    {tProject('context')}:
+                  </ProjectCardInfoLabel>
+                  <ProjectCardInfoValue>
+                    {contexts[project.context]}
+                  </ProjectCardInfoValue>
+                </ProjectCardInfoItem>
                 {project.references && project.references.length > 0 && (
                   <ProjectCardInfoItem>
                     <ProjectCardInfoLabel>{`${tProject(

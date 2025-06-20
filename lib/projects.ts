@@ -1,11 +1,14 @@
 import {useTranslations} from 'next-intl'
 
+export type ProjectContext = 'personal' | 'work'
+
 export type Project = {
   id: string
   name: string
   description: string
   technologies: string[]
   references?: {label: string; url: string}[]
+  context: ProjectContext
   start: Date
   end?: Date
 }
@@ -25,7 +28,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.suseSaltConcept.description'),
       technologies: ['salt', 'python', 'suse-manager', 'uyuni', 'git'],
       start: new Date('2023-08-01'),
-      end: new Date('2024-09-30')
+      end: new Date('2024-09-30'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'web-app-racetrack',
@@ -33,14 +37,16 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.webAppRacetrack.description'),
       technologies: ['react', 'typescript', 'nextjs'],
       start: new Date('2024-10-01'),
-      end: new Date('2025-03-31')
+      end: new Date('2025-03-31'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'e2e-testing-playwright',
       name: t('projects.e2eTestingPlaywright.name'),
       description: t('projects.e2eTestingPlaywright.description'),
       technologies: ['playwright', 'typescript', 'nextjs', 'github'],
-      start: new Date('2024-10-01')
+      start: new Date('2024-10-01'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'gitlab-enablement',
@@ -48,7 +54,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.gitlabEnablement.description'),
       technologies: ['gitlab'],
       start: new Date('2024-02-01'),
-      end: new Date('2024-09-30')
+      end: new Date('2024-09-30'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'aap-cluster-setup',
@@ -56,7 +63,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.aapClusterSetup.description'),
       technologies: ['ansible', 'awx'],
       start: new Date('2023-12-01'),
-      end: new Date('2024-05-31')
+      end: new Date('2024-05-31'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'automated-awx-deployment',
@@ -64,7 +72,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.automatedAwxDeployment.description'),
       technologies: ['awx', 'ansible', 'gitlab'],
       start: new Date('2023-08-01'),
-      end: new Date('2023-09-30')
+      end: new Date('2023-09-30'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'setup-salt-from-scratch',
@@ -72,7 +81,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.setupSaltFromScratch.description'),
       technologies: ['salt', 'linux', 'git'],
       start: new Date('2020-01-01'),
-      end: new Date('2021-08-30')
+      end: new Date('2021-08-30'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'setup-icinga2-from-scratch',
@@ -80,7 +90,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.setupIcinga2FromScratch.description'),
       technologies: ['icinga2', 'salt', 'linux'],
       start: new Date('2020-02-01'),
-      end: new Date('2020-07-30')
+      end: new Date('2020-07-30'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'migration-nagios-icinga2',
@@ -88,7 +99,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.migrationNagiosIcinga2.description'),
       technologies: ['icinga2'],
       start: new Date('2018-07-01'),
-      end: new Date('2018-11-30')
+      end: new Date('2018-11-30'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'personal-website',
@@ -101,7 +113,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
           url: 'https://github.com/genaumann/website'
         }
       ],
-      start: new Date('2023-06-01')
+      start: new Date('2023-06-01'),
+      context: 'personal' as ProjectContext
     },
     {
       id: 'automated-container-build-gitlab',
@@ -115,7 +128,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       ],
       technologies: ['gitlab', 'container', 'python'],
       start: new Date('2023-11-01'),
-      end: new Date('2024-07-31')
+      end: new Date('2024-07-31'),
+      context: 'personal' as ProjectContext
     },
     {
       id: 'ansible-server-concept',
@@ -123,7 +137,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.ansibleServerConcept.description'),
       technologies: ['ansible', 'linux'],
       start: new Date('2022-04-01'),
-      end: new Date('2022-12-31')
+      end: new Date('2022-12-31'),
+      context: 'work' as ProjectContext
     },
     {
       id: 'salt-formula-git',
@@ -137,7 +152,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
         }
       ],
       start: new Date('2023-12-12'),
-      end: new Date('2024-03-31')
+      end: new Date('2024-03-31'),
+      context: 'personal' as ProjectContext
     },
     {
       id: 'salt-formula-acmesh',
@@ -151,7 +167,8 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
         }
       ],
       start: new Date('2024-01-01'),
-      end: new Date('2024-03-31')
+      end: new Date('2024-03-31'),
+      context: 'personal' as ProjectContext
     }
   ].sort((a, b) => {
     if (!a.end && !b.end) return 0
@@ -165,9 +182,5 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
 
   if (!technology) return projects
 
-  return projects.filter(project =>
-    project.technologies.some(
-      tech => tech.toLowerCase() === technology.toLowerCase()
-    )
-  )
+  return projects.filter(project => project.technologies.includes(technology))
 }

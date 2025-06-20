@@ -274,7 +274,13 @@
       "start": "Start",
       "end": "Ende",
       "technologies": "Technologien",
-      "references": "Referenzen"
+      "references": "Referenzen",
+      "filter": {
+        "all": "Alle Projekte",
+        "personal": "Persönliche Projekte",
+        "work": "Kundenprojekte"
+      },
+      "context": "Kontext"
     },
     "about": {
       "title": "Über mich",
