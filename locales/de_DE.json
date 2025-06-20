@@ -274,7 +274,18 @@
       "start": "Start",
       "end": "Ende",
       "technologies": "Technologien",
-      "references": "Referenzen"
+      "references": "Referenzen",
+      "filter": {
+        "all": "Alle Projekte",
+        "personal": "Persönliche Projekte",
+        "work": "Kundenprojekte"
+      },
+      "context": "Kontext",
+      "contextTypes": {
+        "personal": "Persönliches Projekt",
+        "work": "Kundenprojekt (im Angestellten Verhältnis)",
+        "freelance": "Kundenprojekt (freiberuflich)"
+      }
     },
     "about": {
       "title": "Über mich",
