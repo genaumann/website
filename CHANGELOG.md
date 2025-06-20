@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/genaumann/website/compare/v1.6.1...v1.7.0) (2025-06-20)
+
+### ✨ Feature ✨
+
+* **projects:** add context filter ([802482b](https://github.com/genaumann/website/commit/802482b4ac203d77cb44b691343275546f3abddd))
+* **projects:** add freelance context ([7c290b1](https://github.com/genaumann/website/commit/7c290b11a0dd819463030ce4db2e537ae6a8da1c))
+
 ## [1.6.1](https://github.com/genaumann/website/compare/v1.6.0...v1.6.1) (2025-06-12)
 
 ### 🐛 Bugfix 🐛
