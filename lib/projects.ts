@@ -1,6 +1,6 @@
 import {useTranslations} from 'next-intl'
 
-export type ProjectContext = 'personal' | 'work'
+export type ProjectContext = 'personal' | 'work' | 'freelance'
 
 export type Project = {
   id: string

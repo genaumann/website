@@ -280,7 +280,12 @@
         "personal": "Personal projects",
         "work": "Customer projects"
       },
-      "context": "Context"
+      "context": "Context",
+      "contextTypes": {
+        "personal": "Personal project",
+        "work": "Customer project (in employee ratio)",
+        "freelance": "Customer project (freelance)"
+      }
     },
     "about": {
       "title": "About me",

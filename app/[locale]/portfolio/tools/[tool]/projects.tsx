@@ -17,7 +17,7 @@ import {
   StatusBadge
 } from '@/components/ui/project-card'
 
-type ProjectContextObjects = Record<ProjectContext, string>
+export type ProjectContextObjects = Record<ProjectContext, string>
 
 type TechnologyProjectsPageProps = {
   technology: string
@@ -36,8 +36,9 @@ export default async function TechnologyProjectsPage({
   const projects = getProjects({technology, t})
 
   const contexts: ProjectContextObjects = {
-    personal: tProject('filter.personal'),
-    work: tProject('filter.work')
+    personal: tProject('contextTypes.personal'),
+    work: tProject('contextTypes.work'),
+    freelance: tProject('contextTypes.freelance')
   }
 
   if (!projects || projects.length === 0) return null

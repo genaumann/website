@@ -23,6 +23,7 @@ import {Pagination, A11y, FreeMode, Navigation} from 'swiper/modules'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import PortfolioProjectFilter, {ProjectContextFilter} from './filter'
 import type {Swiper as SwiperType} from 'swiper'
+import {ProjectContextObjects} from '@/app/[locale]/portfolio/tools/[tool]/projects'
 
 export default function PortfolioProjectSwiper() {
   const locale = useLocale() as LOCALE_KEY
@@ -36,6 +37,12 @@ export default function PortfolioProjectSwiper() {
   const [maxHeight, setMaxHeight] = useState(0)
   const swiperRef = useRef<SwiperType | undefined>(undefined)
 
+  const contexts: ProjectContextObjects = {
+    personal: t('contextTypes.personal'),
+    work: t('contextTypes.work'),
+    freelance: t('contextTypes.freelance')
+  }
+
   const projects = useMemo(
     () =>
       getProjects({
@@ -44,6 +51,8 @@ export default function PortfolioProjectSwiper() {
         .filter(pro => pro.end)
         .filter(pro => {
           if (contextFilter === 'all') return true
+          if (contextFilter === 'work')
+            return pro.context === 'work' || pro.context === 'freelance'
           return pro.context === contextFilter
         }),
     [contextFilter]
@@ -134,6 +143,12 @@ export default function PortfolioProjectSwiper() {
                     </ProjectCardInfoValue>
                   </ProjectCardInfoItem>
                 )}
+                <ProjectCardInfoItem>
+                  <ProjectCardInfoLabel>{`${t('context')}:`}</ProjectCardInfoLabel>
+                  <ProjectCardInfoValue>
+                    {contexts[project.context]}
+                  </ProjectCardInfoValue>
+                </ProjectCardInfoItem>
                 {project.references && project.references.length > 0 && (
                   <ProjectCardInfoItem>
                     <ProjectCardInfoLabel>{`${t(

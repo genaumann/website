@@ -10,7 +10,7 @@ import {
 } from '../select'
 import type {ProjectContext} from '@/lib/projects'
 
-export type ProjectContextFilter = ProjectContext | 'all'
+export type ProjectContextFilter = Exclude<ProjectContext, 'freelance'> | 'all'
 type ProjectContextObject = Record<ProjectContextFilter, string>
 
 type PortfolioProjectFilterProps = {
@@ -35,12 +35,12 @@ export default function PortfolioProjectFilter({
       onValueChange={value => onChange(value as ProjectContextFilter)}
       value={value}>
       <SelectTrigger className="w-[146px] mx-auto">
-        <SelectValue>{contexts[value as ProjectContextFilter]}</SelectValue>
+        <SelectValue>{contexts[value]}</SelectValue>
       </SelectTrigger>
       <SelectContent>
         {Object.keys(contexts).map(context => (
           <SelectItem key={context} value={context}>
-            {contexts[context as ProjectContext]}
+            {contexts[context as keyof ProjectContextObject]}
           </SelectItem>
         ))}
       </SelectContent>
