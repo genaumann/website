@@ -4,6 +4,9 @@ name: Production Deployment
 on:
   workflow_dispatch:
 
+env:
+  FONT_AWESOME_NPM_TOKEN: ${{ secrets.FONT_AWESOME_NPM_TOKEN }}
+
 jobs:
   release:
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -25,11 +28,23 @@ jobs:
         with:
           persist-credentials: false
           token: ${{ steps.generate_token.outputs.token }}
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup node lts
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          # cache: pnpm # see https://github.com/vercel/vercel/discussions/7581 & https://github.com/actions/cache/issues/319
+      - name: Run pnpm install
+        run: pnpm install
+      - name: Run pnpm prebuild
+        run: pnpm run prebuild
       - name: Run semantic-release
         uses: cycjimmy/semantic-release-action@v4
         with:
           semantic_version: 24
           extra_plugins: |
+            @genaumann/semantic-release-next-sitemap
             @semantic-release/commit-analyzer
             @semantic-release/release-notes-generator
             @semantic-release/changelog
@@ -37,6 +52,7 @@ jobs:
             @semantic-release/git
             @semantic-release/github
             conventional-changelog-conventionalcommits
+
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
   merge-prod:
