@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.1](https://github.com/genaumann/website/compare/v1.7.0...v1.7.1) (2025-06-23)
+
+### 💿 Continuous Integration 💿
+
+* **github:** install release dep ([7ce3102](https://github.com/genaumann/website/commit/7ce3102fee48e22c8103d6e110da7d8fc81ce0c2))
+* **release:** use sitemap plugin ([1b8a181](https://github.com/genaumann/website/commit/1b8a1817ef0fcd5a56d9d6de7e6bbbbaa891e3a4))
+
+### 🔧 Refactor 🔧
+
+* **seo:** add static sitemap ([2380c85](https://github.com/genaumann/website/commit/2380c858ea7fccdb7ed795e796adb7925482a110))
+
 ## [1.7.0](https://github.com/genaumann/website/compare/v1.6.1...v1.7.0) (2025-06-20)
 
 ### ✨ Feature ✨
