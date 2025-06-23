@@ -1,20 +1,20 @@
+'use server'
+
 import {getFlatArticleIndex} from '@/lib/mdx'
-import {origin} from '@/lib/url'
 import {MetadataRoute} from 'next'
-import {getTranslations} from 'next-intl/server'
 import {tools as getAllTools} from '@/lib/tools'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(
+  origin: string = ''
+): Promise<MetadataRoute.Sitemap> {
   const articles = await getFlatArticleIndex('de')
-  const t = await getTranslations('portfolio.tools')
-  const allTools = getAllTools(t)
+  const allTools = getAllTools()
 
   return [
     {
       url: `${origin}/`,
       changeFrequency: 'monthly',
       priority: 1.0,
-      lastModified: new Date(),
       alternates: {
         languages: {
           de: `${origin}/`,
@@ -51,7 +51,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${origin}/portfolio`,
       changeFrequency: 'monthly',
       priority: 0.9,
-      lastModified: new Date(),
       alternates: {
         languages: {
           de: `${origin}/portfolio`,
@@ -88,7 +87,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${origin}/portfolio/tools/${tool.slug}`,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
-      lastModified: new Date(),
       alternates: {
         languages: {
           de: `${origin}/portfolio/tools/${tool.slug}`,

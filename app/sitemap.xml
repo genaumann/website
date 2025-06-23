@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://gnaumann.de/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/imprint</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/imprint"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/imprint"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/imprint"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/contact"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/typescript</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/typescript"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/typescript"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/typescript"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/react</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/react"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/react"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/react"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/container</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/container"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/container"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/container"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/git</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/git"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/git"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/git"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/python</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/python"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/python"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/python"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/uyuni</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/uyuni"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/uyuni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/uyuni"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/salt</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/salt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/salt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/salt"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/gitlab</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/gitlab"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/gitlab"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/gitlab"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/ansible</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/ansible"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/ansible"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/ansible"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/awx</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/awx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/awx"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/awx"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/github</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/github"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/github"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/github"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/linux</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/linux"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/linux"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/linux"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/icinga2</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/icinga2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/icinga2"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/icinga2"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/playwright</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/playwright"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/playwright"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/playwright"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/tools/nextjs</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/nextjs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/nextjs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/nextjs"/>
+    <lastmod>2025-06-23T18:39:06.312Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/kb/git</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/git"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/git"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/git"/>
+    <lastmod>2025-05-22T17:52:54.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/kb/git/multiple_identities</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/git/multiple_identities"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/git/multiple_identities"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/git/multiple_identities"/>
+    <lastmod>2025-05-27T22:27:09.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/kb/salt</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/salt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/salt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/salt"/>
+    <lastmod>2025-05-22T17:52:54.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/kb/salt/gpg_pillar</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/salt/gpg_pillar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/salt/gpg_pillar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/salt/gpg_pillar"/>
+    <lastmod>2025-05-27T22:27:09.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
