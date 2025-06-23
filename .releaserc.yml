@@ -90,6 +90,11 @@ plugins:
   - - '@semantic-release/exec'
     - prepareCmd: 'sh ./semrel-prepare.sh "${nextRelease.version}"'
 
+  # next-sitemap
+  - - '@genaumann/semantic-release-next-sitemap'
+    - sitemapPath: 'app/sitemap.xml'
+      sitemapFunction: 'lib/sitemap.ts'
+  
   # git
   - - '@semantic-release/git'
     - message: 'chore(release): ${nextRelease.version} [skip ci]'
