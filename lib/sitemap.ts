@@ -14,7 +14,7 @@ export default async function sitemap(
     {
       url: `${origin}/`,
       changeFrequency: 'monthly',
-      priority: 1.0,
+      priority: 0.9,
       alternates: {
         languages: {
           de: `${origin}/`,
