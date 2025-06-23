@@ -103,6 +103,7 @@ plugins:
         - VERSION
         - package.json
         - pnpm-lock.yaml
+        - app/sitemap.xml
 
   # github
   - '@semantic-release/github'
