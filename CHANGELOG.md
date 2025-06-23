@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.7.3](https://github.com/genaumann/website/compare/v1.7.2...v1.7.3) (2025-06-23)
+
+### 🐛 Bugfix 🐛
+
+* fetch-depth in ci ([f60f592](https://github.com/genaumann/website/commit/f60f59234bb1abcb2bdfc5786a4e2628adbb2e67))
+
 ## [1.7.2](https://github.com/genaumann/website/compare/v1.7.1...v1.7.2) (2025-06-23)
 
 ### 🐛 Bugfix 🐛
