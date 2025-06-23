@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.7.2](https://github.com/genaumann/website/compare/v1.7.1...v1.7.2) (2025-06-23)
+
+### 🐛 Bugfix 🐛
+
+* add release asset ([f759932](https://github.com/genaumann/website/commit/f759932834650fe547b6b50f0793cc220a69d2c1))
+
 ## [1.7.1](https://github.com/genaumann/website/compare/v1.7.0...v1.7.1) (2025-06-23)
 
 ### 💿 Continuous Integration 💿
