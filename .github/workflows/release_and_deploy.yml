@@ -28,6 +28,7 @@ jobs:
         with:
           persist-credentials: false
           token: ${{ steps.generate_token.outputs.token }}
+          fetch-depth: 0
       - name: Install pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node lts
