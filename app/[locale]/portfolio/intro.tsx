@@ -1,4 +1,5 @@
 import Icon from '@/components/ui/icon'
+import StatusBadge from '@/components/ui/status-badge'
 import {CONTACT} from '@/lib/contact'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,6 +18,7 @@ export default function PortfolioIntroPage() {
               height={229}
               className="rounded-xl aspect-auto"
             />
+            <StatusBadge className="absolute top-0 -right-12 w-[136px]" />
           </div>
           <div className="space-y-2">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground animate-flicker">

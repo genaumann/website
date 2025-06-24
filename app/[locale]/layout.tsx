@@ -13,6 +13,7 @@ import {LOCALES} from '@/locales'
 import {notFound} from 'next/navigation'
 import {origin} from '@/lib/url'
 import HeightObserver from '@/components/layout/height-observer'
+import {VercelToolbar} from '@vercel/toolbar/next'
 
 fontawesome.autoAddCss = false
 
@@ -43,6 +44,7 @@ export default async function RootLayout({
 }>) {
   const messages = await getMessages()
   const locale = (await params).locale
+  const isDev = process.env.NODE_ENV === 'development'
 
   if (!locale || !Object.keys(LOCALES).includes(locale as LOCALES)) {
     notFound() // TODO: Throws an error
@@ -67,6 +69,7 @@ export default async function RootLayout({
             <main className="grow">{children}</main>
             <Footer />
           </ThemeProvider>
+          {isDev && <VercelToolbar />}
         </NextIntlClientProvider>
       </body>
     </html>
