@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.8.0](https://github.com/genaumann/website/compare/v1.7.3...v1.8.0) (2025-06-24)
+
+### ✨ Feature ✨
+
+* **portfolio:** add status badge ([b0eca89](https://github.com/genaumann/website/commit/b0eca892d332017956fde4b15f0d3628667dcd18))
+
 ## [1.7.3](https://github.com/genaumann/website/compare/v1.7.2...v1.7.3) (2025-06-23)
 
 ### 🐛 Bugfix 🐛
