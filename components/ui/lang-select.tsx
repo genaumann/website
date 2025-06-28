@@ -1,6 +1,5 @@
 'use client'
 
-import {useLocale, useTranslations} from 'next-intl'
 import {
   Select,
   SelectContent,
@@ -8,11 +7,13 @@ import {
   SelectTrigger,
   SelectValue
 } from './select'
-import {LOCALES} from '@/locales'
-import {useCallback, useTransition} from 'react'
+import {LOCALE_KEY} from '@/locales'
+import {useTransition} from 'react'
 import {usePathname, useRouter} from '@/locales/routing'
 import {useParams} from 'next/navigation'
 import {setUserLocale} from '@/lib/cookie'
+import {useTranslate} from '@tolgee/react'
+import {NextIntlClientProvider} from 'next-intl'
 
 interface LocaleMap {
   [key: string]: {
@@ -21,13 +22,16 @@ interface LocaleMap {
   }
 }
 
-export default function LangSelect() {
-  const locale = useLocale()
+export type LangSelectProps = {
+  locale: LOCALE_KEY
+}
+
+function SelectComponent({locale}: LangSelectProps) {
   const [, startTransition] = useTransition()
   const router = useRouter()
   const pathname = usePathname()
   const params = useParams()
-  const t = useTranslations('common')
+  const {t} = useTranslate()
 
   const localeMap: LocaleMap = {
     de: {
@@ -40,22 +44,19 @@ export default function LangSelect() {
     }
   }
 
-  const changeLocale = useCallback(
-    async (nextLocale: LOCALES) => {
-      await setUserLocale(nextLocale)
-      await new Promise(resolve => setTimeout(resolve, 100))
-      startTransition(() => {
-        router.replace(
-          // @ts-expect-error -- TypeScript will validate that only known `params`
-          // are used in combination with a given `pathname`. Since the two will
-          // always match for the current route, we can skip runtime checks.
-          {pathname, params},
-          {locale: nextLocale}
-        )
-      })
-    },
-    [pathname, params, router]
-  )
+  const changeLocale = async (nextLocale: LOCALE_KEY) => {
+    await setUserLocale(nextLocale)
+    await new Promise(resolve => setTimeout(resolve, 100))
+    startTransition(() => {
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        // are used in combination with a given `pathname`. Since the two will
+        // always match for the current route, we can skip runtime checks.
+        {pathname, params},
+        {locale: nextLocale}
+      )
+    })
+  }
 
   return (
     <Select defaultValue={locale} onValueChange={changeLocale}>
@@ -80,5 +81,13 @@ export default function LangSelect() {
         ))}
       </SelectContent>
     </Select>
+  )
+}
+
+export default function LangSelect({locale}: LangSelectProps) {
+  return (
+    <NextIntlClientProvider locale={locale} messages={null}>
+      <SelectComponent locale={locale} />
+    </NextIntlClientProvider>
   )
 }
