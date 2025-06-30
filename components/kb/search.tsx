@@ -1,6 +1,5 @@
 'use client'
 
-import {useTranslations} from 'next-intl'
 import type {Article} from '@/lib/types'
 import {
   useState,
@@ -19,12 +18,13 @@ import {Separator} from '../ui/separator'
 import {Skeleton} from '../ui/skeleton'
 import {useIsMobile} from '../hooks/mobile'
 import {cn} from '@/lib/cn'
+import {useTranslate} from '@tolgee/react'
 
 export default function SearchCommand({locale}: {locale: string}) {
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const isMobile = useIsMobile()
-  const t = useTranslations()
+  const {t} = useTranslate()
 
   useEffect(() => {
     setIsLoading(false)
@@ -51,7 +51,7 @@ export default function SearchCommand({locale}: {locale: string}) {
         ) : (
           <>
             {isMobile && <Icon name="magnifying-glass" />}
-            <span>{t('common.search')}...</span>
+            <span>{t('search')}...</span>
             {!isMobile && (
               <kbd className="inline-flex h-5 items-center gap-1 rounded bg-background/75 px-1.5 font-mono text-[10px] text-muted-foreground">
                 <span className="text-xs">⌘</span>K
@@ -87,7 +87,7 @@ function SearchDialog({
     undefined
   )
   const router = useRouter()
-  const t = useTranslations()
+  const {t} = useTranslate('kb')
   const inputRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLUListElement>(null)
 
@@ -187,11 +187,11 @@ function SearchDialog({
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="border-0 h-[460px] max-h-[460px] max-w-[370px] sm:max-w-md md:max-w-xl md:w-xl overflow-x-clip">
         <DialogHeader className="hidden mb-6">
-          <DialogTitle>{t('common.search')}</DialogTitle>
+          <DialogTitle>{t('search', {ns: 'common'})}</DialogTitle>
         </DialogHeader>
         <Input
           ref={inputRef}
-          placeholder={t('common.lookingFor')}
+          placeholder={t('lookingFor')}
           className="border-0 focus-visible:ring-0 placeholder:text-lg -mt-1 text-lg"
           onInput={e => handleSearch(e.currentTarget.value)}
           onKeyDown={handleKeyDown}
@@ -223,7 +223,7 @@ function SearchDialog({
                 </li>
               ))
             ) : (
-              <li className="text-center">{t('common.noResults')}</li>
+              <li className="text-center">{t('noResults', {ns: 'common'})}</li>
             )}
           </ul>
         )}

@@ -5,15 +5,16 @@ import {cn} from '@/lib/cn'
 import {Badge} from './badge'
 import {getDateFunctions} from '@/lib/dates'
 import {getLocale} from '@/lib/cookie'
-import {getTranslations, LOCALES} from '@/locales'
+import {LOCALES} from '@/locales'
 import {getCertsByKeyword, certs as certData} from '@/lib/cert'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 type CertGridProps = {
   keyword?: string
 }
 
 export default async function CertGrid({keyword}: CertGridProps) {
-  const t = await getTranslations('certs')
+  const t = await getTranslate()
   const {format} = getDateFunctions((await getLocale()) as LOCALES)
   const certs = keyword ? getCertsByKeyword(keyword) : certData
 

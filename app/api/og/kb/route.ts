@@ -2,16 +2,17 @@ import {NextRequest} from 'next/server'
 import {findArticleBySlug} from '@/lib/mdx-edge'
 import {customIconMap} from '@/components/icons'
 import OGImage from '../og'
-import getTranslationByLocale from '@/locales/custom'
-import {LOCALE_KEY} from '@/locales'
+import {LOCALE_KEY, LOCALES} from '@/locales'
+import {getTolgee} from '@/lib/integrations/tolgee/server'
 
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
 
-    const locale = searchParams.get('locale')
+    const locale = searchParams.get('locale') as LOCALES
     const slug = searchParams.get('slug')
-    const t = await getTranslationByLocale(locale)
+    const tolgee = await getTolgee()
+    await tolgee.changeLanguage(locale || 'de')
 
     if (!slug) {
       return new Response('No slug provided', {
@@ -34,7 +35,10 @@ export async function GET(request: NextRequest) {
       article.icon = 'bookOpen'
     }
 
-    return OGImage({article, description: t('kb.metadata.ogDescription')})
+    return OGImage({
+      article,
+      description: tolgee.t('kbArticles', {language: locale})
+    })
   } catch (e) {
     console.error(e)
     return new Response('Failed to generate image', {

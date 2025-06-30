@@ -7,19 +7,21 @@ import {
 import {Button} from '@/components/ui/button'
 import Icon from '@/components/ui/icon'
 import {cn} from '@/lib/cn'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {getOffers} from '@/lib/offer'
-import {getTranslations} from 'next-intl/server'
 import Link from 'next/link'
 
 export default async function PortfolioOfferPage() {
-  const t = await getTranslations('portfolio.offers')
-  const offers = getOffers({t})
+  const t = await getTranslate('portfolio')
+  const offers = await getOffers()
 
   return (
     <section className="py-12">
       <div className="container">
         <div className="flex flex-col lg:flex-row lg:justify-between ">
-          <h2 className="text-4xl font-bold mb-12 text-center">{t('title')}</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            {t('myOffer')}
+          </h2>
           <div className="block lg:w-8/12">
             <Accordion
               type="multiple"
@@ -45,7 +47,7 @@ export default async function PortfolioOfferPage() {
                     {offer.description}
                     <Button className="w-fit" asChild>
                       <Link href="/portfolio/tools">
-                        {t('banner.buttonTitle')}
+                        {t('myTechStack')}
                         <Icon name="arrow-right" />
                       </Link>
                     </Button>

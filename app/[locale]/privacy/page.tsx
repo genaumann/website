@@ -1,23 +1,24 @@
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 import getMetadata from '@/lib/metadata'
-import {getTranslations, LOCALE_KEY} from '@/locales'
+import {LOCALES} from '@/locales'
 
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALE_KEY}>
+  params: Promise<{locale: LOCALES}>
 }) {
   const {locale} = await params
-  const t = await getTranslations()
+  const t = await getTranslate('misc', {noWrap: true})
   return getMetadata({
-    title: t('privacy.title'),
-    description: t('privacy.metadata.description'),
+    title: t('privacy', {ns: 'common'}),
+    description: t('appMetadata.description.privacy'),
     slug: '/privacy',
     index: false,
     locale,
     og: {
       type: 'website',
-      title: t('privacy.title'),
-      description: t('privacy.metadata.description')
+      title: t('privacy', {ns: 'common'}),
+      description: t('appMetadata.description.privacy')
     }
   })
 }
@@ -25,7 +26,7 @@ export async function generateMetadata({
 export default async function Page({
   params
 }: {
-  params: Promise<{locale: LOCALE_KEY}>
+  params: Promise<{locale: LOCALES}>
 }) {
   const locale = (await params).locale
   const MDXPage = (await import(`./privacy_${locale}.mdx`)).default

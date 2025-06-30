@@ -2,10 +2,10 @@
 
 import {MailjetClient} from '@/lib/mailjet'
 import {ContactFormSchema} from './schema'
-import {getTranslations} from 'next-intl/server'
 import {render} from '@react-email/render'
 import ContactFormEmailTemplate from '@/components/email/contact-form'
 import {CONTACT} from '@/lib/contact'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 export async function sendContactEmail({
   name,
@@ -13,9 +13,9 @@ export async function sendContactEmail({
   email,
   message
 }: ContactFormSchema) {
-  const t = await getTranslations('contact.mail')
+  const t = await getTranslate('contact', {noWrap: true})
   const mailClient = new MailjetClient()
-  const subject = t('subject', {name})
+  const subject = t('contactFormSubmittedBy', {name})
 
   const template = (
     <ContactFormEmailTemplate

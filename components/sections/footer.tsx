@@ -1,14 +1,15 @@
-import {getDateFunctions} from '@/lib/dates'
 import {getSocials} from '@/lib/socials'
-import {LOCALES} from '@/locales'
-import {Link} from '@/locales/routing'
-import {getLocale, getTranslations} from 'next-intl/server'
+import Link from 'next/link'
 import Icon from '../ui/icon'
-import {CONTACT} from '@/lib/contact'
 import {cn} from '@/lib/cn'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {getDateFunctions} from '@/lib/dates'
+import {getLocale} from '@/lib/cookie'
+import {LOCALES} from '@/locales'
+import {CONTACT} from '@/lib/contact'
 
 export default async function Footer() {
-  const t = await getTranslations('footer')
+  const t = await getTranslate()
   const {format} = getDateFunctions((await getLocale()) as LOCALES)
   const socials = getSocials()
 

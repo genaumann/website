@@ -1,5 +1,4 @@
 import {Badge, BadgeProps} from './badge'
-import {getTranslations} from 'next-intl/server'
 import Icon, {IconName} from './icon'
 import {
   Availability,
@@ -9,6 +8,7 @@ import {
 } from '@/lib/flags'
 import {Tooltip, TooltipContent, TooltipTrigger} from './tooltip'
 import {HTMLAttributes} from 'react'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 type VariantMapping = Record<Availability, BadgeProps['variant']>
 type IconMapping = Record<Availability, IconName>
@@ -20,7 +20,7 @@ export default async function StatusBadge({
   const status = await employeeStatus()
   const partially = await partiallyOption()
   const until = await employeeStatusUntil()
-  const t = await getTranslations('portfolio.status')
+  const t = await getTranslate('portfolio')
 
   const variant: VariantMapping = {
     available: 'default',
@@ -36,23 +36,21 @@ export default async function StatusBadge({
 
   const badgeText: TextMapping = {
     available: t('available'),
-    unavailable: t('notAvailable'),
+    unavailable: t('unavailable'),
     'partially available': t('partiallyAvailable')
   }
 
   const tooltipText: TextMapping = {
-    available: until ? t('tooltip.availableUntil', {until}) : t('available'),
-    unavailable: until
-      ? t('tooltip.unavailableUntil', {until})
-      : t('notAvailable'),
+    available: until ? t('availableUntil', {until}) : t('available'),
+    unavailable: until ? t('unavailableUntil', {until}) : t('notAvailable'),
     'partially available':
       partially && until
-        ? t('tooltip.partiallyAvailableUntil', {
+        ? t('partiallyAvailableUntil', {
             until,
             percentage: partially
           })
         : partially && !until
-          ? t('tooltip.partiallyAvailable', {percentage: partially})
+          ? t('partiallyAvailablePercentage', {percentage: partially})
           : t('partiallyAvailable')
   }
 

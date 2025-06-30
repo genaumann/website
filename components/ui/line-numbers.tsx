@@ -1,7 +1,6 @@
 'use client'
 
-import {usePathname, useRouter} from '@/locales/routing'
-import {useSearchParams} from 'next/navigation'
+import {usePathname, useRouter, useSearchParams} from 'next/navigation'
 import {createQueryString} from '@/lib/url'
 import {useState} from 'react'
 import {cn} from '@/lib/cn'

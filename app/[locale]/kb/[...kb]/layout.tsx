@@ -1,6 +1,5 @@
 import {ArticleSidebar} from '@/components/kb/sidebar'
 import {getArticlesByLocale} from '@/lib/mdx'
-import {getTranslations} from 'next-intl/server'
 import {Fragment, ReactNode} from 'react'
 import {
   Breadcrumb,
@@ -15,6 +14,7 @@ import TocWrapper from '@/components/kb/toc/wrapper'
 import {findArticleBySlug} from '@/lib/mdx-edge'
 import {LOCALE_KEY} from '@/locales'
 import Link from 'next/link'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 export default async function KBLayout({
   children,
@@ -23,7 +23,7 @@ export default async function KBLayout({
   children: ReactNode
   params: Promise<{locale: LOCALE_KEY; kb: string[]}>
 }) {
-  const t = await getTranslations()
+  const t = await getTranslate('kb')
   const {locale, kb} = await params
   const articles = await getArticlesByLocale(locale)
 
@@ -43,7 +43,7 @@ export default async function KBLayout({
       <div className="hidden md:block border-r border-muted border-dashed shrink-0">
         <div className="sticky top-28 overflow-auto">
           <p className="text-lg font-semibold mb-4">
-            {t('common.knowledgebase')}
+            {t('kb', {ns: 'common'})}
           </p>
           <ArticleSidebar articles={articles} />
         </div>
@@ -61,7 +61,7 @@ export default async function KBLayout({
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink className="text-muted-foreground" asChild>
-                <Link href="/kb">{t('common.knowledgebase')}</Link>
+                <Link href="/kb">{t('kb', {ns: 'common'})}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -90,7 +90,7 @@ export default async function KBLayout({
       {/* TOC */}
       <div className="w-52 hidden lg:block border-l border-dashed border-muted ps-4 shrink-0">
         <div className="sticky top-28 overflow-auto">
-          <p className="text-lg font-semibold mb-4">{t('kb.toc')}</p>
+          <p className="text-lg font-semibold mb-4">{t('toc')}</p>
           <TocWrapper />
         </div>
       </div>

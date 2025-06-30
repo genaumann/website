@@ -1,5 +1,7 @@
 import {IconName, IconPrefix} from '@/components/ui/icon'
 import {LOCALES} from '@/locales'
+import {getTranslate} from './integrations/tolgee/server'
+import {useTranslate} from '@tolgee/react'
 
 export interface Article {
   slug: string
@@ -27,3 +29,7 @@ export type MDXFrontmatter = {
 export type ArticleIndex = {
   -readonly [K in keyof typeof LOCALES]: Article[]
 }
+
+export type TType =
+  | Awaited<ReturnType<typeof getTranslate>>
+  | ReturnType<typeof useTranslate>['t']

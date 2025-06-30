@@ -10,7 +10,7 @@ import {Article} from '@/lib/types'
 import Icon from '@/components/ui/icon'
 import {Button} from '../ui/button'
 import {cn} from '@/lib/cn'
-import {useTranslations} from 'next-intl'
+import {useTranslate} from '@tolgee/react'
 
 const ArticleList = ({
   articles,
@@ -23,7 +23,7 @@ const ArticleList = ({
   expandedSlugs: string[]
   setExpandedSlugs: React.Dispatch<React.SetStateAction<string[]>>
 }) => {
-  const t = useTranslations('kb.sidebar')
+  const {t} = useTranslate()
 
   const toggleExpand = (slug: string) => {
     setExpandedSlugs(prev => {
@@ -61,9 +61,7 @@ const ArticleList = ({
                   variant="ghost"
                   size="icon"
                   className="hover:bg-inherit"
-                  aria-label={
-                    isExpanded ? t('deflateButton') : t('expandButton')
-                  }
+                  aria-label={isExpanded ? t('deflateMenu') : t('expandMenu')}
                   aria-expanded={isExpanded}
                   onClick={() => toggleExpand(article.slug)}>
                   {isExpanded ? (

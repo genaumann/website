@@ -1,12 +1,12 @@
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {MetadataRoute} from 'next'
-import {getTranslations} from 'next-intl/server'
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
-  const t = await getTranslations()
+  const t = await getTranslate()
   return {
-    name: t('app.name'),
-    short_name: t('app.shortName'),
-    description: t('app.metadata.description'),
+    name: t('appName'),
+    short_name: t('appName'),
+    description: t('appMetadata.description'),
     start_url: '/',
     display: 'standalone',
     background_color: '#fafffb',

@@ -20,14 +20,17 @@ export const {getTolgee, T} = createServerInstance({
   }
 })
 
-export const getTranslate = async (ns?: string) => {
+export const getTranslate = async (
+  ns?: string,
+  opts?: CombinedOptions<DefaultParamType>
+) => {
   const tolgee = await getTolgee()
   if (ns) {
     await tolgee.addActiveNs(ns)
   }
   return ns
     ? (key: TranslationKey, options?: CombinedOptions<DefaultParamType>) =>
-        tolgee.t(key, {ns, ...options})
+        tolgee.t(key, {ns, ...opts, ...options})
     : (key: TranslationKey, options?: CombinedOptions<DefaultParamType>) =>
-        tolgee.t(key, options)
+        tolgee.t(key, {...opts, ...options})
 }

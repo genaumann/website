@@ -24,11 +24,11 @@ const fontSans = FontSans({
 })
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslate()
+  const t = await getTranslate('common', {noWrap: true})
   return {
     title: {
-      default: t('test'),
-      template: `%s · ${t('test')}`
+      default: t('appName'),
+      template: `%s · ${t('appName')}`
     },
     metadataBase: new URL(origin),
     manifest: `${origin}/manifest.webmanifest`
@@ -46,7 +46,7 @@ export default async function RootLayout({
   const isDev = process.env.NODE_ENV === 'development'
 
   if (!locale || !Object.keys(LOCALES).includes(locale as LOCALES)) {
-    notFound() // TODO: Throws an error
+    notFound()
   }
 
   const tolgee = await getTolgee()

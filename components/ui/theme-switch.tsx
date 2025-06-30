@@ -7,7 +7,7 @@ import {Button} from './button'
 import Icon, {type IconName} from './icon'
 import {cn} from '@/lib/cn'
 import {type ReactNode, useEffect, useState} from 'react'
-import {useTranslations} from 'next-intl'
+import {useTranslate} from '@tolgee/react'
 
 interface ThemeConfig {
   name: string
@@ -64,7 +64,7 @@ export default function ThemeSwitch() {
 }
 
 function ThemeButton({name, icon, active, onClick}: ThemeButtonProps) {
-  const t = useTranslations()
+  const {t} = useTranslate()
 
   return (
     <Button
@@ -77,7 +77,7 @@ function ThemeButton({name, icon, active, onClick}: ThemeButtonProps) {
         active && name === 'dark' && 'rounded-l-md',
         active && name === 'system' && 'rounded-r-md'
       )}
-      aria-label={t('common.themeSwitch')}>
+      aria-label={t('themeSwitch')}>
       <Icon
         name={icon}
         className="transition-transform duration-200 group-hover:scale-125"

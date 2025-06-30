@@ -12,15 +12,15 @@ import {
 import Icon, {IconName, IconPrefix} from '@/components/ui/icon'
 import {Input} from '@/components/ui/input'
 import {Textarea} from '@/components/ui/textarea'
-import {useTranslations} from '@/locales'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {HTMLInputTypeAttribute, useEffect, useRef, useState} from 'react'
 import {useForm} from 'react-hook-form'
 import {ContactFormSchema, getContactFormSchema} from './schema'
 import {sendContactEmail} from './actions'
+import {useTranslate} from '@tolgee/react'
 
 export default function ContactForm() {
-  const t = useTranslations('contact.form')
+  const {t} = useTranslate('contact')
   const inputRef = useRef<HTMLInputElement>(null)
   const formSchema = getContactFormSchema(t)
   const [submitState, setSubmitState] = useState<{
@@ -70,7 +70,7 @@ export default function ContactForm() {
   const fields: ContactFormField[] = [
     {
       name: 'name',
-      label: t('name.label'),
+      label: t('name', {ns: 'common'}),
       icon: 'user',
       type: 'text',
       element: 'input',
@@ -78,21 +78,21 @@ export default function ContactForm() {
     },
     {
       name: 'phone',
-      label: t('phone.label'),
+      label: t('phone', {ns: 'common'}),
       type: 'tel',
       icon: 'phone',
       element: 'input'
     },
     {
       name: 'email',
-      label: t('email.label'),
+      label: t('email', {ns: 'common'}),
       type: 'text',
       icon: 'envelope',
       element: 'input'
     },
     {
       name: 'message',
-      label: t('message.label'),
+      label: t('message', {ns: 'common'}),
       type: 'textarea',
       icon: 'mailbox-flag-up',
       element: 'textarea'
@@ -113,7 +113,7 @@ export default function ContactForm() {
               setSubmitState({submitted: false, submitSuccess: false})
               form.resetField('message')
             }}>
-            {t('resetButton')}
+            {t('sendAnotherMessage')}
           </Button>
         </div>
       ) : (
@@ -166,7 +166,7 @@ export default function ContactForm() {
               ) : (
                 <Icon name="paper-plane" />
               )}
-              {t('submitButton')}
+              {t('sendMessage')}
             </Button>
             {submitState.submitted && !submitState.submitSuccess && (
               <p className="text-destructive text-sm">{t('errorMessage')}</p>

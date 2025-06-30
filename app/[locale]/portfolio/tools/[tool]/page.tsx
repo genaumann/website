@@ -1,4 +1,4 @@
-import {getTranslations, LOCALE_KEY} from '@/locales'
+import {LOCALES} from '@/locales'
 import {tools as toolsData} from '../../../../../lib/tools'
 import {notFound} from 'next/navigation'
 import TechnologyArticlesPage from './articles'
@@ -15,6 +15,7 @@ import {
 import Link from 'next/link'
 import {Metadata} from 'next'
 import getMetadata from '@/lib/metadata'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 // 404 for unspecified tools
 export const dynamicParams = false
@@ -36,16 +37,16 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALE_KEY; tool: string}>
+  params: Promise<{locale: LOCALES; tool: string}>
 }): Promise<Metadata> {
   const {locale, tool} = await params
-  const tools = toolsData(await getTranslations('portfolio.tools'))
+  const t = await getTranslate('portfolio', {noWrap: true})
+  const tools = toolsData(t)
   const config = tools.find(_ => _.slug === tool)
-  const t = await getTranslations('portfolio.tools.metadata')
 
   return getMetadata({
-    title: config?.name || t('title'),
-    description: t('descriptionTool', {
+    title: config?.name || t('techstack', {ns: 'common'}),
+    description: t('appMetadata.description.tool', {
       tool: config?.name || tool
     }),
     slug: `/portfolio/tools/${tool}`,
@@ -53,8 +54,8 @@ export async function generateMetadata({
     locale,
     og: {
       type: 'website',
-      title: config?.name || t('title'),
-      description: t('descriptionTool', {
+      title: config?.name || t('techstack', {ns: 'common'}),
+      description: t('appMetadata.description.tool', {
         tool: config?.name || tool
       })
     }
@@ -64,11 +65,11 @@ export async function generateMetadata({
 export default async function Page({
   params
 }: {
-  params: Promise<{locale: LOCALE_KEY; tool: string}>
+  params: Promise<{locale: LOCALES; tool: string}>
 }) {
   const {tool, locale} = await params
-  const tools = toolsData(await getTranslations('portfolio.tools'))
-  const t = await getTranslations('portfolio')
+  const t = await getTranslate('portfolio')
+  const tools = toolsData(t)
   const config = tools.find(_ => _.slug === tool)
 
   if (!config) notFound()
@@ -79,13 +80,15 @@ export default async function Page({
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/portfolio">{t('title')}</Link>
+              <Link href="/portfolio">{t('portfolio', {ns: 'common'})}</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/portfolio/tools">{t('tools.title')}</Link>
+              <Link href="/portfolio/tools">
+                {t('techstack', {ns: 'common'})}
+              </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />

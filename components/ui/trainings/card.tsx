@@ -1,4 +1,4 @@
-import {getLocale, getTranslations} from 'next-intl/server'
+import {getLocale} from 'next-intl/server'
 import {Badge} from '../badge'
 import {
   Card,
@@ -10,16 +10,17 @@ import {
 import Icon from '../icon'
 import {Training} from '@/lib/trainings'
 import {getDateFunctions} from '@/lib/dates'
-import {LOCALE_KEY, LOCALES} from '@/locales'
+import {LOCALES} from '@/locales'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 type TrainingCardProps = {
   training: Training
 }
 
 export async function TrainingCard({training}: TrainingCardProps) {
-  const locale = (await getLocale()) as LOCALE_KEY
+  const locale = (await getLocale()) as LOCALES
   const {format} = getDateFunctions(LOCALES[locale])
-  const t = await getTranslations('portfolio.trainings')
+  const t = await getTranslate()
 
   return (
     <Card className="max-w-9/12 md:max-w-2/3 mx-auto dark:shadow dark:shadow-primary">
@@ -32,7 +33,7 @@ export async function TrainingCard({training}: TrainingCardProps) {
           />
           <Badge variant="secondary" className="gap-1">
             <Icon name="calendar" />
-            {training.days > 1 ? t('days', {days: training.days}) : t('day')}
+            {t('days', {days: training.days})}
           </Badge>
         </div>
       </CardHeader>

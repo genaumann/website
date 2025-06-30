@@ -1,4 +1,6 @@
-import {useTranslations} from 'next-intl'
+'use server'
+
+import {getTranslate} from './integrations/tolgee/server'
 
 export type ProjectContext = 'personal' | 'work' | 'freelance'
 
@@ -13,14 +15,15 @@ export type Project = {
   end?: Date
 }
 
-// const t = useTranslations('portfolio.tools.projects')
-
 interface GetProjectsParams {
   technology?: string
-  t: ReturnType<typeof useTranslations>
 }
 
-export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
+// TODO: CACHE
+export const getProjects = async ({
+  technology
+}: GetProjectsParams = {}): Promise<Project[]> => {
+  const t = await getTranslate('portfolio')
   const projects: Project[] = [
     {
       id: 'suse-salt-concept',
@@ -109,7 +112,7 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       technologies: ['nextjs', 'typescript', 'react'],
       references: [
         {
-          label: t('projects.personalWebsite.ref.github'),
+          label: t('github', {ns: 'common'}),
           url: 'https://github.com/genaumann/website'
         }
       ],
@@ -122,7 +125,7 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       description: t('projects.automatedContainerBuildGitlab.description'),
       references: [
         {
-          label: t('projects.automatedContainerBuildGitlab.ref.gitlab'),
+          label: t('gitlab', {ns: 'common'}),
           url: 'https://gitlab.com/genaumann/cib'
         }
       ],
@@ -147,7 +150,7 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       technologies: ['salt', 'git'],
       references: [
         {
-          label: t('projects.saltFormulaGit.ref.github'),
+          label: t('github', {ns: 'common'}),
           url: 'https://github.com/genaumann/salt-git-formula'
         }
       ],
@@ -162,7 +165,7 @@ export const getProjects = ({technology, t}: GetProjectsParams): Project[] => {
       technologies: ['salt', 'python'],
       references: [
         {
-          label: t('projects.saltFormulaAcmeSh.ref.github'),
+          label: t('github', {ns: 'common'}),
           url: 'https://github.com/genaumann/salt-acme.sh-formula'
         }
       ],

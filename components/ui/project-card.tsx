@@ -2,16 +2,16 @@ import {cn} from '@/lib/cn'
 import {forwardRef} from 'react'
 import {Badge, BadgeProps} from './badge'
 import {Project} from '@/lib/projects'
-import {useTranslations} from 'next-intl'
 import {Slot} from '@radix-ui/react-slot'
+import {TType} from '@/lib/types'
 
 interface StatusBadgeProps extends BadgeProps {
   start: Project['start']
   end?: Project['end']
+  t: TType
 }
 
-const StatusBadge = ({start, end, ...props}: StatusBadgeProps) => {
-  const t = useTranslations('portfolio.projects')
+const StatusBadge = ({start, end, t, ...props}: StatusBadgeProps) => {
   const now = new Date()
   if (end && end < now) {
     return <Badge {...props}>{t('status.completed')}</Badge>
@@ -24,7 +24,7 @@ const StatusBadge = ({start, end, ...props}: StatusBadgeProps) => {
   } else {
     return (
       <Badge variant="outline" {...props}>
-        {t('status.in_progress')}
+        {t('status.inProgress')}
       </Badge>
     )
   }

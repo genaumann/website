@@ -1,23 +1,23 @@
-import {getTranslations} from 'next-intl/server'
 import Link from 'next/link'
 import Icon from '../ui/icon'
 import {CONTACT} from '@/lib/contact'
 import {Button} from '../ui/button'
 import {cn} from '@/lib/cn'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 export default async function ContactSection({
   className
 }: {
   className?: string
 }) {
-  const t = await getTranslations('contact.section')
+  const t = await getTranslate('portfolio')
   return (
     <section className={cn('py-20', className)}>
       <div className="container flex flex-col justify-center items-center gap-5">
         <div className="flex flex-col">
-          <span>{t('subtitle')}</span>
+          <span>{t('questions')}?</span>
           <span className="text-3xl font-semibold text-center">
-            {t('title')}
+            {t('getInTouch')}
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-[800px]">
@@ -26,7 +26,7 @@ export default async function ContactSection({
             className="flex flex-row md:flex-col gap-4 justify-between items-center bg-muted/20 p-4 rounded-lg shadow-all-md shadow-secondary space-y-4 w-full order-2 md:order-1">
             <div className="text-xl mb-0">
               <Icon name="envelope" />
-              <span className="ml-2">{t('email')}</span>
+              <span className="ml-2">{t('email', {ns: 'common'})}</span>
             </div>
             <span className="underline md:hidden mb-0">{CONTACT.email}</span>
             <Button className="hidden md:block" variant="outline">
@@ -38,13 +38,13 @@ export default async function ContactSection({
             className="flex flex-row md:flex-col gap-4 justify-between items-center bg-muted/20 p-4 rounded-lg space-y-4 order-1 md:order-2 shadow-all-md shadow-primary">
             <div className="text-xl mb-0">
               <Icon name="message" />
-              <span className="ml-2">{t('contactForm')}</span>
+              <span className="ml-2">{t('contactForm', {ns: 'common'})}</span>
             </div>
             <div className="md:hidden mb-0">
               <Icon name="arrow-right" size="xl" />
             </div>
             <Button className="hidden md:block" variant="outline">
-              {t('contactButton')}
+              {t('goToContactForm', {ns: 'common'})}
               <Icon className="md:hidden" name="arrow-right" />
             </Button>
           </Link>
@@ -53,7 +53,7 @@ export default async function ContactSection({
             className="flex flex-row md:flex-col gap-4 justify-between items-center bg-muted/20 p-4 shadow-all-md shadow-secondary rounded-lg space-y-4 order-3">
             <div className="text-xl mb-0">
               <Icon name="phone" />
-              <span className="ml-2">{t('phone')}</span>
+              <span className="ml-2">{t('phone', {ns: 'common'})}</span>
             </div>
             <span className="underline md:hidden mb-0">{CONTACT.phone}</span>
             <Button className="hidden md:block" variant="outline">
