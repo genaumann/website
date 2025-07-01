@@ -71,7 +71,6 @@ export class MailjetClient {
     )
 
     if (process.env.VERCEL_ENV === 'production' || isAllowedTestDomain) {
-      console.log('send to', to.email)
       const result = await this.request('send', {
         method: 'POST',
         body: JSON.stringify({

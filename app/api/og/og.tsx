@@ -28,7 +28,6 @@ export default async function OGImage({
   )
 
   title = title || article?.title
-  console.log(`OG Image Title: '${title}' === Gino Naumann`)
 
   return new ImageResponse(
     (

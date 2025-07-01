@@ -18,6 +18,7 @@ export async function GET(
       tags: ['i18n']
     }
   })
+  console.dir(json, {depth: null})
   return new Response(await json.text(), {
     status: json.status,
     headers: {
