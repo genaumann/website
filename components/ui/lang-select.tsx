@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue
 } from './select'
-import {LOCALE_KEY} from '@/locales'
+import {LOCALES} from '@/locales'
 import {useTransition} from 'react'
 import {usePathname, useRouter} from '@/locales/routing'
 import {useParams} from 'next/navigation'
@@ -23,7 +23,7 @@ interface LocaleMap {
 }
 
 export type LangSelectProps = {
-  locale: LOCALE_KEY
+  locale: LOCALES
 }
 
 function SelectComponent({locale}: LangSelectProps) {
@@ -44,7 +44,7 @@ function SelectComponent({locale}: LangSelectProps) {
     }
   }
 
-  const changeLocale = async (nextLocale: LOCALE_KEY) => {
+  const changeLocale = async (nextLocale: LOCALES) => {
     await setUserLocale(nextLocale)
     await new Promise(resolve => setTimeout(resolve, 100))
     startTransition(() => {
