@@ -1,15 +1,13 @@
-'use server'
-
-import {getTranslate} from './integrations/tolgee/server'
+import {TType} from './types'
 
 export type ProjectContext = 'personal' | 'work' | 'freelance'
 
 export type Project = {
   id: string
-  name: string
-  description: string
+  name?: string
+  description?: string
   technologies: string[]
-  references?: {label: string; url: string}[]
+  references?: {label?: string; url: string}[]
   context: ProjectContext
   start: Date
   end?: Date
@@ -17,18 +15,18 @@ export type Project = {
 
 interface GetProjectsParams {
   technology?: string
+  t?: TType
 }
 
-// TODO: CACHE
-export const getProjects = async ({
-  technology
-}: GetProjectsParams = {}): Promise<Project[]> => {
-  const t = await getTranslate('portfolio')
+export const getProjects = ({
+  technology,
+  t
+}: GetProjectsParams = {}): Project[] => {
   const projects: Project[] = [
     {
       id: 'suse-salt-concept',
-      name: t('projects.suseSaltConcept.name'),
-      description: t('projects.suseSaltConcept.description'),
+      name: t && t('projects.suseSaltConcept.name'),
+      description: t && t('projects.suseSaltConcept.description'),
       technologies: ['salt', 'python', 'suse-manager', 'uyuni', 'git'],
       start: new Date('2023-08-01'),
       end: new Date('2024-09-30'),
@@ -36,8 +34,8 @@ export const getProjects = async ({
     },
     {
       id: 'web-app-racetrack',
-      name: t('projects.webAppRacetrack.name'),
-      description: t('projects.webAppRacetrack.description'),
+      name: t && t('projects.webAppRacetrack.name'),
+      description: t && t('projects.webAppRacetrack.description'),
       technologies: ['react', 'typescript', 'nextjs'],
       start: new Date('2024-10-01'),
       end: new Date('2025-03-31'),
@@ -45,16 +43,16 @@ export const getProjects = async ({
     },
     {
       id: 'e2e-testing-playwright',
-      name: t('projects.e2eTestingPlaywright.name'),
-      description: t('projects.e2eTestingPlaywright.description'),
+      name: t && t('projects.e2eTestingPlaywright.name'),
+      description: t && t('projects.e2eTestingPlaywright.description'),
       technologies: ['playwright', 'typescript', 'nextjs', 'github'],
       start: new Date('2024-10-01'),
       context: 'work' as ProjectContext
     },
     {
       id: 'gitlab-enablement',
-      name: t('projects.gitlabEnablement.name'),
-      description: t('projects.gitlabEnablement.description'),
+      name: t && t('projects.gitlabEnablement.name'),
+      description: t && t('projects.gitlabEnablement.description'),
       technologies: ['gitlab'],
       start: new Date('2024-02-01'),
       end: new Date('2024-09-30'),
@@ -62,8 +60,8 @@ export const getProjects = async ({
     },
     {
       id: 'aap-cluster-setup',
-      name: t('projects.aapClusterSetup.name'),
-      description: t('projects.aapClusterSetup.description'),
+      name: t && t('projects.aapClusterSetup.name'),
+      description: t && t('projects.aapClusterSetup.description'),
       technologies: ['ansible', 'awx'],
       start: new Date('2023-12-01'),
       end: new Date('2024-05-31'),
@@ -71,8 +69,8 @@ export const getProjects = async ({
     },
     {
       id: 'automated-awx-deployment',
-      name: t('projects.automatedAwxDeployment.name'),
-      description: t('projects.automatedAwxDeployment.description'),
+      name: t && t('projects.automatedAwxDeployment.name'),
+      description: t && t('projects.automatedAwxDeployment.description'),
       technologies: ['awx', 'ansible', 'gitlab'],
       start: new Date('2023-08-01'),
       end: new Date('2023-09-30'),
@@ -80,8 +78,8 @@ export const getProjects = async ({
     },
     {
       id: 'setup-salt-from-scratch',
-      name: t('projects.setupSaltFromScratch.name'),
-      description: t('projects.setupSaltFromScratch.description'),
+      name: t && t('projects.setupSaltFromScratch.name'),
+      description: t && t('projects.setupSaltFromScratch.description'),
       technologies: ['salt', 'linux', 'git'],
       start: new Date('2020-01-01'),
       end: new Date('2021-08-30'),
@@ -89,8 +87,8 @@ export const getProjects = async ({
     },
     {
       id: 'setup-icinga2-from-scratch',
-      name: t('projects.setupIcinga2FromScratch.name'),
-      description: t('projects.setupIcinga2FromScratch.description'),
+      name: t && t('projects.setupIcinga2FromScratch.name'),
+      description: t && t('projects.setupIcinga2FromScratch.description'),
       technologies: ['icinga2', 'salt', 'linux'],
       start: new Date('2020-02-01'),
       end: new Date('2020-07-30'),
@@ -98,8 +96,8 @@ export const getProjects = async ({
     },
     {
       id: 'migration-nagios-icinga2',
-      name: t('projects.migrationNagiosIcinga2.name'),
-      description: t('projects.migrationNagiosIcinga2.description'),
+      name: t && t('projects.migrationNagiosIcinga2.name'),
+      description: t && t('projects.migrationNagiosIcinga2.description'),
       technologies: ['icinga2'],
       start: new Date('2018-07-01'),
       end: new Date('2018-11-30'),
@@ -107,12 +105,12 @@ export const getProjects = async ({
     },
     {
       id: 'personal-website',
-      name: t('projects.personalWebsite.name'),
-      description: t('projects.personalWebsite.description'),
+      name: t && t('projects.personalWebsite.name'),
+      description: t && t('projects.personalWebsite.description'),
       technologies: ['nextjs', 'typescript', 'react'],
       references: [
         {
-          label: t('github', {ns: 'common'}),
+          label: t && t('github', {ns: 'common'}),
           url: 'https://github.com/genaumann/website'
         }
       ],
@@ -121,11 +119,11 @@ export const getProjects = async ({
     },
     {
       id: 'automated-container-build-gitlab',
-      name: t('projects.automatedContainerBuildGitlab.name'),
-      description: t('projects.automatedContainerBuildGitlab.description'),
+      name: t && t('projects.automatedContainerBuildGitlab.name'),
+      description: t && t('projects.automatedContainerBuildGitlab.description'),
       references: [
         {
-          label: t('gitlab', {ns: 'common'}),
+          label: t && t('gitlab', {ns: 'common'}),
           url: 'https://gitlab.com/genaumann/cib'
         }
       ],
@@ -136,8 +134,8 @@ export const getProjects = async ({
     },
     {
       id: 'ansible-server-concept',
-      name: t('projects.ansibleServerConcept.name'),
-      description: t('projects.ansibleServerConcept.description'),
+      name: t && t('projects.ansibleServerConcept.name'),
+      description: t && t('projects.ansibleServerConcept.description'),
       technologies: ['ansible', 'linux'],
       start: new Date('2022-04-01'),
       end: new Date('2022-12-31'),
@@ -145,12 +143,12 @@ export const getProjects = async ({
     },
     {
       id: 'salt-formula-git',
-      name: t('projects.saltFormulaGit.name'),
-      description: t('projects.saltFormulaGit.description'),
+      name: t && t('projects.saltFormulaGit.name'),
+      description: t && t('projects.saltFormulaGit.description'),
       technologies: ['salt', 'git'],
       references: [
         {
-          label: t('github', {ns: 'common'}),
+          label: t && t('github', {ns: 'common'}),
           url: 'https://github.com/genaumann/salt-git-formula'
         }
       ],
@@ -160,12 +158,12 @@ export const getProjects = async ({
     },
     {
       id: 'salt-formula-acmesh',
-      name: t('projects.saltFormulaAcmeSh.name'),
-      description: t('projects.saltFormulaAcmeSh.description'),
+      name: t && t('projects.saltFormulaAcmeSh.name'),
+      description: t && t('projects.saltFormulaAcmeSh.description'),
       technologies: ['salt', 'python'],
       references: [
         {
-          label: t('github', {ns: 'common'}),
+          label: t && t('github', {ns: 'common'}),
           url: 'https://github.com/genaumann/salt-acme.sh-formula'
         }
       ],

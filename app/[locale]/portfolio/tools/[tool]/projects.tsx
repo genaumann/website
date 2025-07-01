@@ -32,7 +32,7 @@ export default async function TechnologyProjectsPage({
 }: TechnologyProjectsPageProps) {
   const t = await getTranslate('portfolio')
   const {format} = getDateFunctions(LOCALES[locale])
-  const projects = await getProjects({technology})
+  const projects = getProjects({technology, t})
 
   const contexts: ProjectContextObjects = {
     personal: t('personalProjects', {count: 1}),

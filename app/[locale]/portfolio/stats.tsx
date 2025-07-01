@@ -5,7 +5,7 @@ import {getTrainings} from '@/lib/trainings'
 import Link from 'next/link'
 
 export default async function PortfolioStatsPage() {
-  const projects = await getProjects()
+  const projects = getProjects()
   const completedProjects = projects.filter(
     project => project.end && project.end < new Date()
   ).length

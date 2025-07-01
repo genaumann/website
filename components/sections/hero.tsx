@@ -63,7 +63,7 @@ const StarField = () => {
 }
 
 export default async function Hero() {
-  const completedProjects = (await getProjects()).filter(
+  const completedProjects = getProjects().filter(
     project => project.end && project.end < new Date()
   ).length
   const speakerTrainings = (

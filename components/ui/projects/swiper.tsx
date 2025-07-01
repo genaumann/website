@@ -15,9 +15,9 @@ import {
   StatusBadge
 } from '@/components/ui/project-card'
 import {getDateFunctions} from '@/lib/dates'
-import {getProjects, Project} from '@/lib/projects'
+import {getProjects} from '@/lib/projects'
 import {LOCALES} from '@/locales'
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useMemo, useRef, useState} from 'react'
 import {Pagination, A11y, FreeMode, Navigation} from 'swiper/modules'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import PortfolioProjectFilter, {ProjectContextFilter} from './filter'
@@ -38,29 +38,23 @@ export default function PortfolioProjectSwiper() {
   const [maxHeight, setMaxHeight] = useState(0)
   const swiperRef = useRef<SwiperType | undefined>(undefined)
 
+  const projects = useMemo(() => {
+    const fetchedProjects = getProjects({t})
+    return fetchedProjects
+      .filter(pro => pro.end)
+      .filter(pro => {
+        if (contextFilter === 'all') return true
+        if (contextFilter === 'work')
+          return pro.context === 'work' || pro.context === 'freelance'
+        return pro.context === contextFilter
+      })
+  }, [contextFilter])
+
   const contexts: ProjectContextObjects = {
     personal: t('personalProjects', {count: 1}),
     work: t('workProjects', {count: 1}),
     freelance: t('freelanceProjects', {count: 1})
   }
-
-  const [projects, setProjects] = useState<Project[]>([])
-
-  useEffect(() => {
-    const loadProjects = async () => {
-      const fetchedProjects = await getProjects({})
-      const filteredProjects = fetchedProjects
-        .filter(pro => pro.end)
-        .filter(pro => {
-          if (contextFilter === 'all') return true
-          if (contextFilter === 'work')
-            return pro.context === 'work' || pro.context === 'freelance'
-          return pro.context === contextFilter
-        })
-      setProjects(filteredProjects)
-    }
-    loadProjects()
-  }, [contextFilter])
 
   useEffect(() => {
     const calculateMaxHeight = () => {
