@@ -7,6 +7,11 @@ const nextConfig = {
   turbopack: {
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json']
   },
+  logging: {
+    fetches: {
+      fullUrl: true
+    }
+  },
   outputFileTracingIncludes: {
     '/*': ['./articles/**/*']
   },

@@ -77,6 +77,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.16(tailwindcss@4.1.7)
+      '@tolgee/core':
+        specifier: ^6.2.6
+        version: 6.2.6
       '@tolgee/format-icu':
         specifier: ^6.2.6
         version: 6.2.6

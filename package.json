@@ -3,7 +3,7 @@
   "version": "1.8.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.12.3",
+  "packageManager": "pnpm@10.12.4",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "i": "npx dotenv -e .env.local -- pnpm install",
@@ -38,6 +38,7 @@
     "@react-email/render": "1.1.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
+    "@tolgee/core": "^6.2.6",
     "@tolgee/format-icu": "^6.2.6",
     "@tolgee/react": "^6.2.6",
     "@tolgee/web": "^6.2.6",
