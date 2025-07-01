@@ -66,11 +66,9 @@ export default async function Hero() {
   const completedProjects = getProjects().filter(
     project => project.end && project.end < new Date()
   ).length
-  const speakerTrainings = (
-    await getTrainings({
-      type: 'speaker'
-    })
-  ).length
+  const speakerTrainings = getTrainings({
+    type: 'speaker'
+  }).length
   const kbArticles = await getFlatArticleIndex(LOCALES.de)
   const t = await getTranslate()
 

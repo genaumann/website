@@ -9,11 +9,9 @@ export default async function PortfolioStatsPage() {
   const completedProjects = projects.filter(
     project => project.end && project.end < new Date()
   ).length
-  const speakerTrainings = (
-    await getTrainings({
-      type: 'speaker'
-    })
-  ).length
+  const speakerTrainings = getTrainings({
+    type: 'speaker'
+  }).length
 
   const t = await getTranslate()
 
