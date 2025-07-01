@@ -8,14 +8,17 @@ import {
 } from '@tolgee/react'
 import {useRouter} from 'next/navigation'
 import {TolgeeBase} from '.'
+import {LOCALES} from '@/locales'
 
 type Props = {
   staticData: TolgeeStaticData | CachePublicRecord[]
-  language: string
+  language: LOCALES
   children: ReactNode
 }
 
-const tolgee = TolgeeBase().init({defaultNs: 'common'})
+const tolgee = TolgeeBase().init({
+  defaultNs: 'common'
+})
 
 export const TolgeeNextProvider = ({language, staticData, children}: Props) => {
   const router = useRouter()
