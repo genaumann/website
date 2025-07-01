@@ -1,4 +1,3 @@
-import {LOCALES} from '@/locales'
 import {tools as toolsData} from '../../../../../lib/tools'
 import {notFound} from 'next/navigation'
 import TechnologyArticlesPage from './articles'
@@ -16,6 +15,11 @@ import Link from 'next/link'
 import {Metadata} from 'next'
 import getMetadata from '@/lib/metadata'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LocaleParam} from '@/lib/types'
+
+type ToolParam = LocaleParam & {
+  tool: string
+}
 
 // 404 for unspecified tools
 export const dynamicParams = false
@@ -37,7 +41,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALES; tool: string}>
+  params: Promise<ToolParam>
 }): Promise<Metadata> {
   const {locale, tool} = await params
   const t = await getTranslate('portfolio', {noWrap: true})
@@ -62,11 +66,7 @@ export async function generateMetadata({
   })
 }
 
-export default async function Page({
-  params
-}: {
-  params: Promise<{locale: LOCALES; tool: string}>
-}) {
+export default async function Page({params}: {params: Promise<ToolParam>}) {
   const {tool, locale} = await params
   const t = await getTranslate('portfolio')
   const tools = toolsData(t)

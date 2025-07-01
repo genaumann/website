@@ -3,14 +3,14 @@ import {CONTACT} from '@/lib/contact'
 import Link from 'next/link'
 import ContactForm from './form'
 import {Metadata} from 'next'
-import {LOCALE_KEY} from '@/locales'
 import getMetadata from '@/lib/metadata'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LocaleParam} from '@/lib/types'
 
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALE_KEY}>
+  params: Promise<LocaleParam>
 }): Promise<Metadata> {
   const {locale} = await params
   const t = await getTranslate('contact', {noWrap: true})

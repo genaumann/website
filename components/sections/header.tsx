@@ -2,10 +2,10 @@ import Link from 'next/link'
 import HeaderItems from './header-items'
 import Image from 'next/image'
 import {HeaderMobile} from './header-mobile'
-import {LOCALE_KEY} from '@/locales'
 import {getHeaderMenu} from '@/lib/header-menu'
+import {LocaleParam} from '@/lib/types'
 
-export default async function Header({locale}: {locale: LOCALE_KEY}) {
+export default async function Header({locale}: LocaleParam) {
   const headerMenu = await getHeaderMenu({locale})
   return (
     <header className="sticky top-0 backdrop-blur py-4 bg-background/75 z-20 border-b border-dashed border-muted">

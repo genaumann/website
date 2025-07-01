@@ -10,10 +10,10 @@ import Icon from '@/components/ui/icon'
 import {getDateFunctions} from '@/lib/dates'
 import Link from 'next/link'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LocaleParam} from '@/lib/types'
 
-type ToolArticlesPageProps = {
+type ToolArticlesPageProps = LocaleParam & {
   tool: string
-  locale: LOCALES
   title: string
 }
 

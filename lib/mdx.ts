@@ -5,7 +5,7 @@ import {compileMDX} from 'next-mdx-remote/rsc'
 import {JSXElementConstructor, ReactElement} from 'react'
 import articles from '@/lib/articleIndex.json'
 import {Article, ArticleIndex, MDXFrontmatter} from './types'
-import {LOCALE_KEY} from '@/locales'
+import {LOCALES} from '@/locales'
 import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
 import CodeBlock from '@/components/mdx/codeblock'
@@ -25,7 +25,7 @@ type MDXReturnType = {
 }
 
 export const getParsedArticle = async (
-  locale: LOCALE_KEY,
+  locale: LOCALES,
   kb: string[]
 ): Promise<MDXReturnType | null> => {
   try {
@@ -67,7 +67,7 @@ export const getParsedArticle = async (
 }
 
 export const getArticlesByLocale = async (
-  locale: LOCALE_KEY
+  locale: LOCALES
 ): Promise<Article[]> => {
   const localeArticles = articles[locale] || []
   return localeArticles.map(article => ({
@@ -83,7 +83,7 @@ export const getArticlesByLocale = async (
 }
 
 export const getFlatArticleIndex = async (
-  locale: LOCALE_KEY
+  locale: LOCALES
 ): Promise<Article[]> => {
   const articleIndex = articles as unknown as ArticleIndex
   const localeArticles = articleIndex[locale] || []
@@ -106,7 +106,7 @@ export const getFlatArticleIndex = async (
 }
 
 export const getArticlesByKeyword = async (
-  locale: LOCALE_KEY,
+  locale: LOCALES,
   keyword: string
 ): Promise<Article[] | null> => {
   const articlesByLocale = await getFlatArticleIndex(locale)

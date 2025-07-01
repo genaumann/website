@@ -7,8 +7,6 @@ export enum LOCALES {
   en = 'en'
 }
 
-export type LOCALE_KEY = keyof typeof LOCALES
-
 export default getRequestConfig(async ({requestLocale}) => {
   const locale = await requestLocale
 

@@ -2,7 +2,7 @@ import {NextRequest} from 'next/server'
 import {findArticleBySlug} from '@/lib/mdx-edge'
 import {customIconMap} from '@/components/icons'
 import OGImage from '../og'
-import {LOCALE_KEY, LOCALES} from '@/locales'
+import {LOCALES} from '@/locales'
 import {getTolgee} from '@/lib/integrations/tolgee/server'
 
 export async function GET(request: NextRequest) {
@@ -20,10 +20,7 @@ export async function GET(request: NextRequest) {
       })
     }
 
-    const article = await findArticleBySlug(
-      (locale || 'de') as LOCALE_KEY,
-      slug
-    )
+    const article = await findArticleBySlug(locale || 'de', slug)
 
     if (!article) {
       return new Response('Article not found', {

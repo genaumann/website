@@ -1,17 +1,22 @@
 import {getFlatArticleIndex, getParsedArticle} from '@/lib/mdx'
 import {findArticleBySlug} from '@/lib/mdx-edge'
 import getMetadata from '@/lib/metadata'
-import {LOCALE_KEY} from '@/locales'
+import {LocaleParam} from '@/lib/types'
+import {LOCALES} from '@/locales'
 import {Metadata} from 'next'
 import {notFound} from 'next/navigation'
 
+type KBParam = LocaleParam & {
+  kb: string[]
+}
+
 export async function generateStaticParams() {
   return [
-    ...(await getFlatArticleIndex('de')).map(article => ({
+    ...(await getFlatArticleIndex(LOCALES.de)).map(article => ({
       locale: 'de',
       kb: article.slug.replace(/\/index$/, '').split('/')
     })),
-    ...(await getFlatArticleIndex('en')).map(article => ({
+    ...(await getFlatArticleIndex(LOCALES.en)).map(article => ({
       locale: 'en',
       kb: article.slug.replace(/\/index$/, '').split('/')
     }))
@@ -21,7 +26,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALE_KEY; kb: string[]}>
+  params: Promise<KBParam>
 }): Promise<Metadata> {
   const {kb, locale} = await params
   const article = await findArticleBySlug(locale, kb.join('/'))
@@ -45,11 +50,7 @@ export async function generateMetadata({
 // 404 for unspecified articles
 export const dynamicParams = false
 
-export default async function Page({
-  params
-}: {
-  params: Promise<{locale: LOCALE_KEY; kb: string[]}>
-}) {
+export default async function Page({params}: {params: Promise<KBParam>}) {
   const {kb, locale} = await params
   const article = await getParsedArticle(locale, kb)
   if (!article) notFound()

@@ -14,6 +14,7 @@ import {useParams} from 'next/navigation'
 import {setUserLocale} from '@/lib/cookie'
 import {useTranslate} from '@tolgee/react'
 import {NextIntlClientProvider} from 'next-intl'
+import {LocaleParam} from '@/lib/types'
 
 interface LocaleMap {
   [key: string]: {
@@ -22,11 +23,7 @@ interface LocaleMap {
   }
 }
 
-export type LangSelectProps = {
-  locale: LOCALES
-}
-
-function SelectComponent({locale}: LangSelectProps) {
+function SelectComponent({locale}: LocaleParam) {
   const [, startTransition] = useTransition()
   const router = useRouter()
   const pathname = usePathname()
@@ -84,7 +81,7 @@ function SelectComponent({locale}: LangSelectProps) {
   )
 }
 
-export default function LangSelect({locale}: LangSelectProps) {
+export default function LangSelect({locale}: LocaleParam) {
   return (
     <NextIntlClientProvider locale={locale} messages={null}>
       <SelectComponent locale={locale} />

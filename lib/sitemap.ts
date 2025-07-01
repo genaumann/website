@@ -3,11 +3,12 @@
 import {getFlatArticleIndex} from '@/lib/mdx'
 import {MetadataRoute} from 'next'
 import {tools as getAllTools} from '@/lib/tools'
+import {LOCALES} from '@/locales'
 
 export default async function sitemap(
   origin: string = ''
 ): Promise<MetadataRoute.Sitemap> {
-  const articles = await getFlatArticleIndex('de')
+  const articles = await getFlatArticleIndex(LOCALES.de)
   const allTools = getAllTools()
 
   return [

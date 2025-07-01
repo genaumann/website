@@ -7,16 +7,16 @@ import PortfolioTrainingsPage from './trainings'
 import PortfolioAboutPage from './about'
 import PortfolioOfferPage from './offer'
 import PortfolioOfferBanner from './offer-banner'
-import {LOCALES} from '@/locales'
 import {Metadata} from 'next'
 import getMetadata from '@/lib/metadata'
 import ContactSection from '@/components/sections/contact'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LocaleParam} from '@/lib/types'
 
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALES}>
+  params: Promise<LocaleParam>
 }): Promise<Metadata> {
   const {locale} = await params
   const t = await getTranslate('portfolio', {noWrap: true})

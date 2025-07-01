@@ -1,6 +1,6 @@
 import {getProjects, ProjectContext} from '../../../../../lib/projects'
 import {getDateFunctions} from '@/lib/dates'
-import {LOCALE_KEY, LOCALES} from '@/locales'
+import {LOCALES} from '@/locales'
 import {Badge} from '@/components/ui/badge'
 import Icon from '@/components/ui/icon'
 import {
@@ -16,12 +16,12 @@ import {
   StatusBadge
 } from '@/components/ui/project-card'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LocaleParam} from '@/lib/types'
 
 export type ProjectContextObjects = Record<ProjectContext, string>
 
-type TechnologyProjectsPageProps = {
+type TechnologyProjectsPageProps = LocaleParam & {
   technology: string
-  locale: LOCALE_KEY
   title: string
 }
 

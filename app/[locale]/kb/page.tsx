@@ -2,13 +2,13 @@ import {ArticleOverview} from '@/components/ui/article-overview'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {getArticlesByLocale} from '@/lib/mdx'
 import getMetadata from '@/lib/metadata'
-import {LOCALES} from '@/locales'
+import {LocaleParam} from '@/lib/types'
 import {Metadata} from 'next'
 
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALES}>
+  params: Promise<LocaleParam>
 }): Promise<Metadata> {
   const {locale} = await params
   const t = await getTranslate('kb', {noWrap: true})
@@ -27,11 +27,7 @@ export async function generateMetadata({
   })
 }
 
-export default async function Page({
-  params
-}: {
-  params: Promise<{locale: LOCALES}>
-}) {
+export default async function Page({params}: {params: Promise<LocaleParam>}) {
   const {locale} = await params
   const articles = await getArticlesByLocale(locale)
   const t = await getTranslate('kb')

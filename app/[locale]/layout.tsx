@@ -7,13 +7,14 @@ import '@/styles/globals.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import {ThemeProvider} from '@/components/providers/theme'
 import Footer from '@/components/sections/footer'
-import {LOCALE_KEY, LOCALES} from '@/locales'
+import {LOCALES} from '@/locales'
 import {notFound} from 'next/navigation'
 import {origin} from '@/lib/url'
 import HeightObserver from '@/components/layout/height-observer'
 import {VercelToolbar} from '@vercel/toolbar/next'
 import {getTolgee, getTranslate} from '@/lib/integrations/tolgee/server'
 import {TolgeeNextProvider} from '@/lib/integrations/tolgee/client'
+import {LocaleParam} from '@/lib/types'
 
 fontawesome.autoAddCss = false
 
@@ -40,9 +41,9 @@ export default async function RootLayout({
   params
 }: Readonly<{
   children: React.ReactNode
-  params: Promise<{locale: string}>
+  params: Promise<LocaleParam>
 }>) {
-  const locale = (await params).locale as LOCALE_KEY
+  const locale = (await params).locale
   const isDev = process.env.NODE_ENV === 'development'
 
   if (!locale || !Object.keys(LOCALES).includes(locale as LOCALES)) {

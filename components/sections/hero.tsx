@@ -6,6 +6,7 @@ import {getTrainings} from '@/lib/trainings'
 import {certs} from '@/lib/cert'
 import {getFlatArticleIndex} from '@/lib/mdx'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LOCALES} from '@/locales'
 
 const StarField = () => {
   const stars = Array.from({length: 40}, (_, i) => ({
@@ -70,7 +71,7 @@ export default async function Hero() {
       type: 'speaker'
     })
   ).length
-  const kbArticles = await getFlatArticleIndex('de')
+  const kbArticles = await getFlatArticleIndex(LOCALES.de)
   const t = await getTranslate()
 
   const stats = [

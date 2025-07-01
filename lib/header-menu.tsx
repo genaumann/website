@@ -3,7 +3,7 @@
 import LangSelect from '@/components/ui/lang-select'
 import ThemeSwitch from '@/components/ui/theme-switch'
 import {getTranslate} from './integrations/tolgee/server'
-import {LOCALE_KEY} from '@/locales'
+import {LocaleParam} from './types'
 
 export interface HeaderItem {
   name: string
@@ -29,9 +29,7 @@ export interface HeaderMenu {
 
 export const getHeaderMenu = async ({
   locale
-}: {
-  locale: LOCALE_KEY
-}): Promise<HeaderMenu> => {
+}: LocaleParam): Promise<HeaderMenu> => {
   const t = await getTranslate()
   return {
     logo: {

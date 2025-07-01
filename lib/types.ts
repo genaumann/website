@@ -33,3 +33,7 @@ export type ArticleIndex = {
 export type TType =
   | Awaited<ReturnType<typeof getTranslate>>
   | ReturnType<typeof useTranslate>['t']
+
+export type LocaleParam = {
+  locale: LOCALES
+}

@@ -3,13 +3,13 @@ import Hero from '@/components/sections/hero'
 import PortfolioSection from '@/components/sections/portfolio'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import getMetadata from '@/lib/metadata'
-import {LOCALE_KEY} from '@/locales'
+import {LocaleParam} from '@/lib/types'
 import {Metadata} from 'next'
 
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALE_KEY}>
+  params: Promise<LocaleParam>
 }): Promise<Metadata> {
   const {locale} = await params
   const t = await getTranslate('common', {noWrap: true})

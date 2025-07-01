@@ -1,7 +1,7 @@
 import {absoluteRelativePath} from '@/lib/mdx-edge'
 import {Grid, GridItem} from './grid'
 import {findArticleBySlug} from '@/lib/mdx-edge'
-import {getLocale, LOCALE_KEY} from '@/locales'
+import {getLocale, LOCALES} from '@/locales'
 import {headers} from 'next/headers'
 
 type ArticleGridProps = {
@@ -13,7 +13,7 @@ export default async function ArticleGrid({
 }: ArticleGridProps) {
   const headersList = await headers()
   const fullpath = headersList.get('x-url') || ''
-  const locale = (await getLocale()) as LOCALE_KEY
+  const locale = (await getLocale()) as LOCALES
 
   const kbPath = fullpath.replace(/^\/en/, '').split('/').slice(2).join('/')
   const articles = await Promise.all(

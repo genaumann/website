@@ -1,6 +1,6 @@
 import {Metadata} from 'next'
 import {origin} from './url'
-import {LOCALE_KEY, LOCALES} from '@/locales'
+import {LOCALES} from '@/locales'
 import {getTranslate} from './integrations/tolgee/server'
 
 type MetadataProps = {
@@ -8,7 +8,7 @@ type MetadataProps = {
   description: string
   slug: string
   index: boolean
-  locale: LOCALE_KEY
+  locale: LOCALES
   og: {
     type: 'article' | 'website'
     title?: string
