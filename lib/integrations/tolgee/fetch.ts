@@ -1,21 +1,33 @@
 'use server'
 
-type GetParam = {
-  language: string
+import {origin} from '@/lib/url'
+
+type FetchI18nParams = {
+  isCdn: boolean
   namespace?: string
+  language: string
 }
 
-export const fetchTolgee = async ({
+export const fetchI18n = async ({
   namespace,
-  language
-}: GetParam): Promise<Record<string, string>> => {
+  language,
+  isCdn
+}: FetchI18nParams): Promise<Record<string, string> | null> => {
   const cdn = process.env.TOLGEE_CDN_URL
+  const url = isCdn
+    ? `${cdn}/${namespace ? `${namespace}/` : ''}${language}.json`
+    : `${origin}/i18n/${namespace ? `${namespace}/` : ''}${language}.json`
 
-  const json = await fetch(`${cdn}/${namespace}/${language}.json`, {
+  const result = await fetch(url, {
     next: {
       revalidate: 3600,
       tags: ['i18n']
     }
   })
-  return await json.json()
+
+  if (!result.ok) {
+    return null
+  }
+
+  return await result.json()
 }

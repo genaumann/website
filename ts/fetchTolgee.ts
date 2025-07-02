@@ -1,5 +1,4 @@
-import {LOCALES} from '@/locales'
-import {namespaces} from '@/tolgee'
+import {localeKeys, namespaces} from '@/tolgee'
 import fs from 'fs/promises'
 import path from 'path'
 
@@ -10,11 +9,9 @@ export const fetchTolgee = async () => {
     throw new Error('TOLGEE_CDN_URL is not defined')
   }
 
-  const locales = Object.values(LOCALES)
-
-  for (const locale of locales) {
+  for (const locale of localeKeys) {
     for (const ns of namespaces) {
-      const localeDir = path.join(process.cwd(), 'i18n', ns)
+      const localeDir = path.join(process.cwd(), 'public', 'i18n', ns)
       await fs.mkdir(localeDir, {recursive: true})
       const response = await fetch(`${cdn}/${ns}/${locale}.json`)
       if (!response.ok) {
