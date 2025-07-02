@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.8.1](https://github.com/genaumann/website/compare/v1.8.0...v1.8.1) (2025-07-02)
+
+### 💿 Continuous Integration 💿
+
+* **github:** checkout latest main ([3bf840c](https://github.com/genaumann/website/commit/3bf840ca118175a5adf241a40f0a1cd7e37500bf))
+* **github:** pull env before prebuild ([132e06a](https://github.com/genaumann/website/commit/132e06aec92e6b5977555ded9ac4fceaeef44cf1))
+
+### 🏗️ Build 🏗️
+
+* fetch tolgee translations prebuild ([5afc682](https://github.com/genaumann/website/commit/5afc6825ede95853aa387086c3ff6e5f60580132))
+
+### 🔧 Refactor 🔧
+
+* **header:** lang-select without global next-intl ([ad16f7b](https://github.com/genaumann/website/commit/ad16f7b385f49df239c928f5bfe5076d2932fb96))
+* **i18n:** create plugin + delete api ([888d7be](https://github.com/genaumann/website/commit/888d7be7ede8016c4111398a27e8742f3c8275d3))
+* **i18n:** fetch from api ([8b292be](https://github.com/genaumann/website/commit/8b292be452c8fd3306dfc1903e519d4af721f427))
+* **i18n:** fetch local i18n files ([ecfdc0e](https://github.com/genaumann/website/commit/ecfdc0eb3b9cb33218188f185badf766695f125b))
+* **i18n:** migrate to tolgee ([25244f2](https://github.com/genaumann/website/commit/25244f2b2eb864838f879a3b8f1dc4b595f0021a))
+* **projects:** no server ([0bfdd33](https://github.com/genaumann/website/commit/0bfdd3329790d6c87f5c524752aa5619033903bb))
+* **trainings:** no server ([6b163a7](https://github.com/genaumann/website/commit/6b163a76956e6362532f8d3447fc410134a086cd))
+* use global locale type ([be9e079](https://github.com/genaumann/website/commit/be9e079c9d20aa0b00efe037c989da0337fcfc53))
+
 ## [1.8.0](https://github.com/genaumann/website/compare/v1.7.3...v1.8.0) (2025-06-24)
 
 ### ✨ Feature ✨
