@@ -1,13 +1,12 @@
 import Link from 'next/link'
 import HeaderItems from './header-items'
-import {getHeaderMenu} from '@/lib/header-menu'
-import {getTranslations} from 'next-intl/server'
 import Image from 'next/image'
 import {HeaderMobile} from './header-mobile'
+import {getHeaderMenu} from '@/lib/header-menu'
+import {LocaleParam} from '@/lib/types'
 
-export default async function Header() {
-  const t = await getTranslations()
-  const headerMenu = getHeaderMenu(t)
+export default async function Header({locale}: LocaleParam) {
+  const headerMenu = await getHeaderMenu({locale})
   return (
     <header className="sticky top-0 backdrop-blur py-4 bg-background/75 z-20 border-b border-dashed border-muted">
       <div className="container mx-auto">
@@ -27,9 +26,7 @@ export default async function Header() {
             <HeaderItems items={headerMenu.items} />
           </div>
           <div className="hidden md:flex gap-3 text-2xl">
-            {headerMenu.tools.map(tool => (
-              <tool.Component key={tool.name} />
-            ))}
+            {headerMenu.tools.map(tool => tool.Component)}
           </div>
           <div className="md:hidden">
             <HeaderMobile headerMenu={headerMenu} />

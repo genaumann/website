@@ -1,6 +1,4 @@
 import {cn} from '@/lib/cn'
-import {NextIntlClientProvider} from 'next-intl'
-import {getMessages, getTranslations} from 'next-intl/server'
 import {Oswald as FontSans} from 'next/font/google'
 import {config as fontawesome} from '@fortawesome/fontawesome-svg-core'
 import {Metadata} from 'next'
@@ -14,6 +12,9 @@ import {notFound} from 'next/navigation'
 import {origin} from '@/lib/url'
 import HeightObserver from '@/components/layout/height-observer'
 import {VercelToolbar} from '@vercel/toolbar/next'
+import {getTolgee, getTranslate} from '@/lib/integrations/tolgee/server'
+import {TolgeeNextProvider} from '@/lib/integrations/tolgee/client'
+import {LocaleParam} from '@/lib/types'
 
 fontawesome.autoAddCss = false
 
@@ -24,11 +25,11 @@ const fontSans = FontSans({
 })
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations()
+  const t = await getTranslate('common', {noWrap: true})
   return {
     title: {
-      default: t('app.name'),
-      template: `%s · ${t('app.name')}`
+      default: t('appName'),
+      template: `%s · ${t('appName')}`
     },
     metadataBase: new URL(origin),
     manifest: `${origin}/manifest.webmanifest`
@@ -40,15 +41,17 @@ export default async function RootLayout({
   params
 }: Readonly<{
   children: React.ReactNode
-  params: Promise<{locale: string}>
+  params: Promise<LocaleParam>
 }>) {
-  const messages = await getMessages()
   const locale = (await params).locale
   const isDev = process.env.NODE_ENV === 'development'
 
   if (!locale || !Object.keys(LOCALES).includes(locale as LOCALES)) {
-    notFound() // TODO: Throws an error
+    notFound()
   }
+
+  const tolgee = await getTolgee()
+  const records = await tolgee.loadRequired()
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -58,19 +61,19 @@ export default async function RootLayout({
           fontSans.variable
         )}>
         <HeightObserver />
-        <NextIntlClientProvider messages={messages}>
+        <TolgeeNextProvider language={locale} staticData={records}>
           <ThemeProvider
             defaultTheme="system"
             attribute="class"
             disableTransitionOnChange
             themes={['light', 'dark', 'system']}
             enableSystem={true}>
-            <Header />
+            <Header locale={locale} />
             <main className="grow">{children}</main>
             <Footer />
           </ThemeProvider>
           {isDev && <VercelToolbar />}
-        </NextIntlClientProvider>
+        </TolgeeNextProvider>
       </body>
     </html>
   )

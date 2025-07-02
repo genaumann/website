@@ -1,6 +1,5 @@
 'use client'
 
-import {useTranslations} from 'next-intl'
 import {
   Select,
   SelectContent,
@@ -9,6 +8,7 @@ import {
   SelectValue
 } from '../select'
 import type {ProjectContext} from '@/lib/projects'
+import {useTranslate} from '@tolgee/react'
 
 export type ProjectContextFilter = Exclude<ProjectContext, 'freelance'> | 'all'
 type ProjectContextObject = Record<ProjectContextFilter, string>
@@ -22,12 +22,12 @@ export default function PortfolioProjectFilter({
   onChange,
   value
 }: PortfolioProjectFilterProps) {
-  const t = useTranslations('portfolio.projects.filter')
+  const {t} = useTranslate('portfolio')
 
   const contexts: ProjectContextObject = {
-    all: t('all'),
-    personal: t('personal'),
-    work: t('work')
+    all: t('allProjects'),
+    personal: t('personalProjects', {count: 2}),
+    work: t('customerProjects')
   }
 
   return (

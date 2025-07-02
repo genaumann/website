@@ -1,23 +1,23 @@
-import {getTranslations} from 'next-intl/server'
 import Link from 'next/link'
 import Icon from '../ui/icon'
 import {CONTACT} from '@/lib/contact'
 import {Button} from '../ui/button'
 import {cn} from '@/lib/cn'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 export default async function ContactSection({
   className
 }: {
   className?: string
 }) {
-  const t = await getTranslations('contact.section')
+  const t = await getTranslate()
   return (
     <section className={cn('py-20', className)}>
       <div className="container flex flex-col justify-center items-center gap-5">
         <div className="flex flex-col">
-          <span>{t('subtitle')}</span>
+          <span>{t('questions')}?</span>
           <span className="text-3xl font-semibold text-center">
-            {t('title')}
+            {t('getInTouch')}
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-[800px]">
@@ -44,7 +44,7 @@ export default async function ContactSection({
               <Icon name="arrow-right" size="xl" />
             </div>
             <Button className="hidden md:block" variant="outline">
-              {t('contactButton')}
+              {t('goToContactForm')}
               <Icon className="md:hidden" name="arrow-right" />
             </Button>
           </Link>

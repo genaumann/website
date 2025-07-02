@@ -11,12 +11,12 @@ import {
   DrawerTitle,
   DrawerTrigger
 } from '../ui/drawer'
-import {useTranslations} from 'next-intl'
 import {useEffect, useState} from 'react'
+import {useTranslate} from '@tolgee/react'
 
 export default function MobileSidebar({articles}: {articles: Article[]}) {
   const [container, setContainer] = useState<HTMLElement | null>(null)
-  const t = useTranslations()
+  const {t} = useTranslate('kb')
 
   useEffect(() => {
     setContainer(document.getElementsByTagName('main')[0])
@@ -27,12 +27,12 @@ export default function MobileSidebar({articles}: {articles: Article[]}) {
       <DrawerTrigger className="md:hidden" asChild>
         <Button size="icon" variant="ghost" className="hover:bg-inherit w-fit">
           <Icon name="list" />
-          {t('kb.moreArticles')}
+          {t('moreArticles')}
         </Button>
       </DrawerTrigger>
       <DrawerContent className="border-0 max-h-[70%] overflow-auto h-fit">
         <DrawerHeader>
-          <DrawerTitle>{t('common.knowledgebase')}</DrawerTitle>
+          <DrawerTitle>{t('kb', {ns: 'common'})}</DrawerTitle>
         </DrawerHeader>
         <div className="p-4">
           <ArticleSidebar articles={articles} />

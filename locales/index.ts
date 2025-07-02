@@ -1,25 +1,17 @@
 import {getRequestConfig} from 'next-intl/server'
-export {getTranslations, getLocale} from 'next-intl/server'
-export {useTranslations, useLocale} from 'next-intl'
+export {getLocale} from 'next-intl/server'
+export {useLocale} from 'next-intl'
 
 export enum LOCALES {
-  de = 'de_DE',
-  en = 'en_US'
+  de = 'de',
+  en = 'en'
 }
 
-export type LOCALE_KEY = keyof typeof LOCALES
-
 export default getRequestConfig(async ({requestLocale}) => {
-  let locale = await requestLocale
-
-  if (!locale || !Object.keys(LOCALES).includes(locale as LOCALES)) {
-    locale = 'de'
-  }
-
-  const importLocale = LOCALES[locale as keyof typeof LOCALES]
+  const locale = await requestLocale
 
   return {
-    locale: locale,
-    messages: (await import(`./${importLocale}.json`)).default
+    locale: locale || LOCALES.de,
+    messages: {}
   }
 })

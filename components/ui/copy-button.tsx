@@ -2,12 +2,12 @@
 
 import {Button} from '@/components/ui/button'
 import Icon from '@/components/ui/icon'
-import {useTranslations} from 'next-intl'
+import {useTranslate} from '@tolgee/react'
 import {useState} from 'react'
 
 export default function CodeBlockCopyButton({id}: {id?: string}) {
   const [copied, setCopied] = useState(false)
-  const t = useTranslations('kb.article')
+  const {t} = useTranslate('kb')
 
   if (!id) return null
 

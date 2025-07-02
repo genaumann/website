@@ -173,7 +173,7 @@ async function scanDirectory(
   return articles
 }
 
-const buildArticleIndex = async () => {
+export const buildArticleIndex = async () => {
   const index = {} as ArticleIndex
 
   for (const locale of Object.keys(LOCALES)) {
@@ -189,5 +189,3 @@ const buildArticleIndex = async () => {
   console.log(JSON.stringify(index, null, 2))
   await fs.writeFile('lib/articleIndex.json', JSON.stringify(index), 'utf-8')
 }
-
-buildArticleIndex()

@@ -1,13 +1,13 @@
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {Metadata} from 'next'
-import {getTranslations} from 'next-intl/server'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations()
+  const t = await getTranslate('common', {noWrap: true})
 
   return {
     title: {
-      default: t('kb.title.short'),
-      template: `%s · ${t('kb.title.short')} · ${t('app.name')}`
+      default: t('kb'),
+      template: `%s · ${t('kb')} · ${t('appName')}`
     }
   }
 }

@@ -1,5 +1,7 @@
+'use server'
+
 import {IconName, IconPrefix} from '@/components/ui/icon'
-import {useTranslations} from 'next-intl'
+import {getTranslate} from './integrations/tolgee/server'
 
 type Offer = {
   id: string
@@ -11,55 +13,53 @@ type Offer = {
 }
 
 type OfferProps = {
-  t: ReturnType<typeof useTranslations>
   technologies?: string[]
 }
 
-// const t = useTranslations('portfolio.offers')
-
-export const getOffers = ({t, technologies}: OfferProps) => {
-  // TODO: Check descriptions
+// TODO Cache
+export const getOffers = async ({technologies}: OfferProps = {}) => {
+  const t = await getTranslate('portfolio')
   const offer: Offer[] = [
     {
       id: 'iac-server',
-      name: t('iacServer.title'),
+      name: t('offer.iacServer.title'),
       iconName: 'server',
-      description: t('iacServer.description'),
+      description: t('offer.iacServer.description'),
       technologies: ['salt', 'ansible']
     },
     {
       id: 'cicd',
-      name: t('cicd.title'),
+      name: t('offer.cicd.title'),
       iconName: 'rocket-launch',
-      description: t('cicd.description'),
+      description: t('offer.cicd.description'),
       technologies: ['gitlab', 'github']
     },
     {
       id: 'e2e',
-      name: t('e2e.title'),
+      name: t('offer.e2e.title'),
       iconName: 'flask-vial',
-      description: t('e2e.description'),
+      description: t('offer.e2e.description'),
       technologies: ['playwright']
     },
     {
       id: 'nextjs-dev',
-      name: t('nextjsDev.title'),
+      name: t('offer.nextjsDev.title'),
       iconName: 'code',
-      description: t('nextjsDev.description'),
+      description: t('offer.nextjsDev.description'),
       technologies: ['nextjs', 'react']
     },
     {
       id: 'cloud',
-      name: t('cloud.title'),
+      name: t('offer.cloud.title'),
       iconName: 'cloud',
-      description: t('cloud.description'),
+      description: t('offer.cloud.description'),
       technologies: ['aws', 'azure']
     },
     {
       id: 'kubernetes',
-      name: t('kubernetes.title'),
+      name: t('offer.kubernetes.title'),
       iconName: 'cubes',
-      description: t('kubernetes.description'),
+      description: t('offer.kubernetes.description'),
       technologies: ['kubernetes', 'docker']
     }
   ]

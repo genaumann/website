@@ -11,17 +11,17 @@ import {
 } from '@/components/ui/sheet'
 import Icon from '../ui/icon'
 import {Button} from '../ui/button'
-import {HeaderItem, HeaderMenu} from '@/lib/header-menu'
 import Link from 'next/link'
 import Image from 'next/image'
-import {useTranslations} from 'next-intl'
+import {useTranslate} from '@tolgee/react'
+import {HeaderItem, HeaderMenu} from '@/lib/header-menu'
 
 export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
-  const t = useTranslations()
+  const {t} = useTranslate()
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label={t('common.sidebar')}>
+        <Button variant="ghost" size="icon" aria-label={t('sidebar')}>
           <Icon name="bars" size="2xl" />
         </Button>
       </SheetTrigger>
@@ -46,9 +46,7 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
         <HeaderMobileItems items={headerMenu.items} />
         <SheetFooter className="mt-auto text-2xl">
           <div className="flex justify-center gap-2">
-            {headerMenu.tools.map(tool => (
-              <tool.Component key={tool.name} />
-            ))}
+            {headerMenu.tools.map(tool => tool.Component)}
           </div>
         </SheetFooter>
       </SheetContent>

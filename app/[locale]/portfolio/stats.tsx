@@ -1,19 +1,19 @@
 import {certs} from '@/lib/cert'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {getProjects} from '@/lib/projects'
 import {getTrainings} from '@/lib/trainings'
-import {getTranslations} from 'next-intl/server'
 import Link from 'next/link'
 
 export default async function PortfolioStatsPage() {
-  const completedProjects = getProjects({
-    t: await getTranslations('portfolio.tools.projects')
-  }).filter(project => project.end && project.end < new Date()).length
+  const projects = getProjects()
+  const completedProjects = projects.filter(
+    project => project.end && project.end < new Date()
+  ).length
   const speakerTrainings = getTrainings({
-    t: await getTranslations('portfolio.trainings'),
     type: 'speaker'
   }).length
 
-  const t = await getTranslations('portfolio.stats')
+  const t = await getTranslate()
 
   const entries = [
     {
@@ -22,7 +22,7 @@ export default async function PortfolioStatsPage() {
       link: '#projects'
     },
     {
-      title: t('certs'),
+      title: t('certificates'),
       value: certs.length,
       link: '#certs'
     },

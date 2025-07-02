@@ -1,16 +1,16 @@
 'use client'
 
-import {useTranslations} from 'next-intl'
 import {tools as getAllTools} from '../../../../lib/tools'
 import {useEffect, useRef} from 'react'
 import {Input} from '@/components/ui/input'
 import TechnologyCard from './card'
 import {useToolSearch} from '../hooks'
+import {useTranslate} from '@tolgee/react'
 
 export default function TechnologyGridPage() {
-  const t = useTranslations('portfolio.tools')
-  const allTools = getAllTools(t)
+  const {t} = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
+  const allTools = getAllTools(t)
 
   const {filteredTools, handleSearch} = useToolSearch(allTools)
 
@@ -25,15 +25,14 @@ export default function TechnologyGridPage() {
           ref={inputRef}
           onChange={e => handleSearch(e.target.value)}
           className="w-full md:w-1/2 mx-auto h-12 placeholder:text-center placeholder:text-base mb-6"
-          placeholder={t('search.placeholder')}
+          placeholder={t('search')}
           type="search"
-          aria-label={t('search.placeholder')}
         />
       </div>
 
       {filteredTools.length === 0 ? (
         <div className="text-center py-8 text-muted-foreground text-sm">
-          {t('search.noResults')}
+          {t('noResults')}
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

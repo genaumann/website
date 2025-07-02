@@ -94,6 +94,7 @@ export class MailjetClient {
           ]
         })
       })
+      console.dir(result, {depth: null})
       return result?.Messages?.[0]?.Status === 'success'
     }
 

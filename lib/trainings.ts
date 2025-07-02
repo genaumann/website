@@ -1,12 +1,12 @@
 import {IconName, IconPrefix} from '@/components/ui/icon'
-import {useTranslations} from 'next-intl'
+import {TType} from './types'
 
 type TrainingType = 'participant' | 'speaker'
 
 export type Training = {
   id: string
-  name: string
-  description: string
+  name?: string
+  description?: string
   iconName: IconName
   iconPrefix?: IconPrefix
   type: TrainingType
@@ -16,23 +16,21 @@ export type Training = {
 }
 
 type TrainingProps = {
-  t: ReturnType<typeof useTranslations>
   technology?: string
   type?: TrainingType
+  t?: TType
 }
 
-// const t = useTranslations('portfolio.trainings')
-
 export const getTrainings = ({
-  t,
   technology,
-  type
+  type,
+  t
 }: TrainingProps): Training[] => {
   const trainings: Training[] = [
     {
       id: 'linux-debian-2016',
-      name: t('linux.debian.name'),
-      description: t('linux.debian.description'),
+      name: t && t('trainings.linux.debian.name'),
+      description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
       date: new Date('2016-02-01'),
       iconName: 'tux',
@@ -41,8 +39,8 @@ export const getTrainings = ({
     },
     {
       id: 'linux-debian-2017',
-      name: t('linux.debian.name'),
-      description: t('linux.debian.description'),
+      name: t && t('trainings.linux.debian.name'),
+      description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
       date: new Date('2017-03-01'),
       iconName: 'tux',
@@ -51,8 +49,8 @@ export const getTrainings = ({
     },
     {
       id: 'linux-centos-2017-2',
-      name: t('linux.centos.name'),
-      description: t('linux.centos.description'),
+      name: t && t('trainings.linux.centos.name'),
+      description: t && t('trainings.linux.centos.description'),
       type: 'speaker',
       date: new Date('2017-06-01'),
       iconName: 'tux',
@@ -61,8 +59,8 @@ export const getTrainings = ({
     },
     {
       id: 'linux-debian-2018',
-      name: t('linux.debian.name'),
-      description: t('linux.debian.description'),
+      name: t && t('trainings.linux.debian.name'),
+      description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
       date: new Date('2018-03-01'),
       iconName: 'tux',
@@ -71,8 +69,8 @@ export const getTrainings = ({
     },
     {
       id: 'linux-debian-2019',
-      name: t('linux.debian.name'),
-      description: t('linux.debian.description'),
+      name: t && t('trainings.linux.debian.name'),
+      description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
       date: new Date('2019-04-01'),
       iconName: 'tux',
@@ -81,8 +79,8 @@ export const getTrainings = ({
     },
     {
       id: 'linux-debian-2020',
-      name: t('linux.debian.name'),
-      description: t('linux.debian.description'),
+      name: t && t('trainings.linux.debian.name'),
+      description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
       date: new Date('2020-03-01'),
       iconName: 'tux',
@@ -91,8 +89,8 @@ export const getTrainings = ({
     },
     {
       id: 'gitlab-2024-1',
-      name: t('gitlab.name'),
-      description: t('gitlab.description'),
+      name: t && t('trainings.gitlab.name'),
+      description: t && t('trainings.gitlab.description'),
       type: 'speaker',
       date: new Date('2024-02-01'),
       iconName: 'gitlab',
@@ -101,8 +99,8 @@ export const getTrainings = ({
     },
     {
       id: 'gitlab-2024-2',
-      name: t('gitlab.name'),
-      description: t('gitlab.description'),
+      name: t && t('trainings.gitlab.name'),
+      description: t && t('trainings.gitlab.description'),
       type: 'speaker',
       date: new Date('2024-05-1'),
       iconName: 'gitlab',
@@ -111,8 +109,8 @@ export const getTrainings = ({
     },
     {
       id: 'gitlab-2024-3',
-      name: t('gitlab.name'),
-      description: t('gitlab.description'),
+      name: t && t('trainings.gitlab.name'),
+      description: t && t('trainings.gitlab.description'),
       type: 'speaker',
       date: new Date('2024-08-1'),
       iconName: 'gitlab',
@@ -121,8 +119,8 @@ export const getTrainings = ({
     },
     {
       id: 'gitlab-2024-4',
-      name: t('gitlab.name'),
-      description: t('gitlab.description'),
+      name: t && t('trainings.gitlab.name'),
+      description: t && t('trainings.gitlab.description'),
       type: 'speaker',
       date: new Date('2024-09-01'),
       iconName: 'gitlab',
@@ -131,8 +129,8 @@ export const getTrainings = ({
     },
     {
       id: 'git-2023',
-      name: t('git.name'),
-      description: t('git.description'),
+      name: t && t('trainings.git.name'),
+      description: t && t('trainings.git.description'),
       type: 'speaker',
       date: new Date('2023-06-01'),
       iconName: 'git',
@@ -142,8 +140,8 @@ export const getTrainings = ({
     },
     {
       id: 'git-2024',
-      name: t('git.name'),
-      description: t('git.description'),
+      name: t && t('trainings.git.name'),
+      description: t && t('trainings.git.description'),
       type: 'speaker',
       date: new Date('2024-06-01'),
       iconName: 'git',
@@ -153,8 +151,8 @@ export const getTrainings = ({
     },
     {
       id: 'playwright-2024',
-      name: t('playwright.name'),
-      description: t('playwright.description'),
+      name: t && t('trainings.playwright.name'),
+      description: t && t('trainings.playwright.description'),
       type: 'participant',
       date: new Date('2024-11-01'),
       iconName: 'playwright',

@@ -1,4 +1,4 @@
-import {Tool} from '../../../../../lib/tools'
+import {Tool} from '@/lib/tools'
 import TechnologyIcon from '../tool-icon'
 
 type TechnologyIntroPageProps = {

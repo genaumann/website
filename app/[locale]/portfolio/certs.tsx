@@ -1,8 +1,8 @@
 import CertGrid from '@/components/ui/cert-grid'
-import {getTranslations} from 'next-intl/server'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 export default async function PortfolioCertsPage() {
-  const t = await getTranslations('common')
+  const t = await getTranslate()
   return (
     <section className="py-12" id="certs">
       <div className="container">

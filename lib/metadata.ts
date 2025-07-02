@@ -1,14 +1,14 @@
 import {Metadata} from 'next'
 import {origin} from './url'
-import {getTranslations} from 'next-intl/server'
-import {LOCALE_KEY, LOCALES} from '@/locales'
+import {LOCALES} from '@/locales'
+import {getTranslate} from './integrations/tolgee/server'
 
 type MetadataProps = {
   title: string
   description: string
   slug: string
   index: boolean
-  locale: LOCALE_KEY
+  locale: LOCALES
   og: {
     type: 'article' | 'website'
     title?: string
@@ -25,11 +25,11 @@ export default async function getMetadata({
   locale,
   og
 }: MetadataProps): Promise<Metadata> {
-  const t = await getTranslations()
+  const t = await getTranslate()
 
   const ogUrl = `${origin}/api/og${
     og.type === 'website'
-      ? `?title=${og.title}&description=${og.description}&locale=${locale}`
+      ? `?title=${encodeURIComponent(og.title || '')}&description=${og.description}&locale=${locale}`
       : `/kb?slug=${og.slug}&locale=${locale}`
   }`
   const ogLocale = LOCALES[locale] || LOCALES.de
@@ -63,7 +63,7 @@ export default async function getMetadata({
       locale: ogLocale,
       description,
       type: og.type,
-      siteName: t('app.name'),
+      siteName: t('appName'),
       images: [
         {
           url: ogUrl,

@@ -1,14 +1,19 @@
-import {useTranslations} from 'next-intl'
+import {TType} from '@/lib/types'
 import {z} from 'zod'
 
-// const t = useTranslations('contact.form')
-
-export const getContactFormSchema = (t: ReturnType<typeof useTranslations>) =>
-  z.object({
-    name: z.string().min(2, {message: t('errors.minString', {min: 2})}),
+export const getContactFormSchema = (t: TType) => {
+  return z.object({
+    name: z
+      .string()
+      .min(2, {message: t('formErrors.minString', {ns: 'contact', min: 2})}),
     phone: z.string().optional(),
-    email: z.string().email({message: t('errors.email')}),
-    message: z.string().min(5, {message: t('errors.minString', {min: 5})})
+    email: z.string().email({message: t('formErrors.email', {ns: 'contact'})}),
+    message: z
+      .string()
+      .min(5, {message: t('formErrors.minString', {ns: 'contact', min: 5})})
   })
+}
 
-export type ContactFormSchema = z.infer<ReturnType<typeof getContactFormSchema>>
+export type ContactFormSchema = z.infer<
+  Awaited<ReturnType<typeof getContactFormSchema>>
+>

@@ -4,15 +4,16 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import {getTranslations, LOCALE_KEY, LOCALES} from '@/locales'
+import {LOCALES} from '@/locales'
 import {getArticlesByKeyword} from '@/lib/mdx'
 import Icon from '@/components/ui/icon'
 import {getDateFunctions} from '@/lib/dates'
 import Link from 'next/link'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LocaleParam} from '@/lib/types'
 
-type ToolArticlesPageProps = {
+type ToolArticlesPageProps = LocaleParam & {
   tool: string
-  locale: LOCALE_KEY
   title: string
 }
 
@@ -23,7 +24,7 @@ export default async function ToolArticlesPage({
 }: ToolArticlesPageProps) {
   const allArticles = await getArticlesByKeyword(locale, tool)
   const {format} = getDateFunctions(LOCALES[locale])
-  const t = await getTranslations('portfolio.tools')
+  const t = await getTranslate('portfolio')
 
   if (!allArticles || allArticles.length === 0) return null
 
@@ -35,9 +36,11 @@ export default async function ToolArticlesPage({
     <section className="py-10">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">{t('kb.title')}</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            {t('kbArticles', {ns: 'common'})}
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t('kb.description', {technology: title})}
+            {t('latestKBArticles', {technology: title})}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

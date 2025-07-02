@@ -41,3 +41,5 @@ next-env.d.ts
 
 lib/articleIndex.json
 .env*.local
+
+public/i18n/*/*.json

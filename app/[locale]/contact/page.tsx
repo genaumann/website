@@ -1,36 +1,36 @@
 import Icon from '@/components/ui/icon'
 import {CONTACT} from '@/lib/contact'
-import {getTranslations} from 'next-intl/server'
 import Link from 'next/link'
 import ContactForm from './form'
 import {Metadata} from 'next'
-import {LOCALE_KEY} from '@/locales'
 import getMetadata from '@/lib/metadata'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LocaleParam} from '@/lib/types'
 
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{locale: LOCALE_KEY}>
+  params: Promise<LocaleParam>
 }): Promise<Metadata> {
   const {locale} = await params
-  const t = await getTranslations('contact.metadata')
+  const t = await getTranslate('contact', {noWrap: true})
 
   return getMetadata({
-    title: t('title'),
-    description: t('description'),
+    title: t('contactForm', {ns: 'common'}),
+    description: t('appMetadata.description'),
     slug: '/contact',
     index: true,
     locale,
     og: {
       type: 'website',
-      title: t('title'),
-      description: t('description')
+      title: t('contactForm', {ns: 'common'}),
+      description: t('appMetadata.description')
     }
   })
 }
 
 export default async function Page() {
-  const t = await getTranslations('contact')
+  const t = await getTranslate()
   return (
     <div className="min-h-content md:h-content flex flex-col md:flex-row items-center md:justify-between gap-10 md:gap-0">
       <div className="relative md:w-1/2 h-full w-full">
@@ -42,7 +42,7 @@ export default async function Page() {
             <div className="absolute inset-0 z-0">
               <div className="grid-pattern opacity-20"></div>
             </div>
-            <h1 className="text-5xl font-semibold mb-4 z-10">{t('title')}</h1>
+            <h1 className="text-5xl font-semibold mb-4 z-10">{t('contact')}</h1>
             <div className="space-y-2 w-fit mx-auto z-10">
               <div className="flex gap-2 items-center">
                 <Icon name="envelope" />

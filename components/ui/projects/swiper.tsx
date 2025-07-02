@@ -16,20 +16,21 @@ import {
 } from '@/components/ui/project-card'
 import {getDateFunctions} from '@/lib/dates'
 import {getProjects} from '@/lib/projects'
-import {LOCALE_KEY, LOCALES} from '@/locales'
-import {useLocale, useTranslations} from 'next-intl'
+import {LOCALES} from '@/locales'
 import {useEffect, useMemo, useRef, useState} from 'react'
 import {Pagination, A11y, FreeMode, Navigation} from 'swiper/modules'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import PortfolioProjectFilter, {ProjectContextFilter} from './filter'
 import type {Swiper as SwiperType} from 'swiper'
 import {ProjectContextObjects} from '@/app/[locale]/portfolio/tools/[tool]/projects'
+import {useTolgee, useTranslate} from '@tolgee/react'
 
 export default function PortfolioProjectSwiper() {
-  const locale = useLocale() as LOCALE_KEY
-  const {format} = getDateFunctions(LOCALES[locale])
-  const tTools = useTranslations('portfolio.tools.projects')
-  const t = useTranslations('portfolio.projects')
+  const tolgee = useTolgee()
+  const {format} = getDateFunctions(
+    (tolgee.getLanguage() || 'de') as unknown as LOCALES
+  )
+  const {t} = useTranslate('portfolio')
   const [contextFilter, setContextFilter] =
     useState<ProjectContextFilter>('all')
 
@@ -37,26 +38,23 @@ export default function PortfolioProjectSwiper() {
   const [maxHeight, setMaxHeight] = useState(0)
   const swiperRef = useRef<SwiperType | undefined>(undefined)
 
-  const contexts: ProjectContextObjects = {
-    personal: t('contextTypes.personal'),
-    work: t('contextTypes.work'),
-    freelance: t('contextTypes.freelance')
-  }
-
-  const projects = useMemo(
-    () =>
-      getProjects({
-        t: tTools
+  const projects = useMemo(() => {
+    const fetchedProjects = getProjects({t})
+    return fetchedProjects
+      .filter(pro => pro.end)
+      .filter(pro => {
+        if (contextFilter === 'all') return true
+        if (contextFilter === 'work')
+          return pro.context === 'work' || pro.context === 'freelance'
+        return pro.context === contextFilter
       })
-        .filter(pro => pro.end)
-        .filter(pro => {
-          if (contextFilter === 'all') return true
-          if (contextFilter === 'work')
-            return pro.context === 'work' || pro.context === 'freelance'
-          return pro.context === contextFilter
-        }),
-    [contextFilter]
-  )
+  }, [contextFilter])
+
+  const contexts: ProjectContextObjects = {
+    personal: t('personalProjects', {count: 1}),
+    work: t('workProjects', {count: 1}),
+    freelance: t('freelanceProjects', {count: 1})
+  }
 
   useEffect(() => {
     const calculateMaxHeight = () => {
@@ -118,6 +116,7 @@ export default function PortfolioProjectSwiper() {
               style={{height: maxHeight || 'auto'}}
               className="w-full lg:w-fit lg:max-w-xl">
               <StatusBadge
+                t={t}
                 start={project.start}
                 end={project.end}
                 className="absolute right-2 -top-3"
@@ -130,14 +129,14 @@ export default function PortfolioProjectSwiper() {
               </ProjectCardMain>
               <ProjectCardInfo>
                 <ProjectCardInfoItem>
-                  <ProjectCardInfoLabel>{`${t('start')}:`}</ProjectCardInfoLabel>
+                  <ProjectCardInfoLabel>{`${t('start', {ns: 'common'})}:`}</ProjectCardInfoLabel>
                   <ProjectCardInfoValue>
                     {format(project.start, 'MMMM yyyy')}
                   </ProjectCardInfoValue>
                 </ProjectCardInfoItem>
                 {project.end && (
                   <ProjectCardInfoItem>
-                    <ProjectCardInfoLabel>{`${t('end')}:`}</ProjectCardInfoLabel>
+                    <ProjectCardInfoLabel>{`${t('end', {ns: 'common'})}:`}</ProjectCardInfoLabel>
                     <ProjectCardInfoValue>
                       {format(project.end, 'MMMM yyyy')}
                     </ProjectCardInfoValue>

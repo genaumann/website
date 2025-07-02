@@ -1,8 +1,8 @@
 import {getTrainings} from '@/lib/trainings'
-import {getTranslations} from 'next-intl/server'
 import {TrainingCard} from './card'
 import {JSX} from 'react'
 import PortfolioTrainingSwiperClient from './swiper'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 export type TrainingSlides = {
   id: string
@@ -10,8 +10,8 @@ export type TrainingSlides = {
 }
 
 export default async function PortfolioTrainingSwiper() {
-  const t = await getTranslations('portfolio.trainings')
-  const trainings = getTrainings({t, type: 'speaker'})
+  const t = await getTranslate('portfolio')
+  const trainings = getTrainings({type: 'speaker', t})
 
   const slides: TrainingSlides[] = trainings.map(training => ({
     id: training.id,

@@ -1,4 +1,3 @@
-import {getTranslations} from 'next-intl/server'
 import {Button} from '../ui/button'
 import Link from 'next/link'
 import Icon from '../ui/icon'
@@ -6,6 +5,8 @@ import {getProjects} from '@/lib/projects'
 import {getTrainings} from '@/lib/trainings'
 import {certs} from '@/lib/cert'
 import {getFlatArticleIndex} from '@/lib/mdx'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {LOCALES} from '@/locales'
 
 const StarField = () => {
   const stars = Array.from({length: 40}, (_, i) => ({
@@ -62,34 +63,33 @@ const StarField = () => {
 }
 
 export default async function Hero() {
-  const completedProjects = getProjects({
-    t: await getTranslations('portfolio.tools.projects')
-  }).filter(project => project.end && project.end < new Date()).length
+  const completedProjects = getProjects().filter(
+    project => project.end && project.end < new Date()
+  ).length
   const speakerTrainings = getTrainings({
-    t: await getTranslations('portfolio.trainings'),
     type: 'speaker'
   }).length
-  const kbArticles = await getFlatArticleIndex('de')
-  const t = await getTranslations('hero')
+  const kbArticles = await getFlatArticleIndex(LOCALES.de)
+  const t = await getTranslate()
 
   const stats = [
     {
-      title: t('stats.projects'),
+      title: t('completedProjects'),
       value: completedProjects,
       link: '/portfolio#projects'
     },
     {
-      title: t('stats.certs'),
+      title: t('certificates'),
       value: certs.length,
       link: '/portfolio#certs'
     },
     {
-      title: t('stats.trainings'),
+      title: t('speakerTrainings'),
       value: speakerTrainings,
       link: '/portfolio#trainings'
     },
     {
-      title: t('stats.kbArticles'),
+      title: t('kbArticles'),
       value: kbArticles.length,
       link: '/kb'
     }
@@ -109,12 +109,12 @@ export default async function Hero() {
       <div className="relative z-10 text-center max-w-6xl mx-auto">
         {/* Title */}
         <h1 className="text-8xl lg:text-9xl font-black text-foreground mb-8 tracking-tight leading-none animate-flicker">
-          {t('title')}
+          {t('appName')}
         </h1>
 
         {/* Description */}
         <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed font-light">
-          {t('description')}
+          {t('intro')}
         </p>
 
         {/* CTA Buttons */}
@@ -124,7 +124,7 @@ export default async function Hero() {
             className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-4 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-full"
             asChild>
             <Link href="/portfolio">
-              {t('buttonPrimary')}
+              {t('viewPortfolio')}
               <Icon name="arrow-right" />
             </Link>
           </Button>
@@ -134,7 +134,7 @@ export default async function Hero() {
             className="border-2 border-border text-foreground hover:bg-accent hover:text-accent-foreground px-4 py-4 text-lg rounded-lg backdrop-blur-sm w-full"
             asChild>
             <Link href="/kb">
-              {t('buttonSecondary')}
+              {t('viewKB')}
               <Icon name="arrow-right" />
             </Link>
           </Button>
