@@ -9,6 +9,7 @@ import {LOCALES} from '@/locales'
 import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
 import CodeBlock from '@/components/mdx/codeblock'
+import ExternalCodeBlock from '@/components/mdx/external-codeblock'
 import Admonition from '@/components/mdx/admonition'
 import {Grid, GridItem} from '@/components/mdx/grid'
 import ArticleGrid from '@/components/mdx/article-grid'
@@ -46,7 +47,8 @@ export const getParsedArticle = async (
         TabItem,
         Grid,
         GridItem,
-        ArticleGrid
+        ArticleGrid,
+        ExternalCodeBlock
       },
       options: {
         parseFrontmatter: true,
