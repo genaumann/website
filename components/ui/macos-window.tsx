@@ -9,7 +9,7 @@ const MacOSWindow = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'w-full rounded-md bg-card overflow-hidden shadow-md',
+      'w-full rounded-md bg-background overflow-hidden border border-border shadow',
       className
     )}
     {...props}
@@ -24,7 +24,7 @@ const MacOSWindowHeader = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'px-4 py-3 bg-muted flex items-center h-8 border-b border-b-muted-foreground/10',
+      'px-4 py-3 bg-card flex items-center h-8 border-b border-b-muted-foreground/10',
       className
     )}
     {...props}

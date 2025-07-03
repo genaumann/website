@@ -47,8 +47,8 @@ export default function CodeBlock({
     variant === 'file'
       ? getIconByFileType(language || 'default')
       : variant === 'terminal'
-      ? 'rectangle-terminal'
-      : 'message'
+        ? 'rectangle-terminal'
+        : 'message'
 
   return (
     <>
@@ -103,12 +103,12 @@ export default function CodeBlock({
         </MacOSWindow>
       ) : variant === 'output' ? (
         <div
-          className="codeblock-output w-full overflow-x-auto prose bg-card rounded-b-md -mt-6 mb-5 shadow-md"
+          className="codeblock-output w-full overflow-x-auto prose bg-background border border-border -mt-1  rounded-b-md mb-5 shadow-md"
           dangerouslySetInnerHTML={{__html: code}}
         />
       ) : (
         <div
-          className="w-full overflow-x-auto prose bg-card rounded-md"
+          className="w-full overflow-x-auto prose bg-background border border-border rounded-md"
           dangerouslySetInnerHTML={{__html: code}}
         />
       )}
