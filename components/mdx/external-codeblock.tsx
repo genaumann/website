@@ -52,7 +52,7 @@ export default async function ExternalCodeBlock({
   return (
     <CodeBlock
       variant="file"
-      id={id || filePath.replace(/\//g, '-')}
+      id={id || filePath}
       code={code}
       line={text.split('\n').length}
       language={codeLang}

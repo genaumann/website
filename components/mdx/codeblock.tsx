@@ -20,6 +20,7 @@ import {
   CodeBlockFileTabWrapper
 } from '@/components/ui/codeblock-file'
 import CodeBlockCopyButton from '../ui/copy-button'
+import {sanitizeString} from '@/lib/string'
 
 export type CodeBlockVariant = 'file' | 'terminal' | 'output'
 
@@ -34,7 +35,7 @@ export interface CodeBlockProps {
 }
 
 export default function CodeBlock({
-  id,
+  id: origID,
   variant,
   title: titleProp,
   line,
@@ -50,6 +51,8 @@ export default function CodeBlock({
         ? 'rectangle-terminal'
         : 'message'
 
+  const id = sanitizeString(origID)
+
   return (
     <>
       {variant === 'file' || variant === 'terminal' ? (
@@ -63,14 +66,6 @@ export default function CodeBlock({
           </MacOSWindowHeader>
           <MacOSWindowContent>
             {variant === 'file' ? (
-              // <CodeBlockFile
-              //   id={id}
-              //   code={code}
-              //   filePath={filePath}
-              //   fileName={title}
-              //   fileIcon={iconName}
-              //   line={line}
-              // />
               <CodeBlockFile>
                 <CodeBlockFileTabWrapper>
                   <CodeBlockFileTab fileName={title || ''} icon={iconName} />
@@ -83,6 +78,7 @@ export default function CodeBlock({
                 <CodeBlockFileBody>
                   <CodeBlockFileLineNumbers line={line || 1} />
                   <CodeBlockFileContent
+                    id={id}
                     dangerouslySetInnerHTML={{__html: code}}
                   />
                 </CodeBlockFileBody>
