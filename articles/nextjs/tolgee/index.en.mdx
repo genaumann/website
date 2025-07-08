@@ -1,0 +1,55 @@
+---
+title: Tolgee
+description: Open-source platform for translations in web, mobile and desktop apps
+icon: tolgee
+---
+
+# Tolgee
+
+Tolgee is a **complete localization platform** that covers the entire lifecycle of your translations—from string management to live in-context editing.  
+Thanks to its SDK, CLI and REST API, Tolgee fits into virtually any tech stack.
+
+- **In-context translation:** Edit texts directly inside the running application.  
+- **Machine suggestions:** Accept DeepL, Google, Azure, etc. with a single click.  
+- **Translation memory:** Automatically reuses existing phrasing.  
+- **Automatic screenshots:** Every string gets a UI snapshot.  
+- **Self-hosted or cloud:** Docker Compose in < 1 min, or use the hosted SaaS.  
+- **SDKs:** React, Angular, Vue 3, vanilla JS, iOS, Android, Flutter, …  
+
+Each string is referenced by a **key** that you maintain in Tolgee.  
+At runtime Tolgee ships all strings as compact JSON files that your app loads on demand.
+
+## How it works in Next.js
+
+With `@tolgee/react` you can integrate Tolgee into Next.js in minutes.
+
+Tolgee supports both the **App Router** and the **Pages Router** and works on the client as well as on the server (RSC).
+
+<Tabs id="tolgee">
+  <TabItem title="Development Environment">
+    In development mode translations are loaded **live** from the Tolgee API.  
+    
+    - UI changes are visible instantly (hot reload).  
+    - No cache — you always see the latest state.  
+    - Perfect for in-context editing.
+  </TabItem>
+  <TabItem title="Preview & Production Environment">
+    For preview and production builds Tolgee recommends its **Content Delivery Network (CDN)**.  
+    
+    - All translations are served as static JSON files from an edge cache.  
+    - Ultra-fast delivery (< 30 ms worldwide).  
+    - No auth token required, so the attack surface is reduced.
+
+    <Admonition variant="success" title="GDPR-compliant setup">
+      By default, the browser also fetches directly from the CDN — exposing your visitors’ IP addresses to Tolgee.  
+      The following article shows how to **route all CDN traffic through your own Next.js server**, achieving full GDPR compliance.
+      <ArticleGrid articles={['setup']}/>
+    </Admonition>
+  </TabItem>
+</Tabs>
+
+## Next.js + Tolgee in practice
+
+A detailed guide (custom fetch plugin, caching, fallbacks) can be found here:
+
+<ArticleGrid articles={['setup']}/>

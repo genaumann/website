@@ -1,0 +1,199 @@
+---
+title: Tolgee Next.js Setup
+description: GDPR-compliant Tolgee setup for Next.js with App Router and next-intl
+remoteRepo: genaumann/next-tolgee-intl
+icon: tolgee
+---
+
+# Tolgee Next.js Setup
+
+This article explains how to integrate Tolgee into a Next.js app that relies on the App Router and `next-intl`.  
+For further details, see Tolgee’s [official guide](https://docs.tolgee.io/js-sdk/integrations/react/next/introduction).
+
+Key improvements:
+
+- Translations are fetched server-side from a CDN.
+- The client reads static JSON files directly – no extra CDN calls.
+- Local JSON fallback if Tolgee is unreachable.
+- In-memory caching for better performance.
+
+## Overview
+
+**Languages**
+
+- German (`de`) – default  
+- English (`en`)
+
+**Tolgee namespaces**
+
+- `common` (default)  
+- `app`
+
+### Prerequisites
+
+- Next.js project using the App Router
+- [Vercel CLI](https://vercel.com/docs/cli) (optional)
+- Tolgee project with two languages
+- Enabled [Tolgee CDN](https://docs.tolgee.io/platform/projects_and_organizations/content_delivery)
+- Tolgee [API key](https://app.tolgee.io/account/apiKeys) (scopes `keys.view`, `translations.view`)
+
+### next-intl routing
+
+`next-intl` drives locale routing.  
+`de` is the default locale:
+
+- German: `/contact`
+- English: `/en/contact`
+
+## Installation
+
+```bash variant='terminal' id='install-tolgee'
+npm install next-intl @tolgee/react @tolgee/core @tolgee/web
+npm install -D tsx dotenv-cli
+```
+
+## Environment variables
+
+Add these to `.env.local`:
+
+```bash
+NEXT_PUBLIC_TOLGEE_API_KEY=<your-tolgee-api-key>
+NEXT_PUBLIC_TOLGEE_API_URL=https://api.tolgee.io
+TOLGEE_CDN_URL=https://cdn.tolg.ee/<id>
+```
+
+<Admonition variant="danger" title="Public environment variables">
+`NEXT_PUBLIC` variables are exposed in the browser.  
+Ensure they are defined **only in development**.
+</Admonition>
+
+<Admonition variant="info" title="Vercel CLI">
+```bash
+vercel env add NEXT_PUBLIC_TOLGEE_API_KEY development
+vercel env add NEXT_PUBLIC_TOLGEE_API_URL development
+vercel env add TOLGEE_CDN_URL
+```
+</Admonition>
+
+## Tolgee setup
+
+### Fetch plugin
+
+Encapsulates the HTTP call that retrieves translations.  
+Falls back to local JSON files when the CDN is offline.
+
+<ExternalCodeBlock filePath='lib/tolgee/fetch.ts'/>
+
+### Plugin wrapper
+
+Registers the custom Fetch plugin with Tolgee and re-exports it for both client and server.
+
+<ExternalCodeBlock filePath='lib/tolgee/plugin.ts'/>
+
+### Shared Tolgee base
+
+Central factory that builds a configured Tolgee instance (API URL, languages, plugins).  
+Keeps client and server in sync.
+
+<ExternalCodeBlock filePath='lib/tolgee/base.ts'/>
+
+### Tolgee client
+
+Initialises Tolgee on the browser side, creates the React context and enables in-memory caching.
+
+<ExternalCodeBlock filePath='lib/tolgee/client.tsx'/>
+
+### Tolgee server
+
+Exports `initTolgeeServer()` for server routes/RSC and a refined `getTranslate(namespace?)` helper so you can pass namespaces directly.
+
+<ExternalCodeBlock filePath='lib/tolgee/server.ts'/>
+
+### Tolgee provider in the Root layout
+
+Makes the Tolgee context available across the client tree and keeps keys in sync during runtime.
+
+<ExternalCodeBlock filePath='app/[locale]/layout.tsx'/>
+
+## next-intl setup
+
+### Request config
+
+Decides which locale is active based on the incoming request.  
+`messages` stays empty because Tolgee supplies translations.
+
+<ExternalCodeBlock filePath='i18n/request.ts'/>
+
+### Routing config
+
+Lists available locales, default locale and optional redirect rules.
+
+<ExternalCodeBlock filePath='i18n/routing.ts'/>
+
+### Middleware
+
+Intercepts every request, extracts the locale segment (`/en/...`) and injects it into `next-intl`.
+
+<ExternalCodeBlock filePath='middleware.ts'/>
+
+### Next.js config
+
+Attaches `next-intl` settings to the standard Next.js config and enables typed routes.
+
+<ExternalCodeBlock filePath='next.config.ts'/>
+
+## Build script
+
+CI script that downloads all translations from the Tolgee CDN into `public/i18n/...` as an offline fallback.
+
+<ExternalCodeBlock filePath='scripts/fetchTolgee.ts'/>
+
+**`package.json`**
+
+```json
+{
+  "scripts": {
+    "prebuild": "tsx scripts/fetchTolgee.ts"
+  }
+}
+```
+
+## Usage
+
+### Client side
+
+Live example using the `useTranslate()` hook from the React context.
+
+```tsx variant='file' filePath='app/[locale]/page.tsx'
+'use client'
+
+import {useTranslate} from '@tolgee/react'
+
+export default function Page() {
+  const {t} = useTranslate()
+  // const {t} = useTranslate('app') // use the app namespace
+  return (
+    <div className="flex flex-col h-full items-center justify-center gap-4">
+      <h1 className="text-6xl">{t('welcome')}</h1>
+    </div>
+  )
+}
+```
+
+### Server side
+
+Server component / RSC: translations are ready before streaming starts.
+
+```tsx variant='file' filePath='app/[locale]/page.tsx'
+import {getTranslate} from '@/lib/tolgee/server'
+
+export default async function Page() {
+  const t = await getTranslate()
+  // const t = await getTranslate('app') // use the app namespace
+  return (
+    <div className="flex flex-col h-full items-center justify-center gap-4">
+      <h1 className="text-6xl">{t('welcome')}</h1>
+    </div>
+  )
+}
+```
