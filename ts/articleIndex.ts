@@ -136,7 +136,17 @@ async function scanDirectory(
         false,
         path.join(currentPath, entry.name)
       )
-      if (children.length > 0) {
+      if (directoryArticle && children.length > 0) {
+        const childDirArticle = children.find(a => a.slug.endsWith('/index'))
+        if (childDirArticle) {
+          directoryArticle.children = directoryArticle.children || []
+          directoryArticle.children.push(childDirArticle)
+          const filteredChildren = children.filter(a => a !== childDirArticle)
+          articles.push(...filteredChildren)
+        } else {
+          articles.push(...children)
+        }
+      } else if (children.length > 0) {
         articles.push(...children)
       }
     } else if (
