@@ -198,6 +198,12 @@ export default {
             'article hr': {
               borderStyle: 'dashed'
             },
+            'article h2': {
+              borderColor: theme('colors.muted.DEFAULT'),
+              borderStyle: 'dashed',
+              paddingTop: '2.5rem',
+              borderTopWidth: '1px'
+            },
             '--tw-prose-body': theme('colors.foreground'),
             '--tw-prose-headings': theme('colors.foreground'),
             '--tw-prose-bold': theme('colors.foreground'),
