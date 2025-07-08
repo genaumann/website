@@ -18,6 +18,7 @@ import Playwright from './playwright'
 import NextJS from './nextjs'
 import NextJSLight from './nextjs-light'
 import Podman from './podman'
+import Tolgeee from './tolgee'
 
 export const customIconMap = {
   redhat: {
@@ -90,6 +91,10 @@ export const customIconMap = {
   },
   podman: {
     Component: Podman,
+    color: '#0000000'
+  },
+  tolgee: {
+    Component: Tolgeee,
     color: '#0000000'
   },
   bookOpen: {
