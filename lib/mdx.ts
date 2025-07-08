@@ -8,14 +8,9 @@ import {Article, ArticleIndex, MDXFrontmatter} from './types'
 import {LOCALES} from '@/locales'
 import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
-import CodeBlock from '@/components/mdx/codeblock'
-import ExternalCodeBlock from '@/components/mdx/external-codeblock'
-import Admonition from '@/components/mdx/admonition'
-import {Grid, GridItem} from '@/components/mdx/grid'
-import ArticleGrid from '@/components/mdx/article-grid'
-import {Tabs, TabItem} from '@/components/mdx/tabs'
 import {findArticleBySlug} from './mdx-edge'
 import {headers} from 'next/headers'
+import {MDXComponents} from '@/components/mdx'
 
 type MDXReturnType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -40,16 +35,7 @@ export const getParsedArticle = async (
     )
     const {content, frontmatter} = await compileMDX<MDXFrontmatter>({
       source: articleSource,
-      components: {
-        CodeBlock,
-        Admonition,
-        Tabs,
-        TabItem,
-        Grid,
-        GridItem,
-        ArticleGrid,
-        ExternalCodeBlock
-      },
+      components: MDXComponents,
       options: {
         parseFrontmatter: true,
         mdxOptions: {
