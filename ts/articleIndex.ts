@@ -27,7 +27,7 @@ async function getGitDates(
       createdAt: createStdout ? new Date(createStdout.trim()) : new Date(),
       updatedAt: updateStdout ? new Date(updateStdout.trim()) : new Date()
     }
-  } catch (error) {
+  } catch {
     const now = new Date()
     return {createdAt: now, updatedAt: now}
   }
@@ -37,7 +37,7 @@ async function getGitAuthor(filePath: string): Promise<string> {
   try {
     const {stdout} = await execAsync(`git log -1 --format=%an "${filePath}"`)
     return stdout.trim() || 'Gino Naumann'
-  } catch (error) {
+  } catch {
     return 'Gino Naumann'
   }
 }
@@ -58,7 +58,7 @@ async function getMdxMetadata(filePath: string): Promise<MDXFrontmatter> {
       keywords: frontmatter?.keywords as string[],
       remoteRepo: frontmatter?.remoteRepo as string
     }
-  } catch (error) {
+  } catch {
     return {
       title: path.basename(filePath).replace(/\..*$/, '')
     }
@@ -83,7 +83,7 @@ async function getMdxContent(filePath: string): Promise<string> {
       .replace(/(\*|_)(.*?)\1/g, '$2')
       .replace(/^\s*[\r\n]/gm, '')
       .trim()
-  } catch (error) {
+  } catch {
     return ''
   }
 }
@@ -183,7 +183,7 @@ export const buildArticleIndex = async () => {
     try {
       const articles = await scanDirectory(articleDir, locale)
       index[locale as keyof typeof LOCALES] = articles
-    } catch (error) {
+    } catch {
       console.warn(`No articles for ${locale} found`)
       index[locale as keyof typeof LOCALES] = []
     }
