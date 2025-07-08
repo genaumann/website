@@ -8,12 +8,9 @@ import {Article, ArticleIndex, MDXFrontmatter} from './types'
 import {LOCALES} from '@/locales'
 import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
-import CodeBlock from '@/components/mdx/codeblock'
-import Admonition from '@/components/mdx/admonition'
-import {Grid, GridItem} from '@/components/mdx/grid'
-import ArticleGrid from '@/components/mdx/article-grid'
-import {Tabs, TabItem} from '@/components/mdx/tabs'
 import {findArticleBySlug} from './mdx-edge'
+import {headers} from 'next/headers'
+import {MDXComponents} from '@/components/mdx'
 
 type MDXReturnType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,15 +35,7 @@ export const getParsedArticle = async (
     )
     const {content, frontmatter} = await compileMDX<MDXFrontmatter>({
       source: articleSource,
-      components: {
-        CodeBlock,
-        Admonition,
-        Tabs,
-        TabItem,
-        Grid,
-        GridItem,
-        ArticleGrid
-      },
+      components: MDXComponents,
       options: {
         parseFrontmatter: true,
         mdxOptions: {
@@ -112,4 +101,11 @@ export const getArticlesByKeyword = async (
   const articlesByLocale = await getFlatArticleIndex(locale)
   if (!articlesByLocale) return null
   return articlesByLocale.filter(article => article.keywords?.includes(keyword))
+}
+
+export const getKBPath = async () => {
+  const headersList = await headers()
+  const fullpath = headersList.get('x-url') || ''
+
+  return fullpath.replace(/^\/en/, '').split('/').slice(2).join('/')
 }

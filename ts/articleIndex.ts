@@ -27,7 +27,7 @@ async function getGitDates(
       createdAt: createStdout ? new Date(createStdout.trim()) : new Date(),
       updatedAt: updateStdout ? new Date(updateStdout.trim()) : new Date()
     }
-  } catch (error) {
+  } catch {
     const now = new Date()
     return {createdAt: now, updatedAt: now}
   }
@@ -37,7 +37,7 @@ async function getGitAuthor(filePath: string): Promise<string> {
   try {
     const {stdout} = await execAsync(`git log -1 --format=%an "${filePath}"`)
     return stdout.trim() || 'Gino Naumann'
-  } catch (error) {
+  } catch {
     return 'Gino Naumann'
   }
 }
@@ -55,9 +55,10 @@ async function getMdxMetadata(filePath: string): Promise<MDXFrontmatter> {
       description: frontmatter?.description as string,
       icon: frontmatter?.icon as IconName,
       iconPrefix: frontmatter?.iconPrefix as IconPrefix,
-      keywords: frontmatter?.keywords as string[]
+      keywords: frontmatter?.keywords as string[],
+      remoteRepo: frontmatter?.remoteRepo as string
     }
-  } catch (error) {
+  } catch {
     return {
       title: path.basename(filePath).replace(/\..*$/, '')
     }
@@ -82,7 +83,7 @@ async function getMdxContent(filePath: string): Promise<string> {
       .replace(/(\*|_)(.*?)\1/g, '$2')
       .replace(/^\s*[\r\n]/gm, '')
       .trim()
-  } catch (error) {
+  } catch {
     return ''
   }
 }
@@ -107,7 +108,7 @@ async function scanDirectory(
     if (indexFile) {
       const indexPath = path.join(dir, `index.${locale}.mdx`)
       const dates = await getGitDates(indexPath)
-      const {title, description, icon, iconPrefix, keywords} =
+      const {title, description, icon, iconPrefix, keywords, remoteRepo} =
         await getMdxMetadata(indexPath)
       directoryArticle = {
         slug: path.join(currentPath, 'index'),
@@ -119,6 +120,7 @@ async function scanDirectory(
         iconPrefix,
         author: await getGitAuthor(indexPath),
         keywords,
+        remoteRepo,
         ...dates
       }
     }
@@ -134,7 +136,17 @@ async function scanDirectory(
         false,
         path.join(currentPath, entry.name)
       )
-      if (children.length > 0) {
+      if (directoryArticle && children.length > 0) {
+        const childDirArticle = children.find(a => a.slug.endsWith('/index'))
+        if (childDirArticle) {
+          directoryArticle.children = directoryArticle.children || []
+          directoryArticle.children.push(childDirArticle)
+          const filteredChildren = children.filter(a => a !== childDirArticle)
+          articles.push(...filteredChildren)
+        } else {
+          articles.push(...children)
+        }
+      } else if (children.length > 0) {
         articles.push(...children)
       }
     } else if (
@@ -142,7 +154,7 @@ async function scanDirectory(
       (!directoryArticle || entry.name !== `index.${locale}.mdx`)
     ) {
       const baseName = entry.name.replace(`.${locale}.mdx`, '')
-      const {title, description, icon, iconPrefix, keywords} =
+      const {title, description, icon, iconPrefix, keywords, remoteRepo} =
         await getMdxMetadata(fullPath)
       const article: Article = {
         slug: currentPath ? path.join(currentPath, baseName) : baseName,
@@ -152,6 +164,7 @@ async function scanDirectory(
         keywords,
         icon,
         iconPrefix,
+        remoteRepo,
         content: await getMdxContent(fullPath),
         author: await getGitAuthor(fullPath),
         ...(await getGitDates(fullPath))
@@ -180,7 +193,7 @@ export const buildArticleIndex = async () => {
     try {
       const articles = await scanDirectory(articleDir, locale)
       index[locale as keyof typeof LOCALES] = articles
-    } catch (error) {
+    } catch {
       console.warn(`No articles for ${locale} found`)
       index[locale as keyof typeof LOCALES] = []
     }

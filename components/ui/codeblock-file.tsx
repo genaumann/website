@@ -47,7 +47,7 @@ const CodeBlockFileCopy = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'flex justify-end grow border-b border-b-muted-foreground/10 bg-muted/30',
+      'flex justify-end grow border-b border-b-muted-foreground/10',
       className
     )}
     {...props}>
@@ -101,7 +101,7 @@ const CodeBlockFileLineNumbers = React.forwardRef<
 >(({className, line, id, ...props}, ref) => (
   <div
     className={cn(
-      'relative select-none border-r border-muted bg-muted/30 py-4 px-4 font-mono text-xs text-muted-foreground flex flex-col items-start',
+      'relative select-none border-r border-muted-foreground/10 py-4 px-4 font-mono text-xs text-muted-foreground flex flex-col items-start',
       className
     )}
     ref={ref}
