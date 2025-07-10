@@ -94,6 +94,7 @@ plugins:
   - - '@genaumann/semantic-release-next-sitemap'
     - sitemapPath: 'app/sitemap.xml'
       sitemapFunction: 'lib/sitemap.ts'
+      sitemapBaseUrl: 'https://gnaumann.de'
   
   # git
   - - '@semantic-release/git'

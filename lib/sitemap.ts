@@ -5,107 +5,105 @@ import {MetadataRoute} from 'next'
 import {tools as getAllTools} from '@/lib/tools'
 import {LOCALES} from '@/locales'
 
-export default async function sitemap(
-  origin: string = ''
-): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getFlatArticleIndex(LOCALES.de)
   const allTools = getAllTools()
 
   return [
     {
-      url: `${origin}/`,
+      url: '/',
       changeFrequency: 'monthly',
       priority: 0.9,
       alternates: {
         languages: {
-          de: `${origin}/`,
-          en: `${origin}/en`,
-          'x-default': `${origin}/`
+          de: `/`,
+          en: `/en`,
+          'x-default': `/`
         }
       }
     },
     {
-      url: `${origin}/privacy`,
+      url: `/privacy`,
       changeFrequency: 'yearly',
       priority: 0.1,
       alternates: {
         languages: {
-          de: `${origin}/privacy`,
-          en: `${origin}/en/privacy`,
-          'x-default': `${origin}/privacy`
+          de: `/privacy`,
+          en: `/en/privacy`,
+          'x-default': `/privacy`
         }
       }
     },
     {
-      url: `${origin}/imprint`,
+      url: `/imprint`,
       changeFrequency: 'yearly',
       priority: 0.1,
       alternates: {
         languages: {
-          de: `${origin}/imprint`,
-          en: `${origin}/en/imprint`,
-          'x-default': `${origin}/imprint`
+          de: `/imprint`,
+          en: `/en/imprint`,
+          'x-default': `/imprint`
         }
       }
     },
     {
-      url: `${origin}/portfolio`,
+      url: `/portfolio`,
       changeFrequency: 'monthly',
       priority: 0.9,
       alternates: {
         languages: {
-          de: `${origin}/portfolio`,
-          en: `${origin}/en/portfolio`,
-          'x-default': `${origin}/portfolio`
+          de: `/portfolio`,
+          en: `/en/portfolio`,
+          'x-default': `/portfolio`
         }
       }
     },
     {
-      url: `${origin}/contact`,
+      url: `/contact`,
       changeFrequency: 'yearly',
       priority: 0.4,
       alternates: {
         languages: {
-          de: `${origin}/contact`,
-          en: `${origin}/en/contact`,
-          'x-default': `${origin}/contact`
+          de: `/contact`,
+          en: `/en/contact`,
+          'x-default': `/contact`
         }
       }
     },
     {
-      url: `${origin}/portfolio/tools`,
+      url: `/portfolio/tools`,
       changeFrequency: 'yearly',
       priority: 0.3,
       alternates: {
         languages: {
-          de: `${origin}/portfolio/tools`,
-          en: `${origin}/en/portfolio/tools`,
-          'x-default': `${origin}/portfolio/tools`
+          de: `/portfolio/tools`,
+          en: `/en/portfolio/tools`,
+          'x-default': `/portfolio/tools`
         }
       }
     },
     ...allTools.map(tool => ({
-      url: `${origin}/portfolio/tools/${tool.slug}`,
+      url: `/portfolio/tools/${tool.slug}`,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
       alternates: {
         languages: {
-          de: `${origin}/portfolio/tools/${tool.slug}`,
-          en: `${origin}/en/portfolio/tools/${tool.slug}`,
-          'x-default': `${origin}/portfolio/tools/${tool.slug}`
+          de: `/portfolio/tools/${tool.slug}`,
+          en: `/en/portfolio/tools/${tool.slug}`,
+          'x-default': `/portfolio/tools/${tool.slug}`
         }
       }
     })),
     ...articles.map(article => ({
-      url: `${origin}/kb/${article.slug.replace(/\/index$/, '')}`,
+      url: `/kb/${article.slug.replace(/\/index$/, '')}`,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
       lastModified: article.updatedAt,
       alternates: {
         languages: {
-          de: `${origin}/kb/${article.slug.replace(/\/index$/, '')}`,
-          en: `${origin}/en/kb/${article.slug.replace(/\/index$/, '')}`,
-          'x-default': `${origin}/kb/${article.slug.replace(/\/index$/, '')}`
+          de: `/kb/${article.slug.replace(/\/index$/, '')}`,
+          en: `/en/kb/${article.slug.replace(/\/index$/, '')}`,
+          'x-default': `/kb/${article.slug.replace(/\/index$/, '')}`
         }
       }
     }))
