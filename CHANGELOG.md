@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.9.0](https://github.com/genaumann/website/compare/v1.8.1...v1.9.0) (2025-07-10)
+
+### ✨ Feature ✨
+
+* **kb:** add external-codeblock ([4d41ab1](https://github.com/genaumann/website/commit/4d41ab192143e7329a1560d68079928a73d90eb5))
+
+### 🐛 Bugfix 🐛
+
+* 3rd level in kb json ([5f6ee67](https://github.com/genaumann/website/commit/5f6ee67b92a44434762aca39054a6afd956ddced))
+* **kb:** copy button codeblocks ([1e44f64](https://github.com/genaumann/website/commit/1e44f644a3232854882b10d9cd1bf590dc831f5e))
+
+### 🔧 Refactor 🔧
+
+* add getKBPath function ([b4a3bef](https://github.com/genaumann/website/commit/b4a3bef9327cbacd95bdaa5a0f19d636015571e0))
+* **mdx:** outsource components ([127f86d](https://github.com/genaumann/website/commit/127f86d9a0edb11f637715cfbb5268a61771bb12))
+
+### 📰 Articles 📰
+
+* add demo to tolgee setup ([c279faa](https://github.com/genaumann/website/commit/c279faa5d9f9490849d8fbef41e078ce54ad626f))
+* add tolgee next.js setup ([c8de3db](https://github.com/genaumann/website/commit/c8de3db2356784952a921399fab2abc66c14e690))
+* remove hr ([1d92485](https://github.com/genaumann/website/commit/1d92485fff4ba3473821dde6cea486e3f19f99bd))
+
 ## [1.8.1](https://github.com/genaumann/website/compare/v1.8.0...v1.8.1) (2025-07-02)
 
 ### 💿 Continuous Integration 💿

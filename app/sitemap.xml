@@ -203,7 +203,34 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/git/multiple_identities"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/git/multiple_identities"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/git/multiple_identities"/>
-    <lastmod>2025-05-27T22:27:09.000Z</lastmod>
+    <lastmod>2025-07-08T20:33:09.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/kb/nextjs</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/nextjs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/nextjs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/nextjs"/>
+    <lastmod>2025-07-08T20:07:30.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/kb/nextjs/tolgee</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/nextjs/tolgee"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/nextjs/tolgee"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/nextjs/tolgee"/>
+    <lastmod>2025-07-08T20:07:30.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/kb/nextjs/tolgee/setup</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/nextjs/tolgee/setup"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/nextjs/tolgee/setup"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/nextjs/tolgee/setup"/>
+    <lastmod>2025-07-08T21:24:07.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -212,7 +239,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/salt"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/salt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/salt"/>
-    <lastmod>2025-05-22T17:52:54.000Z</lastmod>
+    <lastmod>2025-07-08T20:33:09.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -221,7 +248,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/kb/salt/gpg_pillar"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/kb/salt/gpg_pillar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/kb/salt/gpg_pillar"/>
-    <lastmod>2025-05-27T22:27:09.000Z</lastmod>
+    <lastmod>2025-07-08T20:33:09.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
