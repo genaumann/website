@@ -13,6 +13,12 @@ export function TolgeeBase() {
     .use(CreateFunctionBackend({loader: fetchTolgee}))
     .updateDefaults({
       apiKey,
-      apiUrl
+      apiUrl,
+      onTranslationMissing: info => {
+        console.error(
+          `Translation missing for ${info.ns}.${info.key} in ${info.language}`
+        )
+        return `${info.ns}.${info.key}`
+      }
     })
 }
