@@ -16,6 +16,7 @@ import {Metadata} from 'next'
 import getMetadata from '@/lib/metadata'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LocaleParam} from '@/lib/types'
+import {LOCALES} from '@/locales'
 
 type ToolParam = LocaleParam & {
   tool: string
@@ -26,16 +27,14 @@ export const dynamicParams = false
 
 export async function generateStaticParams() {
   const tools = toolsData()
-  return tools.flatMap(tool => [
-    {
-      locale: 'de',
-      tool: tool.slug
-    },
-    {
-      locale: 'en',
-      tool: tool.slug
-    }
-  ])
+  return tools
+    .map(tool =>
+      Object.values(LOCALES).map(locale => ({
+        locale,
+        tool: tool.slug
+      }))
+    )
+    .flat()
 }
 
 export async function generateMetadata({

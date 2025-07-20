@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     const locale = searchParams.get('locale') as LOCALES
     const slug = searchParams.get('slug')
     const tolgee = await getTolgee()
-    await tolgee.changeLanguage(locale || 'de')
+    await tolgee.changeLanguage(locale || LOCALES.de)
 
     if (!slug) {
       return new Response('No slug provided', {
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
       })
     }
 
-    const article = await findArticleBySlug(locale || 'de', slug)
+    const article = await findArticleBySlug(locale || LOCALES.de, slug)
 
     if (!article) {
       return new Response('Article not found', {

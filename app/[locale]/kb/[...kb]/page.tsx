@@ -1,7 +1,7 @@
 import {getFlatArticleIndex, getParsedArticle} from '@/lib/mdx'
 import {findArticleBySlug} from '@/lib/mdx-edge'
 import getMetadata from '@/lib/metadata'
-import {LocaleParam} from '@/lib/types'
+import {Article, LocaleParam} from '@/lib/types'
 import {LOCALES} from '@/locales'
 import {Metadata} from 'next'
 import {notFound} from 'next/navigation'
@@ -11,16 +11,16 @@ type KBParam = LocaleParam & {
 }
 
 export async function generateStaticParams() {
-  return [
-    ...(await getFlatArticleIndex(LOCALES.de)).map(article => ({
-      locale: 'de',
-      kb: article.slug.replace(/\/index$/, '').split('/')
-    })),
-    ...(await getFlatArticleIndex(LOCALES.en)).map(article => ({
-      locale: 'en',
-      kb: article.slug.replace(/\/index$/, '').split('/')
-    }))
-  ]
+  const localeResults = await Promise.all(
+    Object.keys(LOCALES).map(async locale => {
+      const articles = await getFlatArticleIndex(locale as LOCALES)
+      return articles.map((article: Article) => ({
+        locale,
+        kb: article.slug.replace(/\/index$/, '').split('/')
+      }))
+    })
+  )
+  return localeResults.flat()
 }
 
 export async function generateMetadata({
