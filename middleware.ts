@@ -1,44 +1,24 @@
 import createMiddleware from 'next-intl/middleware'
 import {routing} from '@/locales/routing'
 import {NextRequest, NextResponse} from 'next/server'
+import {LOCALES} from './locales'
 
 const i18nMiddleware = createMiddleware(routing)
 
 export default async function middleware(request: NextRequest) {
-  const response = i18nMiddleware(request)
+  const [, ...segments] = request.nextUrl.pathname.split('/')
+  const isLocale = Object.values(LOCALES).includes(segments[0] as LOCALES)
+  const path = segments.slice(isLocale ? 1 : 0)
 
-  if (response && !response.ok) {
-    return response
-  }
-  return await kbMiddleware(request, response)
-}
-
-// TODO: looks like shit
-async function kbMiddleware(request: NextRequest, response: NextResponse) {
-  const [, locale, ...segments] = request.nextUrl.pathname.split('/')
-  const isLocale = locale === 'en' || locale === 'de'
-  const isKBIndex =
-    (segments[0] === 'kb' || locale === 'kb') &&
-    segments[segments.length - 1] === 'index'
-
-  const requestHeaders = new Headers(response.headers)
-  requestHeaders.set('x-url', request.nextUrl.pathname)
-  response.headers.set('x-url', request.nextUrl.pathname)
-
-  if (isKBIndex) {
-    segments.pop()
+  // remove trailing index from kb paths
+  if (path[0] === 'kb' && path[path.length - 1] === 'index') {
     return NextResponse.redirect(
-      new URL(
-        `${isLocale ? `/${locale}/` : '/'}${
-          segments[0] === 'kb' ? '' : 'kb/'
-        }${segments.join('/')}`,
-        request.url
-      ),
-      {
-        headers: requestHeaders
-      }
+      new URL(`/${segments.slice(0, -1).join('/')}`, request.url)
     )
   }
+
+  const response = i18nMiddleware(request)
+  response.headers.set('x-url', request.nextUrl.pathname)
 
   return response
 }
