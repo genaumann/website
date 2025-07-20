@@ -7,7 +7,7 @@ function ArticleItem({article, depth}: {article: Article; depth: number}) {
   return (
     <>
       <Link
-        href={`/kb/${article.slug}`}
+        href={`/kb/${article.slug.replace(/\/index$/, '')}`}
         className="flex items-center space-x-2 py-2 px-3 hover:bg-accent rounded-xl">
         <span
           className="text-muted-foreground text-2xl"

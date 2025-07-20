@@ -49,7 +49,7 @@ const ArticleList = ({
           <li key={article.slug}>
             <div className="flex justify-between items-center pe-3">
               <Link
-                href={`/kb/${article.slug}`}
+                href={`/kb/${article.slug.replace(/\/index$/, '')}`}
                 className={cn(
                   'hover:underline grow py-2 text-muted-foreground',
                   isCurrentArticle && 'font-medium text-foreground'
