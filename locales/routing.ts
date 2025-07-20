@@ -4,8 +4,9 @@ import {LOCALES} from '.'
 
 export const routing = defineRouting({
   locales: Object.keys(LOCALES),
-  defaultLocale: Object.keys(LOCALES)[0],
-  localePrefix: 'as-needed'
+  defaultLocale: LOCALES.de,
+  localePrefix: 'as-needed',
+  localeDetection: true
 })
 
 export const {Link, redirect, usePathname, useRouter, getPathname} =
