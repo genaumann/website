@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.10.0](https://github.com/genaumann/website/compare/v1.9.0...v1.10.0) (2025-07-20)
+
+### ✨ Feature ✨
+
+* enable auto locale detection ([03fb814](https://github.com/genaumann/website/commit/03fb814a198628e641dc543829c757c48913cd4f))
+* **kb:** headings are clickable ([fa31e88](https://github.com/genaumann/website/commit/fa31e88d1d87f93e5676f8926bb0cc0af72037f8))
+
+### 🔧 Refactor 🔧
+
+* dynamic locales ([2f0afbe](https://github.com/genaumann/website/commit/2f0afbe743c23c9ff262e5094c256fb79a9d4ae2))
+* **kb:** remove trailing index ([c6a3f2f](https://github.com/genaumann/website/commit/c6a3f2fb12f4357c2478bcd64ca251e2e9dc0146))
+* **middleware:** reduce & improve middleware ([8db9dad](https://github.com/genaumann/website/commit/8db9dadd183553fb5dd105ab874d2cd7386eb3ea))
+
 ## [1.9.0](https://github.com/genaumann/website/compare/v1.8.1...v1.9.0) (2025-07-10)
 
 ### ✨ Feature ✨
