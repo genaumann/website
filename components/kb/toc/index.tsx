@@ -17,18 +17,11 @@ export default function TableOfContents() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll('h2, h3, h4, h5, h6'))
 
-    const items = elements.map(element => {
-      if (!element.id) {
-        element.id =
-          element.textContent?.trim().toLowerCase().replace(/\s+/g, '-') || ''
-      }
-
-      return {
-        id: element.id,
-        text: element.textContent || '',
-        level: Number.parseInt(element.tagName.charAt(1))
-      }
-    })
+    const items = elements.map(element => ({
+      id: element.id,
+      text: element.textContent || '',
+      level: Number.parseInt(element.tagName.charAt(1))
+    }))
 
     setHeadings(items)
 
