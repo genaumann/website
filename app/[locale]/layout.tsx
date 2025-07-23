@@ -16,6 +16,7 @@ import {getTolgee, getTranslate} from '@/lib/integrations/tolgee/server'
 import {TolgeeNextProvider} from '@/lib/integrations/tolgee/client'
 import {LocaleParam} from '@/lib/types'
 import {SpeedInsights} from '@vercel/speed-insights/next'
+import {Analytics} from '@vercel/analytics/next'
 
 fontawesome.autoAddCss = false
 
@@ -76,6 +77,7 @@ export default async function RootLayout({
           {isDev && <VercelToolbar />}
         </TolgeeNextProvider>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
