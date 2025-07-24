@@ -15,9 +15,10 @@ export function TolgeeBase() {
       apiKey,
       apiUrl,
       onTranslationMissing: info => {
-        console.error(
-          `Translation missing for ${info.ns}.${info.key} in ${info.language}`
-        )
+        process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' &&
+          console.error(
+            `Translation missing for ${info.ns}.${info.key} in ${info.language}`
+          )
         return `${info.ns}.${info.key}`
       }
     })

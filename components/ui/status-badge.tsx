@@ -42,7 +42,7 @@ export default async function StatusBadge({
 
   const tooltipText: TextMapping = {
     available: until ? t('availableUntil', {until}) : t('available'),
-    unavailable: until ? t('unavailableUntil', {until}) : t('notAvailable'),
+    unavailable: until ? t('unavailableUntil', {until}) : t('unavailable'),
     'partially available':
       partially && until
         ? t('partiallyAvailableUntil', {
