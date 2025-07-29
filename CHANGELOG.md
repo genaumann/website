@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.10.1](https://github.com/genaumann/website/compare/v1.10.0...v1.10.1) (2025-07-29)
+
+### 🐛 Bugfix 🐛
+
+* **tolgee:** suppress translation error on prod ([e1e06dd](https://github.com/genaumann/website/commit/e1e06dda72e3b0c1a025663e4f937f0400a7ecb1))
+
 ## [1.10.0](https://github.com/genaumann/website/compare/v1.9.0...v1.10.0) (2025-07-20)
 
 ### ✨ Feature ✨
