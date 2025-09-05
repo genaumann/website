@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json']
   },
+  poweredByHeader: false,
   logging: {
     fetches: {
       fullUrl: true
