@@ -1,9 +1,9 @@
 import createVercelToolbarPlugin from '@vercel/toolbar/plugins/next'
 import createNextIntlPlugin from 'next-intl/plugin'
 import createMDX from '@next/mdx'
+import {NextConfig} from 'next'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   turbopack: {
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json']
   },
