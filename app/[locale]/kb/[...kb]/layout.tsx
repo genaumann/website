@@ -74,7 +74,10 @@ export default async function KBLayout({
                       <>{item?.title}</>
                     ) : (
                       <BreadcrumbLink className="text-muted-foreground" asChild>
-                        <Link href={`/kb/${item?.slug}`}>{item?.title}</Link>
+                        <Link
+                          href={`/kb/${item?.slug.replace(/\/index$/, '')}`}>
+                          {item?.title}
+                        </Link>
                       </BreadcrumbLink>
                     )}
                   </BreadcrumbItem>

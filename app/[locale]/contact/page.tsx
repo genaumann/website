@@ -16,14 +16,14 @@ export async function generateMetadata({
   const t = await getTranslate('contact', {noWrap: true})
 
   return getMetadata({
-    title: t('contactForm', {ns: 'common'}),
+    title: t('contact', {ns: 'common'}),
     description: t('appMetadata.description'),
     slug: '/contact',
     index: true,
     locale,
     og: {
       type: 'website',
-      title: t('contactForm', {ns: 'common'}),
+      title: t('contact', {ns: 'common'}),
       description: t('appMetadata.description')
     }
   })
