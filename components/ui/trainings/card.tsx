@@ -10,7 +10,6 @@ import {
 import Icon from '../icon'
 import {Training} from '@/lib/trainings'
 import {getDateFunctions} from '@/lib/dates'
-import {LOCALES} from '@/locales'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 type TrainingCardProps = {
@@ -18,8 +17,8 @@ type TrainingCardProps = {
 }
 
 export async function TrainingCard({training}: TrainingCardProps) {
-  const locale = (await getLocale()) as LOCALES
-  const {format} = getDateFunctions(LOCALES[locale])
+  const locale = await getLocale()
+  const {format} = getDateFunctions(locale)
   const t = await getTranslate()
 
   return (

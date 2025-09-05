@@ -4,7 +4,6 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import {LOCALES} from '@/locales'
 import {getArticlesByKeyword} from '@/lib/mdx'
 import Icon from '@/components/ui/icon'
 import {getDateFunctions} from '@/lib/dates'
@@ -23,7 +22,7 @@ export default async function ToolArticlesPage({
   locale
 }: ToolArticlesPageProps) {
   const allArticles = await getArticlesByKeyword(locale, tool)
-  const {format} = getDateFunctions(LOCALES[locale])
+  const {format} = getDateFunctions(locale)
   const t = await getTranslate('portfolio')
 
   if (!allArticles || allArticles.length === 0) return null

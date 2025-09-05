@@ -1,6 +1,6 @@
 'use client'
 
-import type {Article, LocaleParam} from '@/lib/types'
+import type {Article, Locale, LocaleParam} from '@/lib/types'
 import {
   useState,
   useEffect,
@@ -19,7 +19,6 @@ import {Skeleton} from '../ui/skeleton'
 import {useIsMobile} from '../hooks/mobile'
 import {cn} from '@/lib/cn'
 import {useTranslate} from '@tolgee/react'
-import {LOCALES} from '@/locales'
 
 export default function SearchCommand({locale}: LocaleParam) {
   const [isOpen, setIsOpen] = useState(false)
@@ -77,7 +76,7 @@ function SearchDialog({
   isOpen,
   onOpenChange
 }: {
-  locale: LOCALES
+  locale: Locale
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
 }) {

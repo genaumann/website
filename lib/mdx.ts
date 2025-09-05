@@ -4,13 +4,13 @@ import fs from 'fs/promises'
 import {compileMDX} from 'next-mdx-remote/rsc'
 import {JSXElementConstructor, ReactElement} from 'react'
 import articles from '@/lib/articleIndex.json'
-import {Article, ArticleIndex, MDXFrontmatter} from './types'
-import {LOCALES} from '@/locales'
+import {Article, ArticleIndex, Locale, MDXFrontmatter} from './types'
 import remarkGfm from 'remark-gfm'
 import remarkCodeBlock from './remark/codeblock'
 import {findArticleBySlug} from './mdx-edge'
 import {headers} from 'next/headers'
 import {MDXComponents} from '@/components/mdx'
+import {LOCALES} from '@/locales'
 
 type MDXReturnType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,7 +22,7 @@ type MDXReturnType = {
 }
 
 export const getParsedArticle = async (
-  locale: LOCALES,
+  locale: Locale,
   kb: string[]
 ): Promise<MDXReturnType | null> => {
   try {
@@ -56,9 +56,9 @@ export const getParsedArticle = async (
 }
 
 export const getArticlesByLocale = async (
-  locale: LOCALES
+  locale: Locale
 ): Promise<Article[]> => {
-  const localeArticles = articles[locale] || []
+  const localeArticles = articles[locale as LOCALES] || []
   return localeArticles.map(article => ({
     ...article,
     createdAt: new Date(article.createdAt),
@@ -72,10 +72,10 @@ export const getArticlesByLocale = async (
 }
 
 export const getFlatArticleIndex = async (
-  locale: LOCALES
+  locale: Locale
 ): Promise<Article[]> => {
   const articleIndex = articles as unknown as ArticleIndex
-  const localeArticles = articleIndex[locale] || []
+  const localeArticles = articleIndex[locale as LOCALES] || []
 
   const flattenArticles = (items: Article[]): Article[] => {
     return items.reduce((flat: Article[], article: Article) => {
@@ -95,7 +95,7 @@ export const getFlatArticleIndex = async (
 }
 
 export const getArticlesByKeyword = async (
-  locale: LOCALES,
+  locale: Locale,
   keyword: string
 ): Promise<Article[] | null> => {
   const articlesByLocale = await getFlatArticleIndex(locale)

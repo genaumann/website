@@ -8,11 +8,11 @@ import {
 } from '@tolgee/react'
 import {useRouter} from 'next/navigation'
 import {TolgeeBase} from '.'
-import {LOCALES} from '@/locales'
+import {Locale} from '@/lib/types'
 
 type Props = {
   staticData: TolgeeStaticData | CachePublicRecord[]
-  language: LOCALES
+  language: Locale
   children: ReactNode
 }
 
