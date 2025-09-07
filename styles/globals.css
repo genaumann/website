@@ -1,5 +1,124 @@
 @import 'tailwindcss';
-@config '../tailwind.config.ts';
+
+@plugin 'tailwindcss-animate';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --font-sans: var(--font-sans);
+
+  /* Box Shadow Konfiguration */
+  --shadow-t: 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-t-md:
+    0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-t-lg:
+    0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-t-xl:
+    0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-t-2xl: 0 -25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-t-3xl: 0 -35px 60px -15px rgba(0, 0, 0, 0.3);
+
+  --shadow-b: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-b-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-b-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-b-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-b-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-b-3xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+
+  --shadow-l: -1px 0 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-l-md:
+    -4px 0 6px -1px rgba(0, 0, 0, 0.1), 2px 0 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-l-lg:
+    -10px 0 15px -3px rgba(0, 0, 0, 0.1), 4px 0 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-l-xl:
+    -20px 0 25px -5px rgba(0, 0, 0, 0.1), 10px 0 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-l-2xl: -25px 0 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-l-3xl: -35px 0 60px -15px rgba(0, 0, 0, 0.3);
+
+  --shadow-r: 1px 0 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-r-md:
+    4px 0 6px -1px rgba(0, 0, 0, 0.1), -2px 0 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-r-lg:
+    10px 0 15px -3px rgba(0, 0, 0, 0.1), -4px 0 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-r-xl:
+    20px 0 25px -5px rgba(0, 0, 0, 0.1), -10px 0 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-r-2xl: 25px 0 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-r-3xl: 35px 0 60px -15px rgba(0, 0, 0, 0.3);
+
+  --shadow-all: 0 0 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-all-md:
+    0 0 6px -1px rgba(0, 0, 0, 0.1), 0 0 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-all-lg:
+    0 0 15px -3px rgba(0, 0, 0, 0.1), 0 0 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-all-xl:
+    0 0 25px -5px rgba(0, 0, 0, 0.1), 0 0 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-all-2xl: 0 0 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-all-3xl: 0 0 60px -15px rgba(0, 0, 0, 0.3);
+
+  --shadow-x: 1px 0 2px 0 rgba(0, 0, 0, 0.05), -1px 0 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-x-md:
+    4px 0 6px -1px rgba(0, 0, 0, 0.1), -4px 0 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-x-lg:
+    10px 0 15px -3px rgba(0, 0, 0, 0.1), -10px 0 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-x-xl:
+    20px 0 25px -5px rgba(0, 0, 0, 0.1), -20px 0 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-x-2xl:
+    25px 0 50px -12px rgba(0, 0, 0, 0.25),
+    -25px 0 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-x-3xl:
+    35px 0 60px -15px rgba(0, 0, 0, 0.3), -35px 0 60px -15px rgba(0, 0, 0, 0.3);
+
+  --shadow-y: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-y-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-y-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 -10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-y-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 -20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-y-2xl:
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 -25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-y-3xl:
+    0 35px 60px -15px rgba(0, 0, 0, 0.3), 0 -35px 60px -15px rgba(0, 0, 0, 0.3);
+
+  --height-content: calc(100vh - (var(--footer-height) + var(--header-height)));
+  --height-content-header: calc(100vh - var(--header-height));
+
+  --animate-flicker: flicker 30s infinite;
+  --animate-blob-bounce: blob-bounce 7s infinite;
+}
 
 @layer base {
   :root {
@@ -57,8 +176,8 @@
     overflow-x: hidden;
   }
 
-  section{
-    @apply scroll-mt-[97px]
+  section {
+    @apply scroll-mt-[97px];
   }
 
   article h2,
@@ -67,6 +186,13 @@
   article h5,
   article h6 {
     @apply scroll-mt-[170px];
+  }
+
+  article h2 {
+    border-color: hsl(var(--muted));
+    border-style: dashed;
+    padding-top: 2.5rem;
+    border-top-width: 1px;
   }
 
   .shiki,
@@ -81,6 +207,61 @@
   }
 }
 
+@keyframes flicker {
+  0%,
+  100% {
+    color: hsl(var(--foreground));
+  }
+  10% {
+    color: hsl(var(--primary));
+  }
+  20% {
+    color: hsl(var(--foreground));
+  }
+  25% {
+    color: hsl(var(--primary));
+  }
+  30% {
+    color: hsl(var(--foreground));
+  }
+  35% {
+    color: hsl(var(--primary));
+  }
+  40% {
+    color: hsl(var(--foreground));
+  }
+  50% {
+    color: hsl(var(--primary));
+  }
+  60% {
+    color: hsl(var(--foreground));
+  }
+  70% {
+    color: hsl(var(--primary));
+  }
+  80% {
+    color: hsl(var(--foreground));
+  }
+  90% {
+    color: hsl(var(--primary));
+  }
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -90,10 +271,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out;
 }
 
 @keyframes github-twinkle {
@@ -108,40 +285,29 @@
   }
 }
 
-.animate-github-twinkle {
-  animation: github-twinkle infinite ease-in-out;
-}
-
 @keyframes float {
   0%,
   100% {
     transform: translate(0, 0);
   }
   25% {
-    transform: translate(calc(var(--float-x) * 0.3), calc(var(--float-y) * 0.3));
+    transform: translate(
+      calc(var(--float-x) * 0.3),
+      calc(var(--float-y) * 0.3)
+    );
   }
   50% {
-    transform: translate(calc(var(--float-x) * 0.7), calc(var(--float-y) * 0.7));
+    transform: translate(
+      calc(var(--float-x) * 0.7),
+      calc(var(--float-y) * 0.7)
+    );
   }
   75% {
-    transform: translate(calc(var(--float-x) * 0.4), calc(var(--float-y) * -0.2));
+    transform: translate(
+      calc(var(--float-x) * 0.4),
+      calc(var(--float-y) * -0.2)
+    );
   }
-}
-
-.animate-float {
-  animation: float infinite ease-in-out;
-}
-
-.star-shape {
-  filter: drop-shadow(0 0 1px hsl(var(--primary))) drop-shadow(0 0 2px hsl(var(--primary) / 0.6));
-}
-
-.star-beam {
-  box-shadow: 0 0 1px hsl(var(--primary)), 0 0 2px hsl(var(--primary) / 0.4);
-}
-
-.star-center {
-  box-shadow: 0 0 1px hsl(var(--primary)), 0 0 2px hsl(var(--primary) / 0.6);
 }
 
 @layer utilities {
@@ -150,10 +316,97 @@
     color: hsl(var(--muted-foreground));
   }
   .grid-pattern {
-    background-image: linear-gradient(hsl(var(--muted)) 1px, transparent 1px),
+    background-image:
+      linear-gradient(hsl(var(--muted)) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--muted)) 1px, transparent 1px);
     background-size: 20px 20px;
     width: 100%;
     height: 100%;
+  }
+
+  .animate-float {
+    animation: float infinite ease-in-out;
+  }
+
+  .star-shape {
+    filter: drop-shadow(0 0 1px hsl(var(--primary)))
+      drop-shadow(0 0 2px hsl(var(--primary) / 0.6));
+  }
+
+  .star-beam {
+    box-shadow:
+      0 0 1px hsl(var(--primary)),
+      0 0 2px hsl(var(--primary) / 0.4);
+  }
+
+  .star-center {
+    box-shadow:
+      0 0 1px hsl(var(--primary)),
+      0 0 2px hsl(var(--primary) / 0.6);
+  }
+
+  .animate-github-twinkle {
+    animation: github-twinkle infinite ease-in-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  max-width: 100%;
+
+  @media (min-width: theme(screens.2xl)) {
+    max-width: 1400px;
+  }
+}
+
+@utility prose {
+  max-width: 1400px;
+
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-lead: hsl(var(--foreground));
+  --tw-prose-link: hsl(var(--foreground));
+  --tw-prose-bullets: hsl(var(--foreground));
+  --tw-prose-pre-bg: transparent;
+  --tw-prose-pre-code: hsl(var(--foreground));
+  --tw-prose-links: hsl(var(--primary));
+  --tw-prose-hr: hsl(var(--muted));
+
+  code {
+    &::before,
+    &::after {
+      content: '';
+    }
+
+    font-family: 'Menlo';
+    color: hsl(var(--foreground));
+    font-weight: 500;
+    font-variant-ligatures: none;
+    display: inline;
+    background-color: hsl(var(--muted));
+    padding: 2px 4px;
+    border-radius: 0.35rem;
+    font-size: 0.875rem;
+  }
+
+  pre code {
+    font-family: 'Menlo';
+    font-size: theme(fontSize.sm);
+    padding: 0;
+    background-color: transparent;
+  }
+
+  button code {
+    font-size: theme(fontSize.sm);
+  }
+
+  article hr {
+    border-style: dashed;
   }
 }
