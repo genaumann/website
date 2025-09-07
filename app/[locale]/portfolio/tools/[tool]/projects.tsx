@@ -1,6 +1,5 @@
 import {getProjects, ProjectContext} from '../../../../../lib/projects'
 import {getDateFunctions} from '@/lib/dates'
-import {LOCALES} from '@/locales'
 import {Badge} from '@/components/ui/badge'
 import Icon from '@/components/ui/icon'
 import {
@@ -31,7 +30,7 @@ export default async function TechnologyProjectsPage({
   title
 }: TechnologyProjectsPageProps) {
   const t = await getTranslate('portfolio')
-  const {format} = getDateFunctions(LOCALES[locale])
+  const {format} = getDateFunctions(locale)
   const projects = getProjects({technology, t})
 
   const contexts: ProjectContextObjects = {

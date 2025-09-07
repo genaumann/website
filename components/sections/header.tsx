@@ -9,7 +9,7 @@ export default async function Header({locale}: LocaleParam) {
   const headerMenu = await getHeaderMenu({locale})
   return (
     <header className="sticky top-0 backdrop-blur py-4 bg-background/75 z-20 border-b border-dashed border-muted">
-      <div className="container mx-auto">
+      <div className="container">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href={headerMenu.logo.href} className="shrink-0">

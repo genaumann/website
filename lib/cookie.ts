@@ -1,7 +1,7 @@
 'use server'
 
-import {LOCALES} from '@/locales'
 import {cookies} from 'next/headers'
+import {Locale} from './types'
 
 // This cookie name is used by `next-intl` on the public pages too. By
 // reading/writing to this locale, we can ensure that the user's locale
@@ -10,12 +10,12 @@ import {cookies} from 'next/headers'
 // that instead when the user is logged in.
 const LOCALE_COOKIE_NAME = 'NEXT_LOCALE'
 
-export async function getLocale(): Promise<LOCALES> {
+export async function getLocale(): Promise<Locale> {
   const cookieStore = await cookies()
-  return cookieStore.get(LOCALE_COOKIE_NAME)?.value as LOCALES
+  return cookieStore.get(LOCALE_COOKIE_NAME)?.value as Locale
 }
 
-export async function setUserLocale(locale: LOCALES): Promise<void> {
+export async function setUserLocale(locale: Locale): Promise<void> {
   const cookieStore = await cookies()
   cookieStore.set(LOCALE_COOKIE_NAME, locale)
 }

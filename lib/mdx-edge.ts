@@ -1,9 +1,8 @@
 import articles from '@/lib/articleIndex.json'
-import {Article} from './types'
-import {LOCALES} from '@/locales'
+import {Article, Locale} from './types'
 
 export const findArticleBySlug = async (
-  locale: LOCALES,
+  locale: Locale,
   slug: string
 ): Promise<Article | null> => {
   const localeArticles = articles[locale as keyof typeof articles]

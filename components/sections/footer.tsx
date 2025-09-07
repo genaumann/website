@@ -5,12 +5,12 @@ import {cn} from '@/lib/cn'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {getDateFunctions} from '@/lib/dates'
 import {getLocale} from '@/lib/cookie'
-import {LOCALES} from '@/locales'
 import {CONTACT} from '@/lib/contact'
 
 export default async function Footer() {
   const t = await getTranslate()
-  const {format} = getDateFunctions((await getLocale()) as LOCALES)
+  const locale = await getLocale()
+  const {format} = getDateFunctions(locale)
   const socials = getSocials()
 
   const navigation = {

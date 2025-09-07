@@ -2,13 +2,14 @@ import {Metadata} from 'next'
 import {origin} from './url'
 import {LOCALES} from '@/locales'
 import {getTranslate} from './integrations/tolgee/server'
+import {Locale} from './types'
 
 type MetadataProps = {
   title: string
   description: string
   slug: string
   index: boolean
-  locale: LOCALES
+  locale: Locale
   og: {
     type: 'article' | 'website'
     title?: string
@@ -32,7 +33,7 @@ export default async function getMetadata({
       ? `?title=${encodeURIComponent(og.title || '')}&description=${og.description}&locale=${locale}`
       : `/kb?slug=${og.slug}&locale=${locale}`
   }`
-  const ogLocale = LOCALES[locale] || LOCALES.de
+  const ogLocale = locale || LOCALES.de
 
   const url = `${origin}${locale !== LOCALES.de ? `/${locale}` : ''}${
     slug === '/' ? '' : slug

@@ -37,5 +37,7 @@ export type TType =
   | ReturnType<typeof useTranslate>['t']
 
 export type LocaleParam = {
-  locale: LOCALES
+  locale: Locale
 }
+
+export type Locale = keyof typeof LOCALES | string

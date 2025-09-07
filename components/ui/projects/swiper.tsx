@@ -27,9 +27,8 @@ import {useTolgee, useTranslate} from '@tolgee/react'
 
 export default function PortfolioProjectSwiper() {
   const tolgee = useTolgee()
-  const {format} = getDateFunctions(
-    (tolgee.getLanguage() || LOCALES.de) as unknown as LOCALES
-  )
+  const locale = tolgee.getLanguage() || LOCALES.de
+  const {format} = getDateFunctions(locale)
   const {t} = useTranslate('portfolio')
   const [contextFilter, setContextFilter] =
     useState<ProjectContextFilter>('all')

@@ -99,7 +99,7 @@ export default async function Hero() {
     <section className="min-h-content-header relative bg-background dark:bg-background flex flex-col items-center justify-center px-4 py-16 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-65">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[length:50px_50px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-size-[50px_50px]"></div>
       </div>
 
       {/* Small floating StarField */}

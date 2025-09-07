@@ -51,7 +51,7 @@ export default async function KBLayout({
 
       {/* Main content */}
       <div className="mb-6 relative flex-1 min-w-0">
-        <div className="sticky top-[var(--header-height)] bg-background/75 backdrop-blur border-b border-muted border-dashed py-2 md:py-1 -mx-8 md:-mx-5 h-fit md:h-[62px] z-10">
+        <div className="sticky top-(--header-height) bg-background/75 backdrop-blur border-b border-muted border-dashed py-2 md:py-1 -mx-8 md:-mx-5 h-fit md:h-[62px] z-10">
           <div className="container md:px-5 flex justify-between">
             <MobileSidebar articles={articles} />
             <Search locale={locale} />

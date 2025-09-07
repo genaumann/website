@@ -1,6 +1,7 @@
 import {LOCALES} from '@/locales'
 import {format as _format} from 'date-fns'
 import {de, enUS} from 'date-fns/locale'
+import {Locale} from './types'
 
 process.env.TZ = 'Europe/Berlin'
 
@@ -9,8 +10,8 @@ const localeMap = {
   [LOCALES.en]: enUS
 }
 
-export const getDateFunctions = (key: LOCALES) => {
-  const locale = localeMap[key] || localeMap[LOCALES.de]
+export const getDateFunctions = (key: Locale) => {
+  const locale = localeMap[key as LOCALES] || localeMap[LOCALES.de]
   const format = (date: Date | string | number, pattern: string) =>
     _format(new Date(date), pattern, {locale})
 
