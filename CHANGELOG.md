@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.2](https://github.com/genaumann/website/compare/v1.10.1...v1.10.2) (2025-09-07)
+
+### 🔧 Refactor 🔧
+
+* define tailwind in css ([5688e7a](https://github.com/genaumann/website/commit/5688e7af8819dcea753b4c52cc28e2b06aed6945))
+* mod locale type after next 15.5 ([2a631b3](https://github.com/genaumann/website/commit/2a631b3c6c447cd53d76a5f67357b84d53952daa))
+
 ## [1.10.1](https://github.com/genaumann/website/compare/v1.10.0...v1.10.1) (2025-07-29)
 
 ### 🐛 Bugfix 🐛
