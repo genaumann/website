@@ -33,7 +33,7 @@ plugins:
         - type: article
           release: false
         - type: content
-          release: true
+          release: patch
 
   # notes generator
   - - '@semantic-release/release-notes-generator'
