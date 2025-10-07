@@ -24,6 +24,15 @@ export const getProjects = ({
 }: GetProjectsParams = {}): Project[] => {
   const projects: Project[] = [
     {
+      id: 'ai-chatbot',
+      name: t && t('projects.aiChatbot.name'),
+      description: t && t('projects.aiChatbot.description'),
+      technologies: ['ai', 'chatbot', 'nextjs', 'react', 'typescript'],
+      start: new Date('2025-08-01'),
+      end: new Date('2025-10-07'),
+      context: 'freelance' as ProjectContext
+    },
+    {
       id: 'suse-salt-concept',
       name: t && t('projects.suseSaltConcept.name'),
       description: t && t('projects.suseSaltConcept.description'),
@@ -47,6 +56,7 @@ export const getProjects = ({
       description: t && t('projects.e2eTestingPlaywright.description'),
       technologies: ['playwright', 'typescript', 'nextjs', 'github'],
       start: new Date('2024-10-01'),
+      end: new Date('2025-07-31'),
       context: 'work' as ProjectContext
     },
     {
