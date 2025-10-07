@@ -17,7 +17,8 @@ const Configuration: UserConfig = {
         'chore',
         'ci',
         'build',
-        'article'
+        'article',
+        'content'
       ]
     ]
   }

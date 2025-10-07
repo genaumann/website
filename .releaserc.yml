@@ -32,6 +32,8 @@ plugins:
           release: false
         - type: article
           release: false
+        - type: content
+          release: true
 
   # notes generator
   - - '@semantic-release/release-notes-generator'
@@ -77,6 +79,9 @@ plugins:
           - type: article
             section: 📰 Articles 📰
             hidden: false
+          - type: content
+            section: 📝 Content 📝
+            hidden: false
 
   # changelog
   - - '@semantic-release/changelog'
@@ -95,7 +100,7 @@ plugins:
     - sitemapPath: 'app/sitemap.xml'
       sitemapFunction: 'lib/sitemap.ts'
       sitemapBaseUrl: 'https://gnaumann.de'
-  
+
   # git
   - - '@semantic-release/git'
     - message: 'chore(release): ${nextRelease.version} [skip ci]'
