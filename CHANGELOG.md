@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.10.3](https://github.com/genaumann/website/compare/v1.10.2...v1.10.3) (2025-10-07)
+
+### 📝 Content 📝
+
+* add ai chatbot project ([081564d](https://github.com/genaumann/website/commit/081564d0715d964f0c79a74f244d64c3befd9d9b))
+
 ## [1.10.2](https://github.com/genaumann/website/compare/v1.10.1...v1.10.2) (2025-09-07)
 
 ### 🔧 Refactor 🔧
