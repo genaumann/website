@@ -1,9 +1,8 @@
 import {cn} from '@/lib/cn'
 import {forwardRef} from 'react'
 import {Badge, BadgeProps} from './badge'
-import {Project} from '@/lib/projects'
 import {Slot} from '@radix-ui/react-slot'
-import {TType} from '@/lib/types'
+import {Project, TType} from '@/lib/types'
 
 interface StatusBadgeProps extends BadgeProps {
   start: Project['start']

@@ -4,7 +4,6 @@ import {Badge} from '@/components/ui/badge'
 import Icon from '@/components/ui/icon'
 import {
   ProjectCard,
-  ProjectCardDescription,
   ProjectCardInfo,
   ProjectCardInfoItem,
   ProjectCardInfoLabel,
@@ -38,7 +37,7 @@ export default function PortfolioProjectSwiper() {
   const swiperRef = useRef<SwiperType | undefined>(undefined)
 
   const projects = useMemo(() => {
-    const fetchedProjects = getProjects({t})
+    const fetchedProjects = getProjects()
     return fetchedProjects
       .filter(pro => pro.end)
       .filter(pro => {
@@ -121,10 +120,9 @@ export default function PortfolioProjectSwiper() {
                 className="absolute right-2 -top-3"
               />
               <ProjectCardMain>
-                <ProjectCardTitle>{project.name}</ProjectCardTitle>
-                <ProjectCardDescription>
-                  {project.description}
-                </ProjectCardDescription>
+                <ProjectCardTitle>
+                  {project.name?.[locale as keyof typeof project.name]}
+                </ProjectCardTitle>
               </ProjectCardMain>
               <ProjectCardInfo>
                 <ProjectCardInfoItem>
