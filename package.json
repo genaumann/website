@@ -15,7 +15,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@awesome.me/kit-b84c272999": "^1.0.88",
+    "@awesome.me/kit-b84c272999": "^1.0.90",
     "@fortawesome/fontawesome-svg-core": "^7.0.1",
     "@fortawesome/react-fontawesome": "^3.0.2",
     "@hookform/resolvers": "^5.2.1",
@@ -38,6 +38,7 @@
     "@react-email/render": "1.2.2",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
+    "@tanstack/react-table": "^8.21.3",
     "@tolgee/core": "^6.2.7",
     "@tolgee/format-icu": "^6.2.7",
     "@tolgee/react": "^6.2.7",

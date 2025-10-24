@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@awesome.me/kit-b84c272999':
-        specifier: ^1.0.88
-        version: 1.0.88
+        specifier: ^1.0.90
+        version: 1.0.90
       '@fortawesome/fontawesome-svg-core':
         specifier: ^7.0.1
         version: 7.0.1
@@ -77,6 +77,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.16
         version: 0.5.16(tailwindcss@4.1.13)
+      '@tanstack/react-table':
+        specifier: ^8.21.3
+        version: 8.21.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@tolgee/core':
         specifier: ^6.2.7
         version: 6.2.7
@@ -262,8 +265,8 @@ packages:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
 
-  '@awesome.me/kit-b84c272999@1.0.88':
-    resolution: {integrity: sha512-JI1mDI4Iu9qJ5rkrIuWqjlddu8t7BNlWaXTBa+Aa/dexgOu7i/opSTDY5M23Cq+e/XnkNpRo8VY/zdKCtaK7UQ==}
+  '@awesome.me/kit-b84c272999@1.0.90':
+    resolution: {integrity: sha512-xQBmSkysS1cV40c1M2OBSNZ1x00USOff4PnEoCAw6/pQ6caYFILBBGt1VKJXUeFe637RwyBvpcQtuKrS7sKiRA==}
     engines: {node: '>=16'}
 
   '@babel/code-frame@7.27.1':
@@ -1465,6 +1468,17 @@ packages:
     resolution: {integrity: sha512-0wDLwCVF5V3x3b1SGXPCDcdsbDHMBe+lkFzBRaHeLvNi+nrrnZ1lA18u+OTWO8iSWU2GxUOCvlXtDuqftc1oiA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders || >=4.0.0-alpha.20 || >=4.0.0-beta.1'
+
+  '@tanstack/react-table@8.21.3':
+    resolution: {integrity: sha512-5nNMTSETP4ykGegmVkhjcS8tTLW6Vl4axfEGQN3v0zdHYbK4UfoqfPChclTrJ4EoK9QynqAu9oUf8VEmrpZ5Ww==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+
+  '@tanstack/table-core@8.21.3':
+    resolution: {integrity: sha512-ldZXEhOBb8Is7xLs01fR3YEc3DERiz5silj8tnGkFZytt1abEvl/GhUmCE0PMLaMPTa3Jk4HbKmRlHmu+gCftg==}
+    engines: {node: '>=12'}
 
   '@tinyhttp/accepts@1.3.0':
     resolution: {integrity: sha512-YaJ4EMgVUI6JHzWO14lr6vn/BLJEoFN4Sqd20l0/oBcLLENkP8gnPtX1jB7OhIu0AE40VCweAqvSP+0/pgzB1g==}
@@ -3974,7 +3988,7 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@awesome.me/kit-b84c272999@1.0.88':
+  '@awesome.me/kit-b84c272999@1.0.90':
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
 
@@ -5062,6 +5076,14 @@ snapshots:
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
       tailwindcss: 4.1.13
+
+  '@tanstack/react-table@8.21.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+    dependencies:
+      '@tanstack/table-core': 8.21.3
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
+
+  '@tanstack/table-core@8.21.3': {}
 
   '@tinyhttp/accepts@1.3.0':
     dependencies:
