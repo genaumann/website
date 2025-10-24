@@ -1,4 +1,6 @@
 import {TType} from './types'
+import projectIndex from './projectIndex.json'
+import {type Project as TProject} from './types'
 
 export type ProjectContext = 'personal' | 'work' | 'freelance'
 
@@ -16,6 +18,11 @@ export type Project = {
 interface GetProjectsParams {
   technology?: string
   t?: TType
+}
+
+type TProjectIndex = Omit<TProject, 'start' | 'end'> & {
+  start: string
+  end: string
 }
 
 export const getProjects = ({
@@ -194,4 +201,21 @@ export const getProjects = ({
   if (!technology) return projects
 
   return projects.filter(project => project.technologies.includes(technology))
+}
+
+const mapProject = (project: TProjectIndex): TProject => {
+  return {
+    ...project,
+    start: new Date(project.start),
+    end: project.end ? new Date(project.end) : undefined
+  }
+}
+
+export const getProject = ({
+  id
+}: {
+  id: TProject['id']
+}): TProject | undefined => {
+  const project = (projectIndex as Record<string, TProjectIndex>)[id]
+  return project ? mapProject(project) : undefined
 }

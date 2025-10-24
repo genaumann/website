@@ -41,3 +41,28 @@ export type LocaleParam = {
 }
 
 export type Locale = keyof typeof LOCALES | string
+
+export type ProjectContext = 'personal' | 'work' | 'freelance'
+
+export type Project = {
+  id: string
+  name: {
+    [K in keyof typeof LOCALES]: string
+  }
+  technologies: string[]
+  references?: {label?: string; url: string}[]
+  context: ProjectContext
+  start: Date
+  end?: Date
+  content: {
+    [K in keyof typeof LOCALES]: {
+      project_overview: string
+      challenge: string
+      goals?: string
+      approach: string
+      implementation?: string
+      results?: string
+      insights?: string
+    }
+  }
+}
