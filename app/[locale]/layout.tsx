@@ -21,7 +21,7 @@ import {Analytics} from '@vercel/analytics/next'
 fontawesome.autoAddCss = false
 
 const fontSans = FontSans({
-  weight: ['400', '700'],
+  weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
   variable: '--font-sans'
 })
