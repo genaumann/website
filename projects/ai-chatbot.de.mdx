@@ -1,0 +1,63 @@
+---
+technologies:
+  - ai
+  - chatbot
+  - nextjs
+  - react
+  - typescript
+  - vercel
+  - postgres
+start: 2025-08-01
+end: 2025-10-07
+context: freelance
+---
+
+# Entwicklung & Implementierung eines KI-Chatbots
+
+## project_overview
+
+Der Kunde betreibt eine Webanwendung für Pflegeeinrichtungen, über die Mitarbeitende und Partner regelmäßig Supportanfragen stellen.
+Um die Supportlast zu reduzieren und Antworten auf häufige Fragen zu automatisieren, wurde ein KI-Chatbot in die bestehende **Next.js-Anwendung** integriert.
+Der Chatbot basiert auf dem **Vercel AI SDK**, ist in **TypeScript** entwickelt und nutzt eine **PostgreSQL-Datenbank** zur Speicherung von Chat-Verläufen und Kontextinformationen.
+
+## challenge
+
+Vor der Einführung des Chatbots erhielt der Kundensupport täglich zahlreiche Anfragen per E-Mail und Telefon.
+Viele dieser Anfragen wiederholten sich und bezogen sich auf Informationen, die bereits in der internen Dokumentation vorhanden waren.
+Die Herausforderung bestand darin, diese Dokumentation nutzbar zu machen, sodass Mitarbeitende Antworten direkt in der Webapp erhalten können – ohne zusätzlichen manuellen Aufwand für das Support-Team.
+
+## goals
+
+- Reduktion der wiederkehrenden Supportanfragen
+- Bereitstellung eines interaktiven Chat-Interfaces innerhalb der bestehenden Webapp
+- Nutzung der bestehenden Dokumentation als Wissensquelle
+- Datenspeicherung der Chat-Historie für spätere Auswertungen
+- Einfache Erweiterbarkeit um neue Inhalte oder Modelle
+
+## approach
+
+Der Chatbot wurde als eigenständiges Modul innerhalb der bestehenden Next.js-Architektur entwickelt.
+Mit Hilfe des Vercel AI SDKs konnte eine einfache Anbindung an das Sprachmodell umgesetzt werden.
+Die Dokumentation des Kunden wurde als Retrieval-Augmented-Generation-Quelle (RAG) eingebunden, sodass das Modell kontextbezogen auf reale Inhalte antworten kann.
+Der Chatverlauf wird in PostgreSQL persistiert, wodurch Nutzungsanalysen und Verbesserungen auf Basis echter Daten möglich sind.
+
+## implementation
+
+- **Frontend**: Integration der Chat-UI in die vorhandene Next.js-Anwendung
+- **Backend**: API-Routen zur Kommunikation mit dem Modell über das Vercel AI SDK
+- **RAG-Integration**: Dokumentationstexte wurden indexiert und in den Retrieval-Prozess eingebunden
+- **Datenbank**: Speicherung von Sessions, Nachrichten und Feedback in PostgreSQL
+- **Deployment**: Hosting über Vercel mit automatisiertem CI/CD
+- **Sprache**: TypeScript für alle Komponenten
+
+## results
+
+- Der Chatbot wurde erfolgreich in die bestehende Webapp integriert und wird aktiv von den Nutzern verwendet.
+- Die Anzahl an wiederkehrenden Supportanfragen per E-Mail und Telefon konnte deutlich reduziert werden.
+- Mitarbeitende erhalten nun schneller Antworten auf häufige Fragen, was die interne Effizienz spürbar verbessert hat.
+
+## insights
+
+Das Projekt war mein erstes praktisches KI-Projekt und hat mir wertvolle Einblicke in den Aufbau von RAG-basierten Chatbots gegeben.
+Ich habe gelernt, wie man Sprachmodelle mit eigenen Daten kombiniert und nahtlos in bestehende Webanwendungen integriert.
+Durch den erfolgreichen Abschluss konnte ich mein Verständnis für AI-Architekturen, Prompt-Design und Datenanbindung deutlich vertiefen.
