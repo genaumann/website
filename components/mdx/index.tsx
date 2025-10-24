@@ -7,6 +7,12 @@ import ArticleGrid from '@/components/mdx/article-grid'
 import {Tabs, TabItem} from '@/components/mdx/tabs'
 import Link from 'next/link'
 import Heading from './heading'
+import {MDXRemote} from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
+
+interface MDXContentProps {
+  source: string
+}
 
 export const MDXComponents: Readonly<MDXComponentsType> = {
   a: props => {
@@ -32,4 +38,18 @@ export const MDXComponents: Readonly<MDXComponentsType> = {
   GridItem,
   ArticleGrid,
   ExternalCodeBlock
+}
+
+export async function MDXContent({source}: MDXContentProps) {
+  return (
+    <MDXRemote
+      source={source}
+      components={MDXComponents}
+      options={{
+        mdxOptions: {
+          remarkPlugins: [remarkGfm]
+        }
+      }}
+    />
+  )
 }
