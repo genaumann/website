@@ -23,5 +23,12 @@ export const getProject = ({id}: {id: Project['id']}): Project | undefined => {
 
 export const getProjects = (): Project[] => {
   const projectsRecord = projectIndex as Record<string, TProjectIndex>
-  return Object.values(projectsRecord).map(mapProject)
+  return Object.values(projectsRecord)
+    .map(mapProject)
+    .sort((a, b) => {
+      if (!a.end && !b.end) return 0
+      if (!a.end) return -1
+      if (!b.end) return 1
+      return b.end.getTime() - a.end.getTime()
+    })
 }
