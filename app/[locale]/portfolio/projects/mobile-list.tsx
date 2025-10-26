@@ -9,7 +9,7 @@ import {getDateFunctions} from '@/lib/dates'
 import {cn} from '@/lib/cn'
 import {Input} from '@/components/ui/input'
 import {useState} from 'react'
-import ProjectTechnologyBadge from '@/components/ui/project-technology-badge'
+import {ProjectTechnologyBadge} from '@/components/ui/project-badges'
 
 export default function PortfolioProjectsMobileList() {
   const [search, setSearch] = useState('')

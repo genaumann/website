@@ -14,11 +14,11 @@ import Link from 'next/link'
 import {notFound} from 'next/navigation'
 import {MDXContent} from '@/components/mdx'
 import {Fragment} from 'react'
-import {Badge} from '@/components/ui/badge'
-import {getDateFunctions} from '@/lib/dates'
-import Icon from '@/components/ui/icon'
-import {ProjectContextObjects} from '../../technologies/[technology]/projects'
-import ProjectTechnologyBadge from '@/components/ui/project-technology-badge'
+import {ProjectTechnologyBadge} from '@/components/ui/project-badges'
+import {
+  ProjectContextBadge,
+  ProjectDateBadge
+} from '@/components/ui/project-badges'
 
 type ProjectParam = LocaleParam & {
   project: string
@@ -29,15 +29,8 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
   const localeKey = locale as keyof typeof LOCALES
   const t = await getTranslate('portfolio')
   const project = getProject({id: projectId})
-  const {format} = getDateFunctions(locale)
 
   if (!project) notFound()
-
-  const contexts: ProjectContextObjects = {
-    personal: t('personalProjects', {count: 1}),
-    work: t('workProjects', {count: 1}),
-    freelance: t('freelanceProjects', {count: 1})
-  }
 
   const contentMap = [
     {
@@ -101,19 +94,12 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
           />
         </div>
         <div className="pt-4 flex gap-4 text-sm text-muted-foreground justify-center">
-          <Badge
-            variant="outline"
-            className="flex items-center gap-1 font-normal">
-            <Icon name="calendar" />
-            <span>{format(project.start, 'MMMM yyyy')}</span>
-            {project.end && <span> - {format(project.end, 'MMMM yyyy')}</span>}
-          </Badge>
-          <Badge
-            variant="outline"
-            className="flex items-center gap-1 font-normal">
-            <Icon name="circle-info" />
-            <span>{contexts[project.context]}</span>
-          </Badge>
+          <ProjectDateBadge
+            start={project.start}
+            end={project.end}
+            locale={locale}
+          />
+          <ProjectContextBadge context={project.context} t={t} />
         </div>
         <div className="pt-10 prose dark:prose-invert md:max-w-2/3 mx-auto md:text-center">
           <MDXContent source={project.content[localeKey].project_overview} />

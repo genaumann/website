@@ -13,7 +13,7 @@ import {Button} from '@/components/ui/button'
 import Icon from '@/components/ui/icon'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
-import ProjectTechnologyBadge from '@/components/ui/project-technology-badge'
+import {ProjectTechnologyBadge} from '@/components/ui/project-badges'
 
 export default function ProjectsTable() {
   const router = useRouter()

@@ -21,8 +21,8 @@ import {Pagination, A11y, FreeMode, Navigation} from 'swiper/modules'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import PortfolioProjectFilter, {ProjectContextFilter} from './filter'
 import type {Swiper as SwiperType} from 'swiper'
-import {ProjectContextObjects} from '@/app/[locale]/portfolio/technologies/[technology]/projects'
 import {useTolgee, useTranslate} from '@tolgee/react'
+import {ProjectContextBadge} from '../project-badges'
 
 export default function PortfolioProjectSwiper() {
   const tolgee = useTolgee()
@@ -47,12 +47,6 @@ export default function PortfolioProjectSwiper() {
         return pro.context === contextFilter
       })
   }, [contextFilter])
-
-  const contexts: ProjectContextObjects = {
-    personal: t('personalProjects', {count: 1}),
-    work: t('workProjects', {count: 1}),
-    freelance: t('freelanceProjects', {count: 1})
-  }
 
   useEffect(() => {
     const calculateMaxHeight = () => {
@@ -142,7 +136,7 @@ export default function PortfolioProjectSwiper() {
                 <ProjectCardInfoItem>
                   <ProjectCardInfoLabel>{`${t('context')}:`}</ProjectCardInfoLabel>
                   <ProjectCardInfoValue>
-                    {contexts[project.context]}
+                    <ProjectContextBadge context={project.context} t={t} />
                   </ProjectCardInfoValue>
                 </ProjectCardInfoItem>
                 {project.references && project.references.length > 0 && (

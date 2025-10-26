@@ -16,8 +16,7 @@ import {
 } from '@/components/ui/project-card'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LocaleParam} from '@/lib/types'
-
-export type ProjectContextObjects = Record<ProjectContext, string>
+import {ProjectContextBadge} from '@/components/ui/project-badges'
 
 type TechnologyProjectsPageProps = LocaleParam & {
   technology: string
@@ -34,12 +33,6 @@ export default async function TechnologyProjectsPage({
   const projects = getProjects().filter(project =>
     project.technologies.includes(technology)
   )
-
-  const contexts: ProjectContextObjects = {
-    personal: t('personalProjects', {count: 1}),
-    work: t('workProjects', {count: 1}),
-    freelance: t('freelanceProjects', {count: 1})
-  }
 
   if (!projects || projects.length === 0) return null
 
@@ -94,7 +87,7 @@ export default async function TechnologyProjectsPage({
                 <ProjectCardInfoItem>
                   <ProjectCardInfoLabel>{t('context')}:</ProjectCardInfoLabel>
                   <ProjectCardInfoValue>
-                    {contexts[project.context]}
+                    <ProjectContextBadge context={project.context} t={t} />
                   </ProjectCardInfoValue>
                 </ProjectCardInfoItem>
                 {project.references && project.references.length > 0 && (
