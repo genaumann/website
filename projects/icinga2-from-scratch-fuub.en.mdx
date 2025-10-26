@@ -1,0 +1,64 @@
+---
+technologies:
+  - icinga2
+  - salt
+start: 2020-02-01
+end: 2020-07-30
+context: work
+---
+
+# Icinga2 Implementation with Salt Integration
+
+## project_overview
+
+At the start of the project, around **50 virtual Linux and Windows servers** were operated without any centralized monitoring system.
+Incidents and outages were only reported by end users, often leading to extended downtimes.
+To improve system availability, I introduced **Icinga2** — a flexible monitoring solution that works across both Linux and Windows platforms.
+
+## challenge
+
+The lack of monitoring made proactive issue detection difficult.
+Outages were often recognized too late, and manually checking all systems was inefficient and unsustainable.
+
+- No centralized monitoring system in place
+- Delayed reaction to service disruptions
+- High manual effort for system checks
+
+## goals
+
+The main goals of the project were:
+
+- Implement a centralized **Icinga2 monitoring system** for Linux and Windows servers
+- Automatically integrate systems managed via **Salt**
+- Enable fast detection and notification of system or service failures
+- Improve long-term infrastructure stability
+
+## approach
+
+I installed and configured **Icinga2** on a dedicated monitoring server.
+All hosts were automatically integrated into Icinga2 through **Salt**.
+Key services, processes, and system metrics were continuously monitored.
+For Windows servers, I deployed the **Icinga2 Agent** to ensure cross-platform compatibility.
+
+## implementation
+
+- **Setup:** Installed and configured Icinga2 on a central monitoring server
+- **Integration:** Automated host registration through Salt
+- **Windows Support:** Added monitoring for Windows servers using the Icinga2 Agent
+- **Notifications:** Set up alerting and escalation for critical incidents
+- **Documentation:** Trained and handed over the system to the internal IT team
+
+## results
+
+- Centralized monitoring for approximately 50 servers
+- Automatic detection of outages and service issues
+- Significantly reduced response times to incidents
+- The setup remains in active use and continues to be developed further
+
+## insights
+
+I learned how to design and operate a reliable, automated monitoring system.
+
+- Hands-on experience with Icinga2
+- Understanding of monitoring principles and alerting mechanisms
+- Implementation of an automated, cross-platform monitoring solution

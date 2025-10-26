@@ -1,0 +1,63 @@
+---
+technologies:
+  - salt
+  - python
+  - github
+start: 2024-01-01
+end: 2024-03-31
+context: personal
+---
+
+# Development of a Salt Formula for acme.sh
+
+## project_overview
+
+I developed a custom **Salt formula** to automate SSL/TLS certificate management using **acme.sh**.
+To extend Salt’s capabilities, I also created **custom Salt execution modules in Python**, enabling direct integration with the acme.sh client.
+This setup allows certificates to be automatically issued, renewed, and deployed across target systems.
+
+## challenge
+
+The goal was to integrate certificate management into Salt in a **modular, reusable, and version-independent** manner.
+Since Salt provides no native support for acme.sh, custom Python modules had to be developed.
+
+- No native acme.sh support in Salt
+- Need for reusable and maintainable automation logic
+- Ensuring compatibility across different Salt versions
+
+## goals
+
+The goals of the project were:
+
+- Develop a **Salt formula** for automated certificate management using **acme.sh**
+- Extend Salt with **custom Python execution modules**
+- Implement automated testing against various **Salt versions** using **GitHub Actions**
+- Establish a fully automated certificate lifecycle management process
+
+## approach
+
+The formula was designed to handle **certificate requests, renewals, and deployments** through acme.sh.
+Custom **Python execution modules** were implemented to interact directly with acme.sh and return structured data to Salt.
+A **GitHub Actions pipeline** was set up to automatically test the formula against the latest Salt releases.
+
+## implementation
+
+- **Formula Development:** Created a Salt formula to manage SSL/TLS certificates via acme.sh
+- **Python Modules:** Built custom Salt execution modules for issuing and renewing certificates
+- **Automation:** Implemented a GitHub Actions CI pipeline for automated cross-version testing
+- **Documentation:** Added detailed usage guides and developer documentation
+
+## results
+
+- Fully automated certificate issuance and renewal integrated into Salt
+- Extended Salt functionality with Python-based execution modules
+- Continuous testing ensures compatibility with all supported Salt versions
+
+## insights
+
+This project strengthened my skills in **Salt module development**, **Python automation**, and **CI/CD integration**.
+I gained hands-on experience combining **Infrastructure as Code** with real-world automation challenges.
+
+- Developed custom Salt modules in Python
+- Automated certificate management with acme.sh
+- Gained a deeper understanding of CI/CD workflows and version testing

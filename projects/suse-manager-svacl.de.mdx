@@ -1,0 +1,68 @@
+---
+technologies:
+  - suse-manager
+  - sles
+  - salt
+  - azure-devops
+  - iac
+start: 2023-08-01
+end: 2024-09-30
+context: work
+---
+
+# SUSE Manager Optimierung & Migration
+
+## project_overview
+
+Der Kunde betrieb eine umfangreiche SLES-Infrastruktur, die vollständig über den **SUSE Manager** verwaltet wurde.
+Ziel war es, die bestehende Umgebung zu modernisieren, internes Wissen aufzubauen und veraltete **SLES 12** Server auf **SLES 15** zu migrieren.
+
+## challenge
+
+Der Kunde setzte ausschließlich auf SLES-Server und verwaltete diese über den SUSE Manager.
+Zudem liefen viele Systeme weiterhin auf **SLES 12**, das kurz vor dem Support-Ende stand.
+
+- Veraltete SLES 12 Systeme
+- Geringes Wissen über SUSE Manager und Salt
+- Teilweise manuelle und unstrukturierte Konfigurationen
+
+## goals
+
+Ziele des Projekts waren:
+
+- Aufbau von Wissen im Umgang mit dem SUSE Manager
+- Vereinfachung der Administrationsprozesse für SLES-Systeme
+- Migration der SLES 12 Systeme auf SLES 15
+- Einführung eines modernen Workflows auf Basis von Infrastructure as Code (IaC)
+
+## approach
+
+Zu Beginn führte ich einen **Crashkurs zum SUSE Manager** durch, um dem Kunden einen Überblick über die wichtigsten Funktionen zu geben.
+Da ich den **IaC-Ansatz** bevorzuge, habe ich den SUSE Manager und das darunterliegende **Salt** so angepasst, dass Änderungen über ein **Azure DevOps Staging-System** verwaltet werden konnten.
+Ich implementierte ein **Staging-System im SUSE Manager** und definierte einen **Development-Flow** für die Weiterentwicklung der Salt States.
+Gemeinsam mit dem Kunden wurden die **SLES 12 Systeme auf SLES 15** migriert.
+
+## implementation
+
+- **Crashkurs:** Einführung in die Grundlagen des SUSE Managers
+- **IaC-Setup:** Integration von Azure DevOps und Salt zur versionskontrollierten Verwaltung
+- **Staging-System:** Implementierung eines Test- und Freigabeprozesses im SUSE Manager
+- **Migration:** Aktualisierung der Systeme von SLES 12 auf SLES 15
+- **Dokumentation:** Übergabe einer strukturierten Betriebsdokumentation
+
+## results
+
+- Das von mir eingeführte **Staging-System** und der **IaC-Workflow** werden bis heute genutzt
+- Zahlreiche SLES 12 Systeme konnten erfolgreich migriert werden
+- Der Kunde ist nun in der Lage, den SUSE Manager eigenständig zu verwalten
+
+Im September 2024 habe ich das Projekt im Zuge meines Jobwechsels an einen Kollegen übergeben.
+
+## insights
+
+Das Projekt hat mein Wissen über **SUSE Manager**, **SaltStack** und **IaC-Workflows** in Unternehmensumgebungen weiter vertieft.
+Ich konnte praktische Erfahrung im Aufbau nachhaltiger und versionskontrollierter Linux-Infrastrukturen sammeln.
+
+- Erfahrung im Aufbau von Automatisierungs- und Staging-Prozessen mit SUSE Manager
+- Effektiver Wissenstransfer durch praxisnahe Schulungen
+- Stärkung der IaC-Prinzipien in gewachsenen Linux-Umgebungen

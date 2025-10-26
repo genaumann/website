@@ -1,0 +1,57 @@
+---
+technologies:
+  - salt
+  - github
+start: 2023-12-12
+end: 2024-03-31
+context: personal
+---
+
+# Development of a Salt Formula for Git
+
+## project_overview
+
+I developed a custom **Salt formula** that automates the configuration of local Git clients.
+The formula enables consistent Git settings across multiple systems, ensuring standardized developer environments.
+
+## challenge
+
+The goal was to create a **reusable and version-independent solution** that remains compatible with multiple Salt releases.
+
+- Ensure compatibility across different Salt versions
+- Focus on maintainability and reusability
+
+## goals
+
+The main goals of the project were:
+
+- Develop a **reusable Salt formula** for Git configuration
+- Automate testing against multiple **Salt versions**
+- Ensure quality, stability, and maintainable code
+
+## approach
+
+The formula was designed with a **modular structure**, using **Jinja templates** and **YAML-based configuration files** for maximum flexibility.
+Automated tests were implemented through a **GitHub Actions pipeline**, validating the formula against the latest Salt releases.
+
+## implementation
+
+- **Development:** Created a Salt formula to manage Git configuration (username, email, signing keys, etc.)
+- **Automation:** Set up a **GitHub Actions pipeline** to test against multiple Salt versions
+- **Quality Assurance:** Added linting, syntax checks, and multi-environment testing
+- **Documentation:** Included usage examples and developer notes for easy adoption
+
+## results
+
+- Fully automated and reusable Salt formula for Git client configuration
+- Continuous testing via GitHub Actions
+- Simplified Git setup for developers and teams
+
+## insights
+
+In this project, I learned how to develop **reusable Salt modules** and integrate **automated testing** for configuration management code.
+I also deepened my understanding of **CI pipelines**, **Salt architecture**, and **Infrastructure as Code (IaC)** best practices.
+
+- Experience in building reusable Salt formulas
+- Hands-on experience with automated testing in GitHub Actions
+- Strengthened understanding of IaC principles and automation workflows

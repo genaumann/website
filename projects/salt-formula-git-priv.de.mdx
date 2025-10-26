@@ -1,0 +1,57 @@
+---
+technologies:
+  - salt
+  - github
+start: 2023-12-12
+end: 2024-03-31
+context: personal
+---
+
+# Entwicklung eines Salt-Formulas für Git
+
+## project_overview
+
+Ich habe ein eigenes **Salt-Formula** entwickelt, mit dem sich lokale Git-Clients automatisiert konfigurieren lassen.
+Das Formula ermöglicht einheitliche Git-Einstellungen auf verschiedenen Systemen und sorgt so für konsistente Entwicklerumgebungen.
+
+## challenge
+
+Ziel war es, eine **wiederverwendbare und versionsunabhängige Lösung** zu entwickeln, die mit verschiedenen Salt-Versionen kompatibel bleibt.
+
+- Sicherstellung der Kompatibilität mit mehreren Salt-Versionen
+- Fokus auf Wartbarkeit und Wiederverwendbarkeit
+
+## goals
+
+Ziele des Projekts waren:
+
+- Entwicklung eines **wiederverwendbaren Salt-Formulas** zur Git-Konfiguration
+- Automatisiertes Testing gegen verschiedene **Salt-Versionen**
+- Sicherstellung von Qualität, Stabilität und Code-Wartbarkeit
+
+## approach
+
+Das Formula wurde modular aufgebaut und nutzt **Jinja-Templates** sowie **YAML-basierte Konfigurationsdateien** für maximale Flexibilität.
+Über eine **GitHub Actions Pipeline** werden automatisiert Tests gegen die neuesten Salt-Releases ausgeführt.
+
+## implementation
+
+- **Entwicklung:** Erstellung eines Salt-Formulas zur Verwaltung von Git-Einstellungen (Benutzername, E-Mail, Signierungsschlüssel usw.)
+- **Automatisierung:** Einrichtung einer **GitHub Actions Pipeline** für Tests gegen mehrere Salt-Versionen
+- **Qualitätssicherung:** Linting, Syntax-Checks und Multi-Environment-Tests
+- **Dokumentation:** Bereitstellung von Anwendungsbeispielen und Entwicklerhinweisen
+
+## results
+
+- Vollständig automatisiertes und wiederverwendbares Salt-Formula zur Git-Konfiguration
+- Kontinuierliches Testing über GitHub Actions
+- Vereinfachte Einrichtung von Git-Umgebungen für Entwicklerteams
+
+## insights
+
+In diesem Projekt lernte ich, wie man **wiederverwendbare Salt-Module** entwickelt und **automatisiertes Testing** für Konfigurationsmanagement-Code integriert.
+Ich konnte mein Wissen über **CI-Pipelines**, **Salt-Architektur** und **IaC-Best Practices** deutlich vertiefen.
+
+- Entwicklung wiederverwendbarer Salt-Formulas
+- Erfahrung im automatisierten Testing mit GitHub Actions
+- Stärkeres Verständnis von Infrastructure-as-Code-Prinzipien

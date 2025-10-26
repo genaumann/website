@@ -1,0 +1,60 @@
+---
+technologies:
+  - salt
+start: 2020-01-01
+end: 2021-08-30
+context: work
+---
+
+# Einführung von Salt zur Serverautomatisierung
+
+## project_overview
+
+Zu Beginn wurden etwa **40 virtuelle Debian-Server** manuell verwaltet und regelmäßig aktualisiert.
+Dieser Prozess war zeitaufwendig, fehleranfällig und schwer skalierbar.
+Mein Ziel war es, **Salt** in die bestehende Infrastruktur zu integrieren, um die Server effizient zu verwalten und Konfigurationen über **Infrastructure as Code (IaC)** zu standardisieren.
+
+## challenge
+
+Die manuelle Pflege der Server führte zu unterschiedlichen Systemzuständen und hohen Wartungsaufwänden.
+Eine einheitliche Verwaltung und Automatisierung fehlte komplett.
+
+- Rund 40 Server wurden manuell gepflegt
+- Kein zentrales Konfigurationsmanagement
+- Fehlende Standardisierung und Nachvollziehbarkeit
+
+## goals
+
+Ziele des Projekts waren:
+
+- Einführung von **Salt** als zentrales Management-Tool
+- Vereinheitlichung und Automatisierung der Serverkonfiguration
+- Aufbau einer **IaC-basierten Infrastrukturverwaltung**
+- Nachhaltige Reduktion des Administrationsaufwands
+
+## approach
+
+Ich installierte und konfigurierte eine **Salt-Master/Minion-Architektur**, um alle Systeme zentral zu verwalten.
+Darauf aufbauend entwickelte ich **Salt States**, die standardisierte Serverkonfigurationen bereitstellten und automatisierte Updates ermöglichten.
+Durch kontinuierliche Verbesserung entstand eine stabile, wartbare und erweiterbare Struktur.
+
+## implementation
+
+- **Setup:** Installation und Einrichtung eines Salt Masters und der Minions
+- **IaC-Struktur:** Erstellung von Salt States zur Standardisierung von Serverkonfigurationen
+- **Automatisierung:** Einführung automatischer Updates und Konfigurationsprüfungen
+
+## results
+
+- Vollständige Zentralisierung der Serververwaltung mit Salt
+- Reduzierter Wartungsaufwand und konsistente Systemkonfigurationen
+- Der Kunde nutzt das Setup bis heute und entwickelt es aktiv weiter
+
+## insights
+
+Das Projekt war mein Einstieg in die **Serverautomatisierung** mit Salt.
+Ich lernte, wie man eine skalierbare Management-Infrastruktur aufbaut und mehrere Systeme effizient verwaltet.
+
+- Praktische Erfahrung mit Salt und IaC
+- Verständnis für Automatisierung in Multi-Server-Umgebungen
+- Nachhaltige Verbesserung von Effizienz und Wartbarkeit
