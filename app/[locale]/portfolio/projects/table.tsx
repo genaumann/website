@@ -13,6 +13,7 @@ import {Button} from '@/components/ui/button'
 import Icon from '@/components/ui/icon'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
+import ProjectTechnologyBadge from '@/components/ui/project-technology-badge'
 
 export default function ProjectsTable() {
   const router = useRouter()
@@ -45,9 +46,10 @@ export default function ProjectsTable() {
         return (
           <div className="flex gap-2 flex-wrap">
             {row.original.technologies.map(technology => (
-              <Badge key={technology} variant="outline" className="font-normal">
-                {technology}
-              </Badge>
+              <ProjectTechnologyBadge
+                key={technology}
+                technologyName={technology}
+              />
             ))}
           </div>
         )

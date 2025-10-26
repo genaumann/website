@@ -7,9 +7,9 @@ import {useRouter} from 'next/navigation'
 import Icon from '@/components/ui/icon'
 import {getDateFunctions} from '@/lib/dates'
 import {cn} from '@/lib/cn'
-import {Badge} from '@/components/ui/badge'
 import {Input} from '@/components/ui/input'
 import {useState} from 'react'
+import ProjectTechnologyBadge from '@/components/ui/project-technology-badge'
 
 export default function PortfolioProjectsMobileList() {
   const [search, setSearch] = useState('')
@@ -42,7 +42,13 @@ export default function PortfolioProjectsMobileList() {
         {filteredProjects.map((project, index) => (
           <li
             key={project.id}
-            onClick={() => router.push(`/portfolio/projects/${project.id}`)}
+            onClick={e => {
+              const target = e.target as HTMLElement
+              if (target.closest('a')) {
+                return
+              }
+              router.push(`/portfolio/projects/${project.id}`)
+            }}
             className={cn(
               'cursor-pointer hover:bg-accent hover:text-accent-foreground p-2 border-b border-muted border-dashed',
               index === filteredProjects.length - 1 && 'border-b-0'
@@ -60,12 +66,10 @@ export default function PortfolioProjectsMobileList() {
               </div>
               <div className="flex items-center gap-1 flex-wrap">
                 {project.technologies.map(technology => (
-                  <Badge
+                  <ProjectTechnologyBadge
                     key={technology}
-                    variant="outline"
-                    className="font-normal px-1.5">
-                    {technology}
-                  </Badge>
+                    technologyName={technology}
+                  />
                 ))}
               </div>
             </div>

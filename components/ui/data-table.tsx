@@ -111,7 +111,13 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
-                  onClick={() => onRowClick?.(row.original)}
+                  onClick={e => {
+                    const target = e.target as HTMLElement
+                    if (target.closest('a') || target.closest('button')) {
+                      return
+                    }
+                    onRowClick?.(row.original)
+                  }}
                   className={onRowClick ? 'cursor-pointer' : ''}>
                   {row.getVisibleCells().map(cell => (
                     <TableCell key={cell.id}>

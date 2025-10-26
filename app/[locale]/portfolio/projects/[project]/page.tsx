@@ -17,7 +17,8 @@ import {Fragment} from 'react'
 import {Badge} from '@/components/ui/badge'
 import {getDateFunctions} from '@/lib/dates'
 import Icon from '@/components/ui/icon'
-import {ProjectContextObjects} from '../../tools/[tool]/projects'
+import {ProjectContextObjects} from '../../technologies/[technology]/projects'
+import ProjectTechnologyBadge from '@/components/ui/project-technology-badge'
 
 type ProjectParam = LocaleParam & {
   project: string
@@ -147,12 +148,10 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
           <div className="flex justify-center items-center text-sm gap-4">
             <div className="flex gap-2 items-center flex-wrap">
               {project.technologies.map(technology => (
-                <Badge
+                <ProjectTechnologyBadge
                   key={technology}
-                  variant="outline"
-                  className="font-normal">
-                  {technology}
-                </Badge>
+                  technologyName={technology}
+                />
               ))}
             </div>
           </div>
