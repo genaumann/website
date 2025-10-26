@@ -102,7 +102,6 @@ export default async function Page({params}: {params: Promise<ToolParam>}) {
         />
         <TechnologyProjectsPage
           technology={technology}
-          locale={locale}
           title={technologyData.name}
         />
         <TechnologyArticlesPage

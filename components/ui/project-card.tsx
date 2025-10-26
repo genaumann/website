@@ -1,7 +1,6 @@
 import {cn} from '@/lib/cn'
 import {forwardRef} from 'react'
 import {Badge, BadgeProps} from './badge'
-import {Slot} from '@radix-ui/react-slot'
 import {Project, TType} from '@/lib/types'
 
 interface StatusBadgeProps extends BadgeProps {
@@ -36,28 +35,13 @@ const ProjectCard = forwardRef<
   <div
     ref={ref}
     className={cn(
-      'rounded-lg border border-muted shadow bg-background relative flex flex-col dark:shadow-primary h-full',
+      'p-6 rounded-lg border border-muted border-dashed shadow bg-background relative flex flex-col gap-6 shadow-primary h-full',
       className
     )}
     {...props}
   />
 ))
 ProjectCard.displayName = 'ProjectCard'
-
-const ProjectCardMain = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({className, ...props}, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'flex flex-col p-6 gap-4 border-b border-muted grow',
-      className
-    )}
-    {...props}
-  />
-))
-ProjectCardMain.displayName = 'ProjectCardMain'
 
 const ProjectCardTitle = forwardRef<
   HTMLSpanElement,
@@ -71,30 +55,11 @@ const ProjectCardTitle = forwardRef<
 ))
 ProjectCardTitle.displayName = 'ProjectCardTitle'
 
-const ProjectCardDescription = forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({className, ...props}, ref) => (
-  <p
-    ref={ref}
-    className={cn('text-muted-foreground whitespace-pre-line', className)}
-    {...props}
-  />
-))
-ProjectCardDescription.displayName = 'ProjectCardDescription'
-
 const ProjectCardInfo = forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({className, ...props}, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'p-6 flex flex-col gap-2 bg-card min-h-[186px] rounded-b-lg',
-      className
-    )}
-    {...props}
-  />
+  <div ref={ref} className={cn('flex flex-col gap-2', className)} {...props} />
 ))
 ProjectCardInfo.displayName = 'ProjectCardInfo'
 
@@ -106,56 +71,10 @@ const ProjectCardInfoItem = forwardRef<
 ))
 ProjectCardInfoItem.displayName = 'ProjectCardInfoItem'
 
-const ProjectCardInfoLabel = forwardRef<
-  HTMLSpanElement,
-  React.HTMLAttributes<HTMLSpanElement>
->(({className, ...props}, ref) => (
-  <span ref={ref} className={cn('font-semibold', className)} {...props} />
-))
-ProjectCardInfoLabel.displayName = 'ProjectCardInfoLabel'
-
-const ProjectCardInfoValue = forwardRef<
-  HTMLSpanElement,
-  React.HTMLAttributes<HTMLSpanElement>
->(({className, ...props}, ref) => (
-  <span
-    ref={ref}
-    className={cn('text-muted-foreground', className)}
-    {...props}
-  />
-))
-ProjectCardInfoValue.displayName = 'ProjectCardInfoValue'
-
-const ProjectCardReference = forwardRef<
-  HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<'a'> & {
-    asChild?: boolean
-  }
->(({asChild, className, ...props}, ref) => {
-  const Comp = asChild ? Slot : 'a'
-
-  return (
-    <Comp
-      ref={ref}
-      className={cn(
-        'transition-colors hover:text-foreground underline inline-flex items-center gap-0.5 text-foreground',
-        className
-      )}
-      {...props}
-    />
-  )
-})
-ProjectCardReference.displayName = 'ProjectCardReference'
-
 export {
   ProjectCard,
-  ProjectCardMain,
   ProjectCardTitle,
-  ProjectCardDescription,
   ProjectCardInfo,
   ProjectCardInfoItem,
-  ProjectCardInfoLabel,
-  ProjectCardInfoValue,
-  ProjectCardReference,
   StatusBadge
 }
