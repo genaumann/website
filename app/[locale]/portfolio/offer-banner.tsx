@@ -9,7 +9,7 @@ export default async function PortfolioOfferBanner() {
     <section className="bg-muted/20">
       <Link
         className="container text-center md:text-left py-16 flex flex-col md:flex-row justify-center md:justify-evenly items-center gap-4 group"
-        href="/portfolio/tools">
+        href="/portfolio/technologies">
         <span className="text-2xl font-semibold">{t('techStackOverview')}</span>
         <Button
           size="lg"

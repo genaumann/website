@@ -2,15 +2,15 @@
 
 import {useState, useMemo, useCallback} from 'react'
 import Fuse from 'fuse.js'
-import type {Tool} from '@/lib/tools'
+import {Technology} from '@/lib/types'
 
-export function useToolSearch(allTools: Tool[]) {
+export function useTechnologySearch(allTechnologies: Technology[]) {
   const [searchQuery, setSearchQuery] = useState('')
 
   const fuse = useMemo(() => {
-    if (!allTools || allTools.length === 0) return null
+    if (!allTechnologies || allTechnologies.length === 0) return null
 
-    return new Fuse(allTools, {
+    return new Fuse(allTechnologies, {
       keys: [
         {name: 'name', weight: 2},
         {name: 'intro', weight: 0.7},
@@ -20,16 +20,16 @@ export function useToolSearch(allTools: Tool[]) {
       threshold: 0.3,
       ignoreLocation: true
     })
-  }, [allTools])
+  }, [allTechnologies])
 
-  const filteredTools = useMemo(() => {
-    if (!allTools || allTools.length === 0) return []
-    if (!searchQuery || searchQuery.trim() === '') return allTools
+  const filteredTechnologies = useMemo(() => {
+    if (!allTechnologies || allTechnologies.length === 0) return []
+    if (!searchQuery || searchQuery.trim() === '') return allTechnologies
     if (!fuse) return []
 
     const searchResults = fuse.search(searchQuery)
     return searchResults.map(result => result.item)
-  }, [allTools, searchQuery, fuse])
+  }, [allTechnologies, searchQuery, fuse])
 
   const handleSearch = useCallback((query: string) => {
     setSearchQuery(query)
@@ -37,7 +37,7 @@ export function useToolSearch(allTools: Tool[]) {
 
   return {
     searchQuery,
-    filteredTools,
+    filteredTechnologies,
     handleSearch
   }
 }

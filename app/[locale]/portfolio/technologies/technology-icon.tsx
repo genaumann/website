@@ -1,13 +1,16 @@
 'use client'
 
 import Icon from '@/components/ui/icon'
-import {Tool} from '@/lib/tools'
+import {Technology} from '@/lib/types'
 import {useEffect, useState} from 'react'
 import {useTheme} from 'next-themes'
 
-type ToolIconProps = Pick<Tool, 'icon' | 'iconPrefix'>
+type TechnologyIconProps = Pick<Technology, 'icon' | 'iconPrefix'>
 
-export default function TechnologyIcon({icon, iconPrefix}: ToolIconProps) {
+export default function TechnologyIcon({
+  icon,
+  iconPrefix
+}: TechnologyIconProps) {
   const {theme, systemTheme} = useTheme()
   const [isDark, setIsDark] = useState<boolean | undefined>(undefined)
 

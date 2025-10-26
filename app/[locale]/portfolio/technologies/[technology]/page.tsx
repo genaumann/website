@@ -17,9 +17,10 @@ import getMetadata from '@/lib/metadata'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LocaleParam} from '@/lib/types'
 import {LOCALES} from '@/locales'
+import {getTechnology} from '@/lib/technologies'
 
 type ToolParam = LocaleParam & {
-  tool: string
+  technology: string
 }
 
 // 404 for unspecified tools
@@ -31,7 +32,7 @@ export async function generateStaticParams() {
     .map(tool =>
       Object.values(LOCALES).map(locale => ({
         locale,
-        tool: tool.slug
+        technology: tool.slug
       }))
     )
     .flat()
@@ -42,36 +43,35 @@ export async function generateMetadata({
 }: {
   params: Promise<ToolParam>
 }): Promise<Metadata> {
-  const {locale, tool} = await params
+  const {locale, technology} = await params
   const t = await getTranslate('portfolio', {noWrap: true})
-  const tools = toolsData(t)
-  const config = tools.find(_ => _.slug === tool)
+  const technologyData = getTechnology(technology)
+  if (!technologyData) return {}
 
   return getMetadata({
-    title: config?.name || t('techstack', {ns: 'common'}),
+    title: technologyData.name || t('techstack', {ns: 'common'}),
     description: t('appMetadata.description.tool', {
-      tool: config?.name || tool
+      tool: technologyData.name || technology
     }),
-    slug: `/portfolio/tools/${tool}`,
+    slug: `/portfolio/technologies/${technology}`,
     index: true,
     locale,
     og: {
       type: 'website',
-      title: config?.name || t('techstack', {ns: 'common'}),
+      title: technologyData.name || t('techstack', {ns: 'common'}),
       description: t('appMetadata.description.tool', {
-        tool: config?.name || tool
+        tool: technologyData.name || technology
       })
     }
   })
 }
 
 export default async function Page({params}: {params: Promise<ToolParam>}) {
-  const {tool, locale} = await params
+  const {technology, locale} = await params
   const t = await getTranslate('portfolio')
-  const tools = toolsData(t)
-  const config = tools.find(_ => _.slug === tool)
+  const technologyData = getTechnology(technology)
 
-  if (!config) notFound()
+  if (!technologyData) notFound()
 
   return (
     <>
@@ -85,27 +85,30 @@ export default async function Page({params}: {params: Promise<ToolParam>}) {
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/portfolio/tools">
+              <Link href="/portfolio/technologies">
                 {t('techstack', {ns: 'common'})}
               </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbItem>{config.name}</BreadcrumbItem>
+          <BreadcrumbItem>{technologyData.name}</BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
       <div className="[&>section:nth-child(even)]:bg-muted/20">
-        <TechnologyIntroPage tool={config} />
-        <TechnologyCertsPage tool={tool} title={config.name} />
+        <TechnologyIntroPage technology={technologyData} locale={locale} />
+        <TechnologyCertsPage
+          technology={technology}
+          title={technologyData.name}
+        />
         <TechnologyProjectsPage
-          technology={tool}
+          technology={technology}
           locale={locale}
-          title={config.name}
+          title={technologyData.name}
         />
         <TechnologyArticlesPage
-          tool={tool}
+          technology={technology}
           locale={locale}
-          title={config.name}
+          title={technologyData.name}
         />
       </div>
     </>

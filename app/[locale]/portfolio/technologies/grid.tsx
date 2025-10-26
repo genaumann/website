@@ -1,18 +1,19 @@
 'use client'
 
-import {tools as getAllTools} from '../../../../lib/tools'
 import {useEffect, useRef} from 'react'
 import {Input} from '@/components/ui/input'
 import TechnologyCard from './card'
-import {useToolSearch} from '../hooks'
+import {useTechnologySearch} from '../hooks'
 import {useTranslate} from '@tolgee/react'
+import {getTechnologies} from '@/lib/technologies'
 
 export default function TechnologyGridPage() {
   const {t} = useTranslate()
   const inputRef = useRef<HTMLInputElement>(null)
-  const allTools = getAllTools(t)
+  const allTechnologies = getTechnologies()
 
-  const {filteredTools, handleSearch} = useToolSearch(allTools)
+  const {filteredTechnologies, handleSearch} =
+    useTechnologySearch(allTechnologies)
 
   useEffect(() => {
     inputRef.current?.focus()
@@ -30,14 +31,14 @@ export default function TechnologyGridPage() {
         />
       </div>
 
-      {filteredTools.length === 0 ? (
+      {filteredTechnologies.length === 0 ? (
         <div className="text-center py-8 text-muted-foreground text-sm">
           {t('noResults')}
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {filteredTools.map((tool, index) => (
-            <TechnologyCard key={index} tool={tool} />
+          {filteredTechnologies.map((technology, index) => (
+            <TechnologyCard key={index} technology={technology} />
           ))}
         </div>
       )}

@@ -21,7 +21,7 @@ import {Pagination, A11y, FreeMode, Navigation} from 'swiper/modules'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import PortfolioProjectFilter, {ProjectContextFilter} from './filter'
 import type {Swiper as SwiperType} from 'swiper'
-import {ProjectContextObjects} from '@/app/[locale]/portfolio/tools/[tool]/projects'
+import {ProjectContextObjects} from '@/app/[locale]/portfolio/technologies/[technology]/projects'
 import {useTolgee, useTranslate} from '@tolgee/react'
 
 export default function PortfolioProjectSwiper() {

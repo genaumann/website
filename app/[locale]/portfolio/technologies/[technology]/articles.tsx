@@ -11,17 +11,17 @@ import Link from 'next/link'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LocaleParam} from '@/lib/types'
 
-type ToolArticlesPageProps = LocaleParam & {
-  tool: string
+type TechnologyArticlesPageProps = LocaleParam & {
+  technology: string
   title: string
 }
 
-export default async function ToolArticlesPage({
-  tool,
+export default async function TechnologyArticlesPage({
+  technology,
   title,
   locale
-}: ToolArticlesPageProps) {
-  const allArticles = await getArticlesByKeyword(locale, tool)
+}: TechnologyArticlesPageProps) {
+  const allArticles = await getArticlesByKeyword(locale, technology)
   const {format} = getDateFunctions(locale)
   const t = await getTranslate('portfolio')
 

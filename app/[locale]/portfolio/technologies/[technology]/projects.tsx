@@ -31,7 +31,9 @@ export default async function TechnologyProjectsPage({
 }: TechnologyProjectsPageProps) {
   const t = await getTranslate('portfolio')
   const {format} = getDateFunctions(locale)
-  const projects = getProjects({technology, t})
+  const projects = getProjects().filter(project =>
+    project.technologies.includes(technology)
+  )
 
   const contexts: ProjectContextObjects = {
     personal: t('personalProjects', {count: 1}),
@@ -60,9 +62,14 @@ export default async function TechnologyProjectsPage({
                 className="absolute -right-2 -top-3"
               />
               <ProjectCardMain>
-                <ProjectCardTitle>{project.name}</ProjectCardTitle>
+                <ProjectCardTitle>
+                  {project.name[locale as keyof typeof project.name]}
+                </ProjectCardTitle>
                 <ProjectCardDescription>
-                  {project.description}
+                  {
+                    project.content[locale as keyof typeof project.content]
+                      .project_overview
+                  }
                 </ProjectCardDescription>
               </ProjectCardMain>
               <ProjectCardInfo>
