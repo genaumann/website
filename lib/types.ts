@@ -66,3 +66,20 @@ export type Project = {
     }
   }
 }
+
+type TechnologyIcon = {
+  dark: IconName
+  light: IconName
+}
+
+export type Technology = {
+  name: string
+  icon: IconName | TechnologyIcon
+  iconPrefix?: IconPrefix
+  slug: string
+  keywords?: string[]
+  altNames?: string[]
+  intro: {
+    [K in keyof typeof LOCALES]: string
+  }
+}
