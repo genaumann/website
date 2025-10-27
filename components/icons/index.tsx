@@ -19,6 +19,7 @@ import NextJS from './nextjs'
 import NextJSLight from './nextjs-light'
 import Podman from './podman'
 import Tolgeee from './tolgee'
+import Kubernetes from './kubernetes'
 
 export const customIconMap = {
   redhat: {
@@ -100,6 +101,10 @@ export const customIconMap = {
   bookOpen: {
     Component: BookOpen,
     color: '#000000'
+  },
+  kubernetes: {
+    Component: Kubernetes,
+    color: '#326CE5'
   }
 }
 
