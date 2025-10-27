@@ -15,7 +15,7 @@ export default async function PortfolioProjectsPage() {
       <h2 className="text-4xl font-bold text-center">
         {t('completedProjects', {ns: 'common'})}
       </h2>
-      <ProjectGrid projects={completedProjects} />
+      <ProjectGrid projects={completedProjects.splice(0, 3)} />
       <Link href="/portfolio/projects" className="text-center group">
         <Button
           size="lg"
