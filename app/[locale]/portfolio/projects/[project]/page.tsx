@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/breadcrumb'
 import {StatusBadge} from '@/components/ui/project-card'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
-import {getProject} from '@/lib/projects'
+import {getProject, getProjects} from '@/lib/projects'
 import {LocaleParam} from '@/lib/types'
 import {LOCALES} from '@/locales'
 import Link from 'next/link'
@@ -19,6 +19,7 @@ import {
   ProjectContextBadge,
   ProjectDateBadge
 } from '@/components/ui/project-badges'
+import {ChevronLeftIcon, ChevronRightIcon} from '@radix-ui/react-icons'
 
 type ProjectParam = LocaleParam & {
   project: string
@@ -31,6 +32,17 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
   const project = getProject({id: projectId})
 
   if (!project) notFound()
+
+  const allProjects = getProjects()
+  const currentIndex = allProjects.findIndex(p => p.id === projectId)
+
+  const prevIndex =
+    currentIndex === 0 ? allProjects.length - 1 : currentIndex - 1
+  const nextIndex =
+    currentIndex === allProjects.length - 1 ? 0 : currentIndex + 1
+
+  const prevProject = allProjects[prevIndex]
+  const nextProject = allProjects[nextIndex]
 
   const contentMap = [
     {
@@ -127,8 +139,6 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
         ))}
       </section>
 
-      <hr className="border-muted border-dashed" />
-
       <section className="container py-10">
         {project.technologies && project.technologies.length > 0 && (
           <div className="flex justify-center items-center text-sm gap-4">
@@ -142,6 +152,36 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
             </div>
           </div>
         )}
+      </section>
+
+      <hr className="border-muted border-dashed" />
+
+      <section className="container py-10">
+        <div className="flex justify-between items-center gap-4">
+          <Link
+            href={`/portfolio/projects/${prevProject.id}`}
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
+            <ChevronLeftIcon className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+            <div className="text-left">
+              <div className="text-xs text-muted-foreground">
+                {t('previousProject')}
+              </div>
+              <div className="font-semibold">{prevProject.name[localeKey]}</div>
+            </div>
+          </Link>
+
+          <Link
+            href={`/portfolio/projects/${nextProject.id}`}
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
+            <div className="text-right">
+              <div className="text-xs text-muted-foreground">
+                {t('nextProject')}
+              </div>
+              <div className="font-semibold">{nextProject.name[localeKey]}</div>
+            </div>
+            <ChevronRightIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </section>
     </>
   )
