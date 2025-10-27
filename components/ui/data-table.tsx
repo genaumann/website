@@ -5,6 +5,7 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
+  getPaginationRowModel,
   getSortedRowModel,
   SortingState,
   useReactTable
@@ -46,6 +47,7 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onGlobalFilterChange: setGlobalFilter,
     getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
     globalFilterFn: 'includesString',
     state: {
       sorting,
@@ -54,8 +56,8 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <>
-      <div className="flex justify-end mb-4 lg:w-[250px]">
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-end lg:w-[250px]">
         <Input
           className="border border-muted border-dashed shadow-none placeholder:text-sm placeholder:text-muted-foreground placeholder:font-light"
           placeholder={t('tableFilter')}
@@ -141,6 +143,38 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-    </>
+      <div className="flex items-center justify-between space-x-2">
+        <div className="flex items-center space-x-8 text-sm text-muted-foreground">
+          <span>
+            {t('tablePagination', {
+              currentPage: table.getState().pagination.pageIndex + 1,
+              totalPages: table.getPageCount()
+            })}
+          </span>
+          <span>
+            {t('tablePaginationItems', {
+              itemsPerPage: table.getPaginationRowModel().rows.length,
+              totalItems: table.getRowCount()
+            })}
+          </span>
+        </div>
+        <div className="flex items-center space-x-2">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}>
+            <Icon name="chevron-left" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}>
+            <Icon name="chevron-right" />
+          </Button>
+        </div>
+      </div>
+    </div>
   )
 }
