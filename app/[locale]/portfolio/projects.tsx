@@ -25,7 +25,9 @@ export default async function PortfolioProjectsPage() {
         </Badge>
       </div>
       <ProjectGrid projects={completedProjects.splice(0, maxProjects)} />
-      <Link href="/portfolio/projects" className="text-center group">
+      <Link
+        href="/portfolio/projects"
+        className="text-center group font-oswald">
         <Button
           size="lg"
           className="group-hover:scale-125 transition-transform duration-300 ease-in-out">

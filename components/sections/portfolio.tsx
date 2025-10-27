@@ -12,7 +12,7 @@ export default async function PortfolioSection() {
         <div className="flex flex-col md:flex-row md:justify-between items-center gap-4">
           <div className="flex flex-col gap-6">
             <div>
-              <span className="ml-1">{t('devOpsFromBerlin')}</span>
+              <span className="ml-1 font-oswald">{t('devOpsFromBerlin')}</span>
               <h2 className="text-5xl font-bold">{t('appName')}</h2>
             </div>
             <div className="md:hidden self-center rounded-xl shadow dark:shadow-primary w-full flex justify-center pt-2">
@@ -30,7 +30,7 @@ export default async function PortfolioSection() {
               <Button
                 className="w-fit text-base self-center md:self-start"
                 asChild>
-                <Link href="/portfolio/">
+                <Link href="/portfolio/" className="font-oswald">
                   {t('viewPortfolio')}
                   <Icon name="arrow-right" />
                 </Link>

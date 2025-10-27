@@ -34,7 +34,8 @@
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
 
-  --font-sans: var(--font-sans);
+  --font-oswald: Oswald, sans-serif;
+  --font-inter: Inter, sans-serif;
 
   /* Box Shadow Konfiguration */
   --shadow-t: 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -174,6 +175,15 @@
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-oswald);
   }
 
   section {

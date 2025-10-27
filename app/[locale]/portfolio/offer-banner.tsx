@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default async function PortfolioOfferBanner() {
   const t = await getTranslate('portfolio')
   return (
-    <section className="bg-muted/20">
+    <section className="bg-muted/20 font-oswald">
       <Link
         className="container text-center md:text-left py-16 flex flex-col md:flex-row justify-center md:justify-evenly items-center gap-4 group"
         href="/portfolio/technologies">

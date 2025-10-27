@@ -45,7 +45,7 @@ export default async function PortfolioOfferPage() {
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-4 text-base py-3 px-4">
                     {offer.description}
-                    <Button className="w-fit" asChild>
+                    <Button className="w-fit font-oswald" asChild>
                       <Link href="/portfolio/tools">
                         {t('myTechStack')}
                         <Icon name="arrow-right" />

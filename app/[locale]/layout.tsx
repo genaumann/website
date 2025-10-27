@@ -1,5 +1,5 @@
 import {cn} from '@/lib/cn'
-import {Oswald as FontSans} from 'next/font/google'
+import {Inter, Oswald} from 'next/font/google'
 import {config as fontawesome} from '@fortawesome/fontawesome-svg-core'
 import {Metadata} from 'next'
 import Header from '@/components/sections/header'
@@ -20,10 +20,16 @@ import {Analytics} from '@vercel/analytics/next'
 
 fontawesome.autoAddCss = false
 
-const fontSans = FontSans({
+const oswald = Oswald({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-sans'
+  variable: '--font-oswald'
+})
+
+const inter = Inter({
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  variable: '--font-inter'
 })
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -60,7 +66,8 @@ export default async function RootLayout({
       <body
         className={cn(
           'font-sans antialiased min-h-dvh flex flex-col',
-          fontSans.variable
+          oswald.variable,
+          inter.variable
         )}>
         <HeightObserver />
         <TolgeeNextProvider language={locale} staticData={records}>

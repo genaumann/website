@@ -60,7 +60,7 @@ export default async function StatusBadge({
         <TooltipTrigger asChild>
           <Badge
             variant={variant[status]}
-            className="inline-flex gap-1 items-center cursor-help">
+            className="inline-flex gap-1 items-center cursor-help font-oswald">
             <Icon name={icon[status]} />
             {badgeText[status]}
           </Badge>

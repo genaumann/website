@@ -102,7 +102,7 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
             start={project.start}
             end={project.end}
             t={t}
-            className="absolute -right-2 -top-3"
+            className="font-oswald absolute -right-2 -top-3"
           />
         </div>
         <div className="pt-4 flex gap-4 text-sm text-muted-foreground justify-center">
@@ -166,7 +166,9 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
               <div className="text-xs text-muted-foreground">
                 {t('previousProject')}
               </div>
-              <div className="font-semibold">{prevProject.name[localeKey]}</div>
+              <div className="font-semibold font-oswald">
+                {prevProject.name[localeKey]}
+              </div>
             </div>
           </Link>
 
@@ -177,7 +179,9 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
               <div className="text-xs text-muted-foreground">
                 {t('nextProject')}
               </div>
-              <div className="font-semibold">{nextProject.name[localeKey]}</div>
+              <div className="font-semibold font-oswald">
+                {nextProject.name[localeKey]}
+              </div>
             </div>
             <ChevronRightIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </Link>

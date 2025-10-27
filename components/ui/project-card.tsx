@@ -12,16 +12,20 @@ interface StatusBadgeProps extends BadgeProps {
 const StatusBadge = ({start, end, t, ...props}: StatusBadgeProps) => {
   const now = new Date()
   if (end && end < now) {
-    return <Badge {...props}>{t('status.completed')}</Badge>
+    return (
+      <Badge className="font-oswald" {...props}>
+        {t('status.completed')}
+      </Badge>
+    )
   } else if (start > now) {
     return (
-      <Badge variant="secondary" {...props}>
+      <Badge variant="secondary" className="font-oswald" {...props}>
         {t('status.upcoming')}
       </Badge>
     )
   } else {
     return (
-      <Badge variant="outline" {...props}>
+      <Badge variant="outline" className="font-oswald" {...props}>
         {t('status.inProgress')}
       </Badge>
     )
@@ -51,7 +55,7 @@ const ProjectCardTitle = forwardRef<
 >(({className, ...props}, ref) => (
   <span
     ref={ref}
-    className={cn('text-2xl font-semibold text-center', className)}
+    className={cn('text-2xl font-semibold text-center font-oswald', className)}
     {...props}
   />
 ))

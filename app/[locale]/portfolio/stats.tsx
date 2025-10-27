@@ -34,7 +34,7 @@ export default async function PortfolioStatsPage() {
   ]
 
   return (
-    <section className="py-12 bg-muted/20">
+    <section className="py-12 bg-muted/20 font-oswald">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {entries.map((entry, index) => (

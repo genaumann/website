@@ -17,7 +17,7 @@ export default function TechnologyCard({technology}: TechnologyCardProps) {
           iconPrefix={technology.iconPrefix}
         />
       </div>
-      <div className="text-center py-2 bg-card w-full rounded-b-lg">
+      <div className="font-oswald text-center py-2 bg-card w-full rounded-b-lg">
         <span>{technology.name}</span>
       </div>
     </Link>

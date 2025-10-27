@@ -24,7 +24,9 @@ export default function PortfolioIntroPage() {
             <h1 className="text-5xl md:text-7xl font-bold text-foreground animate-flicker">
               {CONTACT.name}
             </h1>
-            <p className="text-3xl text-muted-foreground">{CONTACT.jobTitle}</p>
+            <p className="text-3xl text-muted-foreground font-oswald">
+              {CONTACT.jobTitle}
+            </p>
           </div>
           <div className="flex flex-wrap justify-center gap-4 text-muted-foreground">
             <div className="flex items-center gap-2">
