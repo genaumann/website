@@ -18,6 +18,15 @@ interface ProjectDateBadgeProps {
   locale: Locale
 }
 
+export function ProjectContextMap({context, t}: ProjectContextBadgeProps) {
+  const contexts: ProjectContextObjects = {
+    personal: t('personalProjects', {count: 1, ns: 'portfolio'}),
+    work: t('workProjects', {count: 1, ns: 'portfolio'}),
+    freelance: t('freelanceProjects', {count: 1, ns: 'portfolio'})
+  }
+  return contexts[context]
+}
+
 export function ProjectDateBadge({start, end, locale}: ProjectDateBadgeProps) {
   const {format} = getDateFunctions(locale)
   return (
@@ -32,17 +41,13 @@ export function ProjectDateBadge({start, end, locale}: ProjectDateBadgeProps) {
 }
 
 export function ProjectContextBadge({context, t}: ProjectContextBadgeProps) {
-  const contexts: ProjectContextObjects = {
-    personal: t('personalProjects', {count: 1, ns: 'portfolio'}),
-    work: t('workProjects', {count: 1, ns: 'portfolio'}),
-    freelance: t('freelanceProjects', {count: 1, ns: 'portfolio'})
-  }
+  const contextMap = ProjectContextMap({context, t})
   return (
     <Badge
       variant="outline"
       className="flex items-center gap-1 font-light border-muted px-1.5">
       <Icon name="circle-info" />
-      <span>{contexts[context]}</span>
+      <span>{contextMap}</span>
     </Badge>
   )
 }

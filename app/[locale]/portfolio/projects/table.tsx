@@ -12,7 +12,10 @@ import {Button} from '@/components/ui/button'
 import Icon from '@/components/ui/icon'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
-import {ProjectTechnologyBadge} from '@/components/ui/project-badges'
+import {
+  ProjectContextMap,
+  ProjectTechnologyBadge
+} from '@/components/ui/project-badges'
 
 export default function ProjectsTable() {
   const router = useRouter()
@@ -58,7 +61,10 @@ export default function ProjectsTable() {
       header: () => t('context'),
       accessorKey: 'context',
       enableSorting: true,
-      enableGlobalFilter: true
+      enableGlobalFilter: true,
+      cell: ({row}) => {
+        return <ProjectContextMap context={row.original.context} t={t} />
+      }
     },
     {
       header: () => t('start', {ns: 'common'}),
