@@ -35,7 +35,9 @@ const ProjectCard = forwardRef<
   <div
     ref={ref}
     className={cn(
-      'p-6 rounded-lg border border-muted border-dashed shadow bg-background relative flex flex-col gap-6 shadow-primary h-full',
+      'p-4 rounded-lg border border-muted border-dashed shadow bg-background relative flex flex-col gap-6 shadow-primary h-full',
+      'transition-all duration-300 ease-out transform-gpu',
+      'hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20',
       className
     )}
     {...props}
@@ -49,7 +51,7 @@ const ProjectCardTitle = forwardRef<
 >(({className, ...props}, ref) => (
   <span
     ref={ref}
-    className={cn('line-clamp-2 text-2xl font-bold', className)}
+    className={cn('text-2xl font-semibold text-center', className)}
     {...props}
   />
 ))
@@ -59,7 +61,11 @@ const ProjectCardInfo = forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({className, ...props}, ref) => (
-  <div ref={ref} className={cn('flex flex-col gap-2', className)} {...props} />
+  <div
+    ref={ref}
+    className={cn('flex flex-col gap-2 items-center', className)}
+    {...props}
+  />
 ))
 ProjectCardInfo.displayName = 'ProjectCardInfo'
 
@@ -71,10 +77,26 @@ const ProjectCardInfoItem = forwardRef<
 ))
 ProjectCardInfoItem.displayName = 'ProjectCardInfoItem'
 
+const ProjectCardTechnologies = forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({className, ...props}, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      'flex gap-2 text-sm border-t border-muted border-dashed pt-4 items-center justify-center mt-auto',
+      className
+    )}
+    {...props}
+  />
+))
+ProjectCardTechnologies.displayName = 'ProjectCardTechnologies'
+
 export {
   ProjectCard,
   ProjectCardTitle,
   ProjectCardInfo,
   ProjectCardInfoItem,
-  StatusBadge
+  StatusBadge,
+  ProjectCardTechnologies
 }

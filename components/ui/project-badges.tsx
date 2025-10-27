@@ -21,7 +21,9 @@ interface ProjectDateBadgeProps {
 export function ProjectDateBadge({start, end, locale}: ProjectDateBadgeProps) {
   const {format} = getDateFunctions(locale)
   return (
-    <Badge variant="outline" className="flex items-center gap-1 font-normal">
+    <Badge
+      variant="outline"
+      className="flex items-center gap-1 font-light border-muted px-1.5">
       <Icon name="calendar" />
       <span>{format(start, 'MMMM yyyy')}</span>
       {end && <span> - {format(end, 'MMMM yyyy')}</span>}
@@ -36,7 +38,9 @@ export function ProjectContextBadge({context, t}: ProjectContextBadgeProps) {
     freelance: t('freelanceProjects', {count: 1, ns: 'portfolio'})
   }
   return (
-    <Badge variant="outline" className="flex items-center gap-1 font-normal">
+    <Badge
+      variant="outline"
+      className="flex items-center gap-1 font-light border-muted px-1.5">
       <Icon name="circle-info" />
       <span>{contexts[context]}</span>
     </Badge>
@@ -55,12 +59,12 @@ export function ProjectTechnologyBadge({
         <Link href={`/portfolio/technologies/${technology.slug}`}>
           <Badge
             variant="outline"
-            className="font-normal px-1.5 hover:bg-accent/50">
+            className="font-normal px-1.5 hover:bg-accent">
             {technology.name}
           </Badge>
         </Link>
       ) : (
-        <Badge variant="outline" className="font-normal px-1.5 border-muted">
+        <Badge variant="outline" className="font-light px-1.5 border-muted">
           {technologyName}
         </Badge>
       )}

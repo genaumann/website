@@ -9,6 +9,7 @@ import {
   ProjectCard,
   ProjectCardInfo,
   ProjectCardInfoItem,
+  ProjectCardTechnologies,
   ProjectCardTitle
 } from './project-card'
 import {cn} from '@/lib/cn'
@@ -50,7 +51,7 @@ export default function ProjectGrid({
   return (
     <div
       className={cn(
-        'grid grid-cols-1 md:grid-cols-4 xl:grid-cols-3 gap-4 p-2',
+        'grid grid-cols-1 lg:grid-cols-4 gap-x-4 gap-y-6 p-2',
         gridClassName
       )}>
       {projects.map((project, index) => {
@@ -62,8 +63,8 @@ export default function ProjectGrid({
             key={project.id}
             className={cn(
               'cursor-pointer',
-              'md:col-span-2',
-              shouldCenterLast && 'md:col-start-2 xl:col-span-1 xl:col-start-2'
+              'lg:col-span-2',
+              shouldCenterLast && 'lg:col-start-2'
             )}
             onClick={e => {
               const target = e.target as HTMLElement
@@ -87,15 +88,15 @@ export default function ProjectGrid({
                 />
                 <ProjectContextBadge context={project.context} t={t} />
               </ProjectCardInfoItem>
-              <ProjectCardInfoItem className="flex-wrap">
-                {project.technologies.map(technology => (
-                  <ProjectTechnologyBadge
-                    key={technology}
-                    technologyName={technology}
-                  />
-                ))}
-              </ProjectCardInfoItem>
             </ProjectCardInfo>
+            <ProjectCardTechnologies>
+              {project.technologies.map(technology => (
+                <ProjectTechnologyBadge
+                  key={technology}
+                  technologyName={technology}
+                />
+              ))}
+            </ProjectCardTechnologies>
           </ProjectCard>
         )
       })}
