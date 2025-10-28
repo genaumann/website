@@ -87,7 +87,9 @@ export default async function KBLayout({
             })}
           </BreadcrumbList>
         </Breadcrumb>
-        <article className="prose max-w-full">{children}</article>
+        <article id="kb" className="prose max-w-full">
+          {children}
+        </article>
       </div>
 
       {/* TOC */}

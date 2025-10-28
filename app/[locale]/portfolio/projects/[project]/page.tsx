@@ -137,100 +137,102 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="container py-10">
-        <div className="bg-muted/20 rounded-lg p-4 md:p-8 relative">
-          <h1 className="text-4xl md:text-6xl font-bold text-center md:leading-16">
-            {project.name[localeKey]}
-          </h1>
-          <StatusBadge
-            start={project.start}
-            end={project.end}
-            t={t}
-            className="font-oswald absolute -right-2 -top-3"
-          />
+      <article id="project">
+        <div className="container py-10">
+          <div className="bg-muted/20 rounded-lg p-4 md:p-8 relative">
+            <h1 className="text-4xl md:text-6xl font-bold text-center md:leading-16">
+              {project.name[localeKey]}
+            </h1>
+            <StatusBadge
+              start={project.start}
+              end={project.end}
+              t={t}
+              className="font-oswald absolute -right-2 -top-3"
+            />
+          </div>
+          <div className="pt-4 flex gap-4 justify-center flex-wrap">
+            <ProjectDateBadge
+              start={project.start}
+              end={project.end}
+              locale={locale}
+            />
+            <ProjectContextBadge context={project.context} t={t} />
+          </div>
+          <div className="pt-10 prose dark:prose-invert md:max-w-2/3 mx-auto md:text-center">
+            <MDXContent source={project.content[localeKey].project_overview} />
+          </div>
         </div>
-        <div className="pt-4 flex gap-4 justify-center flex-wrap">
-          <ProjectDateBadge
-            start={project.start}
-            end={project.end}
-            locale={locale}
-          />
-          <ProjectContextBadge context={project.context} t={t} />
-        </div>
-        <div className="pt-10 prose dark:prose-invert md:max-w-2/3 mx-auto md:text-center">
-          <MDXContent source={project.content[localeKey].project_overview} />
-        </div>
-      </div>
 
-      <section className="[&>div:nth-child(odd)]:bg-muted/20">
-        {contentMap.map(item => (
-          <Fragment key={item.translationKey}>
-            {item.content && (
-              <div key={item.translationKey}>
-                <div className="container py-10">
-                  <div className="grid grid-cols-1 md:grid-cols-[20rem_1fr] gap-x-10 gap-y-8 items-start">
-                    <h2 className="text-2xl md:text-3xl font-bold">
-                      {t(item.translationKey, {ns: 'portfolio'})}
-                    </h2>
-                    <div className="prose dark:prose-invert max-w-none">
-                      <MDXContent source={item.content} />
+        <section className="[&>div:nth-child(odd)]:bg-muted/20">
+          {contentMap.map(item => (
+            <Fragment key={item.translationKey}>
+              {item.content && (
+                <div key={item.translationKey}>
+                  <div className="container py-10">
+                    <div className="grid grid-cols-1 md:grid-cols-[20rem_1fr] gap-x-10 gap-y-8 items-start">
+                      <h2 className="text-2xl md:text-3xl font-bold">
+                        {t(item.translationKey, {ns: 'portfolio'})}
+                      </h2>
+                      <div className="prose dark:prose-invert max-w-none">
+                        <MDXContent source={item.content} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </Fragment>
-        ))}
-      </section>
+              )}
+            </Fragment>
+          ))}
+        </section>
 
-      <section className="container py-10">
-        {project.technologies && project.technologies.length > 0 && (
-          <div className="flex justify-center items-center text-sm gap-4">
-            <div className="flex gap-2 items-center flex-wrap">
-              {project.technologies.map(technology => (
-                <ProjectTechnologyBadge
-                  key={technology}
-                  technologyName={technology}
-                />
-              ))}
+        <section className="container py-10">
+          {project.technologies && project.technologies.length > 0 && (
+            <div className="flex justify-center items-center text-sm gap-4">
+              <div className="flex gap-2 items-center flex-wrap">
+                {project.technologies.map(technology => (
+                  <ProjectTechnologyBadge
+                    key={technology}
+                    technologyName={technology}
+                  />
+                ))}
+              </div>
             </div>
+          )}
+        </section>
+
+        <hr className="border-muted border-dashed" />
+
+        <section className="container py-10 no-print">
+          <div className="flex justify-between items-center gap-4">
+            <Link
+              href={`/portfolio/projects/${prevProject.id}`}
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
+              <ChevronLeftIcon className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+              <div className="text-left">
+                <div className="text-xs text-muted-foreground">
+                  {t('previousProject')}
+                </div>
+                <div className="font-semibold font-oswald">
+                  {prevProject.name[localeKey]}
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              href={`/portfolio/projects/${nextProject.id}`}
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
+              <div className="text-right">
+                <div className="text-xs text-muted-foreground">
+                  {t('nextProject')}
+                </div>
+                <div className="font-semibold font-oswald">
+                  {nextProject.name[localeKey]}
+                </div>
+              </div>
+              <ChevronRightIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
-        )}
-      </section>
-
-      <hr className="border-muted border-dashed" />
-
-      <section className="container py-10">
-        <div className="flex justify-between items-center gap-4">
-          <Link
-            href={`/portfolio/projects/${prevProject.id}`}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
-            <ChevronLeftIcon className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
-            <div className="text-left">
-              <div className="text-xs text-muted-foreground">
-                {t('previousProject')}
-              </div>
-              <div className="font-semibold font-oswald">
-                {prevProject.name[localeKey]}
-              </div>
-            </div>
-          </Link>
-
-          <Link
-            href={`/portfolio/projects/${nextProject.id}`}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
-            <div className="text-right">
-              <div className="text-xs text-muted-foreground">
-                {t('nextProject')}
-              </div>
-              <div className="font-semibold font-oswald">
-                {nextProject.name[localeKey]}
-              </div>
-            </div>
-            <ChevronRightIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </section>
+        </section>
+      </article>
     </>
   )
 }
