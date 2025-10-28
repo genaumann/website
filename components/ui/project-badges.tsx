@@ -41,9 +41,7 @@ export function ProjectDateBadge({start, end, locale}: ProjectDateBadgeProps) {
 export function ProjectContextBadge({context, t}: ProjectContextBadgeProps) {
   const contextMap = ProjectContextMap({context, t})
   return (
-    <Badge
-      variant="outline"
-      className="flex items-center gap-1 font-light border-muted px-1.5">
+    <Badge variant="muted">
       <Icon name="circle-info" />
       <span>{contextMap}</span>
     </Badge>

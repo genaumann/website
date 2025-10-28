@@ -95,7 +95,7 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
 
       <div className="container py-10">
         <div className="bg-muted/20 rounded-lg p-4 md:p-8 relative">
-          <h1 className="text-4xl md:text-6xl font-bold text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-center md:leading-16">
             {project.name[localeKey]}
           </h1>
           <StatusBadge
@@ -105,7 +105,7 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
             className="font-oswald absolute -right-2 -top-3"
           />
         </div>
-        <div className="pt-4 flex gap-4 text-sm text-muted-foreground justify-center">
+        <div className="pt-4 flex gap-4 justify-center flex-wrap">
           <ProjectDateBadge
             start={project.start}
             end={project.end}
