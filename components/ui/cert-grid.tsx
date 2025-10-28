@@ -40,12 +40,16 @@ export default function CertGrid({technology}: CertGridProps) {
       {certs.map(cert => {
         const isActive = cert.validTo ? new Date() < cert.validTo : true
         return (
-          <Link
-            href={cert.url}
+          <div
             key={cert.name}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="group">
+            className="group cursor-pointer"
+            onClick={e => {
+              const target = e.target as HTMLElement
+              if (target.closest('a') || target.closest('button')) {
+                return
+              }
+              window.open(cert.url, '_blank')
+            }}>
             <Card className="bg-background border border-dashed border-muted shadow shadow-primary transition-all duration-300 ease-out transform-gpu hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20">
               <CardHeader className="relative">
                 <CardTitle
@@ -87,7 +91,7 @@ export default function CertGrid({technology}: CertGridProps) {
                 ))}
               </CardFooter>
             </Card>
-          </Link>
+          </div>
         )
       })}
     </div>
