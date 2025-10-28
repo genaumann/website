@@ -1,5 +1,5 @@
 import CertGrid from '@/components/ui/cert-grid'
-import {getCertsByKeyword} from '@/lib/cert'
+import {getCertsByTechnology} from '@/lib/cert'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 type ToolCertsPageProps = {
@@ -12,7 +12,7 @@ export default async function TechnologyCertsPage({
   title
 }: ToolCertsPageProps) {
   const t = await getTranslate('portfolio')
-  const certs = getCertsByKeyword(technology)
+  const certs = getCertsByTechnology(technology)
   if (!certs || certs.length === 0) return null
 
   return (
@@ -26,7 +26,7 @@ export default async function TechnologyCertsPage({
             {t('certDescription', {technology: title})}
           </p>
         </div>
-        <CertGrid keyword={technology} />
+        <CertGrid technology={technology} />
       </div>
     </section>
   )
