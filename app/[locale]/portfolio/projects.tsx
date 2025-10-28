@@ -18,9 +18,7 @@ export default async function PortfolioProjectsPage() {
         <h2 className="text-4xl font-bold">
           {t('completedProjects', {ns: 'common'})}
         </h2>
-        <Badge
-          variant="outline"
-          className="absolute top-[-5px] right-[-32px] font-light text-xs px-1.5 border-muted">
+        <Badge variant="muted" className="absolute top-[-5px] right-[-40px]">
           {maxProjects}/{completedProjects.length}
         </Badge>
       </div>

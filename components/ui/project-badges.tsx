@@ -30,12 +30,10 @@ export function ProjectContextMap({context, t}: ProjectContextBadgeProps) {
 export function ProjectDateBadge({start, end, locale}: ProjectDateBadgeProps) {
   const {format} = getDateFunctions(locale)
   return (
-    <Badge
-      variant="outline"
-      className="flex items-center gap-1 font-light border-muted px-1.5">
+    <Badge variant="muted">
       <Icon name="calendar" />
       <span>{format(start, 'MMMM yyyy')}</span>
-      {end && <span> - {format(end, 'MMMM yyyy')}</span>}
+      {end && <span> - {format(end, 'MMM yyyy')}</span>}
     </Badge>
   )
 }
@@ -69,9 +67,7 @@ export function ProjectTechnologyBadge({
           </Badge>
         </Link>
       ) : (
-        <Badge variant="outline" className="font-light px-1.5 border-muted">
-          {technologyName}
-        </Badge>
+        <Badge variant="muted">{technologyName}</Badge>
       )}
     </>
   )
