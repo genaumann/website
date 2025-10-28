@@ -20,9 +20,53 @@ import {
   ProjectDateBadge
 } from '@/components/ui/project-badges'
 import {ChevronLeftIcon, ChevronRightIcon} from '@radix-ui/react-icons'
+import getMetadata from '@/lib/metadata'
+import {Metadata} from 'next'
 
 type ProjectParam = LocaleParam & {
   project: string
+}
+
+// 404 for unspecified projects
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+  const projects = getProjects()
+  return projects
+    .map(project =>
+      Object.values(LOCALES).map(locale => ({
+        project: project.id,
+        locale
+      }))
+    )
+    .flat()
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<ProjectParam>
+}): Promise<Metadata> {
+  const {project: projectId, locale} = await params
+  const localeKey = locale as keyof typeof LOCALES
+  const t = await getTranslate('portfolio', {noWrap: true})
+  const project = getProject({id: projectId})
+  if (!project) return {}
+
+  return getMetadata({
+    title: project.name[localeKey],
+    description: t('appMetadata.description.projectref', {
+      name: project.name[localeKey]
+    }),
+    slug: `/portfolio/projects/${projectId}`,
+    index: true,
+    locale,
+    og: {
+      type: 'website',
+      title: project.name[localeKey],
+      description: project.content[localeKey].project_overview
+    }
+  })
 }
 
 export default async function Page({params}: {params: Promise<ProjectParam>}) {

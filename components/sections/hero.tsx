@@ -113,7 +113,7 @@ export default async function Hero() {
         </h1>
 
         {/* Description */}
-        <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed font-light">
+        <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed">
           {t('intro')}
         </p>
 

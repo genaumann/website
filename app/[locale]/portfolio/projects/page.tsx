@@ -6,6 +6,30 @@ import {BreadcrumbItem} from '@/components/ui/breadcrumb'
 import {BreadcrumbLink} from '@/components/ui/breadcrumb'
 import Link from 'next/link'
 import {BreadcrumbSeparator} from '@/components/ui/breadcrumb'
+import getMetadata from '@/lib/metadata'
+import {Metadata} from 'next'
+import {LocaleParam} from '@/lib/types'
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<LocaleParam>
+}): Promise<Metadata> {
+  const {locale} = await params
+  const t = await getTranslate('portfolio', {noWrap: true})
+  return getMetadata({
+    title: t('projects', {ns: 'common'}),
+    description: t('appMetadata.description.projects'),
+    slug: '/portfolio/projects',
+    index: true,
+    locale,
+    og: {
+      type: 'website',
+      title: t('projects', {ns: 'common'}),
+      description: t('appMetadata.description.projects')
+    }
+  })
+}
 
 export default async function ProjectsPage() {
   const t = await getTranslate('portfolio')
