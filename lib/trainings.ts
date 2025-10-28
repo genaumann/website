@@ -19,16 +19,18 @@ type TrainingProps = {
   technology?: string
   type?: TrainingType
   t?: TType
+  unique?: boolean
 }
 
 export const getTrainings = ({
   technology,
   type,
-  t
+  t,
+  unique = false
 }: TrainingProps): Training[] => {
   const trainings: Training[] = [
     {
-      id: 'linux-debian-2016',
+      id: 'linux-debian',
       name: t && t('trainings.linux.debian.name'),
       description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
@@ -38,7 +40,7 @@ export const getTrainings = ({
       technologies: ['linux']
     },
     {
-      id: 'linux-debian-2017',
+      id: 'linux-debian',
       name: t && t('trainings.linux.debian.name'),
       description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
@@ -48,7 +50,7 @@ export const getTrainings = ({
       technologies: ['linux']
     },
     {
-      id: 'linux-centos-2017-2',
+      id: 'linux-centos',
       name: t && t('trainings.linux.centos.name'),
       description: t && t('trainings.linux.centos.description'),
       type: 'speaker',
@@ -58,7 +60,7 @@ export const getTrainings = ({
       technologies: ['linux']
     },
     {
-      id: 'linux-debian-2018',
+      id: 'linux-debian',
       name: t && t('trainings.linux.debian.name'),
       description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
@@ -68,7 +70,7 @@ export const getTrainings = ({
       technologies: ['linux']
     },
     {
-      id: 'linux-debian-2019',
+      id: 'linux-debian',
       name: t && t('trainings.linux.debian.name'),
       description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
@@ -78,7 +80,7 @@ export const getTrainings = ({
       technologies: ['linux']
     },
     {
-      id: 'linux-debian-2020',
+      id: 'linux-debian',
       name: t && t('trainings.linux.debian.name'),
       description: t && t('trainings.linux.debian.description'),
       type: 'speaker',
@@ -88,7 +90,7 @@ export const getTrainings = ({
       technologies: ['linux']
     },
     {
-      id: 'gitlab-2024-1',
+      id: 'gitlab',
       name: t && t('trainings.gitlab.name'),
       description: t && t('trainings.gitlab.description'),
       type: 'speaker',
@@ -98,7 +100,7 @@ export const getTrainings = ({
       technologies: ['gitlab']
     },
     {
-      id: 'gitlab-2024-2',
+      id: 'gitlab',
       name: t && t('trainings.gitlab.name'),
       description: t && t('trainings.gitlab.description'),
       type: 'speaker',
@@ -108,7 +110,7 @@ export const getTrainings = ({
       technologies: ['gitlab']
     },
     {
-      id: 'gitlab-2024-3',
+      id: 'gitlab',
       name: t && t('trainings.gitlab.name'),
       description: t && t('trainings.gitlab.description'),
       type: 'speaker',
@@ -118,7 +120,7 @@ export const getTrainings = ({
       technologies: ['gitlab']
     },
     {
-      id: 'gitlab-2024-4',
+      id: 'gitlab',
       name: t && t('trainings.gitlab.name'),
       description: t && t('trainings.gitlab.description'),
       type: 'speaker',
@@ -128,7 +130,7 @@ export const getTrainings = ({
       technologies: ['gitlab']
     },
     {
-      id: 'git-2023',
+      id: 'git',
       name: t && t('trainings.git.name'),
       description: t && t('trainings.git.description'),
       type: 'speaker',
@@ -139,7 +141,7 @@ export const getTrainings = ({
       technologies: ['git']
     },
     {
-      id: 'git-2024',
+      id: 'git',
       name: t && t('trainings.git.name'),
       description: t && t('trainings.git.description'),
       type: 'speaker',
@@ -148,25 +150,28 @@ export const getTrainings = ({
       iconPrefix: 'fab',
       days: 2,
       technologies: ['git']
-    },
-    {
-      id: 'playwright-2024',
-      name: t && t('trainings.playwright.name'),
-      description: t && t('trainings.playwright.description'),
-      type: 'participant',
-      date: new Date('2024-11-01'),
-      iconName: 'playwright',
-      days: 2,
-      technologies: ['playwright']
     }
   ]
 
-  return trainings
-    .filter(training => {
-      const matchesTechnology =
-        !technology || training.technologies.includes(technology)
-      const matchesType = !type || training.type === type
-      return matchesTechnology && matchesType
-    })
-    .sort((a, b) => b.date.getTime() - a.date.getTime())
+  const filtered = trainings.filter(training => {
+    const matchesTechnology =
+      !technology || training.technologies.includes(technology)
+    const matchesType = !type || training.type === type
+    return matchesTechnology && matchesType
+  })
+
+  let result = filtered
+
+  if (unique) {
+    result = Object.values(
+      filtered.reduce<Record<string, Training>>((acc, training) => {
+        if (!acc[training.id] || training.date < acc[training.id].date) {
+          acc[training.id] = training
+        }
+        return acc
+      }, {})
+    )
+  }
+
+  return result.sort((a, b) => b.date.getTime() - a.date.getTime())
 }
