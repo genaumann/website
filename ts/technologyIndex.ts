@@ -14,6 +14,7 @@ interface TechnologyFrontmatter {
   slug: string
   keywords?: string[]
   altNames?: string[]
+  category?: string
 }
 
 async function getMdxMetadata(
@@ -29,7 +30,8 @@ async function getMdxMetadata(
     iconPrefix: frontmatter?.iconPrefix as IconPrefix,
     slug: (frontmatter?.slug as string) || '',
     keywords: frontmatter?.keywords as string[],
-    altNames: frontmatter?.altNames as string[]
+    altNames: frontmatter?.altNames as string[],
+    category: frontmatter?.category as string
   }
 }
 
@@ -75,7 +77,8 @@ async function scanTechnologies(): Promise<Technology[]> {
         slug: metadata.slug,
         keywords: metadata.keywords,
         altNames: metadata.altNames,
-        intro: sections.intro as Technology['intro']
+        intro: sections.intro as Technology['intro'],
+        category: metadata.category
       })
     }
   }

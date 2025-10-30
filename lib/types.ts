@@ -54,6 +54,7 @@ export type Project = {
   context: ProjectContext
   start: Date
   end?: Date
+  cv?: boolean
   content: {
     [K in keyof typeof LOCALES]: {
       project_overview: string
@@ -82,4 +83,5 @@ export type Technology = {
   intro: {
     [K in keyof typeof LOCALES]: string
   }
+  category?: string
 }

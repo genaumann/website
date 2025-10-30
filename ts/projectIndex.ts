@@ -14,6 +14,7 @@ interface ProjectFrontmatter {
   start: string
   end?: string
   name?: string
+  cv?: boolean
 }
 
 async function getMdxMetadata(filePath: string): Promise<ProjectFrontmatter> {
@@ -28,7 +29,8 @@ async function getMdxMetadata(filePath: string): Promise<ProjectFrontmatter> {
     context: (frontmatter?.context as ProjectContext) || 'personal',
     start: (frontmatter?.start as string) || new Date().toISOString(),
     end: frontmatter?.end as string,
-    name: frontmatter?.name as string
+    name: frontmatter?.name as string,
+    cv: frontmatter?.cv as boolean
   }
 }
 
@@ -135,7 +137,8 @@ async function scanProjects(): Promise<{[key: string]: Project}> {
         context: baseMetadata.context,
         start: new Date(baseMetadata.start),
         end: baseMetadata.end ? new Date(baseMetadata.end) : undefined,
-        content: content as Project['content']
+        content: content as Project['content'],
+        cv: baseMetadata.cv
       }
     }
   }
