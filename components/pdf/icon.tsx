@@ -2,10 +2,10 @@ import {Svg, Path} from '@react-pdf/renderer'
 import {byPrefixAndName} from '@awesome.me/kit-b84c272999/icons'
 import {IconDefinition} from '@fortawesome/fontawesome-svg-core'
 import {tw} from './base'
-import {defaultPrefix, IconPrefix} from '../ui/icon'
+import {defaultPrefix, IconName, IconPrefix} from '../ui/icon'
 
 export interface IconPDFProps {
-  name: string
+  name: IconName
   prefix?: IconPrefix
   width?: number | string
   height?: number | string

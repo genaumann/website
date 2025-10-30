@@ -3,6 +3,7 @@ import StatusBadge from '@/components/ui/status-badge'
 import {CONTACT} from '@/lib/contact'
 import Image from 'next/image'
 import Link from 'next/link'
+import DownloadPDFButton from '@/components/pdf/download-button'
 
 export default function PortfolioIntroPage() {
   return (
@@ -45,6 +46,9 @@ export default function PortfolioIntroPage() {
               <Icon name="phone" />
               {CONTACT.phone}
             </Link>
+          </div>
+          <div className="flex justify-center">
+            <DownloadPDFButton file="cv" label="Download CV" />
           </div>
         </div>
       </div>
