@@ -78,6 +78,7 @@ export function BasePagePDF({
       wrap>
       {children}
       <View
+        fixed
         style={tw(
           'px-12 flex flex-row justify-between absolute bottom-0 left-0 right-0 py-12'
         )}>
@@ -150,6 +151,189 @@ export function BaseMutedBadgePDF({
         />
       )}
       <Text style={tw('font-inter text-xs font-light -mt-0.5')}>{text}</Text>
+    </View>
+  )
+}
+
+type TextSegment = {
+  text: string
+  bold?: boolean
+  italic?: boolean
+}
+
+function parseMarkdownToSegments(markdown: string): TextSegment[] {
+  const boldRegex = /\*\*(.+?)\*\*/g
+  const boldMatches: Array<{start: number; end: number; text: string}> = []
+  let match
+  while ((match = boldRegex.exec(markdown)) !== null) {
+    boldMatches.push({
+      start: match.index,
+      end: match.index + match[0].length,
+      text: match[1]
+    })
+  }
+
+  const isBoldRange = new Array(markdown.length).fill(false)
+  for (const boldMatch of boldMatches) {
+    for (let i = boldMatch.start; i < boldMatch.end; i++) {
+      isBoldRange[i] = true
+    }
+  }
+
+  const italicRegex = /\*([^*]+?)\*/g
+  const italicMatches: Array<{start: number; end: number; text: string}> = []
+  let italicMatch
+  while ((italicMatch = italicRegex.exec(markdown)) !== null) {
+    const start = italicMatch.index
+    const end = italicMatch.index + italicMatch[0].length
+
+    let isInsideBold = false
+    for (let i = start; i < end; i++) {
+      if (isBoldRange[i]) {
+        isInsideBold = true
+        break
+      }
+    }
+
+    if (!isInsideBold) {
+      italicMatches.push({
+        start,
+        end,
+        text: italicMatch[1]
+      })
+    }
+  }
+
+  const allMatches = [
+    ...boldMatches.map(m => ({...m, type: 'bold' as const})),
+    ...italicMatches.map(m => ({...m, type: 'italic' as const}))
+  ].sort((a, b) => a.start - b.start)
+
+  const segments: TextSegment[] = []
+  let lastIndex = 0
+
+  for (const matchItem of allMatches) {
+    if (matchItem.start > lastIndex) {
+      const textBefore = markdown.slice(lastIndex, matchItem.start)
+      if (textBefore) {
+        segments.push({text: textBefore})
+      }
+    }
+
+    segments.push({
+      text: matchItem.text,
+      bold: matchItem.type === 'bold',
+      italic: matchItem.type === 'italic'
+    })
+
+    lastIndex = matchItem.end
+  }
+
+  if (lastIndex < markdown.length) {
+    const textAfter = markdown.slice(lastIndex)
+    if (textAfter) {
+      segments.push({text: textAfter})
+    }
+  }
+
+  if (segments.length === 0) {
+    return [{text: markdown}]
+  }
+
+  return segments
+}
+
+type ContentBlock = {
+  type: 'text' | 'list-item'
+  content: string
+}
+
+function parseMarkdownContent(content: string): ContentBlock[] {
+  const lines = content.split('\n')
+  const blocks: ContentBlock[] = []
+  let lastWasEmpty = false
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const trimmedLine = line.trim()
+
+    // Prüfe ob es eine Liste ist (beginnt mit - oder *)
+    if (trimmedLine.match(/^[-*]\s+/)) {
+      // Entferne das Listen-Präfix (- oder *) und das folgende Leerzeichen
+      const listContent = trimmedLine.replace(/^[-*]\s+/, '')
+      blocks.push({
+        type: 'list-item',
+        content: listContent
+      })
+      lastWasEmpty = false
+    } else if (trimmedLine) {
+      // Normale Textzeile
+      // Wenn die letzte Zeile leer war oder es ein anderer Block-Typ war, starte neuen Block
+      if (
+        lastWasEmpty ||
+        blocks.length === 0 ||
+        blocks[blocks.length - 1].type !== 'text'
+      ) {
+        blocks.push({
+          type: 'text',
+          content: trimmedLine
+        })
+      } else {
+        // Ansonsten füge zum letzten Textblock hinzu
+        blocks[blocks.length - 1].content += ' ' + trimmedLine
+      }
+      lastWasEmpty = false
+    } else {
+      // Leere Zeile - markiere für nächste Iteration
+      lastWasEmpty = true
+    }
+  }
+
+  return blocks
+}
+
+function renderMarkdownText(content: string) {
+  const segments = parseMarkdownToSegments(content)
+
+  return (
+    <Text>
+      {segments.map((segment, index) => (
+        <Text
+          key={index}
+          style={
+            segment.bold
+              ? tw('font-bold')
+              : segment.italic
+                ? tw('italic')
+                : undefined
+          }>
+          {segment.text}
+        </Text>
+      ))}
+    </Text>
+  )
+}
+
+export function MarkdownTextPDF({children}: {children: string}) {
+  const blocks = parseMarkdownContent(children)
+
+  return (
+    <View style={tw('flex flex-col gap-1')}>
+      {blocks.map((block, index) => {
+        if (block.type === 'list-item') {
+          return (
+            <View key={index} style={tw('flex flex-row gap-2 pl-4')}>
+              <Text style={tw('font-inter')}>•</Text>
+              <View style={tw('flex-1')}>
+                {renderMarkdownText(block.content)}
+              </View>
+            </View>
+          )
+        } else if (block.content) {
+          return <View key={index}>{renderMarkdownText(block.content)}</View>
+        }
+        return null
+      })}
     </View>
   )
 }
