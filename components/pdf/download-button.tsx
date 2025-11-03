@@ -41,6 +41,7 @@ export default function DownloadPDFButton(
     const simple = match?.[2]
     try {
       if (encoded) return decodeURIComponent(encoded)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (_) {
       // ignore decoding errors and fallback to simple
     }

@@ -45,3 +45,5 @@ lib/technologyIndex.json
 .env*.local
 
 public/i18n/*/*.json
+
+app/\[locale\]/test/

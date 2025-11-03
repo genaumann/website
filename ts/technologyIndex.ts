@@ -90,7 +90,6 @@ export const buildTechnologyIndex = async () => {
   try {
     const technologies = await scanTechnologies()
 
-    console.log(JSON.stringify(technologies, null, 2))
     await fs.writeFile(
       'lib/technologyIndex.json',
       JSON.stringify(technologies),

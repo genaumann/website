@@ -1,4 +1,4 @@
-import {Document, Page, Text, View, Image, Link} from '@react-pdf/renderer'
+import {Document, Text, View, Image, Link} from '@react-pdf/renderer'
 import {BaseLinkBadgePDF, BaseMutedBadgePDF, BasePagePDF, tw} from './base'
 import {CONTACT} from '@/lib/contact'
 import IconPDF from './icon'
@@ -24,6 +24,7 @@ export default function CVPDF({t, locale}: {t: TType; locale: string}) {
         {/* Header */}
         <View style={tw('flex flex-col gap-6 bg-light p-12 pb-6')}>
           <View style={tw('flex flex-row gap-12 items-center')}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <Image
               src={`${origin}/me-black-wide-small.png`}
               style={tw('w-[160px] h-[147px]')}

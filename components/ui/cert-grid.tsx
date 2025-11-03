@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import {useEffect, useRef} from 'react'
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from './card'
 import Icon from './icon'

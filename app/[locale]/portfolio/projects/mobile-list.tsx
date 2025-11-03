@@ -4,7 +4,6 @@ import {getProjects} from '@/lib/projects'
 import {useTolgee, useTranslate} from '@tolgee/react'
 import {LOCALES} from '@/locales'
 import {useRouter} from 'next/navigation'
-import {getDateFunctions} from '@/lib/dates'
 import {Input} from '@/components/ui/input'
 import {useState} from 'react'
 import {
@@ -27,7 +26,7 @@ export default function PortfolioProjectsMobileList() {
   const locale = tolgee.getLanguage() || LOCALES.de
   const {t} = useTranslate()
   const router = useRouter()
-  const {format} = getDateFunctions(locale)
+
   const filteredProjects = projects.filter(project => {
     const searchLower = search.toLowerCase()
     const nameMatch = project.name?.[locale as keyof typeof project.name]

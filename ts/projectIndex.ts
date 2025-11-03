@@ -150,7 +150,6 @@ export const buildProjectIndex = async () => {
   try {
     const projects = await scanProjects()
 
-    console.log(JSON.stringify(projects, null, 2))
     await fs.writeFile(
       'lib/projectIndex.json',
       JSON.stringify(projects),
