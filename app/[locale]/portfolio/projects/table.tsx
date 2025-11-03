@@ -16,6 +16,13 @@ import {
   ProjectContextMap,
   ProjectTechnologyBadge
 } from '@/components/ui/project-badges'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
+import DownloadPDFButton from '@/components/pdf/download-button'
 
 export default function ProjectsTable() {
   const router = useRouter()
@@ -102,13 +109,33 @@ export default function ProjectsTable() {
       enableGlobalFilter: false,
       cell: ({row}) => {
         return (
-          <Link
-            href={`/portfolio/projects/${row.original.id}`}
-            className="flex items-center justify-center">
-            <Button variant="outline" size="icon">
-              <Icon name="eye" />
-            </Button>
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Icon name="ellipsis" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-popover" align="end">
+              <DropdownMenuItem asChild>
+                <Link href={`/portfolio/projects/${row.original.id}`}>
+                  <Icon name="eye" />
+                  {t('viewProjectRef', {ns: 'portfolio'})}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onSelect={e => {
+                  e.preventDefault()
+                }}>
+                <DownloadPDFButton
+                  className="font-inter font-normal focus-visible:ring-0 p-0 h-auto"
+                  variant="ghost"
+                  file="project"
+                  projectid={row.original.id}
+                  label={t('downloadProjectRef', {ns: 'portfolio'})}
+                />
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         )
       }
     }

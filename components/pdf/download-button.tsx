@@ -3,22 +3,31 @@
 import {Button, ButtonProps} from '@/components/ui/button'
 import {useTolgee} from '@tolgee/react'
 import {LOCALES} from '@/locales'
-import {PDFFileId} from '@/components/pdf/files'
 import Icon from '../ui/icon'
 import {useCallback, useState} from 'react'
+import {DownloadPDFButtonProps} from './files'
 
-export default function DownloadPDFButton({
-  file,
-  label = 'Download PDF',
-  ...props
-}: {
-  file: PDFFileId
-  label?: string
-} & ButtonProps) {
+export default function DownloadPDFButton(
+  props: DownloadPDFButtonProps & ButtonProps
+) {
+  const {file, label = 'Download PDF', ...buttonProps} = props
+  const projectId = 'projectid' in props ? props.projectid : undefined
   const tolgee = useTolgee()
   const locale = tolgee.getLanguage() || LOCALES.de
-  const href = `/api/pdf?file=${file}&locale=${locale}`
   const [isLoading, setIsLoading] = useState(false)
+
+  const buildUrl = useCallback(() => {
+    const params = new URLSearchParams({
+      file,
+      locale
+    })
+    if (projectId) {
+      params.set('projectId', projectId)
+    }
+    return `/api/pdf?${params.toString()}`
+  }, [file, locale, projectId])
+
+  const href = buildUrl()
 
   const getFilenameFromHeader = (
     disposition: string | null,
@@ -41,11 +50,15 @@ export default function DownloadPDFButton({
   const onClick = useCallback(async () => {
     try {
       setIsLoading(true)
+      console.log('href', href)
       const response = await fetch(href, {cache: 'no-store'})
       if (!response.ok) throw new Error('Download fehlgeschlagen')
 
       const contentDisposition = response.headers.get('Content-Disposition')
-      const defaultName = `ginonaumann-${file}-${locale}.pdf`
+      const defaultName =
+        file === 'project' && projectId
+          ? `ginonaumann-project-${projectId}-${locale}.pdf`
+          : `ginonaumann-${file}-${locale}.pdf`
       const filename = getFilenameFromHeader(contentDisposition, defaultName)
 
       const blob = await response.blob()
@@ -58,17 +71,19 @@ export default function DownloadPDFButton({
       a.click()
       a.remove()
       URL.revokeObjectURL(url)
+    } catch (error) {
+      console.error('Download fehlgeschlagen:', error)
     } finally {
       setIsLoading(false)
     }
-  }, [href, file, locale])
+  }, [href, file, locale, projectId])
 
   return (
     <Button
       onClick={onClick}
       disabled={isLoading}
       aria-busy={isLoading}
-      {...props}>
+      {...buttonProps}>
       {isLoading ? (
         <Icon name="loader" className="animate-spin" />
       ) : (

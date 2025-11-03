@@ -47,7 +47,7 @@ export default async function ProjectsPage() {
         </BreadcrumbList>
       </Breadcrumb>
       <section className="container pb-12">
-        <h1 className="text-6xl font-bold py-12 text-center">
+        <h1 className="text-5xl md:text-6xl font-bold py-12 text-center">
           {t('projects')}
         </h1>
         <div className="hidden md:block">

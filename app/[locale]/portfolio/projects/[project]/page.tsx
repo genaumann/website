@@ -22,6 +22,7 @@ import {
 import {ChevronLeftIcon, ChevronRightIcon} from '@radix-ui/react-icons'
 import getMetadata from '@/lib/metadata'
 import {Metadata} from 'next'
+import DownloadPDFButton from '@/components/pdf/download-button'
 
 type ProjectParam = LocaleParam & {
   project: string
@@ -150,13 +151,23 @@ export default async function Page({params}: {params: Promise<ProjectParam>}) {
               className="font-oswald absolute -right-2 -top-3"
             />
           </div>
-          <div className="pt-4 flex gap-4 justify-center flex-wrap">
-            <ProjectDateBadge
-              start={project.start}
-              end={project.end}
-              locale={locale}
+          <div className="flex flex-col gap-4 justify-center items-center">
+            <div className="pt-4 flex gap-4 flex-wrap">
+              <ProjectDateBadge
+                start={project.start}
+                end={project.end}
+                locale={locale}
+              />
+              <ProjectContextBadge context={project.context} t={t} />
+            </div>
+            <DownloadPDFButton
+              file="project"
+              size="sm"
+              variant="outline"
+              className="p-1.5 font-inter border-foreground"
+              projectid={project.id}
+              label={t('downloadProjectRef', {ns: 'portfolio'})}
             />
-            <ProjectContextBadge context={project.context} t={t} />
           </div>
           <div className="pt-10 prose dark:prose-invert md:max-w-2/3 mx-auto md:text-center">
             <MDXContent source={project.content[localeKey].project_overview} />

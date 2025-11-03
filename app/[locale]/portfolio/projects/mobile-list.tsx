@@ -18,6 +18,7 @@ import {
   ProjectCardTechnologies,
   ProjectCardTitle
 } from '@/components/ui/project-card'
+import DownloadPDFButton from '@/components/pdf/download-button'
 
 export default function PortfolioProjectsMobileList() {
   const [search, setSearch] = useState('')
@@ -52,7 +53,7 @@ export default function PortfolioProjectsMobileList() {
             key={project.id}
             onClick={e => {
               const target = e.target as HTMLElement
-              if (target.closest('a')) {
+              if (target.closest('a') || target.closest('button')) {
                 return
               }
               router.push(`/portfolio/projects/${project.id}`)
@@ -68,6 +69,16 @@ export default function PortfolioProjectsMobileList() {
                     start={project.start}
                     end={project.end}
                     locale={locale}
+                  />
+                </ProjectCardInfoItem>
+                <ProjectCardInfoItem>
+                  <DownloadPDFButton
+                    file="project"
+                    size="sm"
+                    variant="outline"
+                    className="p-1.5 font-inter border-foreground"
+                    projectid={project.id}
+                    label={t('downloadProjectRef', {ns: 'portfolio'})}
                   />
                 </ProjectCardInfoItem>
               </ProjectCardInfo>
