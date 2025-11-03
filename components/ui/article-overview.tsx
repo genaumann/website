@@ -18,11 +18,11 @@ function ArticleItem({article, depth}: {article: Article; depth: number}) {
           />
         </span>
         <div className="block">
-          <span className="text-primary text-xl tracking-tight font-semibold">
+          <span className="text-xl tracking-tight font-bold font-oswald">
             {article.title}
           </span>
           {article.description && (
-            <p className="text-secondary-foreground">{article.description}</p>
+            <p className="text-muted-foreground">{article.description}</p>
           )}
         </div>
       </Link>

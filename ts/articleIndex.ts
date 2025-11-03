@@ -199,6 +199,8 @@ export const buildArticleIndex = async () => {
     }
   }
 
-  console.log(JSON.stringify(index, null, 2))
+  console.log(
+    `✓ Successfully built article index with ${Object.keys(index).length} locales`
+  )
   await fs.writeFile('lib/articleIndex.json', JSON.stringify(index), 'utf-8')
 }

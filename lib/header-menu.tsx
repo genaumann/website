@@ -43,6 +43,10 @@ export const getHeaderMenu = async ({
         href: '/portfolio'
       },
       {
+        name: t('projects'),
+        href: '/portfolio/projects'
+      },
+      {
         name: t('kb'),
         href: '/kb'
       }

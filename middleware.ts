@@ -10,6 +10,17 @@ export default async function middleware(request: NextRequest) {
   const isLocale = Object.values(LOCALES).includes(segments[0] as LOCALES)
   const path = segments.slice(isLocale ? 1 : 0)
 
+  // redirect /portfolio/tools to /portfolio/technologies
+  if (path[0] === 'portfolio' && path[1] === 'tools') {
+    const newPath = [...path]
+    newPath[1] = 'technologies'
+    const redirectSegments = isLocale ? [segments[0], ...newPath] : newPath
+    return NextResponse.redirect(
+      new URL(`/${redirectSegments.join('/')}`, request.url),
+      {status: 301}
+    )
+  }
+
   // remove trailing index from kb paths
   if (path[0] === 'kb' && path[path.length - 1] === 'index') {
     return NextResponse.redirect(

@@ -41,3 +41,47 @@ export type LocaleParam = {
 }
 
 export type Locale = keyof typeof LOCALES | string
+
+export type ProjectContext = 'personal' | 'work' | 'freelance'
+
+export type Project = {
+  id: string
+  name: {
+    [K in keyof typeof LOCALES]: string
+  }
+  technologies: string[]
+  references?: {label?: string; url: string}[]
+  context: ProjectContext
+  start: Date
+  end?: Date
+  cv?: boolean
+  content: {
+    [K in keyof typeof LOCALES]: {
+      project_overview: string
+      challenge: string
+      goals?: string
+      approach: string
+      implementation?: string
+      results?: string
+      insights?: string
+    }
+  }
+}
+
+type TechnologyIcon = {
+  dark: IconName
+  light: IconName
+}
+
+export type Technology = {
+  name: string
+  icon: IconName | TechnologyIcon
+  iconPrefix?: IconPrefix
+  slug: string
+  keywords?: string[]
+  altNames?: string[]
+  intro: {
+    [K in keyof typeof LOCALES]: string
+  }
+  category?: string
+}

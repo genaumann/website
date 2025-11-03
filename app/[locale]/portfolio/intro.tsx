@@ -3,6 +3,7 @@ import StatusBadge from '@/components/ui/status-badge'
 import {CONTACT} from '@/lib/contact'
 import Image from 'next/image'
 import Link from 'next/link'
+import DownloadPDFButton from '@/components/pdf/download-button'
 
 export default function PortfolioIntroPage() {
   return (
@@ -24,7 +25,9 @@ export default function PortfolioIntroPage() {
             <h1 className="text-5xl md:text-7xl font-bold text-foreground animate-flicker">
               {CONTACT.name}
             </h1>
-            <p className="text-3xl text-muted-foreground">{CONTACT.jobTitle}</p>
+            <p className="text-3xl text-muted-foreground font-oswald">
+              {CONTACT.jobTitle}
+            </p>
           </div>
           <div className="flex flex-wrap justify-center gap-4 text-muted-foreground">
             <div className="flex items-center gap-2">
@@ -43,6 +46,9 @@ export default function PortfolioIntroPage() {
               <Icon name="phone" />
               {CONTACT.phone}
             </Link>
+          </div>
+          <div className="flex justify-center">
+            <DownloadPDFButton file="cv" label="Download CV" />
           </div>
         </div>
       </div>

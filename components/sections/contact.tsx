@@ -12,7 +12,7 @@ export default async function ContactSection({
 }) {
   const t = await getTranslate()
   return (
-    <section className={cn('py-20', className)}>
+    <section className={cn('py-20 font-oswald', className)}>
       <div className="container flex flex-col justify-center items-center gap-5">
         <div className="flex flex-col">
           <span>{t('questions')}?</span>

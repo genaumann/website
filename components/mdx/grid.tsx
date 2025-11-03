@@ -23,7 +23,7 @@ export function GridItem({title, href, children}: GridItemProps) {
         'border relative border-input rounded-md p-4 bg-secondary/40',
         href && 'hover:ring hover:ring-primary'
       )}>
-      {title && <strong className="text-xl">{title}</strong>}
+      {title && <strong className="text-xl font-oswald">{title}</strong>}
       {href && (
         <Link href={href}>
           <span className="absolute -inset-px rounded-md" />

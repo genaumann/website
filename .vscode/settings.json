@@ -1,7 +1,4 @@
 {
-    "i18n-ally.localesPaths": [
-        "locales"
-    ],
-    "i18n-ally.keystyle": "nested",
-    "i18n-ally.displayLanguage": "de_DE",
+  "editor.tabSize": 2,
+  "tailwindCSS.experimental.classRegex": ["tw\\('([^']*)'\\)"]
 }

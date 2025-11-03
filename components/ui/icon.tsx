@@ -10,7 +10,7 @@ import {
 import CustomIcon, {customIconMap, CustomIconName} from '@/components/icons'
 import {forwardRef} from 'react'
 
-const defaultPrefix: FaIconPrefix = 'fal'
+export const defaultPrefix: FaIconPrefix = 'fal'
 
 type IconName = FontAwesomeIconName | CustomIconName
 type IconPrefix = 'fas' | 'fal' | 'fab'

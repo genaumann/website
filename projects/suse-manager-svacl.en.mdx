@@ -1,0 +1,69 @@
+---
+technologies:
+  - suse-manager
+  - sles
+  - salt
+  - azure-devops
+  - iac
+start: 2023-08-01
+end: 2024-09-30
+context: work
+cv: true
+---
+
+# SUSE Manager Optimization & Migration
+
+## project_overview
+
+The customer operated an extensive SLES infrastructure that was fully managed via **SUSE Manager**.
+The goal was to modernize the existing environment, build internal knowledge, and migrate outdated **SLES 12** servers to **SLES 15**.
+
+## challenge
+
+The customer relied exclusively on SLES servers and managed them through SUSE Manager.
+In addition, many systems were still running on **SLES 12**, which was nearing the end of its support period.
+
+- Outdated SLES 12 systems
+- Limited knowledge about SUSE Manager and Salt
+- Partially manual and unstructured configurations
+
+## goals
+
+The goals of the project were:
+
+- Build internal expertise in using SUSE Manager
+- Simplify administrative processes for SLES systems
+- Migrate SLES 12 systems to SLES 15
+- Introduce a modern workflow based on **Infrastructure as Code (IaC)**
+
+## approach
+
+I started with a **SUSE Manager crash course** to give the customer’s team an overview of key functionalities.
+As I strongly prefer the **IaC approach**, I customized SUSE Manager and its underlying **SaltStack** configuration to be managed via an **Azure DevOps staging system**.
+I implemented a **staging environment within SUSE Manager** and defined a **development flow** for the ongoing improvement of Salt states.
+Together with the customer, we successfully migrated all **SLES 12 systems to SLES 15** using SUSE Manager.
+
+## implementation
+
+- **Crash Course:** Provided an introduction to SUSE Manager fundamentals
+- **IaC Setup:** Integrated Azure DevOps and Salt for version-controlled configuration management
+- **Staging System:** Implemented a testing and release process within SUSE Manager
+- **Migration:** Upgraded systems from SLES 12 to SLES 15
+- **Documentation:** Delivered structured operational documentation for long-term use
+
+## results
+
+- The **staging system** and **IaC workflow** I established are still in use today
+- Numerous SLES 12 systems were successfully migrated to SLES 15
+- The customer can now independently manage SUSE Manager
+
+In **September 2024**, the project was handed over to a colleague following my job transition.
+
+## insights
+
+This project deepened my expertise in **SUSE Manager**, **SaltStack**, and **IaC workflows** within enterprise environments.
+I gained hands-on experience in building maintainable, version-controlled Linux infrastructures.
+
+- Experience in developing automation and staging processes with SUSE Manager
+- Effective knowledge transfer through practical training sessions
+- Strengthened IaC principles in complex enterprise Linux environments

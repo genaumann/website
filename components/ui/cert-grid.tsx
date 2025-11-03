@@ -1,63 +1,96 @@
-import Link from 'next/link'
+'use client'
+
+import {useEffect, useRef} from 'react'
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from './card'
 import Icon from './icon'
-import {cn} from '@/lib/cn'
 import {Badge} from './badge'
 import {getDateFunctions} from '@/lib/dates'
-import {getLocale} from '@/lib/cookie'
-import {getCertsByKeyword, certs as certData} from '@/lib/cert'
-import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {certs as certData, getCertsByTechnology} from '@/lib/cert'
+import {ProjectTechnologyBadge} from './project-badges'
+import {useTolgee, useTranslate} from '@tolgee/react'
+import {LOCALES} from '@/locales'
 
 type CertGridProps = {
-  keyword?: string
+  technology?: string
 }
 
-export default async function CertGrid({keyword}: CertGridProps) {
-  const t = await getTranslate()
-  const locale = await getLocale()
+export default function CertGrid({technology}: CertGridProps) {
+  const {t} = useTranslate()
+  const tolgee = useTolgee()
+  const locale = tolgee.getLanguage() || LOCALES.de
   const {format} = getDateFunctions(locale)
-  const certs = keyword ? getCertsByKeyword(keyword) : certData
+  const certs = technology ? getCertsByTechnology(technology) : certData
+  const titles = useRef<Record<string, HTMLDivElement>>({})
+
+  useEffect(() => {
+    const titleElements = Object.values(titles.current)
+    if (titleElements.length === 0) return
+    titleElements.forEach(el => {
+      el.style.height = 'auto'
+    })
+    const maxHeight = Math.max(...titleElements.map(el => el.scrollHeight))
+    titleElements.forEach(el => {
+      el.style.height = `${maxHeight}px`
+    })
+  }, [certs])
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {certs.map(cert => {
         const isActive = cert.validTo ? new Date() < cert.validTo : true
         return (
-          <Link
-            href={cert.url}
+          <div
             key={cert.name}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="group">
-            <Card className="overflow-hidden bg-transparent border border-border shadow dark:shadow-primary">
-              <CardHeader className="py-4 px-6 min-h-[88px] bg-card">
-                <CardTitle className="text-xl font-semibold">
+            className="group cursor-pointer"
+            onClick={e => {
+              const target = e.target as HTMLElement
+              if (target.closest('a') || target.closest('button')) {
+                return
+              }
+              window.open(cert.url, '_blank')
+            }}>
+            <Card className="bg-background border border-dashed border-muted shadow shadow-primary transition-all duration-300 ease-out transform-gpu hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20">
+              <CardHeader className="relative">
+                <CardTitle
+                  ref={el => {
+                    if (el) titles.current[cert.name] = el as HTMLDivElement
+                  }}
+                  className="text-2xl font-semibold text-center">
                   {cert.name}
                 </CardTitle>
-              </CardHeader>
-              <CardContent className="flex justify-center p-0">
-                <Icon
-                  name={cert.icon || 'file-certificate'}
-                  prefix={cert.iconPrefix}
-                  className={cn(
-                    'text-7xl py-7 text-muted-foreground transition-transform duration-300 ease-in-out group-hover:scale-150',
-                    cert.className
-                  )}
-                />
-              </CardContent>
-              <CardFooter className="grid grid-cols-3 py-4 bg-card">
-                <p className="text-muted-foreground place-self-start">
-                  {cert.issuer}
-                </p>
-                <Badge className="place-self-center">
+                <Badge
+                  variant={isActive ? 'default' : 'destructive'}
+                  className="absolute -top-3 -right-2">
                   {isActive ? t('active') : t('expired')}
                 </Badge>
-                <p className="text-muted-foreground place-self-end">
-                  {format(cert.validFrom, 'MM/yyyy')}
-                </p>
+
+                <div className="absolute -top-3 -left-2 flex items-center gap-2 bg-secondary p-2 rounded-xl">
+                  <Icon
+                    name="file-certificate"
+                    className="text-xl text-muted-foreground"
+                  />
+                </div>
+              </CardHeader>
+              <CardContent className="flex justify-center gap-2">
+                <Badge variant="muted">
+                  <Icon name="calendar" />
+                  <span>{format(cert.validFrom, 'MMM yyyy')}</span>
+                </Badge>
+                <Badge variant="muted">
+                  <Icon name="file-certificate" />
+                  <span>{cert.issuer}</span>
+                </Badge>
+              </CardContent>
+              <CardFooter className="flex justify-center gap-2 py-4 border-t border-muted border-dashed">
+                {cert.technologies?.map(technology => (
+                  <ProjectTechnologyBadge
+                    key={technology}
+                    technologyName={technology}
+                  />
+                ))}
               </CardFooter>
             </Card>
-          </Link>
+          </div>
         )
       })}
     </div>

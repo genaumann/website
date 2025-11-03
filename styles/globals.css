@@ -34,7 +34,8 @@
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
 
-  --font-sans: var(--font-sans);
+  --font-oswald: Oswald, sans-serif;
+  --font-inter: Inter, sans-serif;
 
   /* Box Shadow Konfiguration */
   --shadow-t: 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -176,19 +177,28 @@
     overflow-x: hidden;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-oswald);
+  }
+
   section {
     @apply scroll-mt-[97px];
   }
 
-  article h2,
-  article h3,
-  article h4,
-  article h5,
-  article h6 {
+  article#kb h2,
+  article#kb h3,
+  article#kb h4,
+  article#kb h5,
+  article#kb h6 {
     @apply scroll-mt-[170px];
   }
 
-  article h2 {
+  article#kb h2 {
     border-color: hsl(var(--muted));
     border-style: dashed;
     padding-top: 2.5rem;
@@ -200,8 +210,8 @@
     background-color: inherit !important;
   }
 
-  html.dark article .shiki,
-  html.dark article .shiki span {
+  html.dark article#kb .shiki,
+  html.dark article#kb .shiki span {
     color: var(--shiki-dark) !important;
     background-color: inherit !important;
   }

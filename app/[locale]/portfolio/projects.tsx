@@ -1,28 +1,38 @@
-'use client'
+import {getProjects} from '@/lib/projects'
+import Link from 'next/link'
+import {Button} from '@/components/ui/button'
+import Icon from '@/components/ui/icon'
+import ProjectGrid from '@/components/ui/project-grid'
+import {getTranslate} from '@/lib/integrations/tolgee/server'
+import {Badge} from '@/components/ui/badge'
 
-import PortfolioProjectSwiperSkeleton from '@/components/ui/projects/swiper-skeleton'
-import {useTranslate} from '@tolgee/react'
-import dynamic from 'next/dynamic'
-
-export default function PortfolioProjectsPage() {
-  const {t} = useTranslate()
-
-  const PortfolioProjectSwiper = dynamic(
-    () => import('@/components/ui/projects/swiper'),
-    {
-      ssr: false,
-      loading: () => <PortfolioProjectSwiperSkeleton />
-    }
-  )
+export default async function PortfolioProjectsPage() {
+  const t = await getTranslate('portfolio')
+  const completedProjects = getProjects().filter(project => project.end)
+  if (completedProjects.length === 0) return null
+  const maxProjects = 3
 
   return (
-    <section className="py-12 container" id="projects">
-      <div className="overflow-hidden">
-        <h2 className="text-4xl font-bold mb-6 text-center">
-          {t('completedProjects')}
+    <section className="py-12 container flex flex-col gap-6" id="projects">
+      <div className="w-fit mx-auto relative">
+        <h2 className="text-4xl font-bold">
+          {t('completedProjects', {ns: 'common'})}
         </h2>
-        <PortfolioProjectSwiper />
+        <Badge variant="muted" className="absolute top-[-5px] right-[-40px]">
+          {maxProjects}/{completedProjects.length}
+        </Badge>
       </div>
+      <ProjectGrid projects={completedProjects.splice(0, maxProjects)} />
+      <Link
+        href="/portfolio/projects"
+        className="text-center group font-oswald">
+        <Button
+          size="lg"
+          className="group-hover:scale-125 transition-transform duration-300 ease-in-out">
+          {t('allProjects')}
+          <Icon name="arrow-right" />
+        </Button>
+      </Link>
     </section>
   )
 }

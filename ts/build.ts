@@ -1,4 +1,6 @@
 import {buildArticleIndex} from './articleIndex'
+import {buildProjectIndex} from './projectIndex'
+import {buildTechnologyIndex} from './technologyIndex'
 import {fetchTolgee} from './fetchTolgee'
 
 const build = async () => {
@@ -6,6 +8,8 @@ const build = async () => {
 
   await fetchTolgee()
   await buildArticleIndex()
+  await buildProjectIndex()
+  await buildTechnologyIndex()
 }
 
 build()

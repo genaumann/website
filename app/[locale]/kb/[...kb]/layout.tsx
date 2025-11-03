@@ -42,9 +42,9 @@ export default async function KBLayout({
       {/* Left sidebar */}
       <div className="hidden md:block border-r border-muted border-dashed shrink-0">
         <div className="sticky top-28 overflow-auto">
-          <p className="text-lg font-semibold mb-4">
+          <span className="text-lg font-semibold mb-4 font-oswald">
             {t('kb', {ns: 'common'})}
-          </p>
+          </span>
           <ArticleSidebar articles={articles} />
         </div>
       </div>
@@ -87,13 +87,15 @@ export default async function KBLayout({
             })}
           </BreadcrumbList>
         </Breadcrumb>
-        <article className="prose max-w-full">{children}</article>
+        <article id="kb" className="prose max-w-full">
+          {children}
+        </article>
       </div>
 
       {/* TOC */}
-      <div className="w-52 hidden lg:block border-l border-dashed border-muted ps-4 shrink-0">
+      <div className="w-52 hidden lg:block border-l border-dashed border-muted ps-4 shrink-0 font-oswald">
         <div className="sticky top-28 overflow-auto">
-          <p className="text-lg font-semibold mb-4">{t('toc')}</p>
+          <span className="text-lg font-semibold mb-4">{t('toc')}</span>
           <TocWrapper />
         </div>
       </div>

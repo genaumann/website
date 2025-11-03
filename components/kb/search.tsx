@@ -45,7 +45,7 @@ export default function SearchCommand({locale}: LocaleParam) {
       <Button
         onClick={() => setIsOpen(true)}
         variant="outline"
-        className="hover:bg-secondary/40 w-28 md:w-36 bg-secondary/40 items-center justify-between md:mt-2 cursor-pointer">
+        className="hover:bg-secondary/40 w-28 md:w-36 bg-secondary/40 items-center justify-between md:mt-2 cursor-pointer font-oswald">
         {isLoading ? (
           <Skeleton className="h-5 w-full" />
         ) : (
@@ -185,7 +185,7 @@ function SearchDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="border-0 h-[460px] max-h-[460px] max-w-[370px] sm:max-w-md md:max-w-xl md:w-xl overflow-x-clip">
+      <DialogContent className="font-oswald border-0 h-[460px] max-h-[460px] max-w-[370px] sm:max-w-md md:max-w-xl md:w-xl overflow-x-clip">
         <DialogHeader className="hidden mb-6">
           <DialogTitle>{t('search', {ns: 'common'})}</DialogTitle>
         </DialogHeader>

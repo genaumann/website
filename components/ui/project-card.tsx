@@ -1,9 +1,7 @@
 import {cn} from '@/lib/cn'
 import {forwardRef} from 'react'
 import {Badge, BadgeProps} from './badge'
-import {Project} from '@/lib/projects'
-import {Slot} from '@radix-ui/react-slot'
-import {TType} from '@/lib/types'
+import {Project, TType} from '@/lib/types'
 
 interface StatusBadgeProps extends BadgeProps {
   start: Project['start']
@@ -14,16 +12,20 @@ interface StatusBadgeProps extends BadgeProps {
 const StatusBadge = ({start, end, t, ...props}: StatusBadgeProps) => {
   const now = new Date()
   if (end && end < now) {
-    return <Badge {...props}>{t('status.completed')}</Badge>
+    return (
+      <Badge className="font-oswald" {...props}>
+        {t('status.completed')}
+      </Badge>
+    )
   } else if (start > now) {
     return (
-      <Badge variant="secondary" {...props}>
+      <Badge variant="secondary" className="font-oswald" {...props}>
         {t('status.upcoming')}
       </Badge>
     )
   } else {
     return (
-      <Badge variant="outline" {...props}>
+      <Badge variant="outline" className="font-oswald" {...props}>
         {t('status.inProgress')}
       </Badge>
     )
@@ -37,7 +39,9 @@ const ProjectCard = forwardRef<
   <div
     ref={ref}
     className={cn(
-      'rounded-lg border border-muted shadow bg-background relative flex flex-col dark:shadow-primary h-full',
+      'rounded-lg border border-muted border-dashed shadow bg-background relative flex flex-col gap-6 shadow-primary h-full',
+      'transition-all duration-300 ease-out transform-gpu',
+      'hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20',
       className
     )}
     {...props}
@@ -45,44 +49,20 @@ const ProjectCard = forwardRef<
 ))
 ProjectCard.displayName = 'ProjectCard'
 
-const ProjectCardMain = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({className, ...props}, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'flex flex-col p-6 gap-4 border-b border-muted grow',
-      className
-    )}
-    {...props}
-  />
-))
-ProjectCardMain.displayName = 'ProjectCardMain'
-
 const ProjectCardTitle = forwardRef<
   HTMLSpanElement,
   React.HTMLAttributes<HTMLSpanElement>
 >(({className, ...props}, ref) => (
   <span
     ref={ref}
-    className={cn('line-clamp-2 text-2xl font-bold', className)}
+    className={cn(
+      'p-4 text-2xl font-semibold text-center font-oswald',
+      className
+    )}
     {...props}
   />
 ))
 ProjectCardTitle.displayName = 'ProjectCardTitle'
-
-const ProjectCardDescription = forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({className, ...props}, ref) => (
-  <p
-    ref={ref}
-    className={cn('text-muted-foreground whitespace-pre-line', className)}
-    {...props}
-  />
-))
-ProjectCardDescription.displayName = 'ProjectCardDescription'
 
 const ProjectCardInfo = forwardRef<
   HTMLDivElement,
@@ -90,10 +70,7 @@ const ProjectCardInfo = forwardRef<
 >(({className, ...props}, ref) => (
   <div
     ref={ref}
-    className={cn(
-      'p-6 flex flex-col gap-2 bg-card min-h-[186px] rounded-b-lg',
-      className
-    )}
+    className={cn('px-4 flex flex-col gap-2 items-center', className)}
     {...props}
   />
 ))
@@ -107,56 +84,26 @@ const ProjectCardInfoItem = forwardRef<
 ))
 ProjectCardInfoItem.displayName = 'ProjectCardInfoItem'
 
-const ProjectCardInfoLabel = forwardRef<
-  HTMLSpanElement,
-  React.HTMLAttributes<HTMLSpanElement>
+const ProjectCardTechnologies = forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({className, ...props}, ref) => (
-  <span ref={ref} className={cn('font-semibold', className)} {...props} />
-))
-ProjectCardInfoLabel.displayName = 'ProjectCardInfoLabel'
-
-const ProjectCardInfoValue = forwardRef<
-  HTMLSpanElement,
-  React.HTMLAttributes<HTMLSpanElement>
->(({className, ...props}, ref) => (
-  <span
+  <div
     ref={ref}
-    className={cn('text-muted-foreground', className)}
+    className={cn(
+      'p-4 flex gap-2 text-sm border-t border-muted border-dashed pt-4 items-center justify-center mt-auto',
+      className
+    )}
     {...props}
   />
 ))
-ProjectCardInfoValue.displayName = 'ProjectCardInfoValue'
-
-const ProjectCardReference = forwardRef<
-  HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<'a'> & {
-    asChild?: boolean
-  }
->(({asChild, className, ...props}, ref) => {
-  const Comp = asChild ? Slot : 'a'
-
-  return (
-    <Comp
-      ref={ref}
-      className={cn(
-        'transition-colors hover:text-foreground underline inline-flex items-center gap-0.5 text-foreground',
-        className
-      )}
-      {...props}
-    />
-  )
-})
-ProjectCardReference.displayName = 'ProjectCardReference'
+ProjectCardTechnologies.displayName = 'ProjectCardTechnologies'
 
 export {
   ProjectCard,
-  ProjectCardMain,
   ProjectCardTitle,
-  ProjectCardDescription,
   ProjectCardInfo,
   ProjectCardInfoItem,
-  ProjectCardInfoLabel,
-  ProjectCardInfoValue,
-  ProjectCardReference,
-  StatusBadge
+  StatusBadge,
+  ProjectCardTechnologies
 }

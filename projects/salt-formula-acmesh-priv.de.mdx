@@ -1,0 +1,64 @@
+---
+technologies:
+  - salt
+  - python
+  - github
+start: 2024-01-01
+end: 2024-03-31
+context: personal
+cv: false
+---
+
+# Entwicklung eines Salt-Formulas für acme.sh
+
+## project_overview
+
+Ich habe ein eigenes **Salt-Formula** entwickelt, mit dem sich SSL/TLS-Zertifikate automatisiert über **acme.sh** ausstellen lassen.
+Um die Funktionalität von Salt zu erweitern, habe ich zusätzlich **eigene Salt Execution Modules in Python** geschrieben, die eine direkte Kommunikation mit acme.sh ermöglichen.
+Dadurch können Zertifikate automatisch angefordert, erneuert und auf den Zielsystemen bereitgestellt werden.
+
+## challenge
+
+Ziel war es, die Zertifikatsverwaltung in Salt **modular, wiederverwendbar und versionsunabhängig** zu integrieren.
+Da Salt keine native Unterstützung für acme.sh bietet, mussten eigene Python-Module entwickelt werden.
+
+- Keine native Unterstützung von acme.sh in Salt
+- Bedarf an wiederverwendbarer und wartbarer Automatisierungslogik
+- Sicherstellung der Kompatibilität mit verschiedenen Salt-Versionen
+
+## goals
+
+Ziele des Projekts waren:
+
+- Entwicklung eines **Salt-Formulas** zur automatisierten Zertifikatserstellung über **acme.sh**
+- Erweiterung von Salt durch **eigene Python Execution Modules**
+- Automatisiertes Testing gegen verschiedene **Salt-Versionen** mit **GitHub Actions**
+- Aufbau eines vollständig automatisierten Zertifikats-Lebenszyklus
+
+## approach
+
+Das Formula wurde so konzipiert, dass es **Zertifikatsanforderungen, Erneuerungen und Bereitstellungen** über acme.sh steuern kann.
+Die **Python Execution Modules** interagieren direkt mit acme.sh und liefern strukturierte Rückgaben an Salt.
+Über eine **GitHub Actions Pipeline** werden regelmäßig Tests mit den neuesten Salt-Releases durchgeführt.
+
+## implementation
+
+- **Formula-Entwicklung:** Erstellung eines Salt-Formulas zur Verwaltung von SSL/TLS-Zertifikaten über acme.sh
+- **Python-Module:** Implementierung eigener Salt Execution Modules zur Zertifikatsverwaltung
+- **Automatisierung:** Aufbau einer GitHub Actions CI-Pipeline für automatisierte Versionstests
+- **Dokumentation:** Erstellung von Anwendungs- und Entwicklerdokumentationen
+
+## results
+
+- Vollständig automatisierte Ausstellung und Erneuerung von Zertifikaten in Salt
+- Erweiterte Salt-Funktionalität durch eigene Python-Module
+- Kontinuierliche Tests zur Sicherstellung der Kompatibilität mit neuen Salt-Versionen
+
+## insights
+
+Das Projekt vertiefte mein Wissen in den Bereichen **Salt-Modulentwicklung**, **Python-Automatisierung** und **CI/CD-Integration**.
+Ich konnte wertvolle Erfahrungen in der Verbindung von **Infrastructure as Code** mit praktischen Automatisierungsszenarien sammeln.
+
+- Entwicklung eigener Salt-Module in Python
+- Erfahrung mit automatisierter Zertifikatsverwaltung via acme.sh
+- Vertieftes Verständnis von CI/CD-Pipelines und Versions-Testing

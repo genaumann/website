@@ -22,7 +22,7 @@ export const fetchTolgee = async () => {
       const data = await response.json()
       const filePath = path.join(localeDir, `${locale}.json`)
       await fs.writeFile(filePath, JSON.stringify(data, null, 2))
-      console.log(`[${locale}:${ns}]: Fetched and saved translations`)
+      console.log(`✓ [${locale}:${ns}]: Fetched and saved translations`)
     }
   }
 }

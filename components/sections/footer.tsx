@@ -16,7 +16,9 @@ export default async function Footer() {
   const navigation = {
     main: [
       {name: t('portfolio'), href: '/portfolio'},
-      {name: t('techstack'), href: '/portfolio/tools'},
+      {name: t('projects'), href: '/portfolio/projects'},
+      {name: t('downloads'), href: '/downloads'},
+      {name: t('techstack'), href: '/portfolio/technologies'},
       {name: t('kb'), href: '/kb'},
       {name: t('contact'), href: '/contact'},
       {name: t('privacy'), href: '/privacy'},

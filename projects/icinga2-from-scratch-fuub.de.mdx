@@ -1,0 +1,65 @@
+---
+technologies:
+  - icinga2
+  - salt
+start: 2020-02-01
+end: 2020-07-30
+context: work
+cv: false
+---
+
+# Icinga2-Einführung mit Salt-Integration
+
+## project_overview
+
+Zum Projektstart wurden etwa **50 virtuelle Linux- und Windows-Server** ohne ein zentrales Monitoring-System betrieben.
+Störungen und Ausfälle wurden ausschließlich durch Endkunden gemeldet, was häufig zu längeren Downtimes führte.
+Um die Systemverfügbarkeit zu verbessern, habe ich **Icinga2** eingeführt – ein flexibles Monitoring-System, das sowohl unter Linux als auch unter Windows eingesetzt werden kann.
+
+## challenge
+
+Die fehlende Überwachung erschwerte eine proaktive Fehlererkennung.
+Ausfälle wurden oft zu spät erkannt, und eine manuelle Kontrolle aller Systeme war nicht praktikabel.
+
+- Kein zentrales Monitoring-System vorhanden
+- Verzögerte Reaktion auf Störungen
+- Hoher manueller Aufwand zur Systemprüfung
+
+## goals
+
+Ziele des Projekts waren:
+
+- Einführung eines zentralen **Icinga2-Monitorings** für Linux- und Windows-Server
+- Automatische Integration von durch **Salt** verwalteten Systemen
+- Schnelle Erkennung und Benachrichtigung bei System- oder Serviceausfällen
+- Nachhaltige Verbesserung der Systemstabilität
+
+## approach
+
+Ich installierte und konfigurierte **Icinga2** auf einem dedizierten Monitoring-Server.
+Die Hosts wurden über **Salt** in Icinga2 eingebunden.
+Dort wurden relevante Services, Prozesse und Systemmetriken überwacht.
+Für Windows-Systeme kam der **Icinga2-Agent** zum Einsatz, um eine plattformübergreifende Überwachung zu gewährleisten.
+
+## implementation
+
+- **Setup:** Installation und Konfiguration von Icinga2 auf einem zentralen Monitoring-Server
+- **Integration:** Automatische Server-Registrierung über Salt
+- **Windows Support:** Einbindung von Windows-Systemen mittels Icinga2-Agent
+- **Benachrichtigungen:** Einrichtung von Alarmierungen bei kritischen Zuständen
+- **Dokumentation:** Schulung und Übergabe an das interne IT-Team
+
+## results
+
+- Zentrales Monitoring für rund 50 Server
+- Automatische Erkennung von Ausfällen und Serviceproblemen
+- Deutlich reduzierte Reaktionszeiten bei Störungen
+- Das Setup ist weiterhin im Einsatz und wird aktiv weiterentwickelt
+
+## insights
+
+Ich lernte, wie man ein zuverlässiges Überwachungssystem aufbaut und automatisiert betreibt.
+
+- Praktische Erfahrung mit Icinga2
+- Verständnis für Monitoring-Konzepte und Alarmierungsmechanismen
+- Aufbau eines automatisierten, plattformübergreifenden Monitorings

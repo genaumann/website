@@ -2,12 +2,14 @@
 
 import {getFlatArticleIndex} from '@/lib/mdx'
 import {MetadataRoute} from 'next'
-import {tools as getAllTools} from '@/lib/tools'
 import {LOCALES} from '@/locales'
+import {getProjects} from './projects'
+import {getTechnologies} from './technologies'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getFlatArticleIndex(LOCALES.de)
-  const allTools = getAllTools()
+  const allTechnologies = getTechnologies()
+  const projects = getProjects()
 
   return [
     {
@@ -71,26 +73,50 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     },
     {
-      url: `/portfolio/tools`,
+      url: `/portfolio/technologies`,
       changeFrequency: 'yearly',
       priority: 0.3,
       alternates: {
         languages: {
-          de: `/portfolio/tools`,
-          en: `/en/portfolio/tools`,
-          'x-default': `/portfolio/tools`
+          de: `/portfolio/technologies`,
+          en: `/en/portfolio/technologies`,
+          'x-default': `/portfolio/technologies`
         }
       }
     },
-    ...allTools.map(tool => ({
-      url: `/portfolio/tools/${tool.slug}`,
+    {
+      url: `/portfolio/projects`,
+      changeFrequency: 'monthly',
+      priority: 0.4,
+      alternates: {
+        languages: {
+          de: `/portfolio/projects`,
+          en: `/en/portfolio/projects`,
+          'x-default': `/portfolio/projects`
+        }
+      }
+    },
+    {
+      url: `/downloads`,
+      changeFrequency: 'monthly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          de: `/downloads`,
+          en: `/en/downloads`,
+          'x-default': `/downloads`
+        }
+      }
+    },
+    ...allTechnologies.map(technology => ({
+      url: `/portfolio/technologies/${technology.slug}`,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
       alternates: {
         languages: {
-          de: `/portfolio/tools/${tool.slug}`,
-          en: `/en/portfolio/tools/${tool.slug}`,
-          'x-default': `/portfolio/tools/${tool.slug}`
+          de: `/portfolio/technologies/${technology.slug}`,
+          en: `/en/portfolio/technologies/${technology.slug}`,
+          'x-default': `/portfolio/technologies/${technology.slug}`
         }
       }
     })),
@@ -104,6 +130,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           de: `/kb/${article.slug.replace(/\/index$/, '')}`,
           en: `/en/kb/${article.slug.replace(/\/index$/, '')}`,
           'x-default': `/kb/${article.slug.replace(/\/index$/, '')}`
+        }
+      }
+    })),
+    ...projects.map(project => ({
+      url: `/portfolio/projects/${project.id}`,
+      changeFrequency: 'yearly' as const,
+      priority: 0.4,
+      alternates: {
+        languages: {
+          de: `/portfolio/projects/${project.id}`,
+          en: `/en/portfolio/projects/${project.id}`,
+          'x-default': `/portfolio/projects/${project.id}`
         }
       }
     }))

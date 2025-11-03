@@ -1,0 +1,65 @@
+---
+technologies:
+  - awx
+  - ansible
+  - kubernetes
+  - gitlab
+start: 2023-08-01
+end: 2023-09-30
+context: work
+cv: true
+---
+
+# Automated Deployment of AWX on k3s
+
+## project_overview
+
+In several customer projects, our team regularly installed and configured **AWX instances**.
+However, due to the lack of a stable test environment, testing and experimentation were time-consuming and error-prone.
+The goal was to fully automate the deployment of AWX — both in **single-node** and **multi-node** setups.
+
+## challenge
+
+Manually setting up AWX was complex and required multiple steps, especially in Kubernetes environments.
+Additionally, the solution needed to be reproducible and easily integrated into existing CI/CD workflows.
+
+- No centralized test setup for AWX
+- High manual effort for each installation
+- Missing automation and standardization
+
+## goals
+
+The main objectives of the project were:
+
+- Fully automate the installation and setup of AWX
+- Support **k3s single-node** and optional **multi-node** deployments
+- Integrate the process into a **GitLab CI/CD pipeline**
+- Provide a fast and reproducible test environment for the team
+
+## approach
+
+I developed an **Ansible playbook** combined with **CI/CD pipeline steps** in GitLab, which automatically provisions a k3s cluster and installs AWX on top of it.
+This enabled the team to deploy a fully functional AWX environment within minutes, including all required dependencies and configurations.
+
+## implementation
+
+- **Cluster Setup:** Automated provisioning of a k3s cluster via GitLab CI
+- **AWX Deployment:** Installation and configuration of AWX using Ansible
+- **Pipeline Automation:** CI/CD pipeline for automated build and provisioning
+- **Flexibility:** Support for both single-node and multi-node environments
+- **Team Enablement:** Documentation and training to ensure easy adoption by the team
+
+## results
+
+- Fully functional AWX test environments deployed within minutes
+- Consistent and reproducible deployments
+- Significant reduction in manual effort
+- Faster testing and development cycles
+
+## insights
+
+This project deepened my knowledge of **AWX deployments**, **k3s architectures**, and **CI/CD automation**.
+
+- Experience in automated AWX installations on k3s
+- Integration of CI/CD processes for infrastructure provisioning
+- Building efficient and reproducible test environments for system engineers

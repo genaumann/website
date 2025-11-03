@@ -11,7 +11,7 @@ export type TrainingSlides = {
 
 export default async function PortfolioTrainingSwiper() {
   const t = await getTranslate('portfolio')
-  const trainings = getTrainings({type: 'speaker', t})
+  const trainings = getTrainings({type: 'speaker', t, unique: true})
 
   const slides: TrainingSlides[] = trainings.map(training => ({
     id: training.id,
