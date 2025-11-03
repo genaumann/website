@@ -51,7 +51,6 @@ export default function DownloadPDFButton(
   const onClick = useCallback(async () => {
     try {
       setIsLoading(true)
-      console.log('href', href)
       const response = await fetch(href, {cache: 'no-store'})
       if (!response.ok) throw new Error('Download fehlgeschlagen')
 
@@ -73,7 +72,7 @@ export default function DownloadPDFButton(
       a.remove()
       URL.revokeObjectURL(url)
     } catch (error) {
-      console.error('Download fehlgeschlagen:', error)
+      console.error('Download failed:', error)
     } finally {
       setIsLoading(false)
     }
