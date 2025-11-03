@@ -1,4 +1,3 @@
-import {tools as toolsData} from '../../../../../lib/tools'
 import {notFound} from 'next/navigation'
 import TechnologyArticlesPage from './articles'
 import TechnologyCertsPage from './certs'
@@ -17,7 +16,7 @@ import getMetadata from '@/lib/metadata'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LocaleParam} from '@/lib/types'
 import {LOCALES} from '@/locales'
-import {getTechnology} from '@/lib/technologies'
+import {getTechnologies, getTechnology} from '@/lib/technologies'
 
 type ToolParam = LocaleParam & {
   technology: string
@@ -27,12 +26,12 @@ type ToolParam = LocaleParam & {
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const tools = toolsData()
-  return tools
-    .map(tool =>
+  const technologies = getTechnologies()
+  return technologies
+    .map(technology =>
       Object.values(LOCALES).map(locale => ({
         locale,
-        technology: tool.slug
+        technology: technology.slug
       }))
     )
     .flat()

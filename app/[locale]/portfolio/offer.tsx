@@ -46,7 +46,7 @@ export default async function PortfolioOfferPage() {
                   <AccordionContent className="flex flex-col gap-4 text-base py-3 px-4">
                     {offer.description}
                     <Button className="w-fit font-oswald" asChild>
-                      <Link href="/portfolio/tools">
+                      <Link href="/portfolio/technologies">
                         {t('myTechStack')}
                         <Icon name="arrow-right" />
                       </Link>

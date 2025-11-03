@@ -2,13 +2,13 @@
 
 import {getFlatArticleIndex} from '@/lib/mdx'
 import {MetadataRoute} from 'next'
-import {tools as getAllTools} from '@/lib/tools'
 import {LOCALES} from '@/locales'
 import {getProjects} from './projects'
+import {getTechnologies} from './technologies'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getFlatArticleIndex(LOCALES.de)
-  const allTools = getAllTools()
+  const allTechnologies = getTechnologies()
   const projects = getProjects()
 
   return [
@@ -108,15 +108,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
       }
     },
-    ...allTools.map(tool => ({
-      url: `/portfolio/technologies/${tool.slug}`,
+    ...allTechnologies.map(technology => ({
+      url: `/portfolio/technologies/${technology.slug}`,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
       alternates: {
         languages: {
-          de: `/portfolio/technologies/${tool.slug}`,
-          en: `/en/portfolio/technologies/${tool.slug}`,
-          'x-default': `/portfolio/technologies/${tool.slug}`
+          de: `/portfolio/technologies/${technology.slug}`,
+          en: `/en/portfolio/technologies/${technology.slug}`,
+          'x-default': `/portfolio/technologies/${technology.slug}`
         }
       }
     })),
