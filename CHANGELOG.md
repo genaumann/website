@@ -1,5 +1,43 @@
 # Changelog
 
+## [2.0.0](https://github.com/genaumann/website/compare/v1.10.3...v2.0.0) (2025-11-03)
+
+### ⚠ BREAKING CHANGES
+
+* **pdf:** get rid of canva
+
+### ✨ Feature ✨
+
+* **pdf:** add auto generated cv ([6beb5d0](https://github.com/genaumann/website/commit/6beb5d09c5f74c56d2228ec3248cc5b275b1c001))
+* **pdf:** add download page ([4cd4705](https://github.com/genaumann/website/commit/4cd470588276ffe3c9c41144ad1ea11a3577e985))
+* **pdf:** add project pdf ([06d93a1](https://github.com/genaumann/website/commit/06d93a1fcc1e6539372a781ddea2badcfd4e0e8a))
+* **pdf:** add project pdf download ([c39ace5](https://github.com/genaumann/website/commit/c39ace599560ec488b67cd93bfaef5c3996fbec8))
+* **projects:** add desktop table overview ([74a714f](https://github.com/genaumann/website/commit/74a714fe9bc776a27a11edd61b6e6efe1aa1fe67))
+* **projects:** add mobile table like view ([3e5ddb1](https://github.com/genaumann/website/commit/3e5ddb1c5aaa2140974228cf8cceeca353376adf))
+* **projects:** add navigation arrows ([e61a798](https://github.com/genaumann/website/commit/e61a7985625a57eacc09110ca477471c991bb555))
+* **projects:** add project mdx page ([37169c2](https://github.com/genaumann/website/commit/37169c25736eee34036626ee41413a79249d9524))
+* **technologies:** add badges ([203218b](https://github.com/genaumann/website/commit/203218bb9268accc18a54374532e9ccddb660caa))
+
+### 🏗️ Build 🏗️
+
+* add projects build script ([355cfe9](https://github.com/genaumann/website/commit/355cfe92cd2c43d8a6bba74dc20a42b63e30eb2f))
+* add technologyIndex script ([fef28d3](https://github.com/genaumann/website/commit/fef28d331871cf18a3076eafddb03da4046a0d1f))
+
+### 🔧 Refactor 🔧
+
+* add inter font ([c625dd3](https://github.com/genaumann/website/commit/c625dd3d551726bdb76eb651ac6eecd6b7fdb086))
+* **certs:** new design for cert cards ([5104a38](https://github.com/genaumann/website/commit/5104a389d122c604714d0a898679ee450d07bddd))
+* **projects:** new card style ([14c5a4e](https://github.com/genaumann/website/commit/14c5a4ef0e2b60576d9b3b5e6a9bbe47aca629f1))
+* **projects:** use global project badges ([583a64e](https://github.com/genaumann/website/commit/583a64e4aa5a6eb1bf61083c0f75d51df68809e6))
+* tools --> technologies ([4f0aa6f](https://github.com/genaumann/website/commit/4f0aa6f21c2644bae0dc47d2bb6e55e9f73c5e19))
+* use new project structure ([803971e](https://github.com/genaumann/website/commit/803971ef320cfe0473dc7663c46d53505ce7f5b7))
+
+### 📝 Content 📝
+
+* add ai-chatbot project ([add3977](https://github.com/genaumann/website/commit/add39772f3cc925dfc1c461c6fac3aad68bd7935))
+* **projects:** add mdx ([f5202d6](https://github.com/genaumann/website/commit/f5202d6823e54fe150b1b97eafe72c5e5f6554c6))
+* **technologies:** add all mdx ([6eef8e9](https://github.com/genaumann/website/commit/6eef8e903e4714a9e8bc27ab1f023486cca39bec))
+
 ## [1.10.3](https://github.com/genaumann/website/compare/v1.10.2...v1.10.3) (2025-10-07)
 
 ### 📝 Content 📝

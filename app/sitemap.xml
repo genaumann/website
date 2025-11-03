@@ -5,7 +5,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -14,7 +14,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/privacy"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
@@ -23,7 +23,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/imprint"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/imprint"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/imprint"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
@@ -32,7 +32,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio"/>
-    <lastmod>2025-10-07T19:38:04.000Z</lastmod>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -41,151 +41,178 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/contact"/>
-    <lastmod>2025-09-05T15:30:14.000Z</lastmod>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/typescript</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/typescript"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/typescript"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/typescript"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/projects</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/downloads</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/downloads"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/downloads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/downloads"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/technologies/ansible</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/ansible"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/ansible"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/ansible"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/react</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/react"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/react"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/react"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/awx</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/awx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/awx"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/awx"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/container</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/container"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/container"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/container"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/container</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/container"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/container"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/container"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/git</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/git"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/git"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/git"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/git</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/git"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/git"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/git"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/python</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/python"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/python"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/python"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/github</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/github"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/github"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/github"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/uyuni</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/uyuni"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/uyuni"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/uyuni"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/gitlab</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/gitlab"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/gitlab"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/gitlab"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/salt</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/salt"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/salt"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/salt"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/icinga2</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/icinga2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/icinga2"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/icinga2"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/gitlab</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/gitlab"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/gitlab"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/gitlab"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/kubernetes</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/kubernetes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/kubernetes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/kubernetes"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/ansible</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/ansible"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/ansible"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/ansible"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/linux</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/linux"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/linux"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/linux"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/awx</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/awx"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/awx"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/awx"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/nextjs</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/nextjs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/nextjs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/nextjs"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/github</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/github"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/github"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/github"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/playwright</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/playwright"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/playwright"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/playwright"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/linux</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/linux"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/linux"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/linux"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/python</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/python"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/python"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/python"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/icinga2</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/icinga2"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/icinga2"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/icinga2"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/react</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/react"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/react"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/react"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/playwright</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/playwright"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/playwright"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/playwright"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/salt</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/salt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/salt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/salt"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gnaumann.de/portfolio/tools/nextjs</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/tools/nextjs"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/tools/nextjs"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/tools/nextjs"/>
-    <lastmod>2025-06-30T20:52:04.000Z</lastmod>
+    <loc>https://gnaumann.de/portfolio/technologies/typescript</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/typescript"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/typescript"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/typescript"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/technologies/uyuni</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/technologies/uyuni"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/technologies/uyuni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/technologies/uyuni"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -251,5 +278,122 @@
     <lastmod>2025-07-08T20:33:09.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/ai-chatbot-flls</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/ai-chatbot-flls"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/ai-chatbot-flls"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/ai-chatbot-flls"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/e2e-testing-lsls</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/e2e-testing-lsls"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/e2e-testing-lsls"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/e2e-testing-lsls"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/racetrack-webapp-lsswr</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/racetrack-webapp-lsswr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/racetrack-webapp-lsswr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/racetrack-webapp-lsswr"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/gitlab-enablement-svarh</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/gitlab-enablement-svarh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/gitlab-enablement-svarh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/gitlab-enablement-svarh"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/suse-manager-svacl</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/suse-manager-svacl"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/suse-manager-svacl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/suse-manager-svacl"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/aap-cluster-svabbb</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/aap-cluster-svabbb"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/aap-cluster-svabbb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/aap-cluster-svabbb"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/salt-formula-acmesh-priv</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/salt-formula-acmesh-priv"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/salt-formula-acmesh-priv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/salt-formula-acmesh-priv"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/salt-formula-git-priv</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/salt-formula-git-priv"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/salt-formula-git-priv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/salt-formula-git-priv"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/automated-awx-deployment-svasva</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/automated-awx-deployment-svasva"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/automated-awx-deployment-svasva"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/automated-awx-deployment-svasva"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/ansible-concept-bkabka</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/ansible-concept-bkabka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/ansible-concept-bkabka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/ansible-concept-bkabka"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/salt-from-scratch-fuub</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/salt-from-scratch-fuub"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/salt-from-scratch-fuub"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/salt-from-scratch-fuub"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/icinga2-from-scratch-fuub</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/icinga2-from-scratch-fuub"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/icinga2-from-scratch-fuub"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/icinga2-from-scratch-fuub"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://gnaumann.de/portfolio/projects/nagios-to-icinga2-fuzd</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/nagios-to-icinga2-fuzd"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/nagios-to-icinga2-fuzd"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/nagios-to-icinga2-fuzd"/>
+    <lastmod>2025-11-03T19:47:39.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>
