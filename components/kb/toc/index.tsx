@@ -1,6 +1,6 @@
 'use client'
 
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 import Link from 'next/link'
 import {cn} from '@/lib/cn'
 
@@ -13,30 +13,50 @@ interface TOCItem {
 export default function TableOfContents() {
   const [headings, setHeadings] = useState<TOCItem[]>([])
   const [activeId, setActiveId] = useState<string>('')
+  const observerRef = useRef<IntersectionObserver | null>(null)
 
   useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('h2, h3, h4, h5, h6'))
+    const collectHeadings = () => {
+      const elements = Array.from(
+        document.querySelectorAll('h2, h3, h4, h5, h6')
+      )
 
-    const items = elements.map(element => ({
-      id: element.id,
-      text: element.textContent || '',
-      level: Number.parseInt(element.tagName.charAt(1))
-    }))
+      const items = elements.map(element => ({
+        id: element.id,
+        text: element.textContent || '',
+        level: Number.parseInt(element.tagName.charAt(1))
+      }))
 
-    setHeadings(items)
+      requestAnimationFrame(() => {
+        setHeadings(items)
+      })
 
-    const observer = new IntersectionObserver(
+      return elements
+    }
+
+    const elements = collectHeadings()
+
+    observerRef.current = new IntersectionObserver(
       entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
+        const visibleEntries = entries.filter(entry => entry.isIntersecting)
+
+        if (visibleEntries.length > 0) {
+          const sortedEntries = visibleEntries.sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
+          )
+          const topEntry = sortedEntries[0]
+
+          if (topEntry) {
+            setActiveId(topEntry.target.id)
           }
-        })
+        }
       },
       {
         rootMargin: '-130px 0px -80% 0px'
       }
     )
+
+    const observer = observerRef.current
 
     elements.forEach(element => {
       observer.observe(element)
@@ -46,6 +66,7 @@ export default function TableOfContents() {
       elements.forEach(element => {
         observer.unobserve(element)
       })
+      observer.disconnect()
     }
   }, [])
 

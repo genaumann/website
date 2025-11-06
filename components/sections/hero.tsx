@@ -8,19 +8,30 @@ import {getFlatArticleIndex} from '@/lib/mdx'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LOCALES} from '@/locales'
 
+const seededRandom = (seed: number) => {
+  let value = seed
+  return () => {
+    value = (value * 9301 + 49297) % 233280
+    return value / 233280
+  }
+}
+
 const StarField = () => {
-  const stars = Array.from({length: 40}, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    delay: Math.random() * 10,
-    duration: 4 + Math.random() * 6,
-    size: 0.2 + Math.random() * 0.4, // Much smaller scale factor
-    rotation: Math.random() * 360,
-    floatX: (Math.random() - 0.5) * 30, // Subtle horizontal movement
-    floatY: (Math.random() - 0.5) * 10, // Subtle vertical movement
-    floatDuration: 8 + Math.random() * 12 // Slow floating
-  }))
+  const stars = Array.from({length: 40}, (_, i) => {
+    const random = seededRandom(i * 7919 + 12345)
+    return {
+      id: i,
+      left: random() * 100,
+      top: random() * 100,
+      delay: random() * 10,
+      duration: 4 + random() * 6,
+      size: 0.2 + random() * 0.4, // Much smaller scale factor
+      rotation: random() * 360,
+      floatX: (random() - 0.5) * 30, // Subtle horizontal movement
+      floatY: (random() - 0.5) * 10, // Subtle vertical movement
+      floatDuration: 8 + random() * 12 // Slow floating
+    }
+  })
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">

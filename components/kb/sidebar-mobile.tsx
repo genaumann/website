@@ -11,16 +11,14 @@ import {
   DrawerTitle,
   DrawerTrigger
 } from '../ui/drawer'
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {useTranslate} from '@tolgee/react'
 
 export default function MobileSidebar({articles}: {articles: Article[]}) {
-  const [container, setContainer] = useState<HTMLElement | null>(null)
+  const [container] = useState<HTMLElement | null>(() =>
+    typeof document !== 'undefined' ? document.querySelector('main') : null
+  )
   const {t} = useTranslate('kb')
-
-  useEffect(() => {
-    setContainer(document.getElementsByTagName('main')[0])
-  }, [])
 
   return (
     <Drawer container={container}>

@@ -5,7 +5,8 @@ import {
   type ReactNode,
   useContext,
   useEffect,
-  useState
+  useState,
+  startTransition
 } from 'react'
 import {
   Tabs as ShadcnTabs,
@@ -64,22 +65,24 @@ export function Tabs({children, id}: {children: ReactNode; id: string}) {
     if (tabs.length > 0 && !initialized) {
       const tabParam = searchParams.get(id)
 
-      if (tabParam !== null) {
-        const tabPosition = Number.parseInt(tabParam, 10)
-        if (
-          !isNaN(tabPosition) &&
-          tabPosition >= 0 &&
-          tabPosition < tabs.length
-        ) {
-          setActiveTab(tabs[tabPosition].id)
+      startTransition(() => {
+        if (tabParam !== null) {
+          const tabPosition = Number.parseInt(tabParam, 10)
+          if (
+            !isNaN(tabPosition) &&
+            tabPosition >= 0 &&
+            tabPosition < tabs.length
+          ) {
+            setActiveTab(tabs[tabPosition].id)
+          } else {
+            setActiveTab(tabs[0].id)
+          }
         } else {
           setActiveTab(tabs[0].id)
         }
-      } else {
-        setActiveTab(tabs[0].id)
-      }
 
-      setInitialized(true)
+        setInitialized(true)
+      })
     }
   }, [tabs, searchParams, id, initialized])
 

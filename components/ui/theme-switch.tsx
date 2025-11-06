@@ -6,7 +6,7 @@ import {useTheme} from 'next-themes'
 import {Button} from './button'
 import Icon, {type IconName} from './icon'
 import {cn} from '@/lib/cn'
-import {type ReactNode, useEffect, useState} from 'react'
+import {type ReactNode, useEffect, useState, startTransition} from 'react'
 import {useTranslate} from '@tolgee/react'
 
 interface ThemeConfig {
@@ -26,7 +26,9 @@ export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    startTransition(() => {
+      setMounted(true)
+    })
   }, [])
 
   const themeConfig: ThemeConfig[] = [

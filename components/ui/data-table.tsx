@@ -1,4 +1,5 @@
 'use client'
+'use no memo'
 
 import {
   ColumnDef,
@@ -39,6 +40,8 @@ export function DataTable<TData, TValue>({
   const [globalFilter, setGlobalFilter] = useState('')
   const {t} = useTranslate('common')
 
+  // https://github.com/TanStack/table/issues/6018 & https://github.com/TanStack/table/issues/5567
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,
