@@ -114,18 +114,22 @@ type CustomIconProps = {
   name: IconName
 } & SVGProps<SVGSVGElement>
 
-const CustomIcon: React.FC<CustomIconProps> = ({name, className, ...props}) => {
-  const color = customIconMap[name]?.color || 'var(--foreground)'
-  const Component = customIconMap[name]?.Component
+const CustomIcon = React.forwardRef<SVGSVGElement, CustomIconProps>(
+  ({name, className, ...props}, ref) => {
+    const color = customIconMap[name]?.color || 'var(--foreground)'
+    const Component = customIconMap[name]?.Component
 
-  return (
-    <Component
-      fill={color}
-      className={cn('svg-inline--fa fa-fw', className)}
-      {...props}
-    />
-  )
-}
+    return (
+      <Component
+        fill={color}
+        ref={ref}
+        className={cn('svg-inline--fa fa-fw', className)}
+        {...props}
+      />
+    )
+  }
+)
+CustomIcon.displayName = 'CustomIcon'
 
 export default CustomIcon
 export type CustomIconName = IconName
