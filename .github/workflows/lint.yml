@@ -26,7 +26,7 @@ jobs:
       - name: Setup node lts
         uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
+          node-version: 22.x
           # cache: pnpm # see https://github.com/vercel/vercel/discussions/7581 & https://github.com/actions/cache/issues/319
       - name: Run pnpm install
         run: pnpm install
@@ -35,3 +35,22 @@ jobs:
           configFile: commitlint.config.ts
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules
+
+  eslint:
+    name: Run eslint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup node lts
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+      - name: Run pnpm install
+        run: pnpm install
+      - name: Run lint
+        run: pnpm run lint
