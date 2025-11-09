@@ -11,17 +11,13 @@ import {
   DrawerTitle,
   DrawerTrigger
 } from '../ui/drawer'
-import {useState} from 'react'
 import {useTranslate} from '@tolgee/react'
 
 export default function MobileSidebar({articles}: {articles: Article[]}) {
-  const [container] = useState<HTMLElement | null>(() =>
-    typeof document !== 'undefined' ? document.querySelector('main') : null
-  )
   const {t} = useTranslate('kb')
 
   return (
-    <Drawer container={container}>
+    <Drawer>
       <DrawerTrigger className="md:hidden" asChild>
         <Button size="icon" variant="ghost" className="hover:bg-inherit w-fit">
           <Icon name="list" />
