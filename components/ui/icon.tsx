@@ -8,7 +8,7 @@ import {
   IconProp
 } from '@fortawesome/fontawesome-svg-core'
 import CustomIcon, {customIconMap, CustomIconName} from '@/components/icons'
-import {forwardRef} from 'react'
+import {forwardRef, SVGProps} from 'react'
 
 export const defaultPrefix: FaIconPrefix = 'fal'
 
@@ -27,6 +27,7 @@ const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
   if (name in customIconMap)
     return (
       <CustomIcon
+        {...(restProps as SVGProps<SVGSVGElement>)}
         ref={ref}
         name={name as CustomIconName}
         className={className}
