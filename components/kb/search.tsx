@@ -22,12 +22,10 @@ import {useTranslate} from '@tolgee/react'
 
 export default function SearchCommand({locale}: LocaleParam) {
   const [isOpen, setIsOpen] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
   const isMobile = useIsMobile()
   const {t} = useTranslate()
 
   useEffect(() => {
-    setIsLoading(false)
     if (isMobile) return
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
@@ -46,19 +44,13 @@ export default function SearchCommand({locale}: LocaleParam) {
         onClick={() => setIsOpen(true)}
         variant="outline"
         className="hover:bg-secondary/40 w-28 md:w-36 bg-secondary/40 items-center justify-between md:mt-2 cursor-pointer font-oswald">
-        {isLoading ? (
-          <Skeleton className="h-5 w-full" />
-        ) : (
-          <>
-            {isMobile && <Icon name="magnifying-glass" />}
-            <span>{t('search')}...</span>
-            {!isMobile && (
-              <kbd className="inline-flex h-5 items-center gap-1 rounded bg-background/75 px-1.5 font-mono text-[10px] text-muted-foreground">
-                <span className="text-xs">⌘</span>K
-              </kbd>
-            )}
-          </>
-        )}
+        <>
+          <Icon name="magnifying-glass" className="md:hidden" />
+          <span>{t('search')}...</span>
+          <kbd className="hidden md:inline-flex h-5 items-center gap-1 rounded bg-background/75 px-1.5 font-mono text-[10px] text-muted-foreground">
+            <span className="text-xs">⌘</span>K
+          </kbd>
+        </>
       </Button>
       {isOpen && (
         <SearchDialog

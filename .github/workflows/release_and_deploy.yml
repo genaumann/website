@@ -37,7 +37,7 @@ jobs:
       - name: Setup node lts
         uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
+          node-version: 22.x
           # cache: pnpm # see https://github.com/vercel/vercel/discussions/7581 & https://github.com/actions/cache/issues/319
       - name: Pull Vercel Environment Information
         run: npx vercel env pull --environment=production --token=${{ secrets.VERCEL_TOKEN }}
@@ -98,7 +98,7 @@ jobs:
       - name: Setup node lts
         uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
+          node-version: 22.x
           # cache: pnpm # see https://github.com/vercel/vercel/discussions/7581 & https://github.com/actions/cache/issues/319
       - name: Pull Vercel Environment Information
         run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}

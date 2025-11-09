@@ -2,7 +2,7 @@
 
 import Icon from '@/components/ui/icon'
 import {Technology} from '@/lib/types'
-import {useEffect, useState} from 'react'
+import {useMemo, useState, useEffect, startTransition} from 'react'
 import {useTheme} from 'next-themes'
 
 type TechnologyIconProps = Pick<Technology, 'icon' | 'iconPrefix'>
@@ -12,21 +12,23 @@ export default function TechnologyIcon({
   iconPrefix
 }: TechnologyIconProps) {
   const {theme, systemTheme} = useTheme()
-  const [isDark, setIsDark] = useState<boolean | undefined>(undefined)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setIsDark(
-      theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
-    )
-  }, [theme, systemTheme])
+    startTransition(() => {
+      setMounted(true)
+    })
+  }, [])
 
-  return (
-    <Icon
-      name={
-        typeof icon === 'string' ? icon : icon[`${isDark ? 'dark' : 'light'}`]
-      }
-      prefix={iconPrefix}
-      aria-hidden="true"
-    />
+  const isDark = useMemo(
+    () =>
+      mounted &&
+      (theme === 'dark' || (theme === 'system' && systemTheme === 'dark')),
+    [mounted, theme, systemTheme]
   )
+
+  const iconName =
+    typeof icon === 'string' ? icon : icon[`${isDark ? 'dark' : 'light'}`]
+
+  return <Icon name={iconName} prefix={iconPrefix} aria-hidden="true" />
 }

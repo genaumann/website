@@ -8,7 +8,7 @@ import {
   IconProp
 } from '@fortawesome/fontawesome-svg-core'
 import CustomIcon, {customIconMap, CustomIconName} from '@/components/icons'
-import {forwardRef} from 'react'
+import {forwardRef, SVGProps} from 'react'
 
 export const defaultPrefix: FaIconPrefix = 'fal'
 
@@ -22,48 +22,29 @@ export type IconProps = Omit<
   prefix?: IconPrefix
 }
 
-function renderIcon({name, prefix, className, ...props}: IconProps) {
-  if (name in customIconMap) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {mask, transform, symbol, ...customIconProps} = props
+const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const {name, prefix, className, ...restProps} = props
+  if (name in customIconMap)
     return (
       <CustomIcon
+        {...(restProps as SVGProps<SVGSVGElement>)}
+        ref={ref}
         name={name as CustomIconName}
         className={className}
-        {...customIconProps}
       />
     )
-  }
 
   return (
     <FontAwesomeIcon
-      {...props}
+      {...restProps}
+      ref={ref}
       icon={byPrefixAndName[prefix || defaultPrefix][name] as IconProp}
       className={className}
-      fixedWidth
     />
   )
-}
-// og image
-function IconWithoutRef(props: IconProps) {
-  return renderIcon(props)
-}
-
-const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
-  if (props.name in customIconMap)
-    return (
-      <CustomIcon
-        ref={ref}
-        name={props.name as CustomIconName}
-        className={props.className}
-      />
-    )
-
-  return renderIcon({...props, ref})
 })
 
-IconWithoutRef.displayName = 'IconWithoutRef'
 Icon.displayName = 'Icon'
 
-export {type IconName, type IconPrefix, IconWithoutRef}
+export {type IconName, type IconPrefix}
 export default Icon

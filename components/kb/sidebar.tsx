@@ -1,10 +1,8 @@
 'use client'
 
-import type React from 'react'
-
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import {ScrollArea} from '@/components/ui/scroll-area'
 import {Article} from '@/lib/types'
 import Icon from '@/components/ui/icon'
@@ -16,23 +14,14 @@ const ArticleList = ({
   articles,
   currentPath,
   expandedSlugs,
-  setExpandedSlugs
+  onToggleExpanded
 }: {
   articles: Article[]
   currentPath: string
   expandedSlugs: string[]
-  setExpandedSlugs: React.Dispatch<React.SetStateAction<string[]>>
+  onToggleExpanded: (slug: string) => void
 }) => {
   const {t} = useTranslate()
-
-  const toggleExpand = (slug: string) => {
-    setExpandedSlugs(prev => {
-      const clearedSlug = slug.replace(/\/index$/, '')
-      return prev.includes(clearedSlug)
-        ? prev.filter(s => s !== clearedSlug)
-        : [...prev, clearedSlug]
-    })
-  }
 
   return (
     <ul>
@@ -63,7 +52,7 @@ const ArticleList = ({
                   className="hover:bg-inherit"
                   aria-label={isExpanded ? t('deflateMenu') : t('expandMenu')}
                   aria-expanded={isExpanded}
-                  onClick={() => toggleExpand(article.slug)}>
+                  onClick={() => onToggleExpanded(article.slug)}>
                   {isExpanded ? (
                     <Icon name="chevron-down" />
                   ) : (
@@ -78,7 +67,7 @@ const ArticleList = ({
                   articles={article.children as Article[]}
                   currentPath={currentPath}
                   expandedSlugs={expandedSlugs}
-                  setExpandedSlugs={setExpandedSlugs}
+                  onToggleExpanded={onToggleExpanded}
                 />
               </ul>
             )}
@@ -91,15 +80,27 @@ const ArticleList = ({
 
 export function ArticleSidebar({articles}: {articles: Article[]}) {
   const pathname = usePathname()
-  const [expandedSlugs, setExpandedSlugs] = useState<string[]>([])
+
+  const initialExpandedSlugs = useMemo(() => {
+    const slugs = pathname.replace(/^\/en/, '').split('/').slice(2)
+    return slugs.map((_, index) => slugs.slice(0, index + 1).join('/'))
+  }, [pathname])
+
+  const [expandedSlugs, setExpandedSlugs] =
+    useState<string[]>(initialExpandedSlugs)
 
   useEffect(() => {
-    const slugs = pathname.replace(/^\/en/, '').split('/').slice(2)
-    const parentSlugs = slugs.map((_, index) =>
-      slugs.slice(0, index + 1).join('/')
+    setExpandedSlugs(initialExpandedSlugs)
+  }, [initialExpandedSlugs])
+
+  const toggleExpandedSlugs = (slug: string) => {
+    const clearedPath = slug.replace(/\/index$/, '')
+    setExpandedSlugs(prev =>
+      prev.includes(clearedPath)
+        ? prev.filter(s => s !== clearedPath).sort()
+        : [...prev, clearedPath].sort()
     )
-    setExpandedSlugs(parentSlugs)
-  }, [pathname])
+  }
 
   return (
     <nav className="md:w-64 w-full">
@@ -108,7 +109,7 @@ export function ArticleSidebar({articles}: {articles: Article[]}) {
           articles={articles}
           currentPath={pathname}
           expandedSlugs={expandedSlugs}
-          setExpandedSlugs={setExpandedSlugs}
+          onToggleExpanded={toggleExpandedSlugs}
         />
       </ScrollArea>
     </nav>
