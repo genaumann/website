@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.1](https://github.com/genaumann/website/compare/v2.0.0...v2.0.1) (2025-11-10)
+
+### 🐛 Bugfix 🐛
+
+* **icon:** add ref support to custom icons ([e957aa2](https://github.com/genaumann/website/commit/e957aa27057891effd4b61df981489c9ef655a75))
+
+### 💿 Continuous Integration 💿
+
+* **github:** add eslint job ([86595b0](https://github.com/genaumann/website/commit/86595b0dca0cd1508a782dab9bbdc24d4b3bbb6d))
+
 ## [2.0.0](https://github.com/genaumann/website/compare/v1.10.3...v2.0.0) (2025-11-03)
 
 ### ⚠ BREAKING CHANGES
