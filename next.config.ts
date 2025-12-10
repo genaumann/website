@@ -1,6 +1,7 @@
 import createVercelToolbarPlugin from '@vercel/toolbar/plugins/next'
 import createNextIntlPlugin from 'next-intl/plugin'
 import createMDX from '@next/mdx'
+import {withBotId} from 'botid/next/config'
 import {NextConfig} from 'next'
 
 const nextConfig: NextConfig = {
@@ -34,4 +35,4 @@ const withMDX = createMDX({})
 const withVercelToolbar = createVercelToolbarPlugin()
 const withNextIntl = createNextIntlPlugin('./locales/index.ts')
 
-export default withVercelToolbar(withNextIntl(withMDX(nextConfig)))
+export default withVercelToolbar(withNextIntl(withMDX(withBotId(nextConfig))))
