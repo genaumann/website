@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.0](https://github.com/genaumann/website/compare/v2.0.1...v2.1.0) (2025-12-12)
+
+### ✨ Feature ✨
+
+* **contact:** add bot protection to form ([3ac1fcb](https://github.com/genaumann/website/commit/3ac1fcbcbc928ca5b353c747ce323308c83ba98c))
+
+### 🐛 Bugfix 🐛
+
+* move instrumentation file to root ([0fcba03](https://github.com/genaumann/website/commit/0fcba03c2774a13e92c10989e0f3d42a3d8189de))
+
+### 💿 Continuous Integration 💿
+
+* build on vercel ([c289d70](https://github.com/genaumann/website/commit/c289d70f991d38f7a0912c85405a6b23f7a53da0))
+
 ## [2.0.1](https://github.com/genaumann/website/compare/v2.0.0...v2.0.1) (2025-11-10)
 
 ### 🐛 Bugfix 🐛
