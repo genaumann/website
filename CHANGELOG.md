@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.1](https://github.com/genaumann/website/compare/v2.1.0...v2.1.1) (2025-12-15)
+
+### 📝 Content 📝
+
+* new phone number ([ec9ea99](https://github.com/genaumann/website/commit/ec9ea99fbb9d781534ba2d8202632f843246c2bc))
+
 ## [2.1.0](https://github.com/genaumann/website/compare/v2.0.1...v2.1.0) (2025-12-12)
 
 ### ✨ Feature ✨
