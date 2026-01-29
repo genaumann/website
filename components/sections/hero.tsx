@@ -7,71 +7,7 @@ import {certs} from '@/lib/cert'
 import {getFlatArticleIndex} from '@/lib/mdx'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LOCALES} from '@/locales'
-
-const seededRandom = (seed: number) => {
-  let value = seed
-  return () => {
-    value = (value * 9301 + 49297) % 233280
-    return value / 233280
-  }
-}
-
-const StarField = () => {
-  const stars = Array.from({length: 40}, (_, i) => {
-    const random = seededRandom(i * 7919 + 12345)
-    return {
-      id: i,
-      left: random() * 100,
-      top: random() * 100,
-      delay: random() * 10,
-      duration: 4 + random() * 6,
-      size: 0.2 + random() * 0.4, // Much smaller scale factor
-      rotation: random() * 360,
-      floatX: (random() - 0.5) * 30, // Subtle horizontal movement
-      floatY: (random() - 0.5) * 10, // Subtle vertical movement
-      floatDuration: 8 + random() * 12 // Slow floating
-    }
-  })
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {stars.map(star => (
-        <div
-          key={star.id}
-          className="absolute animate-github-twinkle"
-          style={{
-            left: `${star.left}%`,
-            top: `${star.top}%`,
-            animationDelay: `${star.delay}s`,
-            animationDuration: `${star.duration}s`,
-            transform: `scale(${star.size}) rotate(${star.rotation}deg)`
-          }}>
-          {/* Small 4-pointed star shape */}
-          <div
-            className="relative w-2 h-2 star-shape animate-float"
-            style={
-              {
-                animationDuration: `${star.floatDuration}s`,
-                animationDelay: `${star.delay * 0.5}s`,
-                '--float-x': `${star.floatX}px`,
-                '--float-y': `${star.floatY}px`
-              } as React.CSSProperties & {
-                '--float-x': string
-                '--float-y': string
-              }
-            }>
-            {/* Vertical beam */}
-            <div className="absolute left-1/2 top-0 w-px h-full bg-primary transform -translate-x-1/2 star-beam"></div>
-            {/* Horizontal beam */}
-            <div className="absolute top-1/2 left-0 h-px w-full bg-primary transform -translate-y-1/2 star-beam"></div>
-            {/* Center point */}
-            <div className="absolute top-1/2 left-1/2 w-0.5 h-0.5 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 star-center"></div>
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
+import Particles from '../Particles'
 
 export default async function Hero() {
   const completedProjects = getProjects().filter(
@@ -108,18 +44,25 @@ export default async function Hero() {
 
   return (
     <section className="font-oswald min-h-content-header relative bg-background dark:bg-background flex flex-col items-center justify-center px-4 py-16 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-65">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-size-[50px_50px]"></div>
+      <div className="absolute inset-0">
+        <Particles
+          particleCount={600}
+          particleSpread={10}
+          speed={0.1}
+          particleColors={['#39ff87']}
+          moveParticlesOnHover
+          particleHoverFactor={1}
+          particleBaseSize={60}
+          sizeRandomness={0.1}
+          cameraDistance={20}
+          disableRotation
+        />
       </div>
 
-      {/* Small floating StarField */}
-      <StarField />
-
-      {/* Main Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto">
+      {/* Main Content: pointer-events-none so mouse moves reach Particles; re-enable for links/buttons */}
+      <div className="relative z-10 text-center max-w-6xl mx-auto pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
         {/* Title */}
-        <h1 className="text-8xl lg:text-9xl font-black text-foreground mb-8 tracking-tight leading-none animate-flicker">
+        <h1 className="text-8xl lg:text-9xl font-black text-foreground mb-8 tracking-tight leading-none">
           {t('appName')}
         </h1>
 
@@ -168,10 +111,6 @@ export default async function Hero() {
           ))}
         </div>
       </div>
-
-      {/* Floating Elements */}
-      <div className="absolute top-1/4 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-secondary/20 rounded-full blur-xl animate-pulse delay-1000"></div>
     </section>
   )
 }
