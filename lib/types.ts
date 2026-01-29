@@ -85,3 +85,5 @@ export type Technology = {
   }
   category?: string
 }
+
+export type ColorScheme = 'light' | 'dark'
