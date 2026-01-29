@@ -22,7 +22,7 @@ export default function PortfolioIntroPage() {
             <StatusBadge className="absolute top-0 -right-12 w-[136px]" />
           </div>
           <div className="space-y-2">
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground animate-flicker">
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground">
               {CONTACT.name}
             </h1>
             <p className="text-3xl text-muted-foreground font-oswald">
