@@ -321,6 +321,9 @@
   --shadow-xl: 0 1px 5.5px 0px hsl(113.0579 57.8947% 40.9804% / 0.23), 0 8px 10px -1px hsl(113.0579 57.8947% 40.9804% / 0.23);
   --shadow-2xl: 0 1px 5.5px 0px hsl(113.0579 57.8947% 40.9804% / 0.58);
   --tracking-normal: 0em;
+  --glass-box-shadow: 0 0 2px 1px color-mix(in oklch, black, transparent 85%) inset,
+    0 0 10px 4px color-mix(in oklch, black, transparent 90%) inset,
+    0 1px 3px 0 oklch(0 0 0 / 0.06);
 }
 
 .dark {
@@ -373,4 +376,7 @@
   --shadow-lg: 0 1px 5.5px 0px hsl(119.4175 51.7588% 39.0196% / 0.23), 0 4px 6px -1px hsl(119.4175 51.7588% 39.0196% / 0.23);
   --shadow-xl: 0 1px 5.5px 0px hsl(119.4175 51.7588% 39.0196% / 0.23), 0 8px 10px -1px hsl(119.4175 51.7588% 39.0196% / 0.23);
   --shadow-2xl: 0 1px 5.5px 0px hsl(119.4175 51.7588% 39.0196% / 0.58);
+  --glass-box-shadow: 0 0 1px 1px color-mix(in oklch, white, transparent 75%) inset,
+    0 0 1px 1px color-mix(in oklch, white, transparent 90%) inset,
+    0 1px 3px 0 oklch(0 0 0 / 0.08);
 }
