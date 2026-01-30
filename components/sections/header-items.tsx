@@ -21,7 +21,7 @@ export default function HeaderItems({items}: {items: HeaderItem[]}) {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                'bg-secondary/40 font-semibold'
+                'bg-background font-semibold shadow-sm border border-input ring-offset-background'
               )}
               asChild>
               <Link href={item.href || '/'}>{item.name}</Link>

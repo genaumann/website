@@ -58,7 +58,7 @@ function SelectComponent({locale}: LocaleParam) {
   return (
     <Select defaultValue={locale} onValueChange={changeLocale}>
       <SelectTrigger
-        className="min-w-[109px] bg-secondary/40"
+        className="min-w-[109px] bg-background"
         aria-label={t('selectLanguage')}>
         <SelectValue
           placeholder={
