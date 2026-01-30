@@ -22,7 +22,7 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" aria-label={t('sidebar')}>
-          <Icon name="bars" size="2xl" />
+          <Icon name="bars" size="xl" />
         </Button>
       </SheetTrigger>
       <SheetContent className="flex flex-col">

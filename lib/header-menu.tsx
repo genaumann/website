@@ -1,7 +1,6 @@
 'use server'
 
 import LangSelect from '@/components/ui/lang-select'
-import ThemeSwitch from '@/components/ui/theme-switch'
 import {getTranslate} from './integrations/tolgee/server'
 import {LocaleParam} from './types'
 
@@ -55,10 +54,6 @@ export const getHeaderMenu = async ({
       {
         name: t('language'),
         Component: <LangSelect key="lang" locale={locale} />
-      },
-      {
-        name: t('theme'),
-        Component: <ThemeSwitch key="theme" />
       }
     ]
   }
