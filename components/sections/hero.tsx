@@ -8,6 +8,7 @@ import {getFlatArticleIndex} from '@/lib/mdx'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LOCALES} from '@/locales'
 import Particles from '../Particles'
+import GradientText from '../GradientText'
 
 export default async function Hero() {
   const completedProjects = getProjects().filter(
@@ -62,8 +63,15 @@ export default async function Hero() {
       {/* Main Content: pointer-events-none so mouse moves reach Particles; re-enable for links/buttons */}
       <div className="relative z-10 text-center max-w-6xl mx-auto pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
         {/* Title */}
-        <h1 className="text-8xl lg:text-9xl font-black text-foreground mb-8 tracking-tight leading-none">
-          {t('appName')}
+        <h1 className="text-8xl lg:text-9xl font-black mb-8 tracking-tight leading-none">
+          <GradientText
+            darkColors={['#00ff66', '#ffffff']}
+            lightColors={['#00a500', '#000000']}
+            animationSpeed={5}
+            yoyo={false}
+            showBorder={false}>
+            {t('appName')}
+          </GradientText>
         </h1>
 
         {/* Description */}

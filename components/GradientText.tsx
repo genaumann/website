@@ -33,12 +33,17 @@ export default function GradientText({
   yoyo = true
 }: GradientTextProps) {
   const [isPaused, setIsPaused] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const progress = useMotionValue(0)
   const elapsedRef = useRef(0)
   const lastTimeRef = useRef<number | null>(null)
   const colorScheme = useColorScheme()
 
-  const colors = colorScheme === 'dark' ? darkColors : lightColors
+  const colors = !mounted
+    ? lightColors
+    : colorScheme === 'dark'
+      ? darkColors
+      : lightColors
 
   const animationDuration = animationSpeed * 1000
 
@@ -73,6 +78,11 @@ export default function GradientText({
       progress.set((elapsedRef.current / animationDuration) * 100)
     }
   })
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
 
   useEffect(() => {
     elapsedRef.current = 0
