@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components/ui/sheet'
-import Icon from '../ui/icon'
+import {MenuIcon} from 'lucide-react'
 import {Button} from '../ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -22,7 +22,7 @@ export function HeaderMobile({headerMenu}: {headerMenu: HeaderMenu}) {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" aria-label={t('sidebar')}>
-          <Icon name="bars" size="2xl" />
+          <MenuIcon width={24} height={24} />
         </Button>
       </SheetTrigger>
       <SheetContent className="flex flex-col">

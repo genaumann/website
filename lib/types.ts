@@ -1,4 +1,4 @@
-import {IconName, IconPrefix} from '@/components/ui/icon'
+import {CustomIconName} from '@/components/icons'
 import {LOCALES} from '@/locales'
 import {getTranslate} from './integrations/tolgee/server'
 import {useTranslate} from '@tolgee/react'
@@ -12,8 +12,7 @@ export interface Article {
   updatedAt: Date
   content: string
   description?: string
-  icon?: IconName
-  iconPrefix?: IconPrefix
+  icon?: CustomIconName
   children?: Article[]
   remoteRepo?: string
   keywords?: string[]
@@ -22,8 +21,7 @@ export interface Article {
 export type MDXFrontmatter = {
   readonly title: string
   readonly description?: string
-  readonly icon?: IconName
-  readonly iconPrefix?: IconPrefix
+  readonly icon?: CustomIconName
   readonly keywords?: string[]
   readonly remoteRepo?: string
 }
@@ -69,14 +67,13 @@ export type Project = {
 }
 
 type TechnologyIcon = {
-  dark: IconName
-  light: IconName
+  dark: CustomIconName
+  light: CustomIconName
 }
 
 export type Technology = {
   name: string
-  icon: IconName | TechnologyIcon
-  iconPrefix?: IconPrefix
+  icon: CustomIconName | TechnologyIcon
   slug: string
   keywords?: string[]
   altNames?: string[]

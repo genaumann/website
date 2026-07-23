@@ -1,16 +1,13 @@
 'use client'
 
-import Icon from '@/components/ui/icon'
+import CustomIcon from '@/components/icons'
 import {Technology} from '@/lib/types'
 import {useMemo, useState, useEffect, startTransition} from 'react'
 import {useTheme} from 'next-themes'
 
-type TechnologyIconProps = Pick<Technology, 'icon' | 'iconPrefix'>
+type TechnologyIconProps = Pick<Technology, 'icon'>
 
-export default function TechnologyIcon({
-  icon,
-  iconPrefix
-}: TechnologyIconProps) {
+export default function TechnologyIcon({icon}: TechnologyIconProps) {
   const {theme, systemTheme} = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -30,5 +27,5 @@ export default function TechnologyIcon({
   const iconName =
     typeof icon === 'string' ? icon : icon[`${isDark ? 'dark' : 'light'}`]
 
-  return <Icon name={iconName} prefix={iconPrefix} aria-hidden="true" />
+  return <CustomIcon name={iconName} aria-hidden="true" />
 }

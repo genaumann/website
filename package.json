@@ -16,9 +16,6 @@
     "updates:install": "npx dotenv -e .env.local -- pnpm dlx npm-check-updates --interactive --format group"
   },
   "dependencies": {
-    "@awesome.me/kit-b84c272999": "^1.0.92",
-    "@fortawesome/fontawesome-svg-core": "^7.1.0",
-    "@fortawesome/react-fontawesome": "^3.1.1",
     "@hookform/resolvers": "^5.4.0",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
@@ -61,6 +58,8 @@
     "fuse.js": "^7.5.0",
     "hast-util-to-string": "^3.0.1",
     "lodash": "^4.18.1",
+    "lucide-react": "^1.25.0",
+    "lucide-static": "^1.25.0",
     "next": "16.2.11",
     "next-intl": "^4.13.3",
     "next-mdx-remote": "^6.0.0",

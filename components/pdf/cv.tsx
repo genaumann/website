@@ -1,7 +1,6 @@
 import {Document, Text, View, Image, Link} from '@react-pdf/renderer'
 import {BaseLinkBadgePDF, BaseMutedBadgePDF, BasePagePDF, tw} from './base'
 import {CONTACT} from '@/lib/contact'
-import IconPDF from './icon'
 import {TType} from '@/lib/types'
 import {getTechnology, getTechnologyCategories} from '@/lib/technologies'
 import {getProjects} from '@/lib/projects'
@@ -9,6 +8,8 @@ import {LOCALES} from '@/locales'
 import {Fragment} from 'react'
 import {certs} from '@/lib/cert'
 import {origin} from '@/lib/url'
+import {Calendar, ExternalLink, Globe, Mail, Phone} from 'lucide-static'
+import {PdfIcon} from './icon'
 
 export default function CVPDF({t, locale}: {t: TType; locale: string}) {
   const categories = getTechnologyCategories()
@@ -47,24 +48,19 @@ export default function CVPDF({t, locale}: {t: TType; locale: string}) {
             <Link
               src={'tel:' + CONTACT.phone.replaceAll(' ', '')}
               style={tw('flex flex-row items-center gap-1')}>
-              <IconPDF style={tw('mt-1')} name="phone" width={10} height={10} />
+              <PdfIcon icon={Phone} size={10} />
               <Text style={tw('text-black')}>{CONTACT.phone}</Text>
             </Link>
             <Link
               src={'mailto:' + CONTACT.email}
               style={tw('flex flex-row items-center gap-1')}>
-              <IconPDF
-                style={tw('mt-1')}
-                name="envelope"
-                width={10}
-                height={10}
-              />
+              <PdfIcon icon={Mail} size={10} />
               <Text style={tw('text-black')}>{CONTACT.email}</Text>
             </Link>
             <Link
               src="https://gnaumann.de?utm_source=cv"
               style={tw('flex flex-row items-center gap-1')}>
-              <IconPDF style={tw('mt-1')} name="globe" width={10} height={10} />
+              <PdfIcon icon={Globe} size={10} />
               <Text style={tw('text-black')}>https://gnaumann.de</Text>
             </Link>
           </View>
@@ -158,15 +154,14 @@ export default function CVPDF({t, locale}: {t: TType; locale: string}) {
                         month: 'short'
                       })
                     }
-                    icon="calendar"
+                    icon={<PdfIcon icon={Calendar} size={8} />}
                     outerStyle="w-[121px] mt-2"
                   />
                   <BaseLinkBadgePDF
                     src={`${origin}/portfolio/projects/${project.id}?utm_source=cv`}
                     outerStyle={`${locale === 'de' ? 'w-[86px]' : 'w-[95px]'}`}
                     text={t('projectRef', {ns: 'cv'})}
-                    icon="eye"
-                    iconSize={8}
+                    icon={<PdfIcon icon={ExternalLink} size={8} />}
                   />
                 </View>
               </View>
@@ -199,7 +194,7 @@ export default function CVPDF({t, locale}: {t: TType; locale: string}) {
                           year: 'numeric',
                           month: 'short'
                         })}
-                        icon="calendar"
+                        icon={<PdfIcon icon={Calendar} size={8} />}
                         outerStyle="w-[66px]"
                       />
                     </View>

@@ -1,4 +1,4 @@
-import Icon from '@/components/ui/icon'
+import {MapPinIcon, MailIcon, PhoneIcon} from 'lucide-react'
 import StatusBadge from '@/components/ui/status-badge'
 import {CONTACT} from '@/lib/contact'
 import Image from 'next/image'
@@ -31,19 +31,19 @@ export default function PortfolioIntroPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-4 text-muted-foreground">
             <div className="flex items-center gap-2">
-              <Icon name="location-pin" />
+              <MapPinIcon width={16} height={16} />
               {CONTACT.location}
             </div>
             <Link
               href={`mailto:${CONTACT.email}`}
               className="flex items-center gap-2 underline">
-              <Icon name="envelope" />
+              <MailIcon width={16} height={16} />
               {CONTACT.email}
             </Link>
             <Link
               href={`tel:${CONTACT.phone.replaceAll(' ', '')}`}
               className="flex items-center gap-2 underline">
-              <Icon name="phone" />
+              <PhoneIcon width={16} height={16} />
               {CONTACT.phone}
             </Link>
           </div>

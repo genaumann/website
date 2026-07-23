@@ -5,7 +5,7 @@ import {exec} from 'child_process'
 import {promisify} from 'util'
 import {serialize} from 'next-mdx-remote/serialize'
 import {Article, ArticleIndex, MDXFrontmatter} from '@/lib/types'
-import {IconName, IconPrefix} from '@/components/ui/icon'
+import {CustomIconName} from '@/components/icons'
 import matter from 'gray-matter'
 
 const articleDir = './articles'
@@ -53,8 +53,7 @@ async function getMdxMetadata(filePath: string): Promise<MDXFrontmatter> {
         (frontmatter?.title as string) ||
         path.basename(filePath).replace(/\..*$/, ''),
       description: frontmatter?.description as string,
-      icon: frontmatter?.icon as IconName,
-      iconPrefix: frontmatter?.iconPrefix as IconPrefix,
+      icon: frontmatter?.icon as CustomIconName,
       keywords: frontmatter?.keywords as string[],
       remoteRepo: frontmatter?.remoteRepo as string
     }
@@ -108,7 +107,7 @@ async function scanDirectory(
     if (indexFile) {
       const indexPath = path.join(dir, `index.${locale}.mdx`)
       const dates = await getGitDates(indexPath)
-      const {title, description, icon, iconPrefix, keywords, remoteRepo} =
+      const {title, description, icon, keywords, remoteRepo} =
         await getMdxMetadata(indexPath)
       directoryArticle = {
         slug: path.join(currentPath, 'index'),
@@ -117,7 +116,6 @@ async function scanDirectory(
         description,
         icon,
         content: await getMdxContent(indexPath),
-        iconPrefix,
         author: await getGitAuthor(indexPath),
         keywords,
         remoteRepo,
@@ -154,7 +152,7 @@ async function scanDirectory(
       (!directoryArticle || entry.name !== `index.${locale}.mdx`)
     ) {
       const baseName = entry.name.replace(`.${locale}.mdx`, '')
-      const {title, description, icon, iconPrefix, keywords, remoteRepo} =
+      const {title, description, icon, keywords, remoteRepo} =
         await getMdxMetadata(fullPath)
       const article: Article = {
         slug: currentPath ? path.join(currentPath, baseName) : baseName,
@@ -163,7 +161,6 @@ async function scanDirectory(
         description,
         keywords,
         icon,
-        iconPrefix,
         remoteRepo,
         content: await getMdxContent(fullPath),
         author: await getGitAuthor(fullPath),

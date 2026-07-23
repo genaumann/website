@@ -9,7 +9,8 @@ import {
 } from 'react'
 import Fuse, {type FuseResult} from 'fuse.js'
 import {useRouter} from 'next/navigation'
-import Icon from '../ui/icon'
+import {SearchIcon, NewspaperIcon} from 'lucide-react'
+import CustomIcon from '@/components/icons'
 import {Button} from '../ui/button'
 import {useArticleIndex} from '@/app/[locale]/kb/[...kb]/hooks'
 import {Dialog, DialogContent, DialogHeader, DialogTitle} from '../ui/dialog'
@@ -45,7 +46,7 @@ export default function SearchCommand({locale}: LocaleParam) {
         variant="outline"
         className="hover:bg-secondary/40 w-28 md:w-36 bg-secondary/40 items-center justify-between md:mt-2 cursor-pointer font-oswald">
         <>
-          <Icon name="magnifying-glass" className="md:hidden" />
+          <SearchIcon width={16} height={16} className="md:hidden" />
           <span>{t('search')}...</span>
           <kbd className="hidden md:inline-flex h-5 items-center gap-1 rounded bg-background/75 px-1.5 font-mono text-[10px] text-muted-foreground">
             <span className="text-xs">⌘</span>K
@@ -206,11 +207,18 @@ function SearchDialog({
                   )}
                   key={item.slug}
                   onClick={() => handleSelect(item.slug)}>
-                  <Icon
-                    name={item.icon ? item.icon : 'newspaper'}
-                    prefix={item.iconPrefix ? item.iconPrefix : 'fal'}
-                    className="mr-3 inline-flex"
-                  />
+                  {item.icon ? (
+                    <CustomIcon
+                      name={item.icon}
+                      className="mr-3 inline-flex size-4"
+                    />
+                  ) : (
+                    <NewspaperIcon
+                      width={16}
+                      height={16}
+                      className="mr-3 inline-flex"
+                    />
+                  )}
                   {item.title}
                 </li>
               ))

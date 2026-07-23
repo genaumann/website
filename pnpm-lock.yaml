@@ -8,15 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@awesome.me/kit-b84c272999':
-        specifier: ^1.0.92
-        version: 1.0.92
-      '@fortawesome/fontawesome-svg-core':
-        specifier: ^7.1.0
-        version: 7.1.0
-      '@fortawesome/react-fontawesome':
-        specifier: ^3.1.1
-        version: 3.1.1(@fortawesome/fontawesome-svg-core@7.1.0)(react@19.2.8)
       '@hookform/resolvers':
         specifier: ^5.4.0
         version: 5.4.0(react-hook-form@7.82.0(react@19.2.8))
@@ -143,6 +134,12 @@ importers:
       lodash:
         specifier: ^4.18.1
         version: 4.18.1
+      lucide-react:
+        specifier: ^1.25.0
+        version: 1.25.0(react@19.2.8)
+      lucide-static:
+        specifier: ^1.25.0
+        version: 1.25.0
       next:
         specifier: 16.2.11
         version: 16.2.11(@babel/core@7.28.5(supports-color@7.2.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -282,10 +279,6 @@ packages:
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
-
-  '@awesome.me/kit-b84c272999@1.0.92':
-    resolution: {integrity: sha512-mwM7qQB0ufrtCJztvzswT+4pdBE45QYt/rMbfCvwtxc0f6zR1aRbZPyl/GSEQqm/bMQQPpYlOczlJ7vZU6iRLA==}
-    engines: {node: '>=16'}
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -595,25 +588,6 @@ packages:
 
   '@formatjs/intl-localematcher@0.8.13':
     resolution: {integrity: sha512-kHEAFOkeJSPNi7c5PaKaRjxcBrJwzzt81ifUu+8uve1EDW/VJl83KsxmqgqNZLzcFEhSliZGvx3+pk/RH0IOmg==}
-
-  '@fortawesome/fontawesome-common-types@6.7.2':
-    resolution: {integrity: sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg==}
-    engines: {node: '>=6'}
-
-  '@fortawesome/fontawesome-common-types@7.1.0':
-    resolution: {integrity: sha512-l/BQM7fYntsCI//du+6sEnHOP6a74UixFyOYUyz2DLMXKx+6DEhfR3F2NYGE45XH1JJuIamacb4IZs9S0ZOWLA==}
-    engines: {node: '>=6'}
-
-  '@fortawesome/fontawesome-svg-core@7.1.0':
-    resolution: {integrity: sha512-fNxRUk1KhjSbnbuBxlWSnBLKLBNun52ZBTcs22H/xEEzM6Ap81ZFTQ4bZBxVQGQgVY0xugKGoRcCbaKjLQ3XZA==}
-    engines: {node: '>=6'}
-
-  '@fortawesome/react-fontawesome@3.1.1':
-    resolution: {integrity: sha512-EDllr9hpodc21odmUywHS1alXNiCd4E8sp5GJ5s7wYINz8vSmMiNWpALTiuYODb865YyQ/NlyiN4mbXp7HCNqg==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      '@fortawesome/fontawesome-svg-core': ~6 || ~7
-      react: ^18.0.0 || ^19.0.0
 
   '@hookform/resolvers@5.4.0':
     resolution: {integrity: sha512-EIsqr/t/qbinPIhGjMdtvutIN1Kk4uwbROE9/UQ93CAVGR7GkA7Y92+fX80OzXi/OB67jVFYwKGO1WzkxmkFZw==}
@@ -3658,6 +3632,14 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  lucide-react@1.25.0:
+    resolution: {integrity: sha512-/mdJTRbiwcLOQ1NZZK1amZF9rIZyvO18D6r9TngE6TG1NmqHgFuT4eE7Xrkm9UsXMbBJD1NlfwHVltCDWHrOTw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  lucide-static@1.25.0:
+    resolution: {integrity: sha512-uJTdyP8vxKELd+Kqk45ahUvOA1rv3Ehy6ZUP7JlBt8UJwmzHgFFts0OZNU3C6/4MDKsssgR9Jrut7GnuqGgYmg==}
+
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
@@ -4725,10 +4707,6 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@awesome.me/kit-b84c272999@1.0.92':
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 6.7.2
-
   '@babel/code-frame@7.27.1':
     dependencies:
       '@babel/helper-validator-identifier': 7.28.5
@@ -5006,19 +4984,6 @@ snapshots:
   '@formatjs/intl-localematcher@0.8.13':
     dependencies:
       '@formatjs/fast-memoize': 3.1.7
-
-  '@fortawesome/fontawesome-common-types@6.7.2': {}
-
-  '@fortawesome/fontawesome-common-types@7.1.0': {}
-
-  '@fortawesome/fontawesome-svg-core@7.1.0':
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 7.1.0
-
-  '@fortawesome/react-fontawesome@3.1.1(@fortawesome/fontawesome-svg-core@7.1.0)(react@19.2.8)':
-    dependencies:
-      '@fortawesome/fontawesome-svg-core': 7.1.0
-      react: 19.2.8
 
   '@hookform/resolvers@5.4.0(react-hook-form@7.82.0(react@19.2.8))':
     dependencies:
@@ -8069,6 +8034,12 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-react@1.25.0(react@19.2.8):
+    dependencies:
+      react: 19.2.8
+
+  lucide-static@1.25.0: {}
 
   magic-string@0.30.21:
     dependencies:

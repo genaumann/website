@@ -1,4 +1,4 @@
-import {IconName, IconPrefix} from '@/components/ui/icon'
+import {CustomIconName} from '@/components/icons'
 import {TType} from './types'
 
 type TrainingType = 'participant' | 'speaker'
@@ -7,8 +7,7 @@ export type Training = {
   id: string
   name?: string
   description?: string
-  iconName: IconName
-  iconPrefix?: IconPrefix
+  iconName: CustomIconName
   type: TrainingType
   date: Date
   days: number
@@ -136,7 +135,6 @@ export const getTrainings = ({
       type: 'speaker',
       date: new Date('2023-06-01'),
       iconName: 'git',
-      iconPrefix: 'fab',
       days: 2,
       technologies: ['git']
     },
@@ -147,7 +145,6 @@ export const getTrainings = ({
       type: 'speaker',
       date: new Date('2024-06-01'),
       iconName: 'git',
-      iconPrefix: 'fab',
       days: 2,
       technologies: ['git']
     }

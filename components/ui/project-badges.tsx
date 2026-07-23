@@ -1,5 +1,5 @@
 import {Badge} from './badge'
-import Icon from './icon'
+import {CalendarIcon, InfoIcon} from 'lucide-react'
 import {Locale, Project, ProjectContext, TType} from '@/lib/types'
 import {getDateFunctions} from '@/lib/dates'
 import {getTechnology} from '@/lib/technologies'
@@ -31,7 +31,7 @@ export function ProjectDateBadge({start, end, locale}: ProjectDateBadgeProps) {
   const {format} = getDateFunctions(locale)
   return (
     <Badge variant="muted">
-      <Icon name="calendar" />
+      <CalendarIcon width={14} height={14} />
       <span>{format(start, 'MMMM yyyy')}</span>
       {end && <span> - {format(end, 'MMM yyyy')}</span>}
     </Badge>
@@ -42,7 +42,7 @@ export function ProjectContextBadge({context, t}: ProjectContextBadgeProps) {
   const contextMap = ProjectContextMap({context, t})
   return (
     <Badge variant="muted">
-      <Icon name="circle-info" />
+      <InfoIcon width={14} height={14} />
       <span>{contextMap}</span>
     </Badge>
   )
