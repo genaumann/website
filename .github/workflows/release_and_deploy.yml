@@ -22,20 +22,20 @@ jobs:
     steps:
       - name: Generate token
         id: generate_token
-        uses: tibdex/github-app-token@v2
+        uses: actions/create-github-app-token@v3
         with:
-          app_id: ${{ secrets.RELEASE_APP_ID }}
-          private_key: ${{ secrets.RELEASE_PRIVATE_KEY }}
+          client-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_PRIVATE_KEY }}
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
           token: ${{ steps.generate_token.outputs.token }}
           fetch-depth: 0
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
       - name: Setup node lts
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
           # cache: pnpm # see https://github.com/vercel/vercel/discussions/7581 & https://github.com/actions/cache/issues/319
@@ -46,9 +46,8 @@ jobs:
       - name: Run pnpm prebuild
         run: pnpm run prebuild
       - name: Run semantic-release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v6
         with:
-          semantic_version: 24
           extra_plugins: |
             @genaumann/semantic-release-next-sitemap
             @semantic-release/commit-analyzer
@@ -57,7 +56,7 @@ jobs:
             @semantic-release/exec
             @semantic-release/git
             @semantic-release/github
-            conventional-changelog-conventionalcommits
+            conventional-changelog-conventionalcommits@9.3.1
 
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
@@ -69,7 +68,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main
       - name: Merge branch
