@@ -5,7 +5,8 @@ import {
   CardTitle
 } from '@/components/ui/card'
 import {getArticlesByKeyword} from '@/lib/mdx'
-import Icon from '@/components/ui/icon'
+import {NewspaperIcon} from 'lucide-react'
+import CustomIcon from '@/components/icons'
 import {getDateFunctions} from '@/lib/dates'
 import Link from 'next/link'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
@@ -50,11 +51,18 @@ export default async function TechnologyArticlesPage({
               className="group">
               <Card className="border border-muted">
                 <div className="aspect-video rounded-t-lg flex items-center justify-center">
-                  <Icon
-                    name={article.icon || 'newspaper'}
-                    prefix={article.iconPrefix}
-                    className="text-8xl transition-transform duration-300 ease-in-out group-hover:scale-150"
-                  />
+                  {article.icon ? (
+                    <CustomIcon
+                      name={article.icon}
+                      className="text-8xl transition-transform duration-300 ease-in-out group-hover:scale-150"
+                    />
+                  ) : (
+                    <NewspaperIcon
+                      width={64}
+                      height={64}
+                      className="transition-transform duration-300 ease-in-out group-hover:scale-150"
+                    />
+                  )}
                 </div>
                 <CardHeader className="bg-background rounded-b-xl">
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">

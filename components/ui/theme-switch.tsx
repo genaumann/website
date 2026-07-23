@@ -4,19 +4,19 @@ import React from 'react'
 
 import {useTheme} from 'next-themes'
 import {Button} from './button'
-import Icon, {type IconName} from './icon'
+import {SunIcon, MoonIcon, MonitorIcon} from 'lucide-react'
 import {cn} from '@/lib/cn'
 import {type ReactNode, useEffect, useState, startTransition} from 'react'
 import {useTranslate} from '@tolgee/react'
 
 interface ThemeConfig {
   name: string
-  icon: IconName
+  icon: React.ReactNode
 }
 
 interface ThemeButtonProps {
   name: string
-  icon: IconName
+  icon: React.ReactNode
   active?: boolean
   onClick?: () => void
 }
@@ -34,15 +34,15 @@ export default function ThemeSwitch() {
   const themeConfig: ThemeConfig[] = [
     {
       name: 'dark',
-      icon: 'moon'
+      icon: <MoonIcon width={24} height={24} />
     },
     {
       name: 'light',
-      icon: 'sun-bright'
+      icon: <SunIcon width={24} height={24} />
     },
     {
       name: 'system',
-      icon: 'display'
+      icon: <MonitorIcon width={24} height={24} />
     }
   ]
 
@@ -80,10 +80,7 @@ function ThemeButton({name, icon, active, onClick}: ThemeButtonProps) {
         active && name === 'system' && 'rounded-r-md'
       )}
       aria-label={t('themeSwitch')}>
-      <Icon
-        name={icon}
-        className="transition-transform duration-200 group-hover:scale-125"
-      />
+      {icon}
     </Button>
   )
 }

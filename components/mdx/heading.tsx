@@ -1,5 +1,5 @@
 import {JSX} from 'react'
-import Icon from '../ui/icon'
+import {LinkIcon} from 'lucide-react'
 
 type Headings = 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
@@ -21,9 +21,9 @@ export default function Heading({
         href={`#${id}`}
         className="text-foreground no-underline font-bold group">
         {children}
-        <Icon
-          name="link"
-          size="xs"
+        <LinkIcon
+          width={12}
+          height={12}
           className="hidden! ml-1 group-hover:inline-block!"
         />
       </a>

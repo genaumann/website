@@ -1,10 +1,8 @@
 import {cn} from '@/lib/cn'
 import {Inter, Oswald} from 'next/font/google'
-import {config as fontawesome} from '@fortawesome/fontawesome-svg-core'
 import {Metadata} from 'next'
 import Header from '@/components/sections/header'
 import '@/styles/globals.css'
-import '@fortawesome/fontawesome-svg-core/styles.css'
 import {ThemeProvider} from '@/components/providers/theme'
 import Footer from '@/components/sections/footer'
 import {LOCALES} from '@/locales'
@@ -17,8 +15,6 @@ import {TolgeeNextProvider} from '@/lib/integrations/tolgee/client'
 import {LocaleParam} from '@/lib/types'
 import {SpeedInsights} from '@vercel/speed-insights/next'
 import {Analytics} from '@vercel/analytics/next'
-
-fontawesome.autoAddCss = false
 
 const oswald = Oswald({
   weight: ['300', '400', '500', '600', '700'],

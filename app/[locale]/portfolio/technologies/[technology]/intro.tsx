@@ -16,10 +16,7 @@ export default function TechnologyIntroPage({
         <div className="flex flex-col md:flex-row gap-10">
           <div className="bg-muted/20 rounded-lg flex flex-col gap-10 pt-4 pb-12 px-4 w-full md:min-w-[300px] max-w-[400px] text-center">
             <div className="text-8xl">
-              <TechnologyIcon
-                icon={technology.icon}
-                iconPrefix={technology.iconPrefix}
-              />
+              <TechnologyIcon icon={technology.icon} />
             </div>
             <h1 className="text-6xl font-bold leading-2">{technology.name}</h1>
           </div>

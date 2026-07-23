@@ -1,6 +1,6 @@
 import {Button} from '../ui/button'
 import Link from 'next/link'
-import Icon from '../ui/icon'
+import {ArrowRightIcon} from 'lucide-react'
 import {getProjects} from '@/lib/projects'
 import {getTrainings} from '@/lib/trainings'
 import {certs} from '@/lib/cert'
@@ -136,7 +136,7 @@ export default async function Hero() {
             asChild>
             <Link href="/portfolio">
               {t('viewPortfolio')}
-              <Icon name="arrow-right" />
+              <ArrowRightIcon width={16} height={16} />
             </Link>
           </Button>
           <Button
@@ -146,7 +146,7 @@ export default async function Hero() {
             asChild>
             <Link href="/kb">
               {t('viewKB')}
-              <Icon name="arrow-right" />
+              <ArrowRightIcon width={16} height={16} />
             </Link>
           </Button>
         </div>

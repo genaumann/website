@@ -1,6 +1,5 @@
 import {getSocials} from '@/lib/socials'
 import Link from 'next/link'
-import Icon from '../ui/icon'
 import {cn} from '@/lib/cn'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {getDateFunctions} from '@/lib/dates'
@@ -55,7 +54,7 @@ export default async function Footer() {
                 href={item.href}
                 className="text-muted-foreground">
                 <span className="sr-only">{item.name}</span>
-                <Icon prefix={item.iconPrefix} name={item.icon} />
+                <item.icon size={16} />
               </Link>
             ))}
           </div>

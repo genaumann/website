@@ -1,5 +1,5 @@
 import {Badge, BadgeProps} from './badge'
-import Icon, {IconName} from './icon'
+import {CheckCircleIcon, XCircleIcon, TriangleAlertIcon} from 'lucide-react'
 import {
   Availability,
   employeeStatus,
@@ -11,7 +11,7 @@ import {HTMLAttributes} from 'react'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 type VariantMapping = Record<Availability, BadgeProps['variant']>
-type IconMapping = Record<Availability, IconName>
+type IconMapping = Record<Availability, React.ReactNode>
 type TextMapping = Record<Availability, string>
 
 export default async function StatusBadge({
@@ -29,9 +29,9 @@ export default async function StatusBadge({
   }
 
   const icon: IconMapping = {
-    available: 'check-circle',
-    unavailable: 'xmark-circle',
-    'partially available': 'exclamation-circle'
+    available: <CheckCircleIcon />,
+    unavailable: <XCircleIcon height={14} width={14} />,
+    'partially available': <TriangleAlertIcon />
   }
 
   const badgeText: TextMapping = {
@@ -60,8 +60,8 @@ export default async function StatusBadge({
         <TooltipTrigger asChild>
           <Badge
             variant={variant[status]}
-            className="inline-flex gap-1 items-center cursor-help font-oswald">
-            <Icon name={icon[status]} />
+            className="inline-flex gap-1 items-center justify-center cursor-help font-oswald">
+            {icon[status]}
             {badgeText[status]}
           </Badge>
         </TooltipTrigger>

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import {Button} from '../ui/button'
 import Image from 'next/image'
-import Icon from '../ui/icon'
+import {ArrowRightIcon} from 'lucide-react'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 
 export default async function PortfolioSection() {
@@ -32,7 +32,7 @@ export default async function PortfolioSection() {
                 asChild>
                 <Link href="/portfolio/" className="font-oswald">
                   {t('viewPortfolio')}
-                  <Icon name="arrow-right" />
+                  <ArrowRightIcon width={16} height={16} />
                 </Link>
               </Button>
             </div>

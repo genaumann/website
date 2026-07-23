@@ -20,6 +20,8 @@ import NextJSLight from './nextjs-light'
 import Podman from './podman'
 import Tolgeee from './tolgee'
 import Kubernetes from './kubernetes'
+import GithubIcon from './github'
+import GitIcon from './git'
 
 export const customIconMap = {
   redhat: {
@@ -105,6 +107,14 @@ export const customIconMap = {
   kubernetes: {
     Component: Kubernetes,
     color: '#326CE5'
+  },
+  github: {
+    Component: GithubIcon,
+    color: '#181717'
+  },
+  git: {
+    Component: GitIcon,
+    color: '#F05032'
   }
 }
 
@@ -120,12 +130,7 @@ const CustomIcon = React.forwardRef<SVGSVGElement, CustomIconProps>(
     const Component = customIconMap[name]?.Component
 
     return (
-      <Component
-        fill={color}
-        ref={ref}
-        className={cn('svg-inline--fa fa-fw', className)}
-        {...props}
-      />
+      <Component fill={color} ref={ref} className={cn(className)} {...props} />
     )
   }
 )

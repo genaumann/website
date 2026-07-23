@@ -1,16 +1,14 @@
 import {LOCALES} from '@/locales'
 import fs from 'fs/promises'
 import path from 'path'
-import {serialize} from 'next-mdx-remote/serialize'
 import {Technology} from '@/lib/types'
 import matter from 'gray-matter'
-import {IconName, IconPrefix} from '@/components/ui/icon'
+import {CustomIconName} from '@/components/icons'
 
 const technologyDir = './technologies'
 
 interface TechnologyFrontmatter {
-  icon: IconName
-  iconPrefix?: IconPrefix
+  icon: Technology['icon']
   slug: string
   keywords?: string[]
   altNames?: string[]
@@ -21,13 +19,12 @@ async function getMdxMetadata(
   filePath: string
 ): Promise<TechnologyFrontmatter> {
   const source = await fs.readFile(filePath, 'utf-8')
-  const {frontmatter} = await serialize(source, {
-    parseFrontmatter: true
-  })
+  const {data: frontmatter} = matter(source)
 
   return {
-    icon: (frontmatter?.icon as IconName) || 'circle',
-    iconPrefix: frontmatter?.iconPrefix as IconPrefix,
+    icon:
+      (frontmatter?.icon as Technology['icon']) ||
+      ('bookOpen' as CustomIconName),
     slug: (frontmatter?.slug as string) || '',
     keywords: frontmatter?.keywords as string[],
     altNames: frontmatter?.altNames as string[],
@@ -73,7 +70,6 @@ async function scanTechnologies(): Promise<Technology[]> {
       technologies.push({
         name: sections.name || technologyId,
         icon: metadata.icon,
-        iconPrefix: metadata.iconPrefix,
         slug: metadata.slug,
         keywords: metadata.keywords,
         altNames: metadata.altNames,

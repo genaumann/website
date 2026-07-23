@@ -7,7 +7,8 @@ import {
   CardHeader,
   CardTitle
 } from '../card'
-import Icon from '../icon'
+import CustomIcon from '@/components/icons'
+import {CalendarIcon} from 'lucide-react'
 import {Training} from '@/lib/trainings'
 import {getDateFunctions} from '@/lib/dates'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
@@ -25,13 +26,9 @@ export async function TrainingCard({training}: TrainingCardProps) {
     <Card className="max-w-9/12 md:max-w-2/3 mx-auto dark:shadow dark:shadow-primary">
       <CardHeader className="py-3">
         <div className="flex justify-between">
-          <Icon
-            name={training.iconName}
-            prefix={training.iconPrefix}
-            className="text-4xl"
-          />
+          <CustomIcon name={training.iconName} width={40} height={40} />
           <Badge variant="secondary" className="gap-1">
-            <Icon name="calendar" />
+            <CalendarIcon width={16} height={16} />
             {t('days', {days: training.days})}
           </Badge>
         </div>
@@ -40,7 +37,7 @@ export async function TrainingCard({training}: TrainingCardProps) {
         <div className="space-y-2">
           <CardTitle className="text-2xl">{training.name}</CardTitle>
           <Badge variant="muted">
-            <Icon name="calendar" />
+            <CalendarIcon width={16} height={16} />
             {format(training.date, 'MMMM yyyy')}
           </Badge>
         </div>

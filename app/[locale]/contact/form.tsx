@@ -9,7 +9,6 @@ import {
   FormLabel,
   FormMessage
 } from '@/components/ui/form'
-import Icon, {IconName, IconPrefix} from '@/components/ui/icon'
 import {Input} from '@/components/ui/input'
 import {Textarea} from '@/components/ui/textarea'
 import {zodResolver} from '@hookform/resolvers/zod'
@@ -18,6 +17,16 @@ import {useForm} from 'react-hook-form'
 import {ContactFormSchema, getContactFormSchema} from './schema'
 import {sendContactEmail} from './actions'
 import {useTranslate} from '@tolgee/react'
+import {
+  CheckCircleIcon,
+  Loader2Icon,
+  SendIcon,
+  UserIcon,
+  PhoneIcon,
+  MailIcon,
+  MailboxIcon
+} from 'lucide-react'
+import {ReactNode} from 'react'
 
 export default function ContactForm() {
   const {t} = useTranslate('contact')
@@ -62,8 +71,7 @@ export default function ContactForm() {
     placeholder?: string
     type?: HTMLInputTypeAttribute
     element?: 'input' | 'textarea'
-    icon: IconName
-    iconPrefix?: IconPrefix
+    icon: ReactNode
     initialFoucs?: boolean
   }
 
@@ -71,7 +79,7 @@ export default function ContactForm() {
     {
       name: 'name',
       label: t('name', {ns: 'common'}),
-      icon: 'user',
+      icon: <UserIcon width={16} height={16} />,
       type: 'text',
       element: 'input',
       initialFoucs: true
@@ -80,21 +88,21 @@ export default function ContactForm() {
       name: 'phone',
       label: t('phone', {ns: 'common'}),
       type: 'tel',
-      icon: 'phone',
+      icon: <PhoneIcon width={16} height={16} />,
       element: 'input'
     },
     {
       name: 'email',
       label: t('email', {ns: 'common'}),
       type: 'text',
-      icon: 'envelope',
+      icon: <MailIcon width={16} height={16} />,
       element: 'input'
     },
     {
       name: 'message',
       label: t('message', {ns: 'common'}),
       type: 'textarea',
-      icon: 'mailbox-flag-up',
+      icon: <MailboxIcon width={16} height={16} />,
       element: 'textarea'
     }
   ]
@@ -103,7 +111,7 @@ export default function ContactForm() {
     <>
       {submitState.submitted && submitState.submitSuccess ? (
         <div className="flex flex-col items-center justify-center gap-4">
-          <Icon name="check-circle" className="text-primary" size="2xl" />
+          <CheckCircleIcon width={48} height={48} />
           <p className="text-center text-lg font-semibold">
             {t('successMessage')}
           </p>
@@ -131,7 +139,7 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>
                       <div className="flex items-center gap-2">
-                        <Icon name={field.icon} prefix={field.iconPrefix} />
+                        {field.icon}
                         {field.label}
                       </div>
                     </FormLabel>
@@ -162,9 +170,9 @@ export default function ContactForm() {
             ))}
             <Button type="submit" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? (
-                <Icon name="loader" spin />
+                <Loader2Icon width={16} height={16} className="animate-spin" />
               ) : (
-                <Icon name="paper-plane" />
+                <SendIcon width={16} height={16} />
               )}
               {t('sendMessage')}
             </Button>
