@@ -3,7 +3,6 @@ import fs from 'fs/promises'
 import path from 'path'
 import {exec} from 'child_process'
 import {promisify} from 'util'
-import {serialize} from 'next-mdx-remote/serialize'
 import {Article, ArticleIndex, MDXFrontmatter} from '@/lib/types'
 import {CustomIconName} from '@/components/icons'
 import matter from 'gray-matter'
@@ -45,9 +44,7 @@ async function getGitAuthor(filePath: string): Promise<string> {
 async function getMdxMetadata(filePath: string): Promise<MDXFrontmatter> {
   try {
     const source = await fs.readFile(filePath, 'utf-8')
-    const {frontmatter} = await serialize(source, {
-      parseFrontmatter: true
-    })
+    const {data: frontmatter} = matter(source)
     return {
       title:
         (frontmatter?.title as string) ||

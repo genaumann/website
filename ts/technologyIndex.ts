@@ -1,7 +1,6 @@
 import {LOCALES} from '@/locales'
 import fs from 'fs/promises'
 import path from 'path'
-import {serialize} from 'next-mdx-remote/serialize'
 import {Technology} from '@/lib/types'
 import matter from 'gray-matter'
 import {CustomIconName} from '@/components/icons'
@@ -20,9 +19,7 @@ async function getMdxMetadata(
   filePath: string
 ): Promise<TechnologyFrontmatter> {
   const source = await fs.readFile(filePath, 'utf-8')
-  const {frontmatter} = await serialize(source, {
-    parseFrontmatter: true
-  })
+  const {data: frontmatter} = matter(source)
 
   return {
     icon:

@@ -14,6 +14,9 @@ importers:
       '@mdx-js/loader':
         specifier: ^3.1.1
         version: 3.1.1(supports-color@7.2.0)
+      '@mdx-js/mdx':
+        specifier: ^3.1.1
+        version: 3.1.1(supports-color@7.2.0)
       '@mdx-js/react':
         specifier: ^3.1.1
         version: 3.1.1(@types/react@19.2.17)(react@19.2.8)
@@ -128,6 +131,9 @@ importers:
       fuse.js:
         specifier: ^7.5.0
         version: 7.5.0
+      gray-matter:
+        specifier: ^4.0.3
+        version: 4.0.3
       hast-util-to-string:
         specifier: ^3.0.1
         version: 3.0.1
@@ -146,9 +152,6 @@ importers:
       next-intl:
         specifier: ^4.13.3
         version: 4.13.3(@swc/helpers@0.5.17)(next@16.2.11(@babel/core@7.28.5(supports-color@7.2.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)(typescript@6.0.3)
-      next-mdx-remote:
-        specifier: ^6.0.0
-        version: 6.0.0(@types/react@19.2.17)(react@19.2.8)(supports-color@7.2.0)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -243,9 +246,6 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^7.1.1
         version: 7.1.1(eslint@9.39.2(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)
-      gray-matter:
-        specifier: ^4.0.3
-        version: 4.0.3
       mdast-util-mdx:
         specifier: ^3.0.0
         version: 3.0.0(supports-color@7.2.0)
@@ -3902,12 +3902,6 @@ packages:
       typescript:
         optional: true
 
-  next-mdx-remote@6.0.0:
-    resolution: {integrity: sha512-cJEpEZlgD6xGjB4jL8BnI8FaYdN9BzZM4NwadPe1YQr7pqoWjg9EBCMv3nXBkuHqMRfv2y33SzUsuyNh9LFAQQ==}
-    engines: {node: '>=14', npm: '>=7'}
-    peerDependencies:
-      react: '>=16'
-
   next-themes@0.4.6:
     resolution: {integrity: sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA==}
     peerDependencies:
@@ -4572,9 +4566,6 @@ packages:
   unist-util-position@5.0.0:
     resolution: {integrity: sha512-fucsC7HjXvkB5R3kTCO7kUjRdrS0BJt3M/FPxmHMBOm8JQi2BsHAHFsy27E0EolP8rp0NzXsJ+jNPyDWvOJZPA==}
 
-  unist-util-remove@4.0.0:
-    resolution: {integrity: sha512-b4gokeGId57UVRX/eVKej5gXqGlc9+trkORhFJpu9raqZkZhU0zm8Doi05+HaiBsMEIJowL+2WtQ5ItjsngPXg==}
-
   unist-util-stringify-position@4.0.0:
     resolution: {integrity: sha512-0ASV06AAoKCDkS2+xw5RXJywruurpbC4JZSm7nr7MOt1ojAzvyyaO+UxZf18j8FCF6kmzCZKcAgN/yu2gm2XgQ==}
 
@@ -4635,9 +4626,6 @@ packages:
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
       react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
 
-  vfile-matter@5.0.1:
-    resolution: {integrity: sha512-o6roP82AiX0XfkyTHyRCMXgHfltUNlXSEqCIS80f+mbAyiQBE2fxtDVMtseyytGx75sihiJFo/zR6r/4LTs2Cw==}
-
   vfile-message@4.0.3:
     resolution: {integrity: sha512-QTHzsGd1EhbZs4AsQ20JX1rC3cOlt/IWJruk893DfLRr57lcnOeMaWG4K0JrRta4mIJZKth2Au3mM3u03/JWKw==}
 
@@ -4675,11 +4663,6 @@ packages:
 
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
-
-  yaml@2.8.1:
-    resolution: {integrity: sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==}
-    engines: {node: '>= 14.6'}
-    hasBin: true
 
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
@@ -6012,7 +5995,7 @@ snapshots:
       '@shikijs/primitive': 4.3.1
       '@shikijs/types': 4.3.1
       '@shikijs/vscode-textmate': 10.0.2
-      '@types/hast': 3.0.4
+      '@types/hast': 3.0.5
       hast-util-to-html: 9.0.5
 
   '@shikijs/engine-javascript@4.3.1':
@@ -6034,7 +6017,7 @@ snapshots:
     dependencies:
       '@shikijs/types': 4.3.1
       '@shikijs/vscode-textmate': 10.0.2
-      '@types/hast': 3.0.4
+      '@types/hast': 3.0.5
 
   '@shikijs/themes@4.3.1':
     dependencies:
@@ -6043,7 +6026,7 @@ snapshots:
   '@shikijs/types@4.3.1':
     dependencies:
       '@shikijs/vscode-textmate': 10.0.2
-      '@types/hast': 3.0.4
+      '@types/hast': 3.0.5
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
@@ -7633,7 +7616,7 @@ snapshots:
 
   hast-util-to-html@9.0.5:
     dependencies:
-      '@types/hast': 3.0.4
+      '@types/hast': 3.0.5
       '@types/unist': 3.0.3
       ccount: 2.0.1
       comma-separated-tokens: 2.0.3
@@ -8556,20 +8539,6 @@ snapshots:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  next-mdx-remote@6.0.0(@types/react@19.2.17)(react@19.2.8)(supports-color@7.2.0):
-    dependencies:
-      '@babel/code-frame': 7.27.1
-      '@mdx-js/mdx': 3.1.1(supports-color@7.2.0)
-      '@mdx-js/react': 3.1.1(@types/react@19.2.17)(react@19.2.8)
-      react: 19.2.8
-      unist-util-remove: 4.0.0
-      unist-util-visit: 5.1.0
-      vfile: 6.0.3
-      vfile-matter: 5.0.1
-    transitivePeerDependencies:
-      - '@types/react'
-      - supports-color
-
   next-themes@0.4.6(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       react: 19.2.8
@@ -9377,12 +9346,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  unist-util-remove@4.0.0:
-    dependencies:
-      '@types/unist': 3.0.3
-      unist-util-is: 6.0.1
-      unist-util-visit-parents: 6.0.2
-
   unist-util-stringify-position@4.0.0:
     dependencies:
       '@types/unist': 3.0.3
@@ -9470,11 +9433,6 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  vfile-matter@5.0.1:
-    dependencies:
-      vfile: 6.0.3
-      yaml: 2.8.1
-
   vfile-message@4.0.3:
     dependencies:
       '@types/unist': 3.0.3
@@ -9539,8 +9497,6 @@ snapshots:
   word-wrap@1.2.5: {}
 
   yallist@3.1.1: {}
-
-  yaml@2.8.1: {}
 
   yocto-queue@0.1.0: {}
 

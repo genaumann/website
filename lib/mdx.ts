@@ -1,15 +1,12 @@
 'use server'
 
 import fs from 'fs/promises'
-import {compileMDX} from 'next-mdx-remote/rsc'
 import {JSXElementConstructor, ReactElement} from 'react'
 import articles from '@/lib/articleIndex.json'
 import {Article, ArticleIndex, Locale, MDXFrontmatter} from './types'
-import remarkGfm from 'remark-gfm'
-import remarkCodeBlock from './remark/codeblock'
+import {compileMdxSource} from './mdx-compile'
 import {findArticleBySlug} from './mdx-edge'
 import {headers} from 'next/headers'
-import {MDXComponents} from '@/components/mdx'
 import {LOCALES} from '@/locales'
 
 type MDXReturnType = {
@@ -33,16 +30,9 @@ export const getParsedArticle = async (
       `${process.cwd()}/${article.path}`,
       'utf8'
     )
-    const {content, frontmatter} = await compileMDX<MDXFrontmatter>({
-      source: articleSource,
-      components: MDXComponents,
-      options: {
-        parseFrontmatter: true,
-        mdxOptions: {
-          remarkPlugins: [remarkGfm, remarkCodeBlock]
-        }
-      }
-    })
+    const {content, frontmatter} = await compileMdxSource<MDXFrontmatter>(
+      articleSource
+    )
     return {
       content,
       frontmatter,
