@@ -54,7 +54,7 @@ export default async function TechnologyArticlesPage({
                   {article.icon ? (
                     <CustomIcon
                       name={article.icon}
-                      className="text-8xl transition-transform duration-300 ease-in-out group-hover:scale-150"
+                      className="size-16 transition-transform duration-300 ease-in-out group-hover:scale-150"
                     />
                   ) : (
                     <NewspaperIcon

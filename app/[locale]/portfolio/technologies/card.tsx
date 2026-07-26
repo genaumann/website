@@ -11,8 +11,8 @@ export default function TechnologyCard({technology}: TechnologyCardProps) {
     <Link
       href={`/portfolio/technologies/${technology.slug}`}
       className="flex flex-col items-center rounded-lg border border-border shadow dark:shadow-primary text-3xl group focus:outline-none focus:ring-2 focus:ring-primary">
-      <div className="py-4 text-7xl transition-transform duration-300 ease-in-out group-hover:scale-150 group-focus:scale-150">
-        <TechnologyIcon icon={technology.icon} />
+      <div className="py-4 transition-transform duration-300 ease-in-out group-hover:scale-150 group-focus:scale-150">
+        <TechnologyIcon icon={technology.icon} className="size-16" />
       </div>
       <div className="font-oswald text-center py-2 bg-card w-full rounded-b-lg">
         <span>{technology.name}</span>

@@ -94,11 +94,11 @@ export const customIconMap = {
   },
   podman: {
     Component: Podman,
-    color: '#0000000'
+    color: '#000000'
   },
   tolgee: {
     Component: Tolgeee,
-    color: '#0000000'
+    color: '#000000'
   },
   bookOpen: {
     Component: BookOpen,
@@ -111,6 +111,10 @@ export const customIconMap = {
   github: {
     Component: GithubIcon,
     color: '#181717'
+  },
+  githubDark: {
+    Component: GithubIcon,
+    color: '#FFFFFF'
   },
   git: {
     Component: GitIcon,
@@ -130,7 +134,12 @@ const CustomIcon = React.forwardRef<SVGSVGElement, CustomIconProps>(
     const Component = customIconMap[name]?.Component
 
     return (
-      <Component fill={color} ref={ref} className={cn(className)} {...props} />
+      <Component
+        fill={color}
+        ref={ref}
+        className={cn('size-[1em]', className)}
+        {...props}
+      />
     )
   }
 )
