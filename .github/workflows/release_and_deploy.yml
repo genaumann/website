@@ -4,9 +4,6 @@ name: Production Deployment
 on:
   workflow_dispatch:
 
-env:
-  FONT_AWESOME_NPM_TOKEN: ${{ secrets.FONT_AWESOME_NPM_TOKEN }}
-
 jobs:
   release:
     if: ${{ github.ref == 'refs/heads/main' }}

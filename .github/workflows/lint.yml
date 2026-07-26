@@ -4,9 +4,6 @@ name: Lint TypeScript code
 on:
   - pull_request
 
-env:
-  FONT_AWESOME_NPM_TOKEN: ${{ secrets.FONT_AWESOME_NPM_TOKEN }}
-
 jobs:
   commitlint:
     name: Run commitlint
