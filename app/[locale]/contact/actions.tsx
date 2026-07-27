@@ -2,7 +2,7 @@
 
 import {MailjetClient} from '@/lib/mailjet'
 import {ContactFormSchema} from './schema'
-import {render} from '@react-email/render'
+import {render} from 'react-email'
 import ContactFormEmailTemplate from '@/components/email/contact-form'
 import {CONTACT} from '@/lib/contact'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
