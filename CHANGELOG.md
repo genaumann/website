@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.1.2](https://github.com/genaumann/website/compare/v2.1.1...v2.1.2) (2026-07-27)
+
+### 🐛 Bugfix 🐛
+
+* icon sizes in portfolio overview ([7cf109d](https://github.com/genaumann/website/commit/7cf109d1d2eecdb4ba30718d591413b98e791dae))
+
+### 💿 Continuous Integration 💿
+
+* remove unused var ([55b5f3a](https://github.com/genaumann/website/commit/55b5f3a3cee6ddae4fd215f77d2ba37c7196993f))
+* update github pipeline actions ([2e4d5cb](https://github.com/genaumann/website/commit/2e4d5cb7fe4448d71c1deb8d39d016cb61a60831))
+
+### 🔧 Refactor 🔧
+
+* migrate from fontawesome to lucide-react ([e19e530](https://github.com/genaumann/website/commit/e19e530bc62a3bb4ea045edd254de50fe650335c))
+* migrate from next-remote-mdx to @mdx-js/mdx ([a37e2d3](https://github.com/genaumann/website/commit/a37e2d34f04a4486259c9e836a2cab76a77d0117))
+
+### 📰 Articles 📰
+
+* rename middleware to proxy ([ca3eba4](https://github.com/genaumann/website/commit/ca3eba4982d3addcc6e5eb09463fa2e4fd80a24b))
+
 ## [2.1.1](https://github.com/genaumann/website/compare/v2.1.0...v2.1.1) (2025-12-15)
 
 ### 📝 Content 📝
