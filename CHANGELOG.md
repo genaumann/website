@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1.3](https://github.com/genaumann/website/compare/v2.1.2...v2.1.3) (2026-08-14)
+
+### 🏗️ Build 🏗️
+
+* fix type error ([1f051b2](https://github.com/genaumann/website/commit/1f051b2f33fc142c3bef74ba6b9b5224d57d1a7f))
+
+### 📝 Content 📝
+
+* **projects:** add ansible-flitz ([ecee653](https://github.com/genaumann/website/commit/ecee65357f6fa6f06649724513e5fef9769a7810))
+
 ## [2.1.2](https://github.com/genaumann/website/compare/v2.1.1...v2.1.2) (2026-07-27)
 
 ### 🐛 Bugfix 🐛

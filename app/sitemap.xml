@@ -280,6 +280,14 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://gnaumann.de/portfolio/projects/ansible-flitz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/ansible-flitz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/ansible-flitz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gnaumann.de/portfolio/projects/ansible-flitz"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://gnaumann.de/portfolio/projects/ai-chatbot-flls</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://gnaumann.de/portfolio/projects/ai-chatbot-flls"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://gnaumann.de/en/portfolio/projects/ai-chatbot-flls"/>
