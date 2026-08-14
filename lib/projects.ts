@@ -17,12 +17,15 @@ const mapProject = (project: TProjectIndex): Project => {
 }
 
 export const getProject = ({id}: {id: Project['id']}): Project | undefined => {
-  const project = (projectIndex as Record<string, TProjectIndex>)[id]
+  const project = (projectIndex as unknown as Record<string, TProjectIndex>)[id]
   return project ? mapProject(project) : undefined
 }
 
 export const getProjects = (): Project[] => {
-  const projectsRecord = projectIndex as Record<string, TProjectIndex>
+  const projectsRecord = projectIndex as unknown as Record<
+    string,
+    TProjectIndex
+  >
   return Object.values(projectsRecord)
     .map(mapProject)
     .sort((a, b) => {
