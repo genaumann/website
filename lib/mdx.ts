@@ -1,6 +1,7 @@
 'use server'
 
 import fs from 'fs/promises'
+import path from 'node:path'
 import {JSXElementConstructor, ReactElement} from 'react'
 import articles from '@/lib/articleIndex.json'
 import {Article, ArticleIndex, Locale, MDXFrontmatter} from './types'
@@ -26,8 +27,9 @@ export const getParsedArticle = async (
     const article = await findArticleBySlug(locale, kb.join('/'))
     if (!article) return null
 
+    const relativePath = article.path.replace(/^articles[/\\]/, '')
     const articleSource = await fs.readFile(
-      `${process.cwd()}/${article.path}`,
+      path.join(process.cwd(), 'articles', relativePath),
       'utf8'
     )
     const {content, frontmatter} = await compileMdxSource<MDXFrontmatter>(
