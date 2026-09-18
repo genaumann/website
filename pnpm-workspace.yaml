@@ -12,3 +12,4 @@ minimumReleaseAgeExclude:
   - next-intl-swc-plugin-extractor@4.13.7
   - next-intl@4.13.7
   - use-intl@4.13.7
+  - eslint@10.11.0
