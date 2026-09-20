@@ -1,16 +1,17 @@
 import Link from 'next/link'
-import Icon, {IconName, IconPrefix} from '../ui/icon'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {getDateFunctions} from '@/lib/dates'
 import {getLocale} from '@/lib/cookie'
 import {CONTACT} from '@/lib/contact'
 import {MobileFooterElements} from './footer-client'
+import {IconType} from 'react-icons'
+import {FaLinkedin} from 'react-icons/fa6'
+import {SiGithub} from 'react-icons/si'
 
 interface SocialItem {
   name: string
   href: string
-  icon: IconName
-  iconPrefix?: IconPrefix
+  icon: IconType
 }
 
 export type FooterNavigation = Record<string, {name: string; href: string}[]>
@@ -24,14 +25,12 @@ export default async function Footer() {
     {
       name: 'LinkedIn',
       href: 'https://de.linkedin.com/in/gino-naumann-356993240',
-      icon: 'linkedin',
-      iconPrefix: 'fab'
+      icon: FaLinkedin
     },
     {
       name: 'GitHub',
       href: 'https://github.com/genaumann',
-      icon: 'github',
-      iconPrefix: 'fab'
+      icon: SiGithub
     }
   ]
 
@@ -95,7 +94,7 @@ export default async function Footer() {
                 key={item.name}
                 href={item.href}
                 className="text-muted-foreground hover:underline">
-                <Icon prefix={item.iconPrefix} name={item.icon} />
+                <item.icon />
               </Link>
             ))}
           </div>
