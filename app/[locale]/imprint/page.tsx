@@ -27,7 +27,7 @@ export default async function Page({params}: {params: Promise<LocaleParam>}) {
   const locale = (await params).locale
   const MDXPage = (await import(`./imprint_${locale}.mdx`)).default
   return (
-    <div className="prose container">
+    <div className="prose container my-8">
       <MDXPage />
     </div>
   )
