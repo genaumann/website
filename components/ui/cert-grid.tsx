@@ -2,7 +2,7 @@
 
 import {useEffect, useRef} from 'react'
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from './card'
-import Icon from './icon'
+import {TicketCheck, CalendarIcon} from 'lucide-react'
 import {Badge} from './badge'
 import {getDateFunctions} from '@/lib/dates'
 import {certs as certData, getCertsByTechnology} from '@/lib/cert'
@@ -65,19 +65,20 @@ export default function CertGrid({technology}: CertGridProps) {
                 </Badge>
 
                 <div className="absolute -top-3 -left-2 flex items-center gap-2 bg-secondary p-2 rounded-xl">
-                  <Icon
-                    name="file-certificate"
+                  <TicketCheck
+                    width={24}
+                    height={24}
                     className="text-xl text-muted-foreground"
                   />
                 </div>
               </CardHeader>
               <CardContent className="flex justify-center gap-2">
                 <Badge variant="muted">
-                  <Icon name="calendar" />
+                  <CalendarIcon width={14} height={14} />
                   <span>{format(cert.validFrom, 'MMM yyyy')}</span>
                 </Badge>
                 <Badge variant="muted">
-                  <Icon name="file-certificate" />
+                  <TicketCheck width={14} height={14} />
                   <span>{cert.issuer}</span>
                 </Badge>
               </CardContent>

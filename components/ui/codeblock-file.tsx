@@ -1,8 +1,8 @@
 import * as React from 'react'
 import {cn} from '@/lib/cn'
-import Icon, {IconProps} from './icon'
 import CodeBlockCopyButton from './copy-button'
 import CodeBlockLineNumbers from './line-numbers'
+import {ChevronRightIcon} from 'lucide-react'
 
 const CodeBlockFile = React.forwardRef<
   HTMLDivElement,
@@ -23,18 +23,18 @@ CodeBlockFileTabWrapper.displayName = 'CodeBlockFileTabWrapper'
 const CodeBlockFileTab = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
-    icon?: IconProps['name']
+    icon?: React.ReactNode
     fileName: string
   }
 >(({className, icon, fileName, ...props}, ref) => (
   <div
     ref={ref}
     className={cn(
-      'text-xs shrink py-2 px-4 border-r border-r-muted border-t border-t-primary w-fit',
+      'flex items-center gap-1.5 text-xs shrink py-2 px-4 border-r border-r-muted border-t border-t-primary w-fit',
       className
     )}
     {...props}>
-    {icon && <Icon name={icon} className="mr-1" />}
+    {icon && icon}
     <span className="font-mono text-muted-foreground">{fileName}</span>
   </div>
 ))
@@ -60,12 +60,12 @@ const CodeBlockFileParts = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
     filePathParts: string[]
-    fileIcon?: IconProps['name']
+    fileIcon?: React.ReactNode
   }
 >(({className, fileIcon, filePathParts, ...props}, ref) => (
   <div
     className={cn(
-      'w-full text-xs font-mono py-1 pl-3 border-b border-b-muted-foreground/10',
+      'flex items-center gap-1.5 w-full text-xs font-mono py-1 pl-3 border-b border-b-muted-foreground/10',
       className
     )}
     ref={ref}
@@ -73,12 +73,12 @@ const CodeBlockFileParts = React.forwardRef<
     <>
       {filePathParts.map((part, index) => (
         <React.Fragment key={index}>
-          {index === filePathParts.length - 1 && fileIcon && (
-            <Icon name={fileIcon} className="mr-1" />
-          )}
-          <span>{part}</span>
+          <span className="flex items-center gap-1">
+            {index === filePathParts.length - 1 && fileIcon && fileIcon}
+            {part}
+          </span>
           {index < filePathParts.length - 1 && (
-            <Icon name="chevron-right" className="mx-1" />
+            <ChevronRightIcon width={14} height={14} />
           )}
         </React.Fragment>
       ))}

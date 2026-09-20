@@ -2,7 +2,7 @@
 
 import {Article} from '@/lib/types'
 import {Button} from '../ui/button'
-import Icon from '../ui/icon'
+import {ListIcon} from 'lucide-react'
 import {ArticleSidebar} from './sidebar'
 import {
   Drawer,
@@ -20,7 +20,7 @@ export default function MobileSidebar({articles}: {articles: Article[]}) {
     <Drawer>
       <DrawerTrigger className="md:hidden" asChild>
         <Button size="icon" variant="ghost" className="hover:bg-inherit w-fit">
-          <Icon name="list" />
+          <ListIcon width={16} height={16} />
           {t('moreArticles')}
         </Button>
       </DrawerTrigger>

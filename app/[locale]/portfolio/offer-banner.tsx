@@ -1,5 +1,5 @@
 import {Button} from '@/components/ui/button'
-import Icon from '@/components/ui/icon'
+import {ArrowRightIcon} from 'lucide-react'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import Link from 'next/link'
 
@@ -15,7 +15,7 @@ export default async function PortfolioOfferBanner() {
           size="lg"
           className="text-base transition-transform duration-300 ease-in-out group-hover:scale-125 hover:cursor-pointer">
           {t('myTechStack')}
-          <Icon name="arrow-right" />
+          <ArrowRightIcon width={16} height={16} />
         </Button>
       </Link>
     </section>

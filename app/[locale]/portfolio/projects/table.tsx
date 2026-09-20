@@ -9,7 +9,7 @@ import {useTolgee, useTranslate} from '@tolgee/react'
 import {getDateFunctions} from '@/lib/dates'
 import {LOCALES} from '@/locales'
 import {Button} from '@/components/ui/button'
-import Icon from '@/components/ui/icon'
+import {EllipsisIcon, EyeIcon} from 'lucide-react'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
 import {
@@ -112,13 +112,13 @@ export default function ProjectsTable() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
-                <Icon name="ellipsis" />
+                <EllipsisIcon width={16} height={16} />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-popover" align="end">
               <DropdownMenuItem asChild>
                 <Link href={`/portfolio/projects/${row.original.id}`}>
-                  <Icon name="eye" />
+                  <EyeIcon width={16} height={16} />
                   {t('viewProjectRef', {ns: 'portfolio'})}
                 </Link>
               </DropdownMenuItem>

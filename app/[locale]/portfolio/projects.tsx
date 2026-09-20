@@ -1,7 +1,7 @@
 import {getProjects} from '@/lib/projects'
 import Link from 'next/link'
 import {Button} from '@/components/ui/button'
-import Icon from '@/components/ui/icon'
+import {ArrowRightIcon} from 'lucide-react'
 import ProjectGrid from '@/components/ui/project-grid'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {Badge} from '@/components/ui/badge'
@@ -30,7 +30,7 @@ export default async function PortfolioProjectsPage() {
           size="lg"
           className="group-hover:scale-125 transition-transform duration-300 ease-in-out">
           {t('allProjects')}
-          <Icon name="arrow-right" />
+          <ArrowRightIcon width={16} height={16} />
         </Button>
       </Link>
     </section>

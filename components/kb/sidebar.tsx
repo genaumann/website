@@ -5,7 +5,7 @@ import {usePathname} from 'next/navigation'
 import {useState, useEffect, useMemo} from 'react'
 import {ScrollArea} from '@/components/ui/scroll-area'
 import {Article} from '@/lib/types'
-import Icon from '@/components/ui/icon'
+import {ChevronDownIcon, ChevronRightIcon} from 'lucide-react'
 import {Button} from '../ui/button'
 import {cn} from '@/lib/cn'
 import {useTranslate} from '@tolgee/react'
@@ -54,9 +54,9 @@ const ArticleList = ({
                   aria-expanded={isExpanded}
                   onClick={() => onToggleExpanded(article.slug)}>
                   {isExpanded ? (
-                    <Icon name="chevron-down" />
+                    <ChevronDownIcon width={16} height={16} />
                   ) : (
-                    <Icon name="chevron-right" />
+                    <ChevronRightIcon width={16} height={16} />
                   )}
                 </Button>
               )}

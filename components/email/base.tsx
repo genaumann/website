@@ -13,7 +13,7 @@ import {
   Hr,
   Text,
   Link
-} from '@react-email/components'
+} from 'react-email'
 import {CONTACT} from '@/lib/contact'
 
 export type BaseEmailTemplateProps = {

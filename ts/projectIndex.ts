@@ -1,7 +1,6 @@
 import {LOCALES} from '@/locales'
 import fs from 'fs/promises'
 import path from 'path'
-import {serialize} from 'next-mdx-remote/serialize'
 import {Project, ProjectContext} from '@/lib/types'
 import matter from 'gray-matter'
 
@@ -19,9 +18,7 @@ interface ProjectFrontmatter {
 
 async function getMdxMetadata(filePath: string): Promise<ProjectFrontmatter> {
   const source = await fs.readFile(filePath, 'utf-8')
-  const {frontmatter} = await serialize(source, {
-    parseFrontmatter: true
-  })
+  const {data: frontmatter} = matter(source)
 
   return {
     technologies: (frontmatter?.technologies as string[]) || [],

@@ -22,7 +22,13 @@ import {
 } from '@/components/ui/table'
 import {useState} from 'react'
 import {Button} from '@/components/ui/button'
-import Icon from '@/components/ui/icon'
+import {
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+  SortDescIcon
+} from 'lucide-react'
 import {Input} from './input'
 import {useTranslate} from '@tolgee/react'
 interface DataTableProps<TData, TValue> {
@@ -89,11 +95,11 @@ export function DataTable<TData, TValue>({
                                 header.getContext()
                               )}
                               {header.column.getIsSorted() === 'asc' ? (
-                                <Icon name="sort-up" />
+                                <ChevronUpIcon width={16} height={16} />
                               ) : header.column.getIsSorted() === 'desc' ? (
-                                <Icon name="sort-down" />
+                                <ChevronDownIcon width={16} height={16} />
                               ) : (
-                                <Icon name="sort" className="opacity-40" />
+                                <SortDescIcon width={16} height={16} />
                               )}
                             </Button>
                           ) : (
@@ -167,14 +173,14 @@ export function DataTable<TData, TValue>({
             size="icon"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}>
-            <Icon name="chevron-left" />
+            <ChevronLeftIcon width={16} height={16} />
           </Button>
           <Button
             variant="outline"
             size="icon"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}>
-            <Icon name="chevron-right" />
+            <ChevronRightIcon width={16} height={16} />
           </Button>
         </div>
       </div>

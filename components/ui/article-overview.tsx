@@ -1,6 +1,5 @@
-import type React from 'react'
 import {Article} from '@/lib/types'
-import Icon from './icon'
+import {NewspaperIcon} from 'lucide-react'
 import Link from 'next/link'
 
 function ArticleItem({article, depth}: {article: Article; depth: number}) {
@@ -12,10 +11,7 @@ function ArticleItem({article, depth}: {article: Article; depth: number}) {
         <span
           className="text-muted-foreground text-2xl"
           style={{marginLeft: `${depth * 20}px`}}>
-          <Icon
-            name={article.icon ? article.icon : 'newspaper'}
-            prefix={article.iconPrefix || 'fal'}
-          />
+          <NewspaperIcon width={24} height={24} />
         </span>
         <div className="block">
           <span className="text-xl tracking-tight font-bold font-oswald">

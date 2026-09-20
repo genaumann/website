@@ -17,7 +17,6 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     '/*': ['./articles/**/*']
   },
-  transpilePackages: ['next-mdx-remote'],
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
     remotePatterns: [

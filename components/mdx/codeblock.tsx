@@ -1,5 +1,6 @@
+import type React from 'react'
 import {getIconByFileType} from '@/lib/iconmap'
-import {IconName} from '@/components/ui/icon'
+import {TerminalIcon, MessageSquareIcon} from 'lucide-react'
 import {
   MacOSWindow,
   MacOSWindowContent,
@@ -44,12 +45,12 @@ export default function CodeBlock({
   filePath
 }: CodeBlockProps) {
   const title = titleProp || filePath?.split('/').at(-1)
-  const iconName: IconName =
+  const icon: React.ReactNode =
     variant === 'file'
       ? getIconByFileType(language || 'default')
       : variant === 'terminal'
-        ? 'rectangle-terminal'
-        : 'message'
+        ? <TerminalIcon className="size-4" />
+        : <MessageSquareIcon className="size-4" />
 
   const id = sanitizeString(origID)
 
@@ -60,7 +61,7 @@ export default function CodeBlock({
           <MacOSWindowHeader>
             <MacOSWindowHeaderButtons />
             <MacOSWindowTitle>
-              <MacOSWindowTitleIcon name={iconName} />
+              <MacOSWindowTitleIcon>{icon}</MacOSWindowTitleIcon>
               <MacOSWindowTitleText>{title}</MacOSWindowTitleText>
             </MacOSWindowTitle>
           </MacOSWindowHeader>
@@ -68,12 +69,12 @@ export default function CodeBlock({
             {variant === 'file' ? (
               <CodeBlockFile>
                 <CodeBlockFileTabWrapper>
-                  <CodeBlockFileTab fileName={title || ''} icon={iconName} />
+                  <CodeBlockFileTab fileName={title || ''} icon={icon} />
                   <CodeBlockFileCopy id={id} />
                 </CodeBlockFileTabWrapper>
                 <CodeBlockFileParts
                   filePathParts={filePath?.split('/') || []}
-                  fileIcon={iconName}
+                  fileIcon={icon}
                 />
                 <CodeBlockFileBody>
                   <CodeBlockFileLineNumbers line={line || 1} />

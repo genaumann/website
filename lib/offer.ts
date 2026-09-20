@@ -1,13 +1,19 @@
 'use server'
 
-import {IconName, IconPrefix} from '@/components/ui/icon'
 import {getTranslate} from './integrations/tolgee/server'
+
+export type OfferIconName =
+  | 'server'
+  | 'rocket'
+  | 'flask'
+  | 'code'
+  | 'cloud'
+  | 'boxes'
 
 type Offer = {
   id: string
   name: string
-  iconName: IconName
-  iconPrefix?: IconPrefix
+  iconName: OfferIconName
   description: string
   technologies: string[]
 }
@@ -30,14 +36,14 @@ export const getOffers = async ({technologies}: OfferProps = {}) => {
     {
       id: 'cicd',
       name: t('offer.cicd.title'),
-      iconName: 'rocket-launch',
+      iconName: 'rocket',
       description: t('offer.cicd.description'),
       technologies: ['gitlab', 'github']
     },
     {
       id: 'e2e',
       name: t('offer.e2e.title'),
-      iconName: 'flask-vial',
+      iconName: 'flask',
       description: t('offer.e2e.description'),
       technologies: ['playwright']
     },
@@ -58,7 +64,7 @@ export const getOffers = async ({technologies}: OfferProps = {}) => {
     {
       id: 'kubernetes',
       name: t('offer.kubernetes.title'),
-      iconName: 'cubes',
+      iconName: 'boxes',
       description: t('offer.kubernetes.description'),
       technologies: ['kubernetes', 'docker']
     }

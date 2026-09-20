@@ -3,9 +3,9 @@
 import {Button, ButtonProps} from '@/components/ui/button'
 import {useTolgee} from '@tolgee/react'
 import {LOCALES} from '@/locales'
-import Icon from '../ui/icon'
 import {useCallback, useState} from 'react'
 import {DownloadPDFButtonProps} from './files'
+import {DownloadIcon, Loader2Icon} from 'lucide-react'
 
 export default function DownloadPDFButton(
   props: DownloadPDFButtonProps & ButtonProps
@@ -84,11 +84,7 @@ export default function DownloadPDFButton(
       disabled={isLoading}
       aria-busy={isLoading}
       {...buttonProps}>
-      {isLoading ? (
-        <Icon name="loader" className="animate-spin" />
-      ) : (
-        <Icon name="download" />
-      )}
+      {isLoading ? <Loader2Icon className="animate-spin" /> : <DownloadIcon />}
       {label}
     </Button>
   )

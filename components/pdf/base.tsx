@@ -1,7 +1,5 @@
 import {Page, Text, View, Font, Link} from '@react-pdf/renderer'
 import {createTw} from 'react-pdf-tailwind'
-import {IconName, IconPrefix} from '../ui/icon'
-import IconPDF from './icon'
 import {getDateFunctions} from '@/lib/dates'
 import {Locale} from '@/lib/types'
 import {LOCALES} from '@/locales'
@@ -92,34 +90,24 @@ export function BasePagePDF({
   )
 }
 
-type IconPDFProps = {
-  icon?: IconName
-  iconPrefix?: IconPrefix
-  iconSize?: number
-}
-
 export function BaseLinkBadgePDF({
   src,
   text,
-  icon,
-  iconPrefix,
   outerStyle,
-  iconSize = 10
-}: {src: string; outerStyle?: string; text: string} & IconPDFProps) {
+  icon
+}: {
+  src: string
+  outerStyle?: string
+  text: string
+  icon?: React.ReactNode
+}) {
   return (
     <Link
       src={src}
       style={tw(
         `flex flex-row gap-1 items-center border border-black rounded-md px-1.5 py-1 no-underline${outerStyle ? ` ${outerStyle}` : ''}`
       )}>
-      {icon && (
-        <IconPDF
-          name={icon}
-          prefix={iconPrefix}
-          width={iconSize}
-          height={iconSize}
-        />
-      )}
+      {icon && icon}
       <Text style={tw('font-inter text-xs text-black font-light -mt-0.5')}>
         {text}
       </Text>
@@ -129,27 +117,19 @@ export function BaseLinkBadgePDF({
 
 export function BaseMutedBadgePDF({
   text,
-  icon,
-  iconPrefix,
   outerStyle,
-  iconSize = 8
+  icon
 }: {
   text: string
   outerStyle?: string
-} & IconPDFProps) {
+  icon?: React.ReactNode
+}) {
   return (
     <View
       style={tw(
         `flex flex-row gap-1 items-center border border-muted rounded-md px-1.5 py-1 text-xs${outerStyle ? ` ${outerStyle}` : ''}`
       )}>
-      {icon && (
-        <IconPDF
-          name={icon}
-          prefix={iconPrefix}
-          width={iconSize}
-          height={iconSize}
-        />
-      )}
+      {icon && icon}
       <Text style={tw('font-inter text-xs font-light -mt-0.5')}>{text}</Text>
     </View>
   )
@@ -322,7 +302,10 @@ export function MarkdownTextPDF({children}: {children: string}) {
       {blocks.map((block, index) => {
         if (block.type === 'list-item') {
           return (
-            <View key={index} style={tw('flex flex-row gap-2 pl-4')}>
+            <View
+              key={index}
+              wrap={false}
+              style={tw('flex flex-row gap-2 pl-4')}>
               <Text style={tw('font-inter')}>•</Text>
               <View style={tw('flex-1')}>
                 {renderMarkdownText(block.content)}

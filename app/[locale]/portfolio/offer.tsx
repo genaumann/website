@@ -5,11 +5,29 @@ import {
   AccordionTrigger
 } from '@/components/ui/accordion'
 import {Button} from '@/components/ui/button'
-import Icon from '@/components/ui/icon'
+import {
+  ServerIcon,
+  RocketIcon,
+  FlaskConicalIcon,
+  CodeIcon,
+  CloudIcon,
+  BoxesIcon,
+  ArrowRightIcon
+} from 'lucide-react'
 import {cn} from '@/lib/cn'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
-import {getOffers} from '@/lib/offer'
+import {getOffers, OfferIconName} from '@/lib/offer'
 import Link from 'next/link'
+import {ReactNode} from 'react'
+
+const offerIconMap: Record<OfferIconName, ReactNode> = {
+  server: <ServerIcon width={20} height={20} />,
+  rocket: <RocketIcon width={20} height={20} />,
+  flask: <FlaskConicalIcon width={20} height={20} />,
+  code: <CodeIcon width={20} height={20} />,
+  cloud: <CloudIcon width={20} height={20} />,
+  boxes: <BoxesIcon width={20} height={20} />
+}
 
 export default async function PortfolioOfferPage() {
   const t = await getTranslate('portfolio')
@@ -39,7 +57,7 @@ export default async function PortfolioOfferPage() {
                         'data-[state=closed]:rounded-b-lg'
                     )}>
                     <div className="flex gap-2 items-center">
-                      <Icon name={offer.iconName} prefix={offer.iconPrefix} />
+                      {offerIconMap[offer.iconName]}
                       <span className="font-semibold">{offer.name}</span>
                     </div>
                   </AccordionTrigger>
@@ -48,7 +66,7 @@ export default async function PortfolioOfferPage() {
                     <Button className="w-fit font-oswald" asChild>
                       <Link href="/portfolio/technologies">
                         {t('myTechStack')}
-                        <Icon name="arrow-right" />
+                        <ArrowRightIcon width={16} height={16} />
                       </Link>
                     </Button>
                   </AccordionContent>

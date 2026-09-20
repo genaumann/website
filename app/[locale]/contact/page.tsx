@@ -1,4 +1,4 @@
-import Icon from '@/components/ui/icon'
+import {MailIcon, PhoneIcon} from 'lucide-react'
 import {CONTACT} from '@/lib/contact'
 import Link from 'next/link'
 import ContactForm from './form'
@@ -45,13 +45,13 @@ export default async function Page() {
             <h1 className="text-5xl font-semibold mb-4 z-10">{t('contact')}</h1>
             <div className="space-y-2 w-fit mx-auto z-10">
               <div className="flex gap-2 items-center">
-                <Icon name="envelope" />
+                <MailIcon width={16} height={16} />
                 <Link href={`mailto:${CONTACT.email}`} className="underline">
                   {CONTACT.email}
                 </Link>
               </div>
               <div className="flex gap-2 items-center">
-                <Icon name="phone" />
+                <PhoneIcon width={16} height={16} />
                 <Link href={`tel:${CONTACT.phone}`} className="underline">
                   {CONTACT.phone}
                 </Link>

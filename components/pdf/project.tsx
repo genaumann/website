@@ -12,6 +12,8 @@ import {ProjectContextMap} from '../ui/project-badges'
 import {Fragment} from 'react'
 import {getTechnology} from '@/lib/technologies'
 import {origin} from '@/lib/url'
+import {Calendar, Info} from 'lucide-static'
+import {PdfIcon} from './icon'
 
 type ContentMap = {
   key: string
@@ -67,11 +69,13 @@ export default function ProjectPDF({
         <View
           style={tw('px-12 flex flex-col gap-2 justify-center items-center')}>
           <View style={tw('flex flex-row gap-2 mt-6')}>
-            <BaseMutedBadgePDF text={dateText} icon="calendar" iconSize={8} />
+            <BaseMutedBadgePDF
+              text={dateText}
+              icon={<PdfIcon icon={Calendar} size={8} />}
+            />
             <BaseMutedBadgePDF
               text={ProjectContextMap({context: project.context, t})}
-              icon="circle-info"
-              iconSize={8}
+              icon={<PdfIcon icon={Info} size={8} />}
             />
           </View>
           <View style={tw('flex flex-row gap-2')}>

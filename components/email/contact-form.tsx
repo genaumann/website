@@ -1,5 +1,5 @@
 import BaseEmailTemplate from './base'
-import {Column, Link, Row, Section, Text} from '@react-email/components'
+import {Column, Link, Row, Section, Text} from 'react-email'
 import {ContactFormSchema} from '@/app/[locale]/contact/schema'
 import {convertNewlinesToBreaks} from '@/lib/email'
 import {getTranslate} from '@/lib/integrations/tolgee/server'

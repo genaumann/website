@@ -1,7 +1,7 @@
 'use client'
 
 import {Button} from '@/components/ui/button'
-import Icon from '@/components/ui/icon'
+import {ClipboardCheckIcon, ClipboardIcon} from 'lucide-react'
 import {useTranslate} from '@tolgee/react'
 import {useState} from 'react'
 
@@ -31,19 +31,9 @@ export default function CodeBlockCopyButton({id}: {id?: string}) {
       aria-label={t('copyCode')}
       className="cursor-pointer group hover:bg-transparent">
       {copied ? (
-        <Icon
-          name="clipboard-check"
-          className="h-4 w-4 text-primary"
-          width={16}
-          height={16}
-        />
+        <ClipboardCheckIcon width={16} height={16} />
       ) : (
-        <Icon
-          name="clipboard"
-          className="h-4 w-4 transition-transform duration-200 group-hover:scale-125"
-          width={16}
-          height={16}
-        />
+        <ClipboardIcon width={16} height={16} />
       )}
     </Button>
   )

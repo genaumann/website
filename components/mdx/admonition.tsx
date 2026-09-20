@@ -1,6 +1,11 @@
 import {cn} from '@/lib/cn'
 import type React from 'react'
-import Icon, {IconName} from '../ui/icon'
+import {
+  CircleXIcon,
+  CircleAlertIcon,
+  InfoIcon,
+  CircleCheckIcon
+} from 'lucide-react'
 
 export type AdmonitionVariant = 'danger' | 'warning' | 'info' | 'success'
 
@@ -13,28 +18,28 @@ export interface AdmonitionProps {
 
 const variantStyles: Record<
   AdmonitionVariant,
-  {icon: IconName; container: string; title: string; border: string}
+  {icon: React.ReactNode; container: string; title: string; border: string}
 > = {
   danger: {
-    icon: 'circle-xmark',
+    icon: <CircleXIcon width={16} height={16} />,
     container: 'bg-red-50 dark:bg-red-950/50',
     title: 'text-red-800 dark:text-red-300',
     border: 'border-l-red-500'
   },
   warning: {
-    icon: 'circle-exclamation',
+    icon: <CircleAlertIcon width={16} height={16} />,
     container: 'bg-yellow-50 dark:bg-yellow-950/50',
     title: 'text-yellow-800 dark:text-yellow-300',
     border: 'border-l-yellow-500'
   },
   info: {
-    icon: 'circle-info',
+    icon: <InfoIcon width={16} height={16} />,
     container: 'bg-blue-50 dark:bg-blue-950/50',
     title: 'text-blue-800 dark:text-blue-300',
     border: 'border-l-blue-500'
   },
   success: {
-    icon: 'circle-check',
+    icon: <CircleCheckIcon width={16} height={16} />,
     container: 'bg-green-50 dark:bg-green-950/50',
     title: 'text-green-800 dark:text-green-300',
     border: 'border-l-green-500'
@@ -63,7 +68,7 @@ export default function Admonition({
             'mb-2 flex items-center gap-2 font-medium',
             styles.title
           )}>
-          <Icon name={styles.icon} />
+          {styles.icon}
           {title}
         </div>
       )}

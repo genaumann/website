@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {cn} from '@/lib/cn'
-import Icon, {IconProps} from './icon'
 
 const MacOSWindow = React.forwardRef<
   HTMLDivElement,
@@ -59,11 +58,12 @@ const MacOSWindowTitle = React.forwardRef<
 ))
 MacOSWindowTitle.displayName = 'MacOSWindowTitle'
 
-const MacOSWindowTitleIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({className, ...props}, ref) => (
-    <Icon ref={ref} className={cn('mr-1', className)} {...props} />
-  )
-)
+const MacOSWindowTitleIcon = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement>
+>(({className, ...props}, ref) => (
+  <span ref={ref} className={cn('mr-1 inline-flex', className)} {...props} />
+))
 MacOSWindowTitleIcon.displayName = 'MacOSWindowTitleIcon'
 
 const MacOSWindowTitleText = React.forwardRef<
