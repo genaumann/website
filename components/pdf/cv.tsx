@@ -1,5 +1,11 @@
 import {Document, Text, View, Image, Link} from '@react-pdf/renderer'
-import {BaseLinkBadgePDF, BaseMutedBadgePDF, BasePagePDF, tw} from './base'
+import {
+  BaseLinkBadgePDF,
+  BaseMutedBadgePDF,
+  BasePagePDF,
+  MarkdownTextPDF,
+  tw
+} from './base'
 import {CONTACT} from '@/lib/contact'
 import {TType} from '@/lib/types'
 import {getTechnology, getTechnologyCategories} from '@/lib/technologies'
@@ -110,63 +116,74 @@ export default function CVPDF({t, locale}: {t: TType; locale: string}) {
           {t('projects', {ns: 'common'})}
         </Text>
         <View style={tw('flex flex-col')}>
-          {completedProjects.slice(0, maxProjects).map((project, index) => (
-            <View
-              key={project.id}
-              style={tw(
-                `flex flex-col px-12 py-4 ${index % 2 === 0 ? 'bg-light' : 'bg-white'}`
-              )}>
-              <View style={tw('flex flex-row justify-between items-center')}>
-                <View>
-                  <Text style={tw('text-lg font-oswald')}>
-                    {project.name[locale as keyof typeof LOCALES]}
-                  </Text>
-                  <View style={tw('flex flex-row gap-2')}>
-                    {project.technologies.map(technology => {
-                      const technologyData = getTechnology(technology)
-                      return (
-                        <Fragment key={technology}>
-                          {technologyData ? (
-                            <BaseLinkBadgePDF
-                              src={`${origin}/portfolio/technologies/${technologyData.slug}?utm_source=cv`}
-                              text={technologyData.name}
-                            />
-                          ) : (
-                            <BaseMutedBadgePDF text={technology} />
-                          )}
-                        </Fragment>
-                      )
-                    })}
+          {completedProjects.slice(0, maxProjects).map((project, index) => {
+            const implementation =
+              project.content[locale as keyof typeof LOCALES]?.implementation
+
+            return (
+              <View
+                key={project.id}
+                wrap={false}
+                style={tw(
+                  `flex flex-col px-12 py-4 ${index % 2 === 0 ? 'bg-light' : 'bg-white'}`
+                )}>
+                <View style={tw('flex flex-row justify-between items-center')}>
+                  <View>
+                    <Text style={tw('text-lg font-oswald')}>
+                      {project.name[locale as keyof typeof LOCALES]}
+                    </Text>
+                    <View style={tw('flex flex-row gap-2')}>
+                      {project.technologies.map(technology => {
+                        const technologyData = getTechnology(technology)
+                        return (
+                          <Fragment key={technology}>
+                            {technologyData ? (
+                              <BaseLinkBadgePDF
+                                src={`${origin}/portfolio/technologies/${technologyData.slug}?utm_source=cv`}
+                                text={technologyData.name}
+                              />
+                            ) : (
+                              <BaseMutedBadgePDF text={technology} />
+                            )}
+                          </Fragment>
+                        )
+                      })}
+                    </View>
+                  </View>
+                  <View style={tw('flex flex-col gap-1')}>
+                    <BaseMutedBadgePDF
+                      text={
+                        project.start.toLocaleDateString(locale, {
+                          year: 'numeric',
+                          month: 'short'
+                        }) +
+                        ' - ' +
+                        (project.end
+                          ? project.end?.toLocaleDateString(locale, {
+                              year: 'numeric',
+                              month: 'short'
+                            })
+                          : t('present', {ns: 'common'}))
+                      }
+                      icon={<PdfIcon icon={Calendar} size={8} />}
+                      outerStyle="w-[121px] mt-2"
+                    />
+                    <BaseLinkBadgePDF
+                      src={`${origin}/portfolio/projects/${project.id}?utm_source=cv`}
+                      outerStyle={`${locale === 'de' ? 'w-[108px]' : 'w-[100px]'}`}
+                      text={t('projectRef', {ns: 'cv'})}
+                      icon={<PdfIcon icon={ExternalLink} size={8} />}
+                    />
                   </View>
                 </View>
-                <View style={tw('flex flex-col gap-1')}>
-                  <BaseMutedBadgePDF
-                    text={
-                      project.start.toLocaleDateString(locale, {
-                        year: 'numeric',
-                        month: 'short'
-                      }) +
-                      ' - ' +
-                      (project.end
-                        ? project.end?.toLocaleDateString(locale, {
-                            year: 'numeric',
-                            month: 'short'
-                          })
-                        : t('present', {ns: 'common'}))
-                    }
-                    icon={<PdfIcon icon={Calendar} size={8} />}
-                    outerStyle="w-[121px] mt-2"
-                  />
-                  <BaseLinkBadgePDF
-                    src={`${origin}/portfolio/projects/${project.id}?utm_source=cv`}
-                    outerStyle={`${locale === 'de' ? 'w-[108px]' : 'w-[100px]'}`}
-                    text={t('projectRef', {ns: 'cv'})}
-                    icon={<PdfIcon icon={ExternalLink} size={8} />}
-                  />
-                </View>
+                {implementation ? (
+                  <View style={tw('mt-3 text-sm')}>
+                    <MarkdownTextPDF>{implementation}</MarkdownTextPDF>
+                  </View>
+                ) : null}
               </View>
-            </View>
-          ))}
+            )
+          })}
         </View>
 
         {/* Certifications */}

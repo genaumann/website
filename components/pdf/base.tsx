@@ -302,7 +302,10 @@ export function MarkdownTextPDF({children}: {children: string}) {
       {blocks.map((block, index) => {
         if (block.type === 'list-item') {
           return (
-            <View key={index} style={tw('flex flex-row gap-2 pl-4')}>
+            <View
+              key={index}
+              wrap={false}
+              style={tw('flex flex-row gap-2 pl-4')}>
               <Text style={tw('font-inter')}>•</Text>
               <View style={tw('flex-1')}>
                 {renderMarkdownText(block.content)}
