@@ -1,18 +1,11 @@
 import {ArticleSidebar} from '@/components/kb/sidebar'
+import {AppBreadcrumb} from '@/components/layout/app-breadcrumb'
 import {getArticlesByLocale} from '@/lib/mdx'
-import {Fragment, ReactNode} from 'react'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator
-} from '@/components/ui/breadcrumb'
+import {ReactNode} from 'react'
 import MobileSidebar from '@/components/kb/sidebar-mobile'
 import Search from '@/components/kb/search'
 import TocWrapper from '@/components/kb/toc/wrapper'
 import {findArticleBySlug} from '@/lib/mdx-edge'
-import Link from 'next/link'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 import {LocaleParam} from '@/lib/types'
 
@@ -41,7 +34,7 @@ export default async function KBLayout({
     <div className="container min-h-content md:flex md:flex-row md:gap-5 h-full relative">
       {/* Left sidebar */}
       <div className="hidden md:block border-r border-muted border-dashed shrink-0">
-        <div className="sticky top-28 overflow-auto">
+        <div className="sticky top-24 overflow-auto">
           <span className="text-lg font-semibold mb-4 font-oswald">
             {t('kb', {ns: 'common'})}
           </span>
@@ -51,42 +44,30 @@ export default async function KBLayout({
 
       {/* Main content */}
       <div className="mb-6 relative flex-1 min-w-0">
-        <div className="sticky top-(--header-height) bg-background/75 backdrop-blur border-b border-muted border-dashed py-2 md:py-1 -mx-8 md:-mx-5 h-fit md:h-[62px] z-10">
-          <div className="container md:px-5 flex justify-between">
+        <div className="sticky top-[80px] bg-background/75 backdrop-blur border-b border-muted border-dashed -mx-8 md:-mx-5 h-fit md:h-[62px] z-10 flex">
+          <div className="container md:px-5 flex items-center">
             <MobileSidebar articles={articles} />
             <Search locale={locale} />
           </div>
         </div>
-        <Breadcrumb className="mb-6 pt-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink className="text-muted-foreground" asChild>
-                <Link href="/kb">{t('kb', {ns: 'common'})}</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            {breadcrumbs.map((item, index) => {
+        <AppBreadcrumb
+          className="mb-6 pt-5"
+          items={[
+            {href: '/kb', label: t('kb', {ns: 'common'})},
+            ...breadcrumbs.flatMap((item, index) => {
+              if (!item) return []
               const isLast = index === breadcrumbs.length - 1
-              return (
-                <Fragment key={index}>
-                  <BreadcrumbItem>
-                    {isLast ? (
-                      <>{item?.title}</>
-                    ) : (
-                      <BreadcrumbLink className="text-muted-foreground" asChild>
-                        <Link
-                          href={`/kb/${item?.slug.replace(/\/index$/, '')}`}>
-                          {item?.title}
-                        </Link>
-                      </BreadcrumbLink>
-                    )}
-                  </BreadcrumbItem>
-                  {isLast || <BreadcrumbSeparator />}
-                </Fragment>
-              )
-            })}
-          </BreadcrumbList>
-        </Breadcrumb>
+              return [
+                {
+                  label: item.title,
+                  href: isLast
+                    ? undefined
+                    : `/kb/${item.slug.replace(/\/index$/, '')}`
+                }
+              ]
+            })
+          ]}
+        />
         <article id="kb" className="prose max-w-full">
           {children}
         </article>
@@ -94,7 +75,7 @@ export default async function KBLayout({
 
       {/* TOC */}
       <div className="w-52 hidden lg:block border-l border-dashed border-muted ps-4 shrink-0 font-oswald">
-        <div className="sticky top-28 overflow-auto">
+        <div className="sticky top-24 overflow-auto">
           <span className="text-lg font-semibold mb-4">{t('toc')}</span>
           <TocWrapper />
         </div>

@@ -3,14 +3,6 @@ import TechnologyArticlesPage from './articles'
 import TechnologyCertsPage from './certs'
 import TechnologyProjectsPage from './projects'
 import TechnologyIntroPage from './intro'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator
-} from '@/components/ui/breadcrumb'
-import Link from 'next/link'
 import {Metadata} from 'next'
 import getMetadata from '@/lib/metadata'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
@@ -67,48 +59,26 @@ export async function generateMetadata({
 
 export default async function Page({params}: {params: Promise<ToolParam>}) {
   const {technology, locale} = await params
-  const t = await getTranslate('portfolio')
   const technologyData = getTechnology(technology)
 
   if (!technologyData) notFound()
 
   return (
-    <>
-      <Breadcrumb className="container mt-5">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/portfolio">{t('portfolio', {ns: 'common'})}</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/portfolio/technologies">
-                {t('techstack', {ns: 'common'})}
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>{technologyData.name}</BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-      <div className="[&>section:nth-child(even)]:bg-muted/20">
-        <TechnologyIntroPage technology={technologyData} locale={locale} />
-        <TechnologyCertsPage
-          technology={technology}
-          title={technologyData.name}
-        />
-        <TechnologyProjectsPage
-          technology={technology}
-          title={technologyData.name}
-        />
-        <TechnologyArticlesPage
-          technology={technology}
-          locale={locale}
-          title={technologyData.name}
-        />
-      </div>
-    </>
+    <div className="[&>section:nth-child(even)]:bg-muted/20">
+      <TechnologyIntroPage technology={technologyData} locale={locale} />
+      <TechnologyCertsPage
+        technology={technology}
+        title={technologyData.name}
+      />
+      <TechnologyProjectsPage
+        technology={technology}
+        title={technologyData.name}
+      />
+      <TechnologyArticlesPage
+        technology={technology}
+        locale={locale}
+        title={technologyData.name}
+      />
+    </div>
   )
 }

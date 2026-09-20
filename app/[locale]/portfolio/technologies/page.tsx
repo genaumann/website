@@ -1,12 +1,4 @@
 import TechnologyGridPage from './grid'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator
-} from '@/components/ui/breadcrumb'
-import Link from 'next/link'
 import {Metadata} from 'next'
 import getMetadata from '@/lib/metadata'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
@@ -38,17 +30,6 @@ export default async function Page() {
   const t = await getTranslate('portfolio')
   return (
     <div className="container">
-      <Breadcrumb className="mt-5">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/portfolio">{t('portfolio', {ns: 'common'})}</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>{t('techstack', {ns: 'common'})}</BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
       <div className="flex flex-col gap-10">
         <h1 className="text-5xl text-center font-bold">
           {t('techstack', {ns: 'common'})}

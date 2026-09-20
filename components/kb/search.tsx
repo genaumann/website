@@ -44,7 +44,7 @@ export default function SearchCommand({locale}: LocaleParam) {
       <Button
         onClick={() => setIsOpen(true)}
         variant="outline"
-        className="hover:bg-secondary/40 w-28 md:w-36 bg-secondary/40 items-center justify-between md:mt-2 cursor-pointer font-oswald">
+        className="hover:bg-secondary/40 w-28 md:w-36 bg-secondary/40 items-center justify-between cursor-pointer font-oswald">
         <>
           <SearchIcon width={16} height={16} className="md:hidden" />
           <span>{t('search')}...</span>
