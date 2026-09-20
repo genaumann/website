@@ -159,7 +159,7 @@ export default function CVPDF({t, locale}: {t: TType; locale: string}) {
                   />
                   <BaseLinkBadgePDF
                     src={`${origin}/portfolio/projects/${project.id}?utm_source=cv`}
-                    outerStyle={`${locale === 'de' ? 'w-[86px]' : 'w-[95px]'}`}
+                    outerStyle={`${locale === 'de' ? 'w-[108px]' : 'w-[100px]'}`}
                     text={t('projectRef', {ns: 'cv'})}
                     icon={<PdfIcon icon={ExternalLink} size={8} />}
                   />
