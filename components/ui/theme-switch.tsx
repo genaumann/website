@@ -1,28 +1,29 @@
 'use client'
 
-import React from 'react'
-
 import {useTheme} from 'next-themes'
-import {Button} from './button'
 import {SunIcon, MoonIcon, MonitorIcon} from 'lucide-react'
-import {cn} from '@/lib/cn'
-import {type ReactNode, useEffect, useState, startTransition} from 'react'
+import {useEffect, useState, startTransition} from 'react'
 import {useTranslate} from '@tolgee/react'
+import {Button} from './button'
 
-interface ThemeConfig {
-  name: string
-  icon: React.ReactNode
-}
-
-interface ThemeButtonProps {
-  name: string
-  icon: React.ReactNode
-  active?: boolean
-  onClick?: () => void
-}
+const themeConfig = [
+  {
+    name: 'dark',
+    icon: MoonIcon
+  },
+  {
+    name: 'light',
+    icon: SunIcon
+  },
+  {
+    name: 'system',
+    icon: MonitorIcon
+  }
+] as const
 
 export default function ThemeSwitch() {
   const {theme, setTheme} = useTheme()
+  const {t} = useTranslate()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -31,64 +32,28 @@ export default function ThemeSwitch() {
     })
   }, [])
 
-  const themeConfig: ThemeConfig[] = [
-    {
-      name: 'dark',
-      icon: <MoonIcon width={24} height={24} />
-    },
-    {
-      name: 'light',
-      icon: <SunIcon width={24} height={24} />
-    },
-    {
-      name: 'system',
-      icon: <MonitorIcon width={24} height={24} />
-    }
-  ]
+  const currentIndex = mounted
+    ? themeConfig.findIndex(({name}) => name === theme)
+    : -1
+  const CurrentIcon =
+    themeConfig[currentIndex >= 0 ? currentIndex : 2].icon
 
-  return (
-    <ThemeWrapper>
-      {themeConfig.map(({name, icon}, index) => (
-        <React.Fragment key={name}>
-          <ThemeButton
-            name={name}
-            icon={icon}
-            active={mounted && theme === name}
-            onClick={mounted ? () => setTheme(name) : undefined}
-          />
-          {index < themeConfig.length - 1 && (
-            <div className="h-full w-px bg-input" aria-hidden="true" />
-          )}
-        </React.Fragment>
-      ))}
-    </ThemeWrapper>
-  )
-}
-
-function ThemeButton({name, icon, active, onClick}: ThemeButtonProps) {
-  const {t} = useTranslate()
+  const cycleTheme = () => {
+    if (!mounted) return
+    const nextIndex =
+      currentIndex < 0 ? 0 : (currentIndex + 1) % themeConfig.length
+    setTheme(themeConfig[nextIndex].name)
+  }
 
   return (
     <Button
-      variant="ghost"
+      type="button"
+      variant="outline"
       size="icon"
-      onClick={onClick}
-      className={cn(
-        'cursor-pointer hover:bg-transparent group rounded-none',
-        active && 'bg-primary/20',
-        active && name === 'dark' && 'rounded-l-md',
-        active && name === 'system' && 'rounded-r-md'
-      )}
+      className="bg-background"
+      onClick={cycleTheme}
       aria-label={t('themeSwitch')}>
-      {icon}
+      <CurrentIcon width={16} height={16} />
     </Button>
-  )
-}
-
-function ThemeWrapper({children}: {children: ReactNode}) {
-  return (
-    <div className="inline-flex whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input shadow-sm h-9 bg-secondary/40 items-center justify-between">
-      {children}
-    </div>
   )
 }
