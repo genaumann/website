@@ -14,9 +14,7 @@ import {PdfIcon} from './icon'
 export default function CVPDF({t, locale}: {t: TType; locale: string}) {
   const categories = getTechnologyCategories()
   const projects = getProjects()
-  const completedProjects = projects.filter(
-    project => project.end && project.cv
-  )
+  const completedProjects = projects.filter(project => project.cv)
   const maxProjects = 5
 
   return (
@@ -149,10 +147,12 @@ export default function CVPDF({t, locale}: {t: TType; locale: string}) {
                         month: 'short'
                       }) +
                       ' - ' +
-                      project.end?.toLocaleDateString(locale, {
-                        year: 'numeric',
-                        month: 'short'
-                      })
+                      (project.end
+                        ? project.end?.toLocaleDateString(locale, {
+                            year: 'numeric',
+                            month: 'short'
+                          })
+                        : t('present', {ns: 'common'}))
                     }
                     icon={<PdfIcon icon={Calendar} size={8} />}
                     outerStyle="w-[121px] mt-2"
