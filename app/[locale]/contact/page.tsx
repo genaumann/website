@@ -32,16 +32,10 @@ export async function generateMetadata({
 export default async function Page() {
   const t = await getTranslate()
   return (
-    <div className="min-h-content md:h-content flex flex-col md:flex-row items-center md:justify-between gap-10 md:gap-0">
+    <div className="container min-h-content md:h-content flex flex-col md:flex-row items-center md:justify-between gap-10 md:gap-0">
       <div className="relative md:w-1/2 h-full w-full">
-        <div className="absolute inset-0 z-0">
-          <div className="grid-pattern opacity-40"></div>
-        </div>
         <div className="flex items-center  md:mt-0 text-center md:text-left h-full">
-          <div className="w-full h-full md:h-fit flex flex-col gap-4 bg-background/30 md:shadow-y-md dark:shadow-secondary/30 py-8 px-6 text-center backdrop-blur-3xl relative">
-            <div className="absolute inset-0 z-0">
-              <div className="grid-pattern opacity-20"></div>
-            </div>
+          <div className="flex flex-col gap-4">
             <h1 className="text-5xl font-semibold mb-4 z-10">{t('contact')}</h1>
             <div className="space-y-2 w-fit mx-auto z-10">
               <div className="flex gap-2 items-center">
@@ -60,7 +54,7 @@ export default async function Page() {
           </div>
         </div>
       </div>
-      <div className="w-full md:w-1/2 mb-5 md:mb-0 container">
+      <div className="w-full md:w-1/2 mb-5 md:mb-0">
         <ContactForm />
       </div>
     </div>
