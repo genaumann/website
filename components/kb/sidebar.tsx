@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
-import {useState, useEffect, useMemo} from 'react'
+import {useState, useMemo} from 'react'
 import {ScrollArea} from '@/components/ui/scroll-area'
 import {Article} from '@/lib/types'
 import {ChevronDownIcon, ChevronRightIcon} from 'lucide-react'
@@ -88,10 +88,12 @@ export function ArticleSidebar({articles}: {articles: Article[]}) {
 
   const [expandedSlugs, setExpandedSlugs] =
     useState<string[]>(initialExpandedSlugs)
+  const [prevPathname, setPrevPathname] = useState(pathname)
 
-  useEffect(() => {
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname)
     setExpandedSlugs(initialExpandedSlugs)
-  }, [initialExpandedSlugs])
+  }
 
   const toggleExpandedSlugs = (slug: string) => {
     const clearedPath = slug.replace(/\/index$/, '')
