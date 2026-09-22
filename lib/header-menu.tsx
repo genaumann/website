@@ -1,9 +1,9 @@
 'use server'
 
 import LangSelect from '@/components/ui/lang-select'
-import ThemeSwitch from '@/components/ui/theme-switch'
 import {getTranslate} from './integrations/tolgee/server'
 import {LocaleParam} from './types'
+import ThemeSwitch from '@/components/ui/theme-switch'
 
 export interface HeaderItem {
   name: string

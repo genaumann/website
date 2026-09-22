@@ -18,7 +18,9 @@ export default function TableOfContents() {
   useEffect(() => {
     const collectHeadings = () => {
       const elements = Array.from(
-        document.querySelectorAll('h2, h3, h4, h5, h6')
+        document.querySelectorAll(
+          'article h2, article h3, article h4, article h5, article h6'
+        )
       )
 
       const items = elements.map(element => ({
