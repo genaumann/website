@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.2.0](https://github.com/genaumann/website/compare/v2.1.3...v2.2.0) (2026-09-22)
+
+### ✨ Feature ✨
+
+* add gradient text to hero ([7f4c794](https://github.com/genaumann/website/commit/7f4c79489869940f043424daeb3551b8ebb5f12a))
+* add particles to hero ([f520af6](https://github.com/genaumann/website/commit/f520af619147485faeb25fd2da686e40139ae3a0))
+* add project implementation to cv ([24dbddf](https://github.com/genaumann/website/commit/24dbddf4c7a5adc0da02223f9f3a3b0022a0e248))
+* add theme switcher to header ([98c91dc](https://github.com/genaumann/website/commit/98c91dc4b92fae63a0ece22d79b5dd6a407edbbf))
+* add useColorScheme hook ([ab02946](https://github.com/genaumann/website/commit/ab029467261acf8ce1609ed7e11c3a06ee2b339e))
+* redesign header ([ad322f5](https://github.com/genaumann/website/commit/ad322f53d9fe83182cf8b04f75ff79a6411b5bce))
+* restructure  footer ([4e639ab](https://github.com/genaumann/website/commit/4e639ab48c3331fb4027e8a8847e1639fcb6a9d4))
+
+### 🐛 Bugfix 🐛
+
+* use article h tags in toc ([6c84518](https://github.com/genaumann/website/commit/6c845181de0a64f997f00c862ef55cc7485cf7fb))
+
+### 🏗️ Build 🏗️
+
+* fix turbopack warning ([7752127](https://github.com/genaumann/website/commit/7752127c3393de3b404f2d74365baa38bb843f7b))
+
 ## [2.1.3](https://github.com/genaumann/website/compare/v2.1.2...v2.1.3) (2026-08-14)
 
 ### 🏗️ Build 🏗️
