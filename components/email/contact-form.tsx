@@ -4,6 +4,14 @@ import {ContactFormSchema} from '@/app/[locale]/contact/schema'
 import {convertNewlinesToBreaks} from '@/lib/email'
 import {getTranslate} from '@/lib/integrations/tolgee/server'
 
+const TEL_HREF = /^\+?\d+$/
+
+const toTelHref = (phone: string): string | null => {
+  const compact = phone.replace(/[^\d+]/g, '')
+  if (!TEL_HREF.test(compact)) return null
+  return `tel:${compact}`
+}
+
 export default async function ContactFormEmailTemplate({
   name,
   phone,
@@ -11,6 +19,7 @@ export default async function ContactFormEmailTemplate({
   email
 }: ContactFormSchema) {
   const t = await getTranslate('contact', {noWrap: true})
+  const telHref = phone ? toTelHref(phone) : null
   return (
     <BaseEmailTemplate
       title={t('contactFormSubmitted')}
@@ -39,9 +48,13 @@ export default async function ContactFormEmailTemplate({
               {t('phone', {ns: 'common'})}
             </Column>
             <Column>
-              <Link href={`tel:${phone}`} className="text-primary underline">
-                {phone}
-              </Link>
+              {telHref ? (
+                <Link href={telHref} className="text-primary underline">
+                  {phone}
+                </Link>
+              ) : (
+                phone
+              )}
             </Column>
           </Row>
         )}
