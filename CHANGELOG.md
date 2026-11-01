@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.1](https://github.com/genaumann/website/compare/v2.2.0...v2.2.1) (2026-11-01)
+
+### 🐛 Bugfix 🐛
+
+* add bot protection for contact form ([f3991f6](https://github.com/genaumann/website/commit/f3991f693400b3798143776f332e436abbf5922c))
+
 ## [2.2.0](https://github.com/genaumann/website/compare/v2.1.3...v2.2.0) (2026-09-22)
 
 ### ✨ Feature ✨
